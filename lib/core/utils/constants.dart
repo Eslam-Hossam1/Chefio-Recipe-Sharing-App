@@ -1,5 +1,6 @@
 abstract class Constants {
   static const String kIsOnBoardingCompletedKey = "isOnBoardingOpenedBefore";
+  static const String kTokenKey = "token";
   static const double kMobileHorizontalPadding = 24;
   static const double kTabletHorizontalpadding = 36;
   static const double kDesignWidth = 375;
