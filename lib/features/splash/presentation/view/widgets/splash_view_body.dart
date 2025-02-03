@@ -22,8 +22,14 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void initState() {
     super.initState();
     startFadeInAnimation();
-    String toGoView =AppRouter.kOnBoardingView;
-    navigationAfterDuration(toGoView);
+    determineToGoView().then((toGoView) {
+      navigationAfterDuration(toGoView);
+    });
+  }
+
+  Future<String> determineToGoView()async {
+    String toGoView = await getIt<SplashViewModel>().determineToGoView();
+    return toGoView;
   }
 
   void startFadeInAnimation() {
@@ -36,11 +42,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   navigationAfterDuration(String toGoView) {
-    return Future.delayed(Constants.kSplashNavigationDelayDuration,() {
-        if (mounted) {
-          context.push(toGoView);
-        }
-      });
+    return Future.delayed(Constants.kSplashNavigationDelayDuration, () {
+      if (mounted) {
+        context.push(toGoView);
+      }
+    });
   }
 
   @override
