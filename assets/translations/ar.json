@@ -1,0 +1,79 @@
+{
+    "onboarding":{
+        "title":"ابدأ الطهي",
+        "body":"أنضم إلى مجتمعنا لنطبخ طعاماً أفضل",
+        "button_text":"ابدأ الآن"
+    },
+
+    "auth":{
+        
+        "shared":{
+            "enter_account":"الرجاء إدخال حسابك هنا",
+            "email_text_field_hint":"البريد الالكتروني",
+            "password_text_field_hint":"كلمة السر",
+            "forget_password_question":"هل نسيت كلمة السر؟",
+            "log_in":"تسجيل الدخول",
+            "sign_up":"قم بالتسجيل",
+            "or_continue_with":"أو الاستمرار مع",
+            "confirm":"التاكيد",
+            "this_field_required":"هذا الحقل مطلوب",
+            "invalid_email": "عنوان البريد الإلكتروني غير صالح. يرجى إدخال بريد إلكتروني صالح.",
+            "unknown_error": "حدث خطأ غير معروف. حاول مرة أخرى لاحقًا.",
+            "user_not_found": "لم يتم العثور على مستخدم بهذا البريد الإلكتروني.",
+            "invalid_recipient_email": "عنوان البريد الإلكتروني غير صالح.",
+            "too_many_requests": "عدد الطلبات كبير جدًا، يرجى المحاولة لاحقًا.",
+            "network_request_failed": "حدث خطأ في الشبكة، يرجى التحقق من اتصالك.",
+            "we_sent_email_verification":"لقد أرسلنا إليك رسالة التحقق بالبريد الإلكتروني! يرجى التحقق من صندوق الوارد الخاص بك والتحقق من حسابك للمتابعة",
+            "your_email_need_to_verified":"لم يتم تفعيل بريدك الإلكتروني بعد. لقد أرسلنا لك رسالة تأكيد جديدة. يرجى مراجعة بريدك الإلكتروني وتفعيل الحساب للمتابعة"
+
+
+
+
+        },
+        "log_in":{
+            "welcome_back":"مرحبًا بعودتك!",
+            "do_not_have_account":"هل ليس لديك حساب؟",
+            "wrong_password": "كلمة المرور غير صحيحة. حاول مرة اخرى.",
+            "user_disabled": "تم تعطيل حساب المستخدم هذا. يرجى الاتصال بالدعم."
+        },
+        "sign_up":{
+            "welcome":"مرحباً!",
+            "already_have_an_account":"لديك حساب بالفعل!",
+            "your_password_must_contain":"يجب أن تحتوي كلمة المرور الخاصة بك على:",
+            "at_least_characters":"6 أحرف على الأقل",
+            "must_contains_a_number":"يحتوي على رقم",
+            "email_already_in_use": "البريد الإلكتروني مستخدم بالفعل من قبل حساب آخر.",
+            "operation_not_allowed": "لم يتم تمكين تسجيل الدخول باستخدام البريد الإلكتروني / كلمة المرور. يرجى الاتصال بالدعم.",
+            "weak_password": "كلمة المرور ضعيفة جدًا. يرجى اختيار كلمة مرور أقوى."
+        },
+        "forget_password":{
+            "password_recovery":"استعادة كلمة المرور",
+            "enter_email_recover_password":"أدخل بريدك الإلكتروني لاستعادة كلمة المرور الخاصة بك",
+            "password_reset_link_sent":"تم إرسال رابط لإعادة تعيين كلمة المرور إلى بريدك الإلكتروني. يرجى مراجعة بريدك الإلكتروني لإعادة تعيين كلمة المرور."
+        }
+
+        
+    },
+
+    "profile_setup":{
+        
+        "complete_profile": "أكمل ملفك الشخصي",
+        "upload_profile_picture": "حمّل صورة الملف الشخصي",
+        "choose_username": "اختر اسم المستخدم",
+        "username_placeholder": "اسم المستخدم",
+        "username_empty_error": "لا يمكن أن يكون اسم المستخدم فارغًا",
+        "complete_profile_button": "إكمال الملف الشخصي",
+        "profile_picture_optional": "يمكنك إضافة صورة الملف الشخصي لاحقًا.",
+        "saving_profile_error": "حدث خطأ أثناء حفظ ملفك الشخصي. الرجاء المحاولة مرة أخرى.",
+        "saving_profile_success": "تم حفظ الملف الشخصي بنجاح."
+        
+            
+    },
+    "global":{
+        "warning":"تحذير",
+            "error":"خطأ",
+            "info":"معلومة",
+            "success":"تم بنجاح"
+    }
+    
+}

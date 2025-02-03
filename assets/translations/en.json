@@ -1,0 +1,80 @@
+{
+    "onboarding":{
+        "title":"Start Cooking",
+        "body":"Let’s join our community\nto cook better food!",
+        "button_text":"Get Started"
+    },
+
+    "auth":{
+        
+        "shared":{
+            "enter_account":"Please enter your account here",
+            "email_text_field_hint":"Email",
+            "password_text_field_hint":"Password",
+            "forget_password_question":"Forgot password?",
+            "log_in":"Login",
+            "sign_up":"Sign Up",
+            "or_continue_with":"Or continue with",
+            "confirm":"confirm",
+            "this_field_required":"This field required",
+            "invalid_email": "The email address is not valid. Please enter a valid email.",
+            "unknown_error": "An unknown error occurred. Please try again later.",
+            "user_not_found": "No user found with this email address.",
+            "invalid_recipient_email": "The email address is not valid.",
+            "too_many_requests": "Too many requests, please try again later.",
+            "network_request_failed": "Network error, please check your connection."
+
+
+        },
+        "log_in":{
+            "welcome_back":"Welcome Back!",
+            "do_not_have_account":"Don’t have any account?",
+            "wrong_password": "The password is incorrect. Please try again.",
+            "user_disabled": "This user account has been disabled. Please contact support.",
+            "your_email_need_to_verified":"Your email is not verified yet. We have sent you a new verification email. Please check your inbox and verify your email to continue."
+
+        },
+        "sign_up":{
+            "welcome":"Welcome!",
+            "already_have_an_account":"Already have an account!",
+            "your_password_must_contain":"Your Password must contain:",
+            "at_least_characters":"Atleast 6 characters",
+            "must_contains_a_number":"Contains a number",
+            "email_already_in_use": "The email is already in use by another account.",
+            "operation_not_allowed": "Email/password sign-in is not enabled. Please contact support.",
+            "weak_password": "The password is too weak. Please choose a stronger password.",
+            "we_sent_email_verification":"We've sent a verification email to you! Please check your inbox and verify your account to continue."
+
+        },
+        "forget_password":{
+            "password_recovery":"Password recovery",
+            "enter_email_recover_password":"Enter your email to recover your password",
+            "password_reset_link_sent":"A password reset link has been sent to your email. Please check your inbox to reset your password."
+        }
+
+        
+    },
+
+    "profile_setup":{
+        
+        "complete_profile": "Complete Your Profile",
+        "upload_profile_picture": "Upload Profile Picture",
+        "choose_username": "Choose a Username",
+        "username_placeholder": "Your username",
+        "username_empty_error": "Username cannot be empty",
+        "complete_profile_button": "Complete Profile",
+        "profile_picture_optional": "You can add a profile picture later.",
+        "saving_profile_error": "An error occurred while saving your profile. Please try again.",
+        "saving_profile_success": "Profile saved successfully."
+    
+          
+    },
+    
+    "global":{
+        "warning":"Warning",
+            "error":"Error",
+            "info":"Info",
+            "success":"Success"
+    }
+
+}
