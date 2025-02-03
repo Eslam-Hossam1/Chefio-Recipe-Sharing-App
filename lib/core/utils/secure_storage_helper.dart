@@ -5,39 +5,23 @@ class SecureStorageHelper {
 
   SecureStorageHelper(this.secureStorage);
 
-  // Save data with type-specific handling
+  // Save data
   Future<void> setData({required String key, required String value}) async {
-    try {
-      await secureStorage.write(key: key, value: value);
-    } catch (e) {
-      // Handle errors if needed
-    }
+    await secureStorage.write(key: key, value: value);
   }
 
-  // Get data
-  Future<String?> getString(String key) async {
-    try {
-      return await secureStorage.read(key: key);
-    } catch (e) {
-      return null;
-    }
+  // Read data
+  Future<String?> getString({required String key}) async {
+    return await secureStorage.read(key: key);
   }
 
   // Delete a specific key
-  Future<void> delete(String key) async {
-    try {
-      await secureStorage.delete(key: key);
-    } catch (e) {
-      // Handle errors if needed
-    }
+  Future<void> delete({required String key}) async {
+    await secureStorage.delete(key: key);
   }
 
   // Clear all stored data
   Future<void> clear() async {
-    try {
-      await secureStorage.deleteAll();
-    } catch (e) {
-      // Handle errors if needed
-    }
+    await secureStorage.deleteAll();
   }
 }
