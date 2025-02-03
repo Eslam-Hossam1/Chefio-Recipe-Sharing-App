@@ -6,6 +6,8 @@ import 'package:go_router/go_router.dart';
 abstract class AppRouter {
    static const kHomeView = "/homeview";
   static const kOnBoardingView = "/onboardingview";
+    static const kSignUpView = "/signupview";
+
   
   static final router = GoRouter(
     routes: [
