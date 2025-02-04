@@ -11,7 +11,7 @@ import 'package:go_router/go_router.dart';
 
 class SplashViewModel {
   Future<String> determineToGoView() async{
-    if(isOnBoardingCompleted()) {
+    if(!isOnBoardingCompleted()) {
      return AppRouter.kOnBoardingView;
     } else {
     return await  checkUserLoggedIn() == true ? AppRouter.kHomeView : AppRouter.kSignUpView;
