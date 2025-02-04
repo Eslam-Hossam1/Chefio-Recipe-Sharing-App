@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/utils/colors.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +20,7 @@ class CustomTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? 56.h.clamp(56, double.infinity),
+      height: height ?? getCustomButtonResponsiveHeight(context),
       width: width,
       child: TextButton(
           onPressed: onPressed,
@@ -28,5 +29,12 @@ class CustomTextButton extends StatelessWidget {
                   backgroundColor ?? AppColors.getPrimaryColor(context)),
           child: child),
     );
+  }
+
+  double getCustomButtonResponsiveHeight(BuildContext context) {
+    double bigTabletWidth = 1000;
+    double width = MediaQuery.sizeOf(context).width;
+    double upperlimit = width >= bigTabletWidth ? 100 : 70;
+    return (56 * (width / Constants.kDesignWidth)).clamp(56, upperlimit);
   }
 }

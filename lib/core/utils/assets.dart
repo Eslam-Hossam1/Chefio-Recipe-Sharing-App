@@ -4,8 +4,7 @@ class Assets {
   
   /// Assets for imagesAddCoverPhotoIcon
   /// assets/images/add_cover_photo_icon.svg
-  static const String imagesAddCoverPhotoIcon =
-      "assets/images/add_cover_photo_icon.svg";
+  static const String imagesAddCoverPhotoIcon = "assets/images/add_cover_photo_icon.svg";
 
   /// Assets for imagesArrowUpward
   /// assets/images/arrow_upward.svg
@@ -13,12 +12,35 @@ class Assets {
 
   /// Assets for imagesBigUserAvatarImageTest
   /// assets/images/big_user_avatar_image_test.png
-  static const String imagesBigUserAvatarImageTest =
-      "assets/images/big_user_avatar_image_test.png";
+  static const String imagesBigUserAvatarImageTest = "assets/images/big_user_avatar_image_test.png";
+
+  /// Assets for imagesBottomDish
+  /// assets/images/bottom_dish.png
+  static const String imagesBottomDish = "assets/images/bottom_dish.png";
+
+  /// Assets for imagesBottomLeftDish
+  /// assets/images/bottom_left_dish.png
+  static const String imagesBottomLeftDish = "assets/images/bottom_left_dish.png";
+
+  /// Assets for imagesBottomRightDish
+  /// assets/images/bottom_right_dish.png
+  static const String imagesBottomRightDish = "assets/images/bottom_right_dish.png";
 
   /// Assets for imagesCamera
   /// assets/images/camera.svg
   static const String imagesCamera = "assets/images/camera.svg";
+
+  /// Assets for imagesCenterDish
+  /// assets/images/center_dish.png
+  static const String imagesCenterDish = "assets/images/center_dish.png";
+
+  /// Assets for imagesCenterLeftDish
+  /// assets/images/center_left_dish.png
+  static const String imagesCenterLeftDish = "assets/images/center_left_dish.png";
+
+  /// Assets for imagesCenterRightDish
+  /// assets/images/center_right_dish.png
+  static const String imagesCenterRightDish = "assets/images/center_right_dish.png";
 
   /// Assets for imagesCloseIcon
   /// assets/images/close_icon.svg
@@ -46,8 +68,7 @@ class Assets {
 
   /// Assets for imagesFoodDetailsPictureTest
   /// assets/images/food_details_picture_test.png
-  static const String imagesFoodDetailsPictureTest =
-      "assets/images/food_details_picture_test.png";
+  static const String imagesFoodDetailsPictureTest = "assets/images/food_details_picture_test.png";
 
   /// Assets for imagesGoogleIcon
   /// assets/images/google_icon.svg
@@ -71,8 +92,7 @@ class Assets {
 
   /// Assets for imagesIosBackOutline
   /// assets/images/ios_back_outline.svg
-  static const String imagesIosBackOutline =
-      "assets/images/ios_back_outline.svg";
+  static const String imagesIosBackOutline = "assets/images/ios_back_outline.svg";
 
   /// Assets for imagesLikesHeart
   /// assets/images/likes_heart.svg
@@ -108,8 +128,7 @@ class Assets {
 
   /// Assets for imagesRectangleFoodIngredientPictureTest
   /// assets/images/rectangle_food_ingredient_picture_test.png
-  static const String imagesRectangleFoodIngredientPictureTest =
-      "assets/images/rectangle_food_ingredient_picture_test.png";
+  static const String imagesRectangleFoodIngredientPictureTest = "assets/images/rectangle_food_ingredient_picture_test.png";
 
   /// Assets for imagesSaladTest
   /// assets/images/salad_test.png
@@ -131,6 +150,14 @@ class Assets {
   /// assets/images/time_circle.svg
   static const String imagesTimeCircle = "assets/images/time_circle.svg";
 
+  /// Assets for imagesTopLeftDish
+  /// assets/images/top_left_dish.png
+  static const String imagesTopLeftDish = "assets/images/top_left_dish.png";
+
+  /// Assets for imagesTopRightDish
+  /// assets/images/top_right_dish.png
+  static const String imagesTopRightDish = "assets/images/top_right_dish.png";
+
   /// Assets for imagesUserFourTest
   /// assets/images/user_four_test.png
   static const String imagesUserFourTest = "assets/images/user_four_test.png";
@@ -147,3 +174,4 @@ class Assets {
   /// assets/images/user_two_test.png
   static const String imagesUserTwoTest = "assets/images/user_two_test.png";
 }
+

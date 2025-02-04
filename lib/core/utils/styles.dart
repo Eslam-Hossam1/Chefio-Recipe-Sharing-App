@@ -118,7 +118,7 @@ abstract class Styles {
     double responsizeTextFontSize = scaleFactor * baseFontSize;
     double lowerLimit = baseFontSize * .75;
 
-    double upperLimit = getUpperLimit(context, baseFontSize: baseFontSize);
+    double upperLimit = baseFontSize * 1.25;
 
     return responsizeTextFontSize.clamp(lowerLimit, upperLimit);
   }
@@ -129,16 +129,6 @@ abstract class Styles {
     return width / designMediumWidth;
   }
 
-  static double getUpperLimit(context, {required double baseFontSize}) {
-    if (MediaQuery.sizeOf(context).width < SizeConfig.bigTabletBreakPoint) {
-      return baseFontSize * 1.25;
-    } else if (MediaQuery.sizeOf(context).width <
-        SizeConfig.disktopBreakPoint) {
-      return baseFontSize * 1.4;
-    } else {
-      return baseFontSize * 1.5;
-    }
-  }
 }
 
     //if (width < SizeConfig.tabletBreakPoint) {

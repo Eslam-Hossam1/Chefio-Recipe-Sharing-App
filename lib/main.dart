@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/app_router.dart';
 import 'package:chefio_app/core/utils/app_themes.dart';
 import 'package:chefio_app/core/utils/constants.dart';
@@ -11,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   await setupServiceLocator();
+  await setupServiceLocator();
   await EasyLocalization.ensureInitialized();
   runApp(
     DevicePreview(
@@ -41,7 +40,7 @@ class Chefio extends StatelessWidget {
             supportedLocales: context.supportedLocales,
             localizationsDelegates: context.localizationDelegates,
             builder: DevicePreview.appBuilder, // Wrap with DevicePreview
-            theme: AppThemes.getDarkTheme(
+            theme: AppThemes.getLightTheme(
                 isArabic: context.locale == const Locale('ar')),
             debugShowCheckedModeBanner: false,
           );
