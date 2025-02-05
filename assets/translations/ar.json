@@ -9,6 +9,7 @@
         
         "shared":{
             "enter_account":"الرجاء إدخال حسابك هنا",
+            "username_text_field_hint":"اسم المستخدم",
             "email_text_field_hint":"البريد الالكتروني",
             "password_text_field_hint":"كلمة السر",
             "forget_password_question":"هل نسيت كلمة السر؟",
@@ -42,6 +43,8 @@
             "your_password_must_contain":"يجب أن تحتوي كلمة المرور الخاصة بك على:",
             "at_least_characters":"6 أحرف على الأقل",
             "must_contains_a_number":"يحتوي على رقم",
+            "must_contains_a_uppercase_letter":"يحتوي على حرف كبير",
+            "must_contains_a_lowercase_letter":"يحتوي على حرف صغير",
             "email_already_in_use": "البريد الإلكتروني مستخدم بالفعل من قبل حساب آخر.",
             "operation_not_allowed": "لم يتم تمكين تسجيل الدخول باستخدام البريد الإلكتروني / كلمة المرور. يرجى الاتصال بالدعم.",
             "weak_password": "كلمة المرور ضعيفة جدًا. يرجى اختيار كلمة مرور أقوى."
