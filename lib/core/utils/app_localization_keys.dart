@@ -18,6 +18,7 @@ class Auth {
   static final Auth _instance = Auth._();
   //shared keys
   final String enterAccount = 'auth.shared.enter_account';
+  final String usernameTextFeildHint = 'auth.shared.username_text_field_hint';
   final String emailTextFeildHint = 'auth.shared.email_text_field_hint';
   final String passwordTextFieldHint = 'auth.shared.password_text_field_hint';
   final String forgetPasswordQuestion = 'auth.shared.forget_password_question';
@@ -53,6 +54,8 @@ class Auth {
   final String signUpViewWeakPassword = 'auth.sign_up.weak_password';
 
   final String signUpViewAtLeastCharacters = 'auth.sign_up.at_least_characters';
+  final String signUpViewContainsUppercaseLetter = 'auth.sign_up.must_contains_a_uppercase_letter';
+  final String signUpViewContainsLowercaseLetter = 'auth.sign_up.must_contains_a_lowercase_letter';
   final String signUpViewMustContainNumber =
       'auth.sign_up.must_contains_a_number';
   final String signUpViewAlreadyHaveAnAccount =
