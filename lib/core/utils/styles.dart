@@ -128,13 +128,12 @@ abstract class Styles {
     const double designMediumWidth = 375;
     return width / designMediumWidth;
   }
-
 }
 
-    //if (width < SizeConfig.tabletBreakPoint) {
-    //   return width / 600;
-    // } else if (width < SizeConfig.desktopBreakPoint) {
-    //   return width / 1100;
-    // } else {
-    //   return width / 1550;
-    // }
+//if (width < SizeConfig.tabletBreakPoint) {
+//   return width / 600;
+// } else if (width < SizeConfig.desktopBreakPoint) {
+//   return width / 1100;
+// } else {
+//   return width / 1550;
+// }

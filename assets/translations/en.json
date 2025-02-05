@@ -53,6 +53,14 @@
             "password_recovery":"Password recovery",
             "enter_email_recover_password":"Enter your email to recover your password",
             "password_reset_link_sent":"A password reset link has been sent to your email. Please check your inbox to reset your password."
+        },
+
+        "verification_code": {
+            "verification_code": "Verification Code",
+            "check_your_email": "Check your email",
+            "we_have_sent_verification_code": "We have sent the code to your email",
+            "code_expires_in": "code expires in"
+            
         }
 
         

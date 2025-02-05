@@ -12,7 +12,7 @@ class OnBourdingDishesSectionTablet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double stackWidth = MediaQuery.of(context).size.width;
-    double stackHeight = (MediaQuery.of(context).size.height/3) * 2;
+    double stackHeight = (MediaQuery.of(context).size.height / 3) * 2;
 
     return Stack(
       clipBehavior: Clip.none,
@@ -76,9 +76,11 @@ class OnBourdingDishesSectionTablet extends StatelessWidget {
         // Top Left
         Positioned(
           top: 20 *
-              OnboardingUIHelper.dishSizeScalingRatio(context, baseDishWidth: OnboardingUIHelper.topLeftDishSize),
+              OnboardingUIHelper.dishSizeScalingRatio(context,
+                  baseDishWidth: OnboardingUIHelper.topLeftDishSize),
           left: 23 *
-              OnboardingUIHelper.dishSizeScalingRatio(context, baseDishWidth: OnboardingUIHelper.topLeftDishSize),
+              OnboardingUIHelper.dishSizeScalingRatio(context,
+                  baseDishWidth: OnboardingUIHelper.topLeftDishSize),
           child: DishImage(
             assetPath: Assets.imagesTopLeftDish,
             size: OnboardingUIHelper.topLeftDishSize,
@@ -88,9 +90,11 @@ class OnBourdingDishesSectionTablet extends StatelessWidget {
         // Bottom Left
         Positioned(
           bottom: -8 *
-              OnboardingUIHelper.dishSizeScalingRatio(context, baseDishWidth: OnboardingUIHelper.bottomLeftDishSize),
+              OnboardingUIHelper.dishSizeScalingRatio(context,
+                  baseDishWidth: OnboardingUIHelper.bottomLeftDishSize),
           left: 40 *
-              OnboardingUIHelper.dishSizeScalingRatio(context, baseDishWidth: OnboardingUIHelper.bottomLeftDishSize),
+              OnboardingUIHelper.dishSizeScalingRatio(context,
+                  baseDishWidth: OnboardingUIHelper.bottomLeftDishSize),
           child: DishImage(
             assetPath: Assets.imagesBottomLeftDish,
             size: OnboardingUIHelper.bottomLeftDishSize,
@@ -100,9 +104,11 @@ class OnBourdingDishesSectionTablet extends StatelessWidget {
         // Bottom
         Positioned(
           bottom: -20 *
-              OnboardingUIHelper.dishSizeScalingRatio(context, baseDishWidth: OnboardingUIHelper.bottomDishSize),
+              OnboardingUIHelper.dishSizeScalingRatio(context,
+                  baseDishWidth: OnboardingUIHelper.bottomDishSize),
           right: 80 *
-               OnboardingUIHelper.dishSizeScalingRatio(context, baseDishWidth: OnboardingUIHelper.bottomDishSize),
+              OnboardingUIHelper.dishSizeScalingRatio(context,
+                  baseDishWidth: OnboardingUIHelper.bottomDishSize),
           child: DishImage(
             assetPath: Assets.imagesBottomDish,
             size: OnboardingUIHelper.bottomDishSize,
@@ -112,9 +118,11 @@ class OnBourdingDishesSectionTablet extends StatelessWidget {
         // Bottom Right
         Positioned(
           bottom: 60 *
-               OnboardingUIHelper.dishSizeScalingRatio(context, baseDishWidth: OnboardingUIHelper.bottomRightDishSize),
+              OnboardingUIHelper.dishSizeScalingRatio(context,
+                  baseDishWidth: OnboardingUIHelper.bottomRightDishSize),
           right: 30 *
-               OnboardingUIHelper.dishSizeScalingRatio(context, baseDishWidth: OnboardingUIHelper.bottomRightDishSize),
+              OnboardingUIHelper.dishSizeScalingRatio(context,
+                  baseDishWidth: OnboardingUIHelper.bottomRightDishSize),
           child: DishImage(
             assetPath: Assets.imagesBottomRightDish,
             size: OnboardingUIHelper.bottomRightDishSize,

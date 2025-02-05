@@ -53,6 +53,13 @@
             "password_recovery":"استعادة كلمة المرور",
             "enter_email_recover_password":"أدخل بريدك الإلكتروني لاستعادة كلمة المرور الخاصة بك",
             "password_reset_link_sent":"تم إرسال رابط لإعادة تعيين كلمة المرور إلى بريدك الإلكتروني. يرجى مراجعة بريدك الإلكتروني لإعادة تعيين كلمة المرور."
+        },
+
+        "verification_code": {
+            "verification_code": "رمز التحقق",
+            "check_your_email": "تحقق من بريدك الإلكتروني",
+            "we_have_sent_verification_code": "لقد أرسلنا الرمز إلى بريدك الإلكتروني",
+            "code_expires_in": "تنتهي صلاحية الرمز خلال"
         }
 
         

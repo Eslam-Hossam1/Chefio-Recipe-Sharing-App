@@ -54,8 +54,10 @@ class Auth {
   final String signUpViewWeakPassword = 'auth.sign_up.weak_password';
 
   final String signUpViewAtLeastCharacters = 'auth.sign_up.at_least_characters';
-  final String signUpViewContainsUppercaseLetter = 'auth.sign_up.must_contains_a_uppercase_letter';
-  final String signUpViewContainsLowercaseLetter = 'auth.sign_up.must_contains_a_lowercase_letter';
+  final String signUpViewContainsUppercaseLetter =
+      'auth.sign_up.must_contains_a_uppercase_letter';
+  final String signUpViewContainsLowercaseLetter =
+      'auth.sign_up.must_contains_a_lowercase_letter';
   final String signUpViewMustContainNumber =
       'auth.sign_up.must_contains_a_number';
   final String signUpViewAlreadyHaveAnAccount =
@@ -66,6 +68,12 @@ class Auth {
       'auth.forget_password.enter_email_recover_password';
   final String forgetPasswordViewPasswordResetLinkSent =
       'auth.forget_password.password_reset_link_sent';
+
+  final String verificationCodeViewVerificationCode = 'auth.verification_code.verification_code';
+  final String verificationCodeViewCheckYourEmail = 'auth.verification_code.check_your_email';
+  final String verificationCodeViewWeHaveSent = 'auth.verification_code.we_have_sent_verification_code';
+  final String verificationCodeViewCodeExpiresIn = 'auth.verification_code.code_expires_in';
+
 }
 
 class ProfileSetup {

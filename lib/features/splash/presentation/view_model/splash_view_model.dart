@@ -10,19 +10,19 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashViewModel {
-  Future<String> determineToGoView() async{
-    if(!isOnBoardingCompleted()) {
-     return AppRouter.kOnBoardingView;
+  Future<String> determineToGoView() async {
+    if (!isOnBoardingCompleted()) {
+      return AppRouter.kOnBoardingView;
     } else {
-    return await  checkUserLoggedIn() == true ? AppRouter.kHomeView : AppRouter.kSignUpView;
+      return await checkUserLoggedIn() == true
+          ? AppRouter.kHomeView
+          : AppRouter.kSignUpView;
     }
-    
   }
 
   bool isOnBoardingCompleted() {
     bool? isOnBoardingCompleted = getIt<SharedPreferencesHelper>()
-        .getBool(key :Constants.kIsOnBoardingCompletedKey);
-    return isOnBoardingCompleted==null?  false : true;
+        .getBool(key: Constants.kIsOnBoardingCompletedKey);
+    return isOnBoardingCompleted == null ? false : true;
   }
-  
 }

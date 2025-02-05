@@ -20,11 +20,9 @@ Future<void> setupServiceLocator() async {
     SharedPreferencesHelper(sharedPreferences),
   );
 
-  getIt.registerSingleton<SecureStorageHelper>(SecureStorageHelper(secureStorage));
-
+  getIt.registerSingleton<SecureStorageHelper>(
+      SecureStorageHelper(secureStorage));
 
   getIt.registerSingleton<SplashViewModel>(SplashViewModel());
   getIt.registerLazySingleton<OnboardingViewModel>(() => OnboardingViewModel());
-
-
 }

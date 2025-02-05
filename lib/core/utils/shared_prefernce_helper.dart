@@ -28,22 +28,16 @@ class SharedPreferencesHelper {
     }
   }
 
-
   // Get data with type-specific methods
-  String? getString({required String key}) =>
-      sharedPreferences.getString(key);
-  bool? getBool({required String key}) =>
-      sharedPreferences.getBool(key);
-  int? getInt({required String key}) =>
-      sharedPreferences.getInt(key);
-  double? getDouble({required String key}) =>
-      sharedPreferences.getDouble(key);
+  String? getString({required String key}) => sharedPreferences.getString(key);
+  bool? getBool({required String key}) => sharedPreferences.getBool(key);
+  int? getInt({required String key}) => sharedPreferences.getInt(key);
+  double? getDouble({required String key}) => sharedPreferences.getDouble(key);
   List<String>? getStringList({required String key}) =>
       sharedPreferences.getStringList(key);
 
   // General getter (optional, for flexibility)
-  Object? getData({required String key}) =>
-      sharedPreferences.get(key);
+  Object? getData({required String key}) => sharedPreferences.get(key);
 
   // Clear all stored data
   Future<bool> clear() async {
@@ -54,5 +48,4 @@ class SharedPreferencesHelper {
   Future<bool> delete({required String key}) async {
     return await sharedPreferences.remove(key);
   }
-
 }

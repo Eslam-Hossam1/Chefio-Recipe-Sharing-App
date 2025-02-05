@@ -27,7 +27,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     });
   }
 
-  Future<String> determineToGoView()async {
+  Future<String> determineToGoView() async {
     String toGoView = await getIt<SplashViewModel>().determineToGoView();
     return toGoView;
   }

@@ -18,8 +18,7 @@ class OnBoardingBottomSectionMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
           SizedBox(
@@ -68,11 +67,11 @@ class OnBoardingBottomSectionMobile extends StatelessWidget {
     );
   }
 
-  Future<void> setOnBoardingCompletedToTrueThenNavigate(BuildContext context) async {
-      await getIt<OnboardingViewModel>()
-        .setOnBoardingCompletedToTrue(context);
-        if (context.mounted) {
-          context.push(AppRouter.kSignUpView);
-        }
+  Future<void> setOnBoardingCompletedToTrueThenNavigate(
+      BuildContext context) async {
+    await getIt<OnboardingViewModel>().setOnBoardingCompletedToTrue(context);
+    if (context.mounted) {
+      context.push(AppRouter.kSignUpView);
+    }
   }
 }
