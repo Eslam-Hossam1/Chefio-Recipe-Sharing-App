@@ -54,13 +54,11 @@ class _CountdownTimerState extends State<CountdownTimer> {
 
   @override
   Widget build(BuildContext context) {
-
     return Text(
-            _formatTime(_remainingSeconds),
-            style: Styles.textStyleMedium15(context).copyWith(
-              color: AppColors.getSecondaryColor(context)
-            ),
-          );
+      _formatTime(_remainingSeconds),
+      style: Styles.textStyleMedium15(context)
+          .copyWith(color: AppColors.getSecondaryColor(context)),
+    );
     return _showResendButton
         ? TextButton(
             onPressed: widget.onResend,

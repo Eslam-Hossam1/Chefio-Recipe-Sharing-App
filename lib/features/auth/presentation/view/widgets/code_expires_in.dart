@@ -15,13 +15,12 @@ class CodeExpiresIn extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          '${AppLocalizationKeys.auth.verificationCodeViewCodeExpiresIn.tr()}:',
+          '${AppLocalizationKeys.auth.verificationCodeViewCodeExpiresIn.tr()}: ',
           style: Styles.textStyleMedium15(context).copyWith(
             color: AppColors.getMainTextColor(context),
           ),
         ),
         CountdownTimer(seconds: 5 * 60),
-        
       ],
     );
   }

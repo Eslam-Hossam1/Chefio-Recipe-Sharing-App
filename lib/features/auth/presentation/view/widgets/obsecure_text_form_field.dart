@@ -27,7 +27,7 @@ class ObsecureTextFormField extends StatefulWidget {
 
 class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
   bool isObscure = true;
-  
+
   get customTextFormFieldValidator => null;
 
   void toggleObsecure() {

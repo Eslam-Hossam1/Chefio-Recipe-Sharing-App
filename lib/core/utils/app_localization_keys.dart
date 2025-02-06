@@ -73,6 +73,8 @@ class Auth {
   final String verificationCodeViewCheckYourEmail = 'auth.verification_code.check_your_email';
   final String verificationCodeViewWeHaveSent = 'auth.verification_code.we_have_sent_verification_code';
   final String verificationCodeViewCodeExpiresIn = 'auth.verification_code.code_expires_in';
+  final String verificationCodeViewVerify = 'auth.verification_code.verifiy';
+  final String verificationCodeViewSendAgain = 'auth.verification_code.send_again';
 
 }
 

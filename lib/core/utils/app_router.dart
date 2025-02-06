@@ -1,5 +1,6 @@
 // GoRouter configuration
 import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/verification_code_view.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:chefio_app/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,16 +11,19 @@ abstract class AppRouter {
   static const kOnBoardingView = "/onboardingview";
   static const kSignUpView = "/signupview";
   static const kLoginView = "/loginview";
+  static const kVerificationCodeView = "/verificationcodeview";
 
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const SignUpView(),
+        builder: (context, state) => const VerificationCodeView(),
       ),
       GoRoute(
           path: kOnBoardingView,
           builder: (context, state) => const OnBoardingView()),
+      GoRoute(
+          path: kSignUpView, builder: (context, state) => const SignUpView()),
     ],
   );
 }

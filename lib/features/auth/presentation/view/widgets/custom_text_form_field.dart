@@ -14,7 +14,8 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.hint,
     this.onSaved,
-    this.verticalPadding, this.prefixIcon,
+    this.verticalPadding,
+    this.prefixIcon,
   });
   final String hint;
   final void Function(String?)? onSaved;
@@ -39,9 +40,10 @@ class CustomTextFormField extends StatelessWidget {
         ),
         prefixIcon: Padding(
           padding: const EdgeInsetsDirectional.only(start: 24, end: 10),
-          child:prefixIcon?? SvgPicture.asset(
-            Assets.imagesEmailIcon,
-          ),
+          child: prefixIcon ??
+              SvgPicture.asset(
+                Assets.imagesEmailIcon,
+              ),
         ),
         border: FormStyles.buildBorder(context),
         enabledBorder: FormStyles.buildBorder(context),
