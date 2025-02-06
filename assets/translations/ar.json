@@ -62,6 +62,12 @@
             "code_expires_in": "تنتهي صلاحية الرمز خلال",
             "verifiy":"تحقق",
             "send_again":"ارسل مرة اخرى"
+        },
+
+        "reset_password": {
+            "reset_your_password": "إعادة تعيين كلمة المرور",
+            "please_enter_new_password": "يرجى إدخال كلمة المرور الجديدة",
+            "done": "تم"
         }
 
         

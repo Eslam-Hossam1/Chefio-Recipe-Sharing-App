@@ -1,7 +1,10 @@
 // GoRouter configuration
 import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/verification_code_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/forget_password_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/reset_password_done_button.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:chefio_app/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +21,10 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
+        builder: (context, state) => const ResetPasswordView(),
+      ),
+      GoRoute(
+        path: kLoginView,
         builder: (context, state) => const LoginView(),
       ),
       GoRoute(

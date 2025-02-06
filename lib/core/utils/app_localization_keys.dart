@@ -76,6 +76,10 @@ class Auth {
   final String verificationCodeViewVerify = 'auth.verification_code.verifiy';
   final String verificationCodeViewSendAgain = 'auth.verification_code.send_again';
 
+  final String resetPasswordViewResetYourPassword = 'auth.reset_password.reset_your_password';
+  final String resetPasswordViewPleaseEnterNewPassword = 'auth.reset_password.please_enter_new_password';
+  final String resetPasswordViewDone = 'auth.reset_password.done';
+
 }
 
 class ProfileSetup {

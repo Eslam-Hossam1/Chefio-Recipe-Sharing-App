@@ -63,6 +63,12 @@
             "verifiy":"Verifiy",
             "send_again":"Send Again"
             
+        },
+
+        "reset_password":{
+            "reset_your_password":"Reset your password",
+            "please_enter_new_password": "Please enter your new password",
+            "done":"Done"
         }
 
         
