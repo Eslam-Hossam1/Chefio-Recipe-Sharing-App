@@ -1,5 +1,7 @@
+import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:flutter/material.dart';
 
 getAuthTabletPadding(context) {
-  return MediaQuery.sizeOf(context).width * .1;
+  double width = MediaQuery.sizeOf(context).width;
+  return width * .15;
 }

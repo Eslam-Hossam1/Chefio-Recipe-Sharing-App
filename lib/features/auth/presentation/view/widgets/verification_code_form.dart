@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:chefio_app/core/Functions/get_auth__tablet_padding.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/code_expires_in.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_pin_code_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/send_again_button.dart';
@@ -40,7 +41,7 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
           ),
           Padding(
             padding:
-                EdgeInsets.symmetric(horizontal: getAuthTabletPadding(context)),
+                EdgeInsets.symmetric(horizontal: getVerificationFormButtonsPadding(context)),
             child: Column(
               children: [
                 VerifyButton(
@@ -68,4 +69,6 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
       ),
     );
   }
+
+  getVerificationFormButtonsPadding(BuildContext context) =>  MediaQuery.sizeOf(context).width<SizeConfig.tabletBreakPoint?24:getAuthTabletPadding(context);
 }

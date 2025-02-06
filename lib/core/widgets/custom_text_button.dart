@@ -11,12 +11,14 @@ class CustomTextButton extends StatelessWidget {
       required this.child,
       this.onPressed,
       this.height,
-      this.width});
+      this.width,
+      this.borderSide});
   final Color? backgroundColor;
   final Widget child;
   final void Function()? onPressed;
   final double? height;
   final double? width;
+  final BorderSide? borderSide;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -25,6 +27,7 @@ class CustomTextButton extends StatelessWidget {
       child: TextButton(
           onPressed: onPressed,
           style: TextButton.styleFrom(
+              side: borderSide,
               backgroundColor:
                   backgroundColor ?? AppColors.getPrimaryColor(context)),
           child: child),
@@ -34,7 +37,7 @@ class CustomTextButton extends StatelessWidget {
   double getCustomButtonResponsiveHeight(BuildContext context) {
     double bigTabletWidth = 1000;
     double width = MediaQuery.sizeOf(context).width;
-    double upperlimit = width >= bigTabletWidth ? 100 : 70;
+    double upperlimit = width >= bigTabletWidth ? 80 : 60;
     return (56 * (width / Constants.kDesignWidth)).clamp(56, upperlimit);
   }
 }
