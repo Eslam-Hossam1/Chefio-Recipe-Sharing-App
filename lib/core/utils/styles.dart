@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:chefio_app/core/utils/colors.dart';
@@ -125,8 +126,7 @@ abstract class Styles {
 
   static double _getScaleFactor(context) {
     double width = MediaQuery.sizeOf(context).width;
-    const double designMediumWidth = 375;
-    return width / designMediumWidth;
+    return width / Constants.kDesignWidth;
   }
 }
 

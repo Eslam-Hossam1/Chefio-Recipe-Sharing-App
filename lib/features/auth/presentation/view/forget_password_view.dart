@@ -1,5 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:chefio_app/core/Functions/get_auth__tablet_padding.dart';
+import 'package:chefio_app/core/Functions/get_auth_padding.dart';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
@@ -45,9 +45,11 @@ class ForgetPasswordView extends StatelessWidget {
       inAsyncCall: false,
       progressIndicator: const CustomCircularProgressIndicator(),
       child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: _getPadding(context)),
-          child: const ForgetPasswordViewBody(),
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: getAuthHorizontalPadding(context)),
+            child: const ForgetPasswordViewBody(),
+          ),
         ),
       ),
     );
@@ -55,9 +57,5 @@ class ForgetPasswordView extends StatelessWidget {
     // );
   }
 
-  double _getPadding(BuildContext context) {
-    return MediaQuery.sizeOf(context).width < SizeConfig.tabletBreakPoint
-        ? Constants.kMobileHorizontalPadding
-        : getAuthTabletPadding(context);
-  }
+  
 }

@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:chefio_app/core/Functions/get_auth__tablet_padding.dart';
+import 'package:chefio_app/core/Functions/get_auth_padding.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/code_expires_in.dart';
@@ -40,8 +40,8 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
             height: 24,
           ),
           Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: getVerificationFormButtonsPadding(context)),
+            padding: EdgeInsets.symmetric(
+                horizontal: getVerificationFormButtonsPadding(context)),
             child: Column(
               children: [
                 VerifyButton(
@@ -70,5 +70,6 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
     );
   }
 
-  getVerificationFormButtonsPadding(BuildContext context) =>  MediaQuery.sizeOf(context).width<SizeConfig.tabletBreakPoint?24:getAuthTabletPadding(context);
+  getVerificationFormButtonsPadding(BuildContext context) =>
+      getAuthHorizontalPadding(context);
 }

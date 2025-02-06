@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/Functions/get_auth__tablet_padding.dart';
+import 'package:chefio_app/core/Functions/get_auth_padding.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/constants.dart';

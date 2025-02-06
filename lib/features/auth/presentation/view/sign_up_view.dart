@@ -1,8 +1,8 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:chefio_app/core/Functions/get_auth_padding.dart';
 import 'package:chefio_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_view_body_mobile_layout.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_view_body_tablet_layout.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_view_body.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -46,9 +46,10 @@ class SignUpView extends StatelessWidget {
       progressIndicator: const CustomCircularProgressIndicator(),
       child: Scaffold(
         body: SafeArea(
-          child: AdaptiveLayout(
-            mobileLayout: (context) => const SignUpViewBodyMobileLayout(),
-            tabletLayout: (context) => const SignUpViewBodyTabletLayout(),
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: getAuthHorizontalPadding(context)),
+            child: const SignUpViewBody(),
           ),
         ),
       ),

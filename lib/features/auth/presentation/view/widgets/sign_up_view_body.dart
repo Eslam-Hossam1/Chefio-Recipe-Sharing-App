@@ -1,40 +1,41 @@
-import 'package:chefio_app/core/Functions/get_auth__tablet_padding.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/app_router.dart';
 import 'package:chefio_app/core/utils/colors.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/widgets/clickable_text.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/login_form.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_form.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginViewBodyTabletLayout extends StatelessWidget {
-  const LoginViewBodyTabletLayout({super.key});
+class SignUpViewBody extends StatelessWidget {
+  const SignUpViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: getAuthTabletPadding(context),
-      ),
-      child: CustomScrollView(slivers: [
+    return CustomScrollView(
+      slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
           child: Column(
             children: [
-              Expanded(child: SizedBox(height: 20,)),
+              Expanded(
+                child: SizedBox(
+                  height: 20,
+                ),
+              ),
               Text(
                 textAlign: TextAlign.center,
-                AppLocalizationKeys.auth.logInViewWelcomeBack.tr(),
+                AppLocalizationKeys.auth.signUpViewWelcome.tr(),
                 style: Styles.textStyleBold22(context).copyWith(
                   color: AppColors.getMainTextColor(context),
                 ),
               ),
-              SizedBox(
-                height: 16,
+              const SizedBox(
+                height: 8,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -43,41 +44,47 @@ class LoginViewBodyTabletLayout extends StatelessWidget {
                   color: AppColors.getSecondaryTextColor(context),
                 ),
               ),
-              SizedBox(
-                height: 48,
+              const SizedBox(
+                height: 32,
               ),
-              const LoginForm(),
-              SizedBox(
-                height: 36,
+              const SignUpForm(),
+              const SizedBox(
+                height: 24,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    AppLocalizationKeys.auth.logInViewDontHaveAnAccount.tr(),
+                    AppLocalizationKeys.auth.signUpViewAlreadyHaveAnAccount
+                        .tr(),
                     style: Styles.textStyleSemiBold15(context).copyWith(
                       color: AppColors.getMainTextColor(context),
                     ),
                   ),
                   const SizedBox(
-                    width: 12,
+                    width: 8,
                   ),
                   ClickableText(
                     onTap: () {
-                      context.go(AppRouter.kSignUpView);
+                      context.go(AppRouter.kLoginView);
                     },
-                    text: AppLocalizationKeys.auth.signup.tr(),
+                    text: AppLocalizationKeys.auth.logIn.tr(),
                     style: Styles.textStyleBold15(context).copyWith(
                       color: AppColors.getPrimaryColor(context),
                     ),
                   ),
                 ],
               ),
-              Expanded(flex: 2,child: SizedBox(height: 20,),)
+              Expanded(
+                flex: 2,
+                child: const SizedBox(
+                  height: 20,
+                ),
+              ),
             ],
           ),
-        )
-      ]),
+        ),
+      ],
     );
   }
 }
