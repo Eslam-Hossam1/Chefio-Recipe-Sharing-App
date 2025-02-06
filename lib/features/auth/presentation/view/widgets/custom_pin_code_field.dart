@@ -1,33 +1,41 @@
 import 'dart:developer';
 
+import 'package:chefio_app/core/Functions/text_form_field_validator.dart';
+import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class CustomPinCodeField extends StatelessWidget {
-  const CustomPinCodeField({super.key, this.onChanged, this.onCompleted});
+  const CustomPinCodeField(
+      {super.key, this.onChanged, this.onCompleted, this.onSaved});
   final void Function(String)? onChanged;
   final void Function(String)? onCompleted;
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    log((24 * (MediaQuery.sizeOf(context).width / Constants.kDesignWidth))
-        .toString());
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: getPinCodeTextFeildPadding(context)),
       child: PinCodeTextField(
+        onSaved: onSaved,
+        pastedTextStyle: Styles.textStyleBold15(context)
+            .copyWith(color: AppColors.getPrimaryColor(context)),
         appContext: context,
         length: 6,
         textStyle: Styles.textStyleSemiBold34(context)
-            .copyWith(color: AppColors.getMainTextColor(context), height: -1),
-
+            .copyWith(color: AppColors.getMainTextColor(context)),
+        showCursor: false,
         animationType: AnimationType.fade,
+        keyboardType: TextInputType.number,
         pinTheme: PinTheme(
           shape: PinCodeFieldShape.box,
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(16.r),
           fieldHeight: getfieldWidth(context),
           fieldWidth: getfieldWidth(context),
           activeColor: AppColors.getPrimaryColor(context),
@@ -41,11 +49,16 @@ class CustomPinCodeField extends StatelessWidget {
   }
 
   double getPinCodeTextFeildPadding(BuildContext context) {
-    return (24 * (MediaQuery.sizeOf(context).width / Constants.kDesignWidth));
+    double width = MediaQuery.sizeOf(context).width;
+    if (width < SizeConfig.tabletBreakPoint) {
+      return (24 * (MediaQuery.sizeOf(context).width / Constants.kDesignWidth));
+    } else {
+      return (50 * (MediaQuery.sizeOf(context).width / Constants.kDesignWidth));
+    }
   }
 
   double getfieldWidth(context) {
-    double width = MediaQuery.sizeOf(context).height;
-    return (24 * (width / Constants.kDesignWidth)).clamp(18, 72);
+    double width = MediaQuery.sizeOf(context).width;
+    return (48 * (width / Constants.kDesignWidth)).clamp(18, 72);
   }
 }
