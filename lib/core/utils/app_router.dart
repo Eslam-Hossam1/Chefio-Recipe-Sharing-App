@@ -1,4 +1,7 @@
 // GoRouter configuration
+import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
@@ -46,7 +49,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kSignUpView,
-        builder: (context, state) => const SignUpView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => SignUpCubit(getIt<AuthRepoImpl>()),
+          child: const SignUpView(),
+        ),
       ),
     ],
   );
