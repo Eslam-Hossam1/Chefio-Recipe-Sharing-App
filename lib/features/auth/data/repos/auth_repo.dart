@@ -3,7 +3,7 @@ import 'package:chefio_app/features/auth/data/models/sign_up_success_model/sign_
 import 'package:dartz/dartz.dart';
 
 abstract class AuthRepo {
-  Future<Either<Failure, SignUpSuccessModel>> signUpWithEmailAndPassword(
+  Future<Either<Failure, SignUpSuccessModel>> signUp(
       {required String username,
       required String email,
       required String password});
