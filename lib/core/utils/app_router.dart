@@ -16,12 +16,21 @@ abstract class AppRouter {
   static const kSignUpView = "/signupview";
   static const kLoginView = "/loginview";
   static const kVerificationCodeView = "/verificationcodeview";
-  static const kForgetPasswordView = "/ForgetPasswordView";
+  static const kForgetPasswordView = "/Forgetpasswordview";
+  static const kResetPasswordView = "/resetpasswordview";
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: '/',
+        builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: kResetPasswordView,
         builder: (context, state) => const ResetPasswordView(),
+      ),
+      GoRoute(
+        path: kForgetPasswordView,
+        builder: (context, state) => const ForgetPasswordView(),
       ),
       GoRoute(
         path: kLoginView,
@@ -32,10 +41,13 @@ abstract class AppRouter {
         builder: (context, state) => const VerificationCodeView(),
       ),
       GoRoute(
-          path: kOnBoardingView,
-          builder: (context, state) => const OnBoardingView()),
+        path: kOnBoardingView,
+        builder: (context, state) => const OnBoardingView(),
+      ),
       GoRoute(
-          path: kSignUpView, builder: (context, state) => const SignUpView()),
+        path: kSignUpView,
+        builder: (context, state) => const SignUpView(),
+      ),
     ],
   );
 }
