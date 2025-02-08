@@ -42,6 +42,7 @@ class Auth {
   final String logInViewYourEmailNotVerifiedYet =
       'auth.log_in.your_email_need_to_verified';
   final String signUpViewWelcome = 'auth.sign_up.welcome';
+
   final String signUpViewWeSentEmailVerification =
       'auth.sign_up.we_sent_email_verification';
   final String signUpViewYourPasswordMustContain =
@@ -50,6 +51,10 @@ class Auth {
       'auth.sign_up.email_already_in_use';
   final String signUpViewOperationNotAllowed =
       'auth.sign_up.operation_not_allowed';
+
+    final String signUpViewUsernameCantContainSpaces = 'auth.sign_up.username_cant_contain_spaces';
+  final String signUpViewUserNameMustBeBetween = 'auth.sign_up.username_must_be_between';
+  final String signUpViewUsernameCanOnlyContain = 'auth.sign_up.username_can_only_contain';
 
   final String signUpViewWeakPassword = 'auth.sign_up.weak_password';
 
