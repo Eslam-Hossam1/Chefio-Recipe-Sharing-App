@@ -41,7 +41,7 @@
             "welcome":"مرحباً!",
             "already_have_an_account":"لديك حساب بالفعل!",
             "your_password_must_contain":"يجب أن تحتوي كلمة المرور الخاصة بك على:",
-            "at_least_characters":"6 أحرف على الأقل",
+            "at_least_characters":"8 أحرف على الأقل",
             "must_contains_a_number":"يحتوي على رقم",
             "must_contains_a_uppercase_letter":"يحتوي على حرف كبير",
             "must_contains_a_lowercase_letter":"يحتوي على حرف صغير",

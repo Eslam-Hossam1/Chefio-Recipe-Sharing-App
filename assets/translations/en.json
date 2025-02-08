@@ -39,7 +39,7 @@
             "welcome":"Welcome!",
             "already_have_an_account":"Already have an account!",
             "your_password_must_contain":"Your Password must contain:",
-            "at_least_characters":"Atleast 6 characters",
+            "at_least_characters":"Atleast 8 characters",
             "must_contains_a_number":"Contains a number",
             "must_contains_a_uppercase_letter":"Contains an uppercase letter",
             "must_contains_a_lowercase_letter":"Contains a lowercase letter",
