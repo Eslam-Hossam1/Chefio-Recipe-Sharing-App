@@ -2,12 +2,14 @@ import 'dart:developer';
 
 import 'package:chefio_app/core/Functions/get_auth_padding.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/app_router.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/code_expires_in.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_pin_code_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/send_again_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/verifiy_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class VerificationCodeForm extends StatefulWidget {
   const VerificationCodeForm({super.key});
@@ -48,6 +50,7 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
                   onPressed: () async {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
+                      context.go(AppRouter.kSignUpView);
                       // await BlocProvider.of<SignUpCubit>(context)
                       //     .signUpWithEmailAndPassword(
                       //         email: email!, password: password!);

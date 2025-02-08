@@ -1,5 +1,6 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/custome_email_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/recover_password_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -33,12 +34,9 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
       autovalidateMode: _autovalidateMode,
       child: Column(
         children: [
-          CustomTextFormField(
-            hint: AppLocalizationKeys.auth.emailTextFeildHint.tr(),
-            onSaved: (value) {
+          CustomeEmailTextFormField(onSaved: (value) {
               email = value;
-            },
-          ),
+            }),
           SizedBox(
             height: 32.h,
           ),

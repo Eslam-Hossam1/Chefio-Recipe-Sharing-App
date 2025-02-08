@@ -2,6 +2,7 @@ import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/custome_email_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/forget_password_clickable_text.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/log_in_with_google_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/login_with_email_and_password_button.dart';
@@ -38,12 +39,9 @@ class _LoginFormState extends State<LoginForm> {
       autovalidateMode: _autovalidateMode,
       child: Column(
         children: [
-          CustomTextFormField(
-            hint: AppLocalizationKeys.auth.emailTextFeildHint.tr(),
-            onSaved: (value) {
+          CustomeEmailTextFormField(onSaved: (value) {
               email = value;
-            },
-          ),
+            }),
           SizedBox(
             height: 16.h,
           ),

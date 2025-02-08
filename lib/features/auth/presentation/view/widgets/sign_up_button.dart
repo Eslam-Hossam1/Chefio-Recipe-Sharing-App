@@ -22,10 +22,10 @@ class SignUpButton extends StatelessWidget {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state is SignUpFailure) {
-          DialogHelper.showErrorDialog(
-            context,
-            errorMessage: state.errorMessage,
-          );
+          DialogHelper.showErrorDialog(context,
+              errorMessage: state.errorMessage, btnOkOnPress: () {
+            context.go(AppRouter.kVerificationCodeView);
+          });
         } else if (state is SignUpSuccess) {
           DialogHelper.showSuccessDialog(context,
               successMessage: AppLocalizationKeys
@@ -45,7 +45,10 @@ class SignUpButton extends StatelessWidget {
               child: CustomTextButton(
                 onPressed: onPressed,
                 child: isLoading
-                    ? Center(child: CustomCircularProgressIndicator())
+                    ? Center(
+                        child: CustomCircularProgressIndicator(
+                        color: Colors.white,
+                      ))
                     : Text(
                         AppLocalizationKeys.auth.signup.tr(),
                         style: Styles.textStyleBold15(context)

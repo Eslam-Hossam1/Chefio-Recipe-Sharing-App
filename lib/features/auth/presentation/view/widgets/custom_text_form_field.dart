@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/Functions/text_form_field_validator.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/colors.dart';
@@ -16,21 +17,24 @@ class CustomTextFormField extends StatelessWidget {
     this.onSaved,
     this.verticalPadding,
     this.prefixIcon,
+    this.validator,
   });
   final String hint;
   final void Function(String?)? onSaved;
   final double? verticalPadding;
   final Widget? prefixIcon;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: onSaved,
-      validator: customTextFormFieldValidator,
+      validator: validator ?? FormValidators.customTextFormFieldValidator,
       cursorColor: AppColors.getPrimaryColor(context),
       style: Styles.textStyleSemiBold15(context).copyWith(
         color: AppColors.getMainTextColor(context),
       ),
       decoration: InputDecoration(
+        errorMaxLines: 2,
         contentPadding: const EdgeInsets.symmetric(
           vertical: 16,
         ),
@@ -38,13 +42,11 @@ class CustomTextFormField extends StatelessWidget {
         hintStyle: Styles.textStyleMedium15(context).copyWith(
           color: AppColors.getSecondaryTextColor(context),
         ),
-        prefixIcon: Padding(
-          padding: const EdgeInsetsDirectional.only(start: 24, end: 10),
-          child: prefixIcon ??
-              SvgPicture.asset(
-                Assets.imagesEmailIcon,
-              ),
-        ),
+        prefixIcon: prefixIcon != null
+            ? Padding(
+                padding: const EdgeInsetsDirectional.only(start: 24, end: 10),
+                child: prefixIcon)
+            : null,
         border: FormStyles.buildBorder(context),
         enabledBorder: FormStyles.buildBorder(context),
         focusedBorder: FormStyles.buildBorder(context).copyWith(

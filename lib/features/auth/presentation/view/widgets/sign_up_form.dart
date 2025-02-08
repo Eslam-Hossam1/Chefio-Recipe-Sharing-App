@@ -1,7 +1,9 @@
+import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/custome_email_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/obsecure_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_password_standards_column.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_button.dart';
@@ -49,12 +51,12 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (value) {
               username = value;
             },
+            validator: FormValidators.usernameTextFormFieldValidator,
           ),
           SizedBox(
             height: 16.h,
           ),
-          CustomTextFormField(
-            hint: AppLocalizationKeys.auth.emailTextFeildHint.tr(),
+          CustomeEmailTextFormField(
             onSaved: (value) {
               email = value;
             },
