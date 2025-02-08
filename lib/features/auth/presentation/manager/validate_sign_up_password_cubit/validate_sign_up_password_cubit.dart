@@ -9,15 +9,21 @@ class ValidateSignUpPasswordCubit extends Cubit<ValidateSignUpPasswordState> {
   ValidateSignUpPasswordCubit() : super(ValidateSignUpPasswordInitial());
   bool isMinLengthValid = false;
   bool isContainsNumberValid = false;
-
+  bool isContainsUppercaseLetter = false;
+  bool isContainsLowercaseLetter = false;
   final RegExp eightCharRegex = RegExp(r'^.{8,}$');
 
   final RegExp numberRegex = RegExp(r'\d');
 
-  void validatePasswordOnChange({required String password}) {
+  final RegExp uppercaseRegex = RegExp(r'[A-Z]');
+
+  final RegExp lowercaseRegex = RegExp(r'[a-z]');
+
+  void validatePasswordOnChange( String password) {
     isMinLengthValid = eightCharRegex.hasMatch(password);
     isContainsNumberValid = numberRegex.hasMatch(password);
-
+    isContainsUppercaseLetter = uppercaseRegex.hasMatch(password);
+    isContainsLowercaseLetter = lowercaseRegex.hasMatch(password);
     emit(ValidateSignUpPasswordUpdate());
   }
 
@@ -31,6 +37,16 @@ class ValidateSignUpPasswordCubit extends Cubit<ValidateSignUpPasswordState> {
     return isContainsNumberValid;
   }
 
+  bool validateContainsUppercaseLetter({required String password}) {
+    bool isContainsUppercaseLetter = uppercaseRegex.hasMatch(password);
+    return isContainsUppercaseLetter;
+  }
+
+  bool validateContainsLowercaseLetter({required String password}) {
+    bool isContainsLowercaseLetter = lowercaseRegex.hasMatch(password);
+    return isContainsLowercaseLetter;
+  }
+
   String? passwordTextFieldValidator(String? password) {
     if (password == null || password.isEmpty) {
       return AppLocalizationKeys.auth.thisFieldRequired.tr();
@@ -38,8 +54,12 @@ class ValidateSignUpPasswordCubit extends Cubit<ValidateSignUpPasswordState> {
       return AppLocalizationKeys.auth.signUpViewAtLeastCharacters.tr();
     } else if (!validateContainsNumber(password: password)) {
       return AppLocalizationKeys.auth.signUpViewMustContainNumber.tr();
+    } else if (!validateContainsUppercaseLetter(password: password)) {
+      return AppLocalizationKeys.auth.signUpViewContainsUppercaseLetter.tr();
+    } else if (!validateContainsLowercaseLetter(password: password)) {
+      return AppLocalizationKeys.auth.signUpViewContainsLowercaseLetter.tr();
     } else {
-      return null;
+      null;
     }
   }
 }

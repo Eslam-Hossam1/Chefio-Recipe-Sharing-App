@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/form_styles.dart';
@@ -28,7 +29,6 @@ class ObsecureTextFormField extends StatefulWidget {
 class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
   bool isObscure = true;
 
-  get customTextFormFieldValidator => null;
 
   void toggleObsecure() {
     setState(() {
@@ -41,7 +41,7 @@ class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
     return TextFormField(
       onSaved: widget.onSaved,
       onChanged: widget.onChanged,
-      validator: widget.validator ?? customTextFormFieldValidator,
+      validator: widget.validator ?? FormValidators.customTextFormFieldValidator,
       obscureText: isObscure,
       cursorColor: AppColors.getPrimaryColor(context),
       style: Styles.textStyleSemiBold15(context).copyWith(
