@@ -5,7 +5,7 @@ import 'package:chefio_app/features/auth/presentation/view/widgets/obsecure_text
 import 'package:chefio_app/features/auth/presentation/view/widgets/reset_password_done_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/reset_password_standard_column.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_password_standards_column.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_with_email_and_password_button.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
