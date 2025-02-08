@@ -1,4 +1,4 @@
-class EndPoint {
+abstract class EndPoint {
   static const String baseUrl = "https://chefio-beta.vercel.app/api/v1/";
   static const String signIn = "auth/signin/";
   static const String signUp = "auth/signup";
