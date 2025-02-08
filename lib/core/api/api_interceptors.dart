@@ -5,12 +5,17 @@ import 'package:dio/dio.dart';
 
 class ApiInterceptor extends Interceptor {
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.headers[ApiKeys.token] = getIt<SecureStorageHelper>()
-                .getString(key: ApiKeys.token) !=
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async{
+    String? token = await getToken();
+    options.headers[ApiKeys.token] = token !=
             null
-        ? 'FOODAPI ${getIt<SecureStorageHelper>().getString(key: ApiKeys.token)}'
+        ? 'FOODAPI $token'
         : null;
     super.onRequest(options, handler);
+  }
+
+  Future<String?> getToken()async {
+    return await  getIt<SecureStorageHelper>()
+              .getString(key: ApiKeys.token);
   }
 }
