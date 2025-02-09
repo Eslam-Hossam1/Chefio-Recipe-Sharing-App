@@ -39,6 +39,13 @@ abstract class FormValidators {
 
   }
 
+  static String? pincodeTextFormFieldValidator(String? value){
+     if (isValueEmpty(value)||value!.length<6) {
+      return AppLocalizationKeys.auth.verificationCodeViewPleaseEnterCompletePin.tr();
+    } else {
+      return null;
+    }
+  }
   static bool isValueEmpty(String? value){
     if(value == null || value.isEmpty){
       return true;
