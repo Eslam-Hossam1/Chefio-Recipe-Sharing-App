@@ -2,6 +2,7 @@ import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custome_email_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/obsecure_text_form_field.dart';
@@ -65,14 +66,14 @@ class _SignUpFormState extends State<SignUpForm> {
             height: 16.h,
           ),
           ObsecureTextFormField(
-            validator: (password) {
-              // return BlocProvider.of<ValidateSignUpPasswordCubit>(context)
-              //     .passwordTextFieldValidator(password);
-            },
-            onChanged: (password) {
-              // BlocProvider.of<ValidateSignUpPasswordCubit>(context)
-              //     .validatePasswordOnChange(password: password);
-            },
+            validator: 
+                BlocProvider.of<ValidateSignUpPasswordCubit>(context)
+                 .passwordTextFieldValidator
+            ,
+            onChanged: 
+              BlocProvider.of<ValidateSignUpPasswordCubit>(context)
+                 .validatePasswordOnChange
+            ,
             hint: AppLocalizationKeys.auth.passwordTextFieldHint.tr(),
             onSaved: (value) {
               password = value;
