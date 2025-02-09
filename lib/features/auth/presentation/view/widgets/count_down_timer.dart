@@ -1,43 +1,51 @@
 import 'dart:async';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CountdownTimer extends StatefulWidget {
   final int seconds;
-  final VoidCallback? onResend; // Callback for "Resend Code"
 
-  const CountdownTimer({super.key, required this.seconds, this.onResend});
+  const CountdownTimer({super.key, required this.seconds});
 
   @override
-  State<CountdownTimer> createState() => _CountdownTimerState();
+  State<CountdownTimer> createState() => CountdownTimerState();
 }
 
-class _CountdownTimerState extends State<CountdownTimer> {
+class CountdownTimerState extends State<CountdownTimer> {
   late int _remainingSeconds;
   Timer? _timer;
-  bool _showResendButton = false;
 
   @override
   void initState() {
     super.initState();
-    _remainingSeconds = widget.seconds;
-    _startTimer();
+    _remainingSeconds =
+        widget.seconds; // ✅ تحديد القيمة الافتراضية فقط بدون تشغيل التايمر
   }
 
   void _startTimer() {
+    _timer?.cancel(); // ✅ تأكد من إلغاء أي تايمر قديم
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_remainingSeconds > 0) {
-        setState(() {
-          _remainingSeconds--;
-        });
+        if (mounted) {
+          setState(() {
+            _remainingSeconds--;
+          });
+        }
       } else {
         timer.cancel();
-        setState(() {
-          _showResendButton = true; // Show the resend button
-        });
       }
     });
+  }
+
+  void restartTimer() {
+    _timer?.cancel(); // ✅ إلغاء التايمر قبل البدء من جديد
+    setState(() {
+      _remainingSeconds = widget.seconds;
+    });
+    _startTimer();
   }
 
   String _formatTime(int seconds) {
@@ -54,19 +62,22 @@ class _CountdownTimerState extends State<CountdownTimer> {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      _formatTime(_remainingSeconds),
-      style: Styles.textStyleMedium15(context)
-          .copyWith(color: AppColors.getSecondaryColor(context)),
+    return BlocListener<VerificationCodeCubit, VerificationCodeState>(
+      listener: (context, state) {
+        if (state is SendVerificationCodeSuccess) {
+          restartTimer(); // ✅ تشغيل العداد فقط عند استقبال الحالة المطلوبة
+        }
+        if (state is VerificationCodeFailure) {
+          setState(() {
+                _remainingSeconds = 0; // ✅ تصفير العداد عند الفشل
+              });        
+        }
+      },
+      child: Text(
+        _formatTime(_remainingSeconds),
+        style: Styles.textStyleMedium15(context)
+            .copyWith(color: AppColors.getSecondaryColor(context)),
+      ),
     );
-    return _showResendButton
-        ? TextButton(
-            onPressed: widget.onResend,
-            child: const Text("Resend Code"),
-          )
-        : Text(
-            "Code expires in: ${_formatTime(_remainingSeconds)}",
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          );
   }
 }
