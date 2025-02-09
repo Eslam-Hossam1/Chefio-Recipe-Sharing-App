@@ -52,9 +52,12 @@ class Auth {
   final String signUpViewOperationNotAllowed =
       'auth.sign_up.operation_not_allowed';
 
-    final String signUpViewUsernameCantContainSpaces = 'auth.sign_up.username_cant_contain_spaces';
-  final String signUpViewUserNameMustBeBetween = 'auth.sign_up.username_must_be_between';
-  final String signUpViewUsernameCanOnlyContain = 'auth.sign_up.username_can_only_contain';
+  final String signUpViewUsernameCantContainSpaces =
+      'auth.sign_up.username_cant_contain_spaces';
+  final String signUpViewUserNameMustBeBetween =
+      'auth.sign_up.username_must_be_between';
+  final String signUpViewUsernameCanOnlyContain =
+      'auth.sign_up.username_can_only_contain';
 
   final String signUpViewWeakPassword = 'auth.sign_up.weak_password';
 
@@ -74,17 +77,27 @@ class Auth {
   final String forgetPasswordViewPasswordResetLinkSent =
       'auth.forget_password.password_reset_link_sent';
 
-  final String verificationCodeViewVerificationCode = 'auth.verification_code.verification_code';
-  final String verificationCodeViewCheckYourEmail = 'auth.verification_code.check_your_email';
-  final String verificationCodeViewWeHaveSent = 'auth.verification_code.we_have_sent_verification_code';
-  final String verificationCodeViewCodeExpiresIn = 'auth.verification_code.code_expires_in';
+  final String verificationCodeViewVerificationCode =
+      'auth.verification_code.verification_code';
+  final String verificationCodeViewCheckYourEmail =
+      'auth.verification_code.check_your_email';
+  final String verificationCodeViewWeHaveSent =
+      'auth.verification_code.we_have_sent_verification_code';
+  final String verificationCodeViewCodeExpiresIn =
+      'auth.verification_code.code_expires_in';
   final String verificationCodeViewVerify = 'auth.verification_code.verifiy';
-  final String verificationCodeViewSendAgain = 'auth.verification_code.send_again';
+  final String verificationCodeViewSendAgain =
+      'auth.verification_code.send_again';
+  final String verificationCodeViewSuccessMessage =
+      'auth.verification_code.verification_success_message';
+  final String verificationCodeViewPleaseEnterCompletePin =
+      'auth.verification_code.pls_enter_complete_pin';
 
-  final String resetPasswordViewResetYourPassword = 'auth.reset_password.reset_your_password';
-  final String resetPasswordViewPleaseEnterNewPassword = 'auth.reset_password.please_enter_new_password';
+  final String resetPasswordViewResetYourPassword =
+      'auth.reset_password.reset_your_password';
+  final String resetPasswordViewPleaseEnterNewPassword =
+      'auth.reset_password.please_enter_new_password';
   final String resetPasswordViewDone = 'auth.reset_password.done';
-
 }
 
 class ProfileSetup {

@@ -64,7 +64,9 @@
             "we_have_sent_verification_code": "We have sent the code to your email",
             "code_expires_in": "code expires in",
             "verifiy":"Verifiy",
-            "send_again":"Send Again"
+            "send_again":"Send Again",
+            "verification_success_message": "Account created successfully! Your email has been verified, and you can now log in.",
+            "pls_enter_complete_pin":"Please enter the complete PIN code."
             
         },
 

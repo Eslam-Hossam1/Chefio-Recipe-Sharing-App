@@ -65,7 +65,10 @@
             "we_have_sent_verification_code": "لقد أرسلنا الرمز إلى بريدك الإلكتروني",
             "code_expires_in": "تنتهي صلاحية الرمز خلال",
             "verifiy":"تحقق",
-            "send_again":"ارسل مرة اخرى"
+            "send_again":"ارسل مرة اخرى",
+            "verification_success_message": "تم إنشاء الحساب بنجاح! لقد قمنا بالتحقق من بريدك الإلكتروني، يمكنك الآن تسجيل الدخول.",
+            "pls_enter_complete_pin":"من فضلك أدخل رمز PIN بالكامل."
+
         },
 
         "reset_password": {
