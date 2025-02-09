@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:chefio_app/core/Functions/text_form_field_validator.dart';
+import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/constants.dart';
@@ -24,6 +24,7 @@ class CustomPinCodeField extends StatelessWidget {
           EdgeInsets.symmetric(horizontal: getPinCodeTextFeildPadding(context)),
       child: PinCodeTextField(
         onSaved: onSaved,
+        validator: FormValidators.pincodeTextFormFieldValidator,
         pastedTextStyle: Styles.textStyleBold15(context)
             .copyWith(color: AppColors.getPrimaryColor(context)),
         appContext: context,

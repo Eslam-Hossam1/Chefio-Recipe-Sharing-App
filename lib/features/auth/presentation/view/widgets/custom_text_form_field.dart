@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:chefio_app/core/Functions/form_validators.dart';
-import 'package:chefio_app/core/Functions/text_form_field_validator.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/form_styles.dart';
