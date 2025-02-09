@@ -4,11 +4,13 @@ import 'package:chefio_app/core/Functions/get_auth_padding.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/app_router.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
+import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/code_expires_in.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_pin_code_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/send_again_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/verifiy_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class VerificationCodeForm extends StatefulWidget {
@@ -33,6 +35,7 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
             onSaved: (pinCodeText) {
               pinCodetext = pinCodeText;
             },
+          
           ),
           SizedBox(
             height: 48,
@@ -50,10 +53,8 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
                   onPressed: () async {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      context.go(AppRouter.kSignUpView);
-                      // await BlocProvider.of<SignUpCubit>(context)
-                      //     .signUpWithEmailAndPassword(
-                      //         email: email!, password: password!);
+                      await BlocProvider.of<VerificationCodeCubit>(context)
+                          .verfiyVerificationCode(code: int.parse(pinCodetext!));
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
@@ -64,7 +65,12 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
                 SizedBox(
                   height: 16,
                 ),
-                SendAgainButton(),
+                SendAgainButton(
+                  onPressed: () {
+                    BlocProvider.of<VerificationCodeCubit>(context)
+                        .resendVerificationCode();
+                  },
+                ),
               ],
             ),
           ),

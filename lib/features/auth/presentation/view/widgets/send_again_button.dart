@@ -6,14 +6,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class SendAgainButton extends StatelessWidget {
-  const SendAgainButton({super.key});
-
+  const SendAgainButton({super.key, this.onPressed});
+  final void Function()? onPressed; 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: CustomTextButton(
+            onPressed: onPressed,
             backgroundColor: Colors.transparent,
             borderSide: BorderSide(
               width: 2,
