@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/api/api_consumer.dart';
+import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
 import 'package:chefio_app/core/errors/failures.dart';
@@ -18,13 +19,52 @@ class AuthRepoImpl implements AuthRepo {
       final response = await _apiConsumer.post(
         EndPoint.signUp,
         data: {
-          'username': username,
-          'email': email,
-          'password': password,
+          ApiKeys.username: username,
+          ApiKeys.email: email,
+         ApiKeys.password: password,
         },
       );
       final signUpSuccessModel = SignUpSuccessModel.fromJson(response);
       return Right(signUpSuccessModel);
+    } catch (e) {
+      if(e is DioException){
+        return Left(DioApiFailure.fromDioException(e));
+      }else{
+        return Left(DioApiFailure(e.toString()));
+      }
+    }
+  }
+  
+  @override
+  Future<Either<Failure, void>> sendVerificationCode({required String email}) async{
+    try {
+      final response = await _apiConsumer.patch(
+        EndPoint.sendVerificationCode,
+        data: {
+         ApiKeys.email: email,
+        },
+      );
+      return Right(null);
+    } catch (e) {
+      if(e is DioException){
+        return Left(DioApiFailure.fromDioException(e));
+      }else{
+        return Left(DioApiFailure(e.toString()));
+      }
+    }
+  }
+  
+  @override
+  Future<Either<Failure, void>> verifyVerificationCode ({required String email, required int code})async {
+    try {
+      final response = await _apiConsumer.patch(
+        EndPoint.verifyVerificationCode,
+        data: {
+          ApiKeys.email: email,
+          ApiKeys.providedCode:code
+        },
+      );
+      return Right(null);
     } catch (e) {
       if(e is DioException){
         return Left(DioApiFailure.fromDioException(e));

@@ -7,4 +7,9 @@ abstract class AuthRepo {
       {required String username,
       required String email,
       required String password});
+
+  Future<Either<Failure, void>> sendVerificationCode({required String email});
+
+  Future<Either<Failure, void>> verifyVerificationCode(
+      {required String email, required int code});
 }
