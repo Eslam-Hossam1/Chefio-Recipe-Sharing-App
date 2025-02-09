@@ -22,19 +22,13 @@ class SignUpButton extends StatelessWidget {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state is SignUpFailure) {
-          DialogHelper.showErrorDialog(context,
-              errorMessage: state.errorMessage, btnOkOnPress: () {
-            context.go(AppRouter.kVerificationCodeView);
-          });
-        } else if (state is SignUpSuccess) {
-          DialogHelper.showSuccessDialog(context,
-              successMessage: AppLocalizationKeys
-                  .auth.signUpViewWeSentEmailVerification
-                  .tr(), btnOkOnPress: () {
-            context.go(AppRouter.kVerificationCodeView);
-          }, onDismissCallback: (_) {
-            context.go(AppRouter.kVerificationCodeView);
-          });
+          DialogHelper.showErrorDialog(
+            context,
+            errorMessage: state.errorMessage,
+            btnOkOnPress: () {},
+          );
+        }  else if (state is SignUpSuccess) {
+            context.go(AppRouter.kVerificationCodeView,extra:state.email);
         }
       },
       builder: (context, state) {
@@ -42,18 +36,21 @@ class SignUpButton extends StatelessWidget {
         return Row(
           children: [
             Expanded(
-              child: CustomTextButton(
-                onPressed: onPressed,
-                child: isLoading
-                    ? Center(
-                        child: CustomCircularProgressIndicator(
-                        color: Colors.white,
-                      ))
-                    : Text(
-                        AppLocalizationKeys.auth.signup.tr(),
-                        style: Styles.textStyleBold15(context)
-                            .copyWith(color: Colors.white),
-                      ),
+              child: AbsorbPointer(
+                absorbing: isLoading,
+                child: CustomTextButton(
+                  onPressed: onPressed,
+                  child: isLoading
+                      ? Center(
+                          child: CustomCircularProgressIndicator(
+                          color: Colors.white,
+                        ))
+                      : Text(
+                          AppLocalizationKeys.auth.signup.tr(),
+                          style: Styles.textStyleBold15(context)
+                              .copyWith(color: Colors.white),
+                        ),
+                ),
               ),
             ),
           ],
