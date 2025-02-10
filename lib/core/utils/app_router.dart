@@ -5,6 +5,7 @@ import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/
 import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/view/home_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
@@ -29,6 +30,10 @@ abstract class AppRouter {
       GoRoute(
         path: '/',
         builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: kHomeView,
+        builder: (context, state) => const HomeView(),
       ),
       GoRoute(
         path: kResetPasswordView,
