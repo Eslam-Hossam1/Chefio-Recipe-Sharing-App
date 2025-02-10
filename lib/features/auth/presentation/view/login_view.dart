@@ -14,43 +14,14 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return BlocConsumer<LogInCubit, LogInState>(
-    //   listener: (context, state) {
-    //     if (state is LogInFailure) {
-    //       customAdaptiveAwesomeDialog(
-    //         context,
-    //         dialogType: DialogType.error,
-    //         title: AppLocalizationKeys.global.error.tr(),
-    //         desc: state.errorMessage,
-    //         btnOkOnPress: () {},
-    //       ).show();
-    //     } else if (state is LogInSuccessButNeedVerification) {
-    //       customAdaptiveAwesomeDialog(
-    //         context,
-    //         dialogType: DialogType.info,
-    //         title: AppLocalizationKeys.global.info.tr(),
-    //         desc:
-    //             AppLocalizationKeys.auth.logInViewYourEmailNotVerifiedYet.tr(),
-    //         btnOkOnPress: () {},
-    //       ).show();
-    //     } else if (state is LogInSuccessAndVerified) {
-    //       context.go(AppRouter.kHomeView);
-    //     }
-    //   },
-    //   builder: (context, state) {
-    //     bool isLoading = state is LogInLoading;
-    return ModalProgressHUD(
-      inAsyncCall: false,
-      progressIndicator: const CustomCircularProgressIndicator(),
-      child: Scaffold(
-        body: SafeArea(child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: getAuthHorizontalPadding(context),),
-          child: LoginViewBody(),
-        )),
-   
-      ),
+    
+    return Scaffold(
+      body: SafeArea(child: Padding(
+        padding:  EdgeInsets.symmetric(horizontal: getAuthHorizontalPadding(context),),
+        child: LoginViewBody(),
+      )),
+       
     );
-    //   },
-    // );
+    
   }
 }
