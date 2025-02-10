@@ -1,6 +1,7 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custome_email_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/forget_password_clickable_text.dart';
@@ -40,8 +41,8 @@ class _LoginFormState extends State<LoginForm> {
       child: Column(
         children: [
           CustomeEmailTextFormField(onSaved: (value) {
-              email = value;
-            }),
+            email = value;
+          }),
           SizedBox(
             height: 16.h,
           ),
@@ -67,9 +68,9 @@ class _LoginFormState extends State<LoginForm> {
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    // await BlocProvider.of<LogInCubit>(context)
-                    //     .logInWithEmailAndPassword(
-                    //         email: email!, password: password!);
+                    await BlocProvider.of<LogInCubit>(context)
+                        .logIn(
+                            email: email!, password: password!);
                   } else {
                     setState(() {
                       _autovalidateMode = AutovalidateMode.always;
