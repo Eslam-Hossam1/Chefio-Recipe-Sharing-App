@@ -19,6 +19,7 @@ class LoginViewBody extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverFillRemaining(
+          hasScrollBody: false,
           child: Column(
             children: [
               Expanded(
