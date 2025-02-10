@@ -15,7 +15,7 @@ class LogInCubit extends Cubit<LogInState> {
     required String email,
     required String password,
   }) async {
-    emit(LogInLoadingWithEmailAndPassword());
+    emit(LogInLoading());
 
     var logInResult = await _authRepo.logIn(email: email, password: password);
 
@@ -24,7 +24,7 @@ class LogInCubit extends Cubit<LogInState> {
         if (failure.errMsg == "is not verify!") {
           emit(LogInNeedVerification(email: email));
         } else {
-          emit(LogInSuccess());
+          emit(LogInFailure(errorMessage: failure.errMsg));
         }
       },
       (logInSuccessModel) async {

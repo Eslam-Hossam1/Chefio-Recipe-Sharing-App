@@ -1,7 +1,10 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:chefio_app/core/Functions/get_auth_padding.dart';
+import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
+import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/login_view_body.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -14,14 +17,36 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    return Scaffold(
-      body: SafeArea(child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: getAuthHorizontalPadding(context),),
-        child: LoginViewBody(),
-      )),
-       
+    return BlocConsumer<LogInCubit, LogInState>(
+      listener: (context, state) {
+        if (state is LogInFailure) {
+          DialogHelper.showErrorDialog(
+            context,
+            errorMessage: state.errorMessage,
+            btnOkOnPress: () {},
+          );
+        } else if (state is LogInNeedVerification) {
+          context.go(AppRouter.kVerificationCodeView, extra: state.email);
+        } else if (state is LogInSuccess) {
+          context.go(AppRouter.kHomeView);
+        }
+      },
+      builder: (context, state) {
+        bool isLoading = state is LogInLoading;
+        return ModalProgressHUD(
+          inAsyncCall: isLoading,
+          progressIndicator: CustomCircularProgressIndicator(),
+          child: Scaffold(
+            body: SafeArea(
+                child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: getAuthHorizontalPadding(context),
+              ),
+              child: LoginViewBody(),
+            )),
+          ),
+        );
+      },
     );
-    
   }
 }

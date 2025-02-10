@@ -14,8 +14,7 @@ final class LogInSuccess extends LogInState {
   const LogInSuccess();
 }
 
-final class LogInLoadingWithEmailAndPassword extends LogInState {}
-final class LogInLoadingWithGoogle extends LogInState {}
+final class LogInLoading extends LogInState {}
 
 final class LogInFailure extends LogInState {
   final String errorMessage;

@@ -18,46 +18,19 @@ class LoginWithEmailAndPasswordButton extends StatelessWidget {
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LogInCubit, LogInState>(
-      listener: (context, state) {
-        if (state is LogInFailure) {
-          DialogHelper.showErrorDialog(
-            context,
-            errorMessage: state.errorMessage,
-            btnOkOnPress: () {},
-          );
-        } else if (state is LogInNeedVerification) {
-          context.go(AppRouter.kVerificationCodeView, extra: state.email);
-        } else if (state is LogInSuccess) {
-          context.go(AppRouter.kHomeView);
-        }
-      },
-      builder: (context, state) {
-        bool isLoading = (state is LogInLoadingWithEmailAndPassword)||(state is LogInLoadingWithGoogle);
-        bool showLoadingIndicator = (state is LogInLoadingWithEmailAndPassword);
-        return Row(
-          children: [
-            Expanded(
-              child: AbsorbPointer(
-                absorbing: isLoading,
-                child: CustomTextButton(
-                  onPressed: onPressed,
-                  child: showLoadingIndicator
-                      ? Center(
-                          child: CustomCircularProgressIndicator(
-                          color: Colors.white,
-                        ))
-                      : Text(
-                          AppLocalizationKeys.auth.logIn.tr(),
-                          style: Styles.textStyleBold15(context)
-                              .copyWith(color: Colors.white),
-                        ),
-                ),
-              ),
+    return Row(
+      children: [
+        Expanded(
+          child: CustomTextButton(
+            onPressed: onPressed,
+            child: Text(
+              AppLocalizationKeys.auth.logIn.tr(),
+              style:
+                  Styles.textStyleBold15(context).copyWith(color: Colors.white),
             ),
-          ],
-        );
-      },
+          ),
+        ),
+      ],
     );
   }
 }
