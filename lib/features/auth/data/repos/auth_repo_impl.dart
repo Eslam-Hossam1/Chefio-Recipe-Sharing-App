@@ -3,6 +3,7 @@ import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
 import 'package:chefio_app/core/errors/failures.dart';
+import 'package:chefio_app/features/auth/data/models/log_in_success_model.dart';
 import 'package:chefio_app/features/auth/data/models/sign_up_success_model/sign_up_success_model.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo.dart';
 import 'package:dartz/dartz.dart';
@@ -38,7 +39,7 @@ class AuthRepoImpl implements AuthRepo {
   @override
   Future<Either<Failure, void>> sendVerificationCode({required String email}) async{
     try {
-      final response = await _apiConsumer.patch(
+       await _apiConsumer.patch(
         EndPoint.sendVerificationCode,
         data: {
          ApiKeys.email: email,
@@ -57,7 +58,7 @@ class AuthRepoImpl implements AuthRepo {
   @override
   Future<Either<Failure, void>> verifyVerificationCode ({required String email, required int code})async {
     try {
-      final response = await _apiConsumer.patch(
+       await _apiConsumer.patch(
         EndPoint.verifyVerificationCode,
         data: {
           ApiKeys.email: email,
@@ -65,6 +66,27 @@ class AuthRepoImpl implements AuthRepo {
         },
       );
       return Right(null);
+    } catch (e) {
+      if(e is DioException){
+        return Left(DioApiFailure.fromDioException(e));
+      }else{
+        return Left(DioApiFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, LogInSuccessModel>> logIn({required String email, required String password})async {
+    try {
+      final response = await _apiConsumer.post(
+        EndPoint.signUp,
+        data: {
+          ApiKeys.email: email,
+         ApiKeys.password: password,
+        },
+      );
+      final logInSuccessModel = LogInSuccessModel.fromJson(response);
+      return Right(logInSuccessModel);
     } catch (e) {
       if(e is DioException){
         return Left(DioApiFailure.fromDioException(e));
