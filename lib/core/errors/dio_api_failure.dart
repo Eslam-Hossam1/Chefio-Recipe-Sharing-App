@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/errors/failures.dart';
 import 'package:dio/dio.dart';
 
@@ -34,7 +33,9 @@ class DioApiFailure extends Failure {
     if (status == 400 || status == 401 || status == 403) {
       return DioApiFailure(response["message"]);
     } else if (status == 404) {
-      return DioApiFailure("Your request not found, Please try later!");
+      return response['message'] == null
+          ? DioApiFailure("Your request not found, Please try later!")
+          : DioApiFailure(response["message"]);
     } else if (status == 500) {
       return DioApiFailure("Internal server error, Please try later");
     } else {
