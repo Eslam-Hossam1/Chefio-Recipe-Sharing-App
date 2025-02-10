@@ -2,10 +2,10 @@ import 'package:equatable/equatable.dart';
 
 class LogInSuccessModel extends Equatable {
   final bool? success;
-  final String? token;
+  final String token;
   final String? message;
 
-  const LogInSuccessModel({this.success, this.token, this.message});
+  const LogInSuccessModel({this.success,required this.token, this.message});
 
   factory LogInSuccessModel.fromJson(Map<String, dynamic> json) {
     return LogInSuccessModel(
