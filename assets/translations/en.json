@@ -66,7 +66,8 @@
             "verifiy":"Verifiy",
             "send_again":"Send Again",
             "verification_success_message": "Account created successfully! Your email has been verified, and you can now log in.",
-            "pls_enter_complete_pin":"Please enter the complete PIN code."
+            "pls_enter_complete_pin":"Please enter the complete PIN code.",
+            "verification_exit_warning":"You have signed up, but verification isn't complete. If you exit now, you'll need to verify again when logging in."
             
         },
 
@@ -98,8 +99,9 @@
         "warning":"Warning",
         "error":"Error",
         "info":"Info",
-        "success":"Success"
-        
+        "success":"Success",
+        "exit":"Exit",
+        "stay":"Stay"
     }
 
 }

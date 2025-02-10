@@ -86,6 +86,8 @@ class Auth {
   final String verificationCodeViewCodeExpiresIn =
       'auth.verification_code.code_expires_in';
   final String verificationCodeViewVerify = 'auth.verification_code.verifiy';
+  final String verificationCodeViewExitWarning =
+      'auth.verification_code.verification_exit_warning';
   final String verificationCodeViewSendAgain =
       'auth.verification_code.send_again';
   final String verificationCodeViewSuccessMessage =
@@ -123,4 +125,6 @@ class Global {
   final String error = 'global.error';
   final String info = 'global.info';
   final String success = 'global.success';
+  final String exit = 'global.confirm_exit';
+  final String stay = 'global.stay';
 }

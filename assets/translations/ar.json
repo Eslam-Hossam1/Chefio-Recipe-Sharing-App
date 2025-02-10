@@ -67,7 +67,9 @@
             "verifiy":"تحقق",
             "send_again":"ارسل مرة اخرى",
             "verification_success_message": "تم إنشاء الحساب بنجاح! لقد قمنا بالتحقق من بريدك الإلكتروني، يمكنك الآن تسجيل الدخول.",
-            "pls_enter_complete_pin":"من فضلك أدخل رمز PIN بالكامل."
+            "pls_enter_complete_pin":"من فضلك أدخل رمز PIN بالكامل.",
+            "verification_exit_warning":"لقد سجلت حسابك، لكن التحقق لم يكتمل. إذا خرجت الآن، ستحتاج لإعادة التحقق عند تسجيل الدخول."
+            
 
         },
 
@@ -99,9 +101,8 @@
         "error":"خطأ",
         "info":"معلومة",
         "success":"تم بنجاح",
-        "username_cant_contain_spaces": "اسم المستخدم لا يمكن أن يحتوي على مسافات",
-        "username_must_be_between": "يجب أن يكون اسم المستخدم بين 2 و 20 حرفًا",
-        "username_can_only_contain": "يمكن أن يحتوي اسم المستخدم فقط على الحروف والأرقام والشرطة السفلية"
+        "confirm_exit":"Exit",
+        "stay":"Stay"
 
     }
     
