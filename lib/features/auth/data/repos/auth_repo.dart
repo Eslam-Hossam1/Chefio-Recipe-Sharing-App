@@ -21,4 +21,10 @@ abstract class AuthRepo {
     required String email,
     required int code,
   });
+  Future<Either<Failure, void>> enterEmailToRecoverPassword({
+    required String email,
+  });
+  Future<Either<Failure, void>> resetPassword({
+    required String password,
+  });
 }
