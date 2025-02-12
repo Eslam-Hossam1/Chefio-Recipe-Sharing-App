@@ -1,5 +1,7 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/colors.dart';
+import 'package:chefio_app/features/auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/validate_reset_password/validate_reset_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/obsecure_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/reset_password_done_button.dart';
@@ -37,16 +39,11 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
       autovalidateMode: _autovalidateMode,
       child: Column(
         children: [
-          
           ObsecureTextFormField(
-            validator: (password) {
-              // return BlocProvider.of<ValidateSignUpPasswordCubit>(context)
-              //     .passwordTextFieldValidator(password);
-            },
-            onChanged: (password) {
-              // BlocProvider.of<ValidateSignUpPasswordCubit>(context)
-              //     .validatePasswordOnChange(password: password);
-            },
+            validator: BlocProvider.of<ValidateResetPasswordCubit>(context)
+                .passwordTextFieldValidator,
+            onChanged: BlocProvider.of<ValidateResetPasswordCubit>(context)
+                .validatePasswordOnChange,
             hint: AppLocalizationKeys.auth.passwordTextFieldHint.tr(),
             onSaved: (value) {
               password = value;
@@ -63,9 +60,8 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             onPressed: () async {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                // await BlocProvider.of<SignUpCubit>(context)
-                //     .signUpWithEmailAndPassword(
-                //         email: email!, password: password!);
+                await BlocProvider.of<ResetPasswordCubit>(context)
+                    .resetPassword(password: password!);
               } else {
                 setState(() {
                   _autovalidateMode = AutovalidateMode.always;

@@ -16,45 +16,15 @@ class ResetPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return BlocConsumer<SignUpCubit, SignUpState>(
-    //   listener: (context, state) {
-    //     if (state is SignUpFailure) {
-    //       customAdaptiveAwesomeDialog(
-    //         context,
-    //         dialogType: DialogType.error,
-    //         title: AppLocalizationKeys.global.error.tr(),
-    //         desc: state.errorMessage,
-    //         btnOkOnPress: () {},
-    //       ).show();
-    //     } else if (state is SignUpSuccess) {
-    //       customAdaptiveAwesomeDialog(
-    //         context,
-    //         dialogType: DialogType.success,
-    //         title: AppLocalizationKeys.global.success.tr(),
-    //         desc:
-    //             AppLocalizationKeys.auth.signUpViewWeSentEmailVerification.tr(),
-    //         btnOkOnPress: () {},
-    //         onDismissCallback: (_) {
-    //           context.go(AppRouter.kLogInView);
-    //         },
-    //       ).show();
-    //     }
-    //   },
-    //   builder: (context, state) {
-    //   bool isLoading = state is SignUpLoading;
-    return ModalProgressHUD(
-      inAsyncCall: false,
-      progressIndicator: const CustomCircularProgressIndicator(),
-      child: Scaffold(
-        body: SafeArea(
-          child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: getAuthHorizontalPadding(context)),
-              child: const ResetPasswordViewBody()),
-        ),
+   
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: getAuthHorizontalPadding(context)),
+            child: const ResetPasswordViewBody()),
       ),
     );
-    //   },
-    // );
+   
   }
 }
