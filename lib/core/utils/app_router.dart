@@ -2,6 +2,7 @@
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
@@ -41,7 +42,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kForgetPasswordView,
-        builder: (context, state) => const ForgetPasswordView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => ForgotPasswordCubit(getIt<AuthRepoImpl>()),
+          child: const ForgetPasswordView(),
+        ),
       ),
       GoRoute(
         path: kLoginView,
