@@ -36,12 +36,7 @@ abstract class AppColors {
         : const Color(0xFFD0DBEA);
   }
 
-  static Color getFormColor(BuildContext context) {
-    final theme = Theme.of(context);
-    return theme.brightness == Brightness.dark
-        ? const Color(0xFF2E2E2E)
-        : const Color(0xFFF4F5F7);
-  }
+
 
   static Color getScaffoldBackgroundColor(BuildContext context) {
     final theme = Theme.of(context);
