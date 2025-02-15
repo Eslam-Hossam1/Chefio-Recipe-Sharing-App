@@ -1,5 +1,9 @@
+import 'dart:ui';
+
 abstract class Constants {
   static const String kIsOnBoardingCompletedKey = "isOnBoardingOpenedBefore";
+  static const Locale arabicLocale = Locale('ar');
+  static const Locale englishLocale = Locale('en');
   static const double kMobileHorizontalPadding = 24;
   static const double kTabletHorizontalpadding = 36;
   static const double kDesignWidth = 375;

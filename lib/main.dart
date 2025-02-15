@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/Functions/get_text_theme.dart';
 import 'package:chefio_app/core/utils/app_router.dart';
 import 'package:chefio_app/core/utils/app_themes.dart';
 import 'package:chefio_app/core/utils/constants.dart';
@@ -40,8 +41,7 @@ class Chefio extends StatelessWidget {
             supportedLocales: context.supportedLocales,
             localizationsDelegates: context.localizationDelegates,
             builder: DevicePreview.appBuilder, // Wrap with DevicePreview
-            theme: AppThemes.getLightTheme(
-                isArabic: context.locale == const Locale('ar')),
+            theme: AppThemes.getLightTheme(textTheme: getTextTheme(context)),
             debugShowCheckedModeBanner: false,
           );
         });
