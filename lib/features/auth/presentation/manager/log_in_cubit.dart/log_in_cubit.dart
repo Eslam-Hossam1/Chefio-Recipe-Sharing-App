@@ -34,4 +34,25 @@ class LogInCubit extends Cubit<LogInState> {
       },
     );
   }
+
+  Future<void> logInWithGoogle() async {
+    emit(LogInLoading());
+
+    var logInResult = await _authRepo.logInWithGoogle();
+
+    logInResult.fold(
+      (failure) {
+        emit(LogInFailure(errorMessage: failure.errMsg));
+      },
+      (nullableLogInSuccessModel) async {
+        if (nullableLogInSuccessModel != null) {
+          await getIt<SecureStorageHelper>().setData(
+              key: ApiKeys.token, value: nullableLogInSuccessModel.token);
+          emit(LogInSuccess());
+        } else {
+          emit(LogInInitial());
+        }
+      },
+    );
+  }
 }

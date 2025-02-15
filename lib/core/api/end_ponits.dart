@@ -8,6 +8,7 @@ abstract class EndPoint {
   static const String enterEmailToRecoverPassword =
       "auth/verify-verification-code";
   static const String resetPassword = "auth/verify-verification-code";
+  static const String logInWithGoogle = "auth/verify-verification-code";
 
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";

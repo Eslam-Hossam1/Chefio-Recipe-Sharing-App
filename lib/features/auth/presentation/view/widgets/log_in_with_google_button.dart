@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/utils/app_router.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
@@ -11,6 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LogInWithGoogleButton extends StatelessWidget {
   const LogInWithGoogleButton({
@@ -23,6 +26,9 @@ class LogInWithGoogleButton extends StatelessWidget {
       children: [
         Expanded(
           child: CustomTextButton(
+            onPressed: () async {
+              await BlocProvider.of<LogInCubit>(context).logInWithGoogle();
+            },
             backgroundColor: const Color(0xffFF5842),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
