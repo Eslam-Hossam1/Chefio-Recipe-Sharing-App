@@ -16,7 +16,7 @@ class SplashViewModel {
     } else {
       return await checkUserLoggedIn() == true
           ? AppRouter.kHomeView
-          : AppRouter.kSignUpView;
+          : AppRouter.kLoginView;
     }
   }
 
