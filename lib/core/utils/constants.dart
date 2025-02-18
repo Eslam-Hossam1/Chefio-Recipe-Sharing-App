@@ -12,5 +12,5 @@ abstract class Constants {
       Duration(milliseconds: 500);
   static const Duration kFadeInDuration = Duration(seconds: 1);
   static const Duration kSplashNavigationDelayDuration =
-      Duration(milliseconds: 3000);
+      Duration(milliseconds: 2000);
 }

@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/forget_password_form.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
                 AppLocalizationKeys.auth.forgetPasswordViewPasswordRecovery
                     .tr(),
                 style: Styles.textStyleBold22(context).copyWith(
-                  color: AppColors.getMainTextColor(context),
+                  color:context.mainTextColor,
                 ),
               ),
               SizedBox(
@@ -43,7 +43,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
                     .auth.forgetPasswordViewEnterEmailRecoverPassword
                     .tr(),
                 style: Styles.textStyleMedium15(context).copyWith(
-                  color: AppColors.getSecondaryTextColor(context),
+                  color: context.secondaryColor,
                 ),
               ),
               SizedBox(

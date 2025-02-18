@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/password_standard.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -25,7 +25,7 @@ class SignUpPasswordStandardsColumn extends StatelessWidget {
             Text(
               AppLocalizationKeys.auth.signUpViewYourPasswordMustContain.tr(),
               style: Styles.textStyleMedium17(context).copyWith(
-                color: AppColors.getMainTextColor(context),
+                color: context.mainTextColor,
               ),
             ),
             SizedBox(

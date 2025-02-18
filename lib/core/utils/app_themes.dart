@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppThemes {
-  // Light Theme
-  static ThemeData getLightTheme({required TextTheme textTheme}) {
-    return ThemeData(
+ 
+    static final ThemeData  lightTheme= ThemeData(
       dialogBackgroundColor: const Color(0xFFF0F0F0),
       scaffoldBackgroundColor: const Color(0xFFFFFFFF),
-      textTheme: textTheme,
       brightness: Brightness.light,
       colorScheme: const ColorScheme.light(
         primary: Color(0xFF1FCC79),
@@ -23,11 +21,10 @@ abstract class AppThemes {
         ),
       ],
     );
-  }
+  
 
-  // Dark Theme
-  static ThemeData getDarkTheme({required TextTheme textTheme}) {
-    return ThemeData(
+  
+    static final ThemeData darkTheme= ThemeData(
       dialogBackgroundColor: const Color(0xFF1E1E1E),
       scaffoldBackgroundColor: const Color(0xFF121212),
       colorScheme: ColorScheme.dark(
@@ -37,7 +34,6 @@ abstract class AppThemes {
         outline: Color(0xFF3C3C3C),
       ),
       brightness: Brightness.dark,
-      textTheme: textTheme,
       extensions: <ThemeExtension<dynamic>>[
         CustomColors(
           mainTextColor: const Color(0xFFECEFF4),
@@ -45,5 +41,5 @@ abstract class AppThemes {
         ),
       ],
     );
-  }
+  
 }

@@ -1,7 +1,6 @@
 import 'package:chefio_app/core/Functions/show_custom_exit_confirmation_dialog.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/app_router.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';

@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custome_email_text_form_field.dart';
@@ -84,7 +84,7 @@ class _LoginFormState extends State<LoginForm> {
               Text(
                 AppLocalizationKeys.auth.orContinueWith.tr(),
                 style: Styles.textStyleMedium15(context).copyWith(
-                  color: AppColors.getSecondaryTextColor(context),
+                  color:context.secondaryTextColor,
                 ),
               ),
               SizedBox(

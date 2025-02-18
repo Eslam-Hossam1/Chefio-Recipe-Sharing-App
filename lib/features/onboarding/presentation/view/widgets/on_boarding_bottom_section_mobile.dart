@@ -1,9 +1,9 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/app_router.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/features/onboarding/presentation/view_model/onboarding_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -27,7 +27,7 @@ class OnBoardingBottomSectionMobile extends StatelessWidget {
           Text(
             AppLocalizationKeys.onBoarding.title.tr(),
             style: Styles.textStyleBold22(context).copyWith(
-              color: AppColors.getMainTextColor(context),
+              color: context.mainTextColor,
             ),
           ),
           SizedBox(
@@ -37,7 +37,7 @@ class OnBoardingBottomSectionMobile extends StatelessWidget {
             textAlign: TextAlign.center,
             AppLocalizationKeys.onBoarding.body.tr(),
             style: Styles.textStyleMedium17(context).copyWith(
-              color: AppColors.getSecondaryTextColor(context),
+              color: context.secondaryTextColor,
             ),
           ),
           Expanded(

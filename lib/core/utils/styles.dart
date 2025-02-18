@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 
 abstract class Styles {
@@ -98,19 +98,19 @@ abstract class Styles {
     );
   }
 
-  static TextStyle textStyleAwesomeDialogTitle(context) {
+  static TextStyle textStyleAwesomeDialogTitle(BuildContext context) {
     return TextStyle(
       fontWeight: FontWeight.w600,
       fontSize: _getResponsiveText(context, baseFontSize: 20),
-      color: AppColors.getMainTextColor(context),
+      color: context.mainTextColor,
     );
   }
 
-  static TextStyle textStyleAwesomeDialogDesc(context) {
+  static TextStyle textStyleAwesomeDialogDesc(BuildContext context) {
     return TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: _getResponsiveText(context, baseFontSize: 14),
-      color: AppColors.getMainTextColor(context),
+      color: context.mainTextColor,
     );
   }
 

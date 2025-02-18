@@ -1,8 +1,8 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/app_router.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/clickable_text.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/login_form.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -30,7 +30,7 @@ class LoginViewBody extends StatelessWidget {
                 textAlign: TextAlign.center,
                 AppLocalizationKeys.auth.logInViewWelcomeBack.tr(),
                 style: Styles.textStyleBold22(context).copyWith(
-                  color: AppColors.getMainTextColor(context),
+                  color: context.mainTextColor,
                 ),
               ),
               SizedBox(
@@ -40,7 +40,7 @@ class LoginViewBody extends StatelessWidget {
                 textAlign: TextAlign.center,
                 AppLocalizationKeys.auth.enterAccount.tr(),
                 style: Styles.textStyleMedium15(context).copyWith(
-                  color: AppColors.getSecondaryTextColor(context),
+                  color: context.secondaryTextColor,
                 ),
               ),
               SizedBox(
@@ -56,7 +56,7 @@ class LoginViewBody extends StatelessWidget {
                   Text(
                     AppLocalizationKeys.auth.logInViewDontHaveAnAccount.tr(),
                     style: Styles.textStyleSemiBold15(context).copyWith(
-                      color: AppColors.getMainTextColor(context),
+                      color: context.mainTextColor,
                     ),
                   ),
                   const SizedBox(
@@ -68,7 +68,7 @@ class LoginViewBody extends StatelessWidget {
                     },
                     text: AppLocalizationKeys.auth.signup.tr(),
                     style: Styles.textStyleBold15(context).copyWith(
-                      color: AppColors.getPrimaryColor(context),
+                      color:context.primaryColor,
                     ),
                   ),
                 ],

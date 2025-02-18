@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -76,7 +76,7 @@ class CountdownTimerState extends State<CountdownTimer> {
       child: Text(
         _formatTime(_remainingSeconds),
         style: Styles.textStyleMedium15(context)
-            .copyWith(color: AppColors.getSecondaryColor(context)),
+            .copyWith(color:context.secondaryColor),
       ),
     );
   }

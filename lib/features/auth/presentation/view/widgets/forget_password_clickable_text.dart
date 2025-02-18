@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/app_router.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/clickable_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class ForgetPasswordClickableText extends StatelessWidget {
       },
       text: AppLocalizationKeys.auth.forgetPasswordQuestion.tr(),
       style: Styles.textStyleSemiBold15(context).copyWith(
-        color: AppColors.getMainTextColor(context),
+        color: context.mainTextColor,
       ),
     );
   }

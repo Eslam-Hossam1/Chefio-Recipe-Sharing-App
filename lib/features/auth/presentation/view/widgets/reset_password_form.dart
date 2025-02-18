@@ -1,5 +1,4 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/features/auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/validate_reset_password/validate_reset_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';

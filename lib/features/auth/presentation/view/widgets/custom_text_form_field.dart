@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/form_styles.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -28,9 +28,9 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       onSaved: onSaved,
       validator: validator ?? FormValidators.customTextFormFieldValidator,
-      cursorColor: AppColors.getPrimaryColor(context),
+      cursorColor: context.primaryColor,
       style: Styles.textStyleSemiBold15(context).copyWith(
-        color: AppColors.getMainTextColor(context),
+        color: context.mainTextColor,
       ),
       decoration: InputDecoration(
         errorMaxLines: 2,
@@ -39,7 +39,7 @@ class CustomTextFormField extends StatelessWidget {
         ),
         hintText: hint,
         hintStyle: Styles.textStyleMedium15(context).copyWith(
-          color: AppColors.getSecondaryTextColor(context),
+          color: context.secondaryTextColor,
         ),
         prefixIcon: prefixIcon != null
             ? Padding(
@@ -51,7 +51,7 @@ class CustomTextFormField extends StatelessWidget {
         focusedBorder: FormStyles.buildBorder(context).copyWith(
           borderSide: BorderSide(
             width: 2,
-            color: AppColors.getPrimaryColor(context),
+            color:context.primaryColor,
           ),
         ),
       ),

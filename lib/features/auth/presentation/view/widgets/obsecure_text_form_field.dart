@@ -1,8 +1,8 @@
 import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/form_styles.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/closed_eye_icon.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/opened_eye_svg.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,6 @@ class ObsecureTextFormField extends StatefulWidget {
 class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
   bool isObscure = true;
 
-
   void toggleObsecure() {
     setState(() {
       isObscure = !isObscure;
@@ -41,11 +40,12 @@ class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
     return TextFormField(
       onSaved: widget.onSaved,
       onChanged: widget.onChanged,
-      validator: widget.validator ?? FormValidators.customTextFormFieldValidator,
+      validator:
+          widget.validator ?? FormValidators.customTextFormFieldValidator,
       obscureText: isObscure,
-      cursorColor: AppColors.getPrimaryColor(context),
+      cursorColor: context.primaryColor,
       style: Styles.textStyleSemiBold15(context).copyWith(
-        color: AppColors.getMainTextColor(context),
+        color: context.mainTextColor,
       ),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(
@@ -53,12 +53,14 @@ class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
         ),
         hintText: widget.hint,
         hintStyle: Styles.textStyleMedium15(context).copyWith(
-          color: AppColors.getSecondaryTextColor(context),
+          color: context.secondaryTextColor,
         ),
         prefixIcon: Padding(
           padding: const EdgeInsetsDirectional.only(start: 24, end: 10),
           child: SvgPicture.asset(
             Assets.imagesLock,
+            colorFilter:
+                ColorFilter.mode(context.mainTextColor, BlendMode.srcIn),
           ),
         ),
         suffixIconConstraints: BoxConstraints(),
@@ -80,7 +82,7 @@ class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
         focusedBorder: FormStyles.buildBorder(context).copyWith(
           borderSide: BorderSide(
             width: 2,
-            color: AppColors.getPrimaryColor(context),
+            color: context.primaryColor,
           ),
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/colors.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 
 class CustomCircularProgressIndicator extends StatelessWidget {
@@ -9,7 +9,7 @@ class CustomCircularProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircularProgressIndicator(
-      color:color?? AppColors.getPrimaryColor(context),
+      color:color??context.primaryColor,
     );
   }
 }

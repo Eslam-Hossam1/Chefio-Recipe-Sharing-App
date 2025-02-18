@@ -1,8 +1,8 @@
 import 'package:chefio_app/core/Functions/get_auth_padding.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/code_expires_in.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_pin_code_field.dart';
@@ -29,7 +29,7 @@ class VerificationCodeViewBody extends StatelessWidget {
             Text(
               AppLocalizationKeys.auth.verificationCodeViewCheckYourEmail.tr(),
               style: Styles.textStyleBold22(context).copyWith(
-                color: AppColors.getMainTextColor(context),
+                color: context.mainTextColor,
               ),
             ),
             SizedBox(
@@ -38,7 +38,7 @@ class VerificationCodeViewBody extends StatelessWidget {
             Text(
               AppLocalizationKeys.auth.verificationCodeViewWeHaveSent.tr(),
               style: Styles.textStyleMedium15(context).copyWith(
-                color: AppColors.getSecondaryTextColor(context),
+                color: context.secondaryTextColor,
               ),
             ),
             SizedBox(

@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,11 +26,11 @@ class CustomPinCodeField extends StatelessWidget {
         onSaved: onSaved,
         validator: FormValidators.pincodeTextFormFieldValidator,
         pastedTextStyle: Styles.textStyleBold15(context)
-            .copyWith(color: AppColors.getPrimaryColor(context)),
+            .copyWith(color:context.primaryColor),
         appContext: context,
         length: 6,
         textStyle: Styles.textStyleSemiBold34(context)
-            .copyWith(color: AppColors.getMainTextColor(context)),
+            .copyWith(color:context.mainTextColor),
         showCursor: false,
         animationType: AnimationType.fade,
         keyboardType: TextInputType.number,
@@ -39,8 +39,8 @@ class CustomPinCodeField extends StatelessWidget {
           borderRadius: BorderRadius.circular(16.r),
           fieldHeight: getfieldWidth(context),
           fieldWidth: getfieldWidth(context),
-          activeColor: AppColors.getPrimaryColor(context),
-          inactiveColor: AppColors.getOutlineColor(context),
+          activeColor: context.primaryColor,
+          inactiveColor:context.outlineColor,
           selectedColor: Colors.blue,
         ),
         onChanged: onChanged, // Optional for real-time input tracking

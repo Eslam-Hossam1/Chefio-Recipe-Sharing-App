@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/colors.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 
 class ClosedEyeIcon extends StatelessWidget {
@@ -10,7 +10,7 @@ class ClosedEyeIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Icon(
       Icons.visibility_off,
-      color: AppColors.getMainTextColor(context),
+      color: context.mainTextColor,
       size: 24,
     );
   }

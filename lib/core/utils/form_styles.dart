@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/colors.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 
 abstract class FormStyles {
@@ -7,7 +7,7 @@ abstract class FormStyles {
       borderRadius: BorderRadius.circular(32),
       borderSide: BorderSide(
         width: 2,
-        color: AppColors.getOutlineColor(context),
+        color: context.outlineColor,
       ),
     );
   }

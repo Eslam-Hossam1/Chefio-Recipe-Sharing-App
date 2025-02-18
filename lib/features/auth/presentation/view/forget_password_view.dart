@@ -1,6 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:chefio_app/core/Functions/get_auth_padding.dart';
-import 'package:chefio_app/core/utils/colors.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/core/widgets/adaptive_layout_widget.dart';
@@ -19,28 +18,7 @@ class ForgetPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
-    //   listener: (context, state) {
-    //     if (state is ForgetPasswordFailure) {
-    //       DialogHelper.showErrorDialog(context, state.errorMessage);
-    //     } else if (state is ForgetPasswordSuccess) {
-    //       customAdaptiveAwesomeDialog(
-    //         context,
-    //         dialogType: DialogType.success,
-    //         title: AppLocalizationKeys.global.success.tr(),
-    //         desc: AppLocalizationKeys
-    //             .auth.forgetPasswordViewPasswordResetLinkSent
-    //             .tr(),
-    //         btnOkOnPress: () {},
-    //         onDismissCallback: (_) {
-    //           context.go(AppRouter.kLogInView);
-    //         },
-    //       ).show();
-    //     }
-    //   },
-    //   builder: (context, state) {
-    //     bool isLoading = state is ForgetPasswordLoading;
-
+    
     return ModalProgressHUD(
       inAsyncCall: false,
       progressIndicator: const CustomCircularProgressIndicator(),
@@ -53,8 +31,7 @@ class ForgetPasswordView extends StatelessWidget {
         ),
       ),
     );
-    //   },
-    // );
+
   }
 
   

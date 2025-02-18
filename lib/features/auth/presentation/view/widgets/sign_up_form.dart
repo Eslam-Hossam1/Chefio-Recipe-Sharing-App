@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/colors.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
@@ -47,7 +47,7 @@ class _SignUpFormState extends State<SignUpForm> {
             prefixIcon: Icon(
               FontAwesomeIcons.user,
               size: 24,
-              color: AppColors.getMainTextColor(context),
+              color: context.mainTextColor,
             ),
             onSaved: (value) {
               username = value;
