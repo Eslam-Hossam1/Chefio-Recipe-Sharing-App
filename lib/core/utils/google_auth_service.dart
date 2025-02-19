@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 class GoogleAuthService {
   final GoogleSignIn _googleSignIn = GoogleSignIn(
     serverClientId: kIsWeb ? null : EnvConfig.webClientId,
-    clientId: kIsWeb ? null : EnvConfig.webClientId,
+    clientId: kIsWeb ? EnvConfig.webClientId : null,
   );
 
   Future<GoogleSignInAccount?> signInWithGoogle() async {
