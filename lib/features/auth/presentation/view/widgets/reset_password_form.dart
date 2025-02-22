@@ -1,6 +1,7 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/features/auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/validate_reset_password/validate_reset_password_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/obsecure_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/reset_password_done_button.dart';
@@ -39,9 +40,9 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
       child: Column(
         children: [
           ObsecureTextFormField(
-            validator: BlocProvider.of<ValidateResetPasswordCubit>(context)
+            validator: BlocProvider.of<ValidateSignUpPasswordCubit>(context)
                 .passwordTextFieldValidator,
-            onChanged: BlocProvider.of<ValidateResetPasswordCubit>(context)
+            onChanged: BlocProvider.of<ValidateSignUpPasswordCubit>(context)
                 .validatePasswordOnChange,
             hint: AppLocalizationKeys.auth.passwordTextFieldHint.tr(),
             onSaved: (value) {
@@ -51,7 +52,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           SizedBox(
             height: 24.h,
           ),
-          const ResetPasswordStandardsColumn(),
+          const SignUpPasswordStandardsColumn(),
           SizedBox(
             height: 48.h,
           ),

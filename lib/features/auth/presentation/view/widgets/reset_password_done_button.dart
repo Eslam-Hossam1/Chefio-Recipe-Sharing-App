@@ -23,13 +23,14 @@ class ResetPasswordDoneButton extends StatelessWidget {
         if (state is ResetPasswordFailure) {
           DialogHelper.showErrorDialog(
             context,
-            errorMessage: state.errorMessage,
+            errorMessage: state.errorLocalizationKey.tr(),
             btnOkOnPress: () {},
           );
         } else if (state is ResetPasswordSuccess) {
           DialogHelper.showSuccessDialog(
             context,
-            successMessage: AppLocalizationKeys.auth.resetPasswordViewSuccess.tr(),
+            successMessage:
+                AppLocalizationKeys.auth.resetPasswordViewSuccess.tr(),
             btnOkOnPress: () => context.go(AppRouter.kLoginView),
             onDismissCallback: (_) => context.go(AppRouter.kLoginView),
           );

@@ -23,11 +23,12 @@ class PasswordRecoveryButton extends StatelessWidget {
         if (state is ForgotPasswordFailure) {
           DialogHelper.showErrorDialog(
             context,
-            errorMessage: state.errorMessage,
+            errorMessage: state.errorLocalizaitonKey.tr(),
             btnOkOnPress: () {},
           );
         } else if (state is ForgotPasswordSuccess) {
-          context.go(AppRouter.kVerificationCodeView, extra: state.email);
+          context.push(AppRouter.kForgetPasswordVerificationCodeView,
+              extra: state.email);
         }
       },
       builder: (context, state) {
@@ -38,19 +39,19 @@ class PasswordRecoveryButton extends StatelessWidget {
             Expanded(
               child: AbsorbPointer(
                 absorbing: isLoading,
-                child: isLoading
-                    ? Center(
-                        child: CustomCircularProgressIndicator(
-                        color: Colors.white,
-                      ))
-                    : CustomTextButton(
-                        onPressed: onPressed,
-                        child: Text(
+                child: CustomTextButton(
+                  onPressed: onPressed,
+                  child: isLoading
+                      ? Center(
+                          child: CustomCircularProgressIndicator(
+                          color: Colors.white,
+                        ))
+                      : Text(
                           AppLocalizationKeys.auth.confirm.tr(),
                           style: Styles.textStyleBold15(context)
                               .copyWith(color: Colors.white),
                         ),
-                      ),
+                ),
               ),
             ),
           ],

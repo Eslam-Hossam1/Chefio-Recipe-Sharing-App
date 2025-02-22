@@ -30,7 +30,8 @@ class ResetPasswordViewBody extends StatelessWidget {
               ),
               Text(
                 textAlign: TextAlign.center,
-                AppLocalizationKeys.auth.resetPasswordViewResetYourPassword.tr(),
+                AppLocalizationKeys.auth.resetPasswordViewResetYourPassword
+                    .tr(),
                 style: Styles.textStyleBold22(context).copyWith(
                   color: context.mainTextColor,
                 ),
@@ -40,9 +41,10 @@ class ResetPasswordViewBody extends StatelessWidget {
               ),
               Text(
                 textAlign: TextAlign.center,
-                AppLocalizationKeys.auth.resetPasswordViewPleaseEnterNewPassword.tr(),
+                AppLocalizationKeys.auth.resetPasswordViewPleaseEnterNewPassword
+                    .tr(),
                 style: Styles.textStyleMedium15(context).copyWith(
-                  color:context.secondaryTextColor,
+                  color: context.secondaryTextColor,
                 ),
               ),
               const SizedBox(
@@ -52,7 +54,6 @@ class ResetPasswordViewBody extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              
               Expanded(
                 flex: 2,
                 child: const SizedBox(
