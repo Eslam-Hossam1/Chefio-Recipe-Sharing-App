@@ -23,6 +23,7 @@ class CountdownTimerState extends State<CountdownTimer> {
     super.initState();
     _remainingSeconds =
         widget.seconds; // ✅ تحديد القيمة الافتراضية فقط بدون تشغيل التايمر
+    _startTimer();
   }
 
   void _startTimer() {
@@ -36,6 +37,7 @@ class CountdownTimerState extends State<CountdownTimer> {
         }
       } else {
         timer.cancel();
+        BlocProvider.of<VerificationCodeCubit>(context).showSendAgain();
       }
     });
   }
@@ -67,16 +69,16 @@ class CountdownTimerState extends State<CountdownTimer> {
         if (state is SendVerificationCodeSuccess) {
           restartTimer(); // ✅ تشغيل العداد فقط عند استقبال الحالة المطلوبة
         }
-        if (state is VerificationCodeFailure) {
+        if (state is SendVerificationCodeFailure) {
           setState(() {
-                _remainingSeconds = 0; // ✅ تصفير العداد عند الفشل
-              });        
+            _remainingSeconds = 0; // ✅ تصفير العداد عند الفشل
+          });
         }
       },
       child: Text(
         _formatTime(_remainingSeconds),
         style: Styles.textStyleMedium15(context)
-            .copyWith(color:context.secondaryColor),
+            .copyWith(color: context.secondaryColor),
       ),
     );
   }

@@ -20,7 +20,7 @@ class CodeExpiresIn extends StatelessWidget {
             color: context.mainTextColor,
           ),
         ),
-        CountdownTimer(seconds: 5 * 60),
+        CountdownTimer(seconds: 3 * 60),
       ],
     );
   }

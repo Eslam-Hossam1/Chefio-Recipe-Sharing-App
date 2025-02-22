@@ -12,11 +12,22 @@ final class VerificationCodeInitial extends VerificationCodeState {}
 final class SendVerificationCodeSuccess extends VerificationCodeState {}
 
 final class VerifyVerificationCodeSuccess extends VerificationCodeState {}
+final class ShowSendAgain extends VerificationCodeState {}
 
-final class VerificationCodeFailure extends VerificationCodeState {
+final class SendVerificationCodeFailure extends VerificationCodeState {
   final String errorMessage;
+  final String errorLocalizationKey;
 
-  const VerificationCodeFailure({required this.errorMessage});
+  const SendVerificationCodeFailure(
+      {required this.errorMessage, required this.errorLocalizationKey});
+}
+
+final class VerifyVerificationCodeFailure extends VerificationCodeState {
+  final String errorMessage;
+  final String errorLocalizationKey;
+
+  const VerifyVerificationCodeFailure(
+      {required this.errorMessage, required this.errorLocalizationKey});
 }
 
 final class VerificationCodeLoading extends VerificationCodeState {}

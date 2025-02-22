@@ -8,5 +8,5 @@ sealed class ValidateResetPasswordState extends Equatable {
 }
 
 final class ValidateResetPasswordInitial extends ValidateResetPasswordState {}
-final class ValidateResetPasswordUpdate extends ValidateResetPasswordState {}
 
+final class ValidateResetPasswordUpdate extends ValidateResetPasswordState {}

@@ -36,19 +36,19 @@ abstract class DialogHelper {
     Color? btnCancelColor,
     String? btnCanceltext,
   }) {
-    customAdaptiveAwesomeDialog(
-      context,
-      dialogType: DialogType.warning,
-      title: AppLocalizationKeys.global.warning.tr(),
-      desc: errorMessage,
-      btnOkOnPress: btnOkOnPress,
-      btnOkText: btnOkText,
-      btnOk: btnOk,
-      btnOkColor: btnOkColor,
-      onDismissCallback: onDismissCallback,
-      btnCancelColor: btnCancelColor,
-      btnCancelText: btnCanceltext,
-    ).show();
+    customAdaptiveAwesomeDialog(context,
+            dialogType: DialogType.warning,
+            title: AppLocalizationKeys.global.warning.tr(),
+            desc: errorMessage,
+            btnOkOnPress: btnOkOnPress,
+            btnOkText: btnOkText,
+            btnOk: btnOk,
+            btnOkColor: btnOkColor,
+            onDismissCallback: onDismissCallback,
+            btnCancelColor: btnCancelColor,
+            btnCancelText: btnCanceltext,
+            btnCancelOnPress: () {})
+        .show();
   }
 
   static void showSuccessDialog(
@@ -70,6 +70,4 @@ abstract class DialogHelper {
       onDismissCallback: onDismissCallback,
     ).show();
   }
-
-  
 }

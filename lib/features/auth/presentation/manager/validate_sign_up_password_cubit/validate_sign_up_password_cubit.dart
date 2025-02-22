@@ -11,6 +11,7 @@ class ValidateSignUpPasswordCubit extends Cubit<ValidateSignUpPasswordState> {
   bool isContainsNumberValid = false;
   bool isContainsUppercaseLetter = false;
   bool isContainsLowercaseLetter = false;
+  bool isContainsSpecialLetter = false;
   final RegExp eightCharRegex = RegExp(r'^.{8,}$');
 
   final RegExp numberRegex = RegExp(r'\d');
@@ -19,10 +20,13 @@ class ValidateSignUpPasswordCubit extends Cubit<ValidateSignUpPasswordState> {
 
   final RegExp lowercaseRegex = RegExp(r'[a-z]');
 
-  void validatePasswordOnChange( String password) {
+  final RegExp specialLetterRegex = RegExp(r'[@$!^%*?#&]');
+
+  void validatePasswordOnChange(String password) {
     isMinLengthValid = eightCharRegex.hasMatch(password);
     isContainsNumberValid = numberRegex.hasMatch(password);
     isContainsUppercaseLetter = uppercaseRegex.hasMatch(password);
+    isContainsSpecialLetter = specialLetterRegex.hasMatch(password);
     isContainsLowercaseLetter = lowercaseRegex.hasMatch(password);
     emit(ValidateSignUpPasswordUpdate());
   }
@@ -47,6 +51,11 @@ class ValidateSignUpPasswordCubit extends Cubit<ValidateSignUpPasswordState> {
     return isContainsLowercaseLetter;
   }
 
+  bool validateContainsSpecialLetter({required String password}) {
+    bool isContainsSpecialLetter = specialLetterRegex.hasMatch(password);
+    return isContainsSpecialLetter;
+  }
+
   String? passwordTextFieldValidator(String? password) {
     if (password == null || password.isEmpty) {
       return AppLocalizationKeys.auth.thisFieldRequired.tr();
@@ -56,6 +65,8 @@ class ValidateSignUpPasswordCubit extends Cubit<ValidateSignUpPasswordState> {
       return AppLocalizationKeys.auth.signUpViewMustContainNumber.tr();
     } else if (!validateContainsUppercaseLetter(password: password)) {
       return AppLocalizationKeys.auth.signUpViewContainsUppercaseLetter.tr();
+    } else if (!validateContainsSpecialLetter(password: password)) {
+      return AppLocalizationKeys.auth.signUpViewContainsSpecialLetter.tr();
     } else if (!validateContainsLowercaseLetter(password: password)) {
       return AppLocalizationKeys.auth.signUpViewContainsLowercaseLetter.tr();
     } else {
