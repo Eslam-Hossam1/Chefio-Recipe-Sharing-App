@@ -9,10 +9,8 @@ sealed class ForgotPasswordState extends Equatable {
 
 final class ForgotPasswordInitial extends ForgotPasswordState {}
 
-
-
 final class ForgotPasswordSuccess extends ForgotPasswordState {
-   final String email;
+  final String email;
 
   const ForgotPasswordSuccess({required this.email});
 }
@@ -21,6 +19,6 @@ final class ForgotPasswordLoading extends ForgotPasswordState {}
 
 final class ForgotPasswordFailure extends ForgotPasswordState {
   final String errorMessage;
-
- const  ForgotPasswordFailure({required this.errorMessage});
+  final String errorLocalizaitonKey;
+  const ForgotPasswordFailure({required this.errorMessage, required this.errorLocalizaitonKey});
 }
