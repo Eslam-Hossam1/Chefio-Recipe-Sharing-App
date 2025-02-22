@@ -43,6 +43,7 @@
             "must_contains_a_number":"Contains a number",
             "must_contains_a_uppercase_letter":"Contains an uppercase letter",
             "must_contains_a_lowercase_letter":"Contains a lowercase letter",
+            "must_contains_a_special_letter":"Contains a special letter",
             "email_already_in_use": "The email is already in use by another account.",
             "operation_not_allowed": "Email/password sign-in is not enabled. Please contact support.",
             "weak_password": "The password is too weak. Please choose a stronger password.",
@@ -75,8 +76,8 @@
             "reset_your_password":"Reset your password",
             "please_enter_new_password": "Please enter your new password",
             "done":"Done",
-            "reset_password_success": "Your password has been reset successfully! You can now log in with your new password."
-
+            "reset_password_success": "Your password has been reset successfully! You can now log in with your new password.",
+            "reset_password_exit_warning":" The password didn't reset yet, are you sure you want to exit"
             
         }
 
@@ -140,6 +141,7 @@
         "bad_response": "Something went wrong while processing your request. Try again.",
         "request_cancelled": "Request was cancelled. Please try again.",
         "no_internet_connection": "No internet connection. Please check your network.",
-        "validation_error": "Some fields are incorrect. Please check and try again."
+        "validation_error": "Some fields are incorrect. Please check and try again.",
+        "invalid_code":"Invalid Code"
     }
 }

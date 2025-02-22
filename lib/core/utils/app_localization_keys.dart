@@ -65,6 +65,8 @@ class Auth {
   final String signUpViewAtLeastCharacters = 'auth.sign_up.at_least_characters';
   final String signUpViewContainsUppercaseLetter =
       'auth.sign_up.must_contains_a_uppercase_letter';
+  final String signUpViewContainsSpecialLetter =
+      'auth.sign_up.must_contains_a_special_letter';
   final String signUpViewContainsLowercaseLetter =
       'auth.sign_up.must_contains_a_lowercase_letter';
   final String signUpViewMustContainNumber =
@@ -101,6 +103,7 @@ class Auth {
   final String resetPasswordViewPleaseEnterNewPassword =
       'auth.reset_password.please_enter_new_password';
   final String resetPasswordViewDone = 'auth.reset_password.done';
+  final String resetPasswordExitWarning = 'auth.reset_password.reset_password_exit_warning';
   final String resetPasswordViewSuccess =
       'auth.reset_password.reset_password_success';
 }
@@ -128,44 +131,45 @@ class Global {
   final String error = 'global.error';
   final String info = 'global.info';
   final String success = 'global.success';
-  final String exit = 'global.confirm_exit';
+  final String exit = 'global.exit';
   final String stay = 'global.stay';
 }
 
 class Error {
   Error._();
   static final Error _instance = Error._();
-  static const String badRequest = "errors.bad_request";
-  static const String unauthorized = "errors.unauthorized";
-  static const String forbidden = "errors.forbidden";
-  static const String notFound = "errors.not_found";
-  static const String conflict = "errors.conflict";
-  static const String unprocessableEntity = "errors.unprocessable_entity";
-  static const String internalServerError = "errors.internal_server_error";
-  static const String serviceUnavailable = "errors.service_unavailable";
-  static const String unknownError = "errors.unknown_error";
-  static const String expiredToken = "errors.expired_token";
-  static const String invalidCredentials = "errors.invalid_credentials";
-  static const String accountLocked = "errors.account_locked";
-  static const String emailNotVerified = "errors.email_not_verified";
-  static const String insufficientFunds = "errors.insufficient_funds";
-  static const String paymentDeclined = "errors.payment_declined";
-  static const String invalidCardDetails = "errors.invalid_card_details";
-  static const String duplicateEntry = "errors.duplicate_entry";
-  static const String dataConflict = "errors.data_conflict";
-  static const String recordNotFound = "errors.record_not_found";
-  static const String invalidInput = "errors.invalid_input";
-  static const String fileTooLarge = "errors.file_too_large";
-  static const String unsupportedFileFormat = "errors.unsupported_file_format";
-  static const String storageFull = "errors.storage_full";
-  static const String permissionDenied = "errors.permission_denied";
-  static const String deviceNotSupported = "errors.device_not_supported";
-  static const String connectionTimeout = "errors.connection_timeout";
-  static const String sendTimeout = "errors.send_timeout";
-  static const String receiveTimeout = "errors.receive_timeout";
-  static const String badCertificate = "errors.bad_certificate";
-  static const String badResponse = "errors.bad_response";
-  static const String requestCancelled = "errors.request_cancelled";
-  static const String noInternetConnection = "errors.no_internet_connection";
-  static const String validationError = "errors.validation_error";
+  final String badRequest = "errors.bad_request";
+  final String unauthorized = "errors.unauthorized";
+  final String forbidden = "errors.forbidden";
+  final String notFound = "errors.not_found";
+  final String conflict = "errors.conflict";
+  final String unprocessableEntity = "errors.unprocessable_entity";
+  final String internalServerError = "errors.internal_server_error";
+  final String serviceUnavailable = "errors.service_unavailable";
+  final String unknownError = "errors.unknown_error";
+  final String expiredToken = "errors.expired_token";
+  final String invalidCredentials = "errors.invalid_credentials";
+  final String accountLocked = "errors.account_locked";
+  final String emailNotVerified = "errors.email_not_verified";
+  final String insufficientFunds = "errors.insufficient_funds";
+  final String paymentDeclined = "errors.payment_declined";
+  final String invalidCardDetails = "errors.invalid_card_details";
+  final String duplicateEntry = "errors.duplicate_entry";
+  final String dataConflict = "errors.data_conflict";
+  final String recordNotFound = "errors.record_not_found";
+  final String invalidInput = "errors.invalid_input";
+  final String fileTooLarge = "errors.file_too_large";
+  final String unsupportedFileFormat = "errors.unsupported_file_format";
+  final String storageFull = "errors.storage_full";
+  final String permissionDenied = "errors.permission_denied";
+  final String deviceNotSupported = "errors.device_not_supported";
+  final String connectionTimeout = "errors.connection_timeout";
+  final String sendTimeout = "errors.send_timeout";
+  final String receiveTimeout = "errors.receive_timeout";
+  final String badCertificate = "errors.bad_certificate";
+  final String badResponse = "errors.bad_response";
+  final String requestCancelled = "errors.request_cancelled";
+  final String noInternetConnection = "errors.no_internet_connection";
+  final String validationError = "errors.validation_error";
+  final String invalidCode = "errors.invalid_code";
 }
