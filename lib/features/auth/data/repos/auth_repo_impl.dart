@@ -1,6 +1,7 @@
 import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
+import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
 import 'package:chefio_app/core/errors/failures.dart';
 import 'package:chefio_app/core/utils/google_auth_service.dart';
@@ -17,13 +18,13 @@ class AuthRepoImpl implements AuthRepo {
   AuthRepoImpl(this._apiConsumer, this._googleAuthService);
 
   @override
-  Future<Either<Failure, SignUpSuccessModel>> signUp(
+  Future<Either<ApiFailure, SignUpSuccessModel>> signUp(
       {required String username,
       required String email,
       required String password}) async {
     try {
       final response = await _apiConsumer.post(
-        EndPoint.signUp,
+        EndPoints.signUp,
         data: {
           ApiKeys.username: username,
           ApiKeys.email: email,
@@ -36,17 +37,19 @@ class AuthRepoImpl implements AuthRepo {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
       } else {
-        return Left(DioApiFailure(e.toString()));
+        return Left(DioApiFailure.unknown(
+          e.toString(),
+        ));
       }
     }
   }
 
   @override
-  Future<Either<Failure, void>> sendVerificationCode(
+  Future<Either<ApiFailure, void>> sendVerificationCode(
       {required String email}) async {
     try {
       await _apiConsumer.patch(
-        EndPoint.sendVerificationCode,
+        EndPoints.sendVerificationCode,
         data: {
           ApiKeys.email: email,
         },
@@ -56,17 +59,19 @@ class AuthRepoImpl implements AuthRepo {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
       } else {
-        return Left(DioApiFailure(e.toString()));
+        return Left(DioApiFailure.unknown(
+          e.toString(),
+        ));
       }
     }
   }
 
   @override
-  Future<Either<Failure, void>> verifyVerificationCode(
+  Future<Either<ApiFailure, void>> verifyVerificationCode(
       {required String email, required int code}) async {
     try {
       await _apiConsumer.patch(
-        EndPoint.verifyVerificationCode,
+        EndPoints.verifyVerificationCode,
         data: {ApiKeys.email: email, ApiKeys.providedCode: code},
       );
       return Right(null);
@@ -74,17 +79,19 @@ class AuthRepoImpl implements AuthRepo {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
       } else {
-        return Left(DioApiFailure(e.toString()));
+        return Left(DioApiFailure.unknown(
+          e.toString(),
+        ));
       }
     }
   }
 
   @override
-  Future<Either<Failure, LogInSuccessModel>> logIn(
+  Future<Either<ApiFailure, LogInSuccessModel>> logIn(
       {required String email, required String password}) async {
     try {
       final response = await _apiConsumer.post(
-        EndPoint.logIn,
+        EndPoints.logIn,
         data: {
           ApiKeys.email: email,
           ApiKeys.password: password,
@@ -96,19 +103,22 @@ class AuthRepoImpl implements AuthRepo {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
       } else {
-        return Left(DioApiFailure(e.toString()));
+        return Left(DioApiFailure.unknown(
+          e.toString(),
+        ));
       }
     }
   }
 
   @override
-  Future<Either<Failure, void>> enterEmailToRecoverPassword(
-      {required String email}) async {
+  Future<Either<ApiFailure, void>> resetPassword(
+      {required String email, required String newPassword}) async {
     try {
-      await _apiConsumer.post(
-        EndPoint.enterEmailToRecoverPassword,
+      await _apiConsumer.patch(
+        EndPoints.resetPassword,
         data: {
           ApiKeys.email: email,
+          ApiKeys.newPassword: newPassword,
         },
       );
       return Right(null);
@@ -116,33 +126,15 @@ class AuthRepoImpl implements AuthRepo {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
       } else {
-        return Left(DioApiFailure(e.toString()));
+        return Left(DioApiFailure.unknown(
+          e.toString(),
+        ));
       }
     }
   }
 
   @override
-  Future<Either<Failure, void>> resetPassword(
-      {required String password}) async {
-    try {
-      await _apiConsumer.post(
-        EndPoint.resetPassword,
-        data: {
-          ApiKeys.password: password,
-        },
-      );
-      return Right(null);
-    } catch (e) {
-      if (e is DioException) {
-        return Left(DioApiFailure.fromDioException(e));
-      } else {
-        return Left(DioApiFailure(e.toString()));
-      }
-    }
-  }
-
-  @override
-  Future<Either<Failure, LogInSuccessModel?>> logInWithGoogle() async {
+  Future<Either<ApiFailure, LogInSuccessModel?>> logInWithGoogle() async {
     try {
       GoogleSignInAccount? googleUser =
           await _googleAuthService.signInWithGoogle();
@@ -153,7 +145,7 @@ class AuthRepoImpl implements AuthRepo {
 
       final String? idToken = googleAuth.idToken;
       final response = await _apiConsumer.post(
-        EndPoint.logInWithGoogle,
+        EndPoints.googleSignIn,
         data: {
           ApiKeys.token: idToken,
         },
@@ -164,7 +156,51 @@ class AuthRepoImpl implements AuthRepo {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
       } else {
-        return Left(DioApiFailure(e.toString()));
+        return Left(DioApiFailure.unknown(
+          e.toString(),
+        ));
+      }
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, void>> sendForgotPasswordVerificationCode(
+      {required String email}) async {
+    try {
+      await _apiConsumer.post(
+        EndPoints.sendForgotPasswordVerificationCode,
+        data: {
+          ApiKeys.email: email,
+        },
+      );
+      return Right(null);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(DioApiFailure.fromDioException(e));
+      } else {
+        return Left(DioApiFailure.unknown(
+          e.toString(),
+        ));
+      }
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, void>> verifyForgotPasswordVerificationCode(
+      {required String email, required int code}) async {
+    try {
+      await _apiConsumer.post(
+        EndPoints.verifyForgotPasswordVerificationCode,
+        data: {ApiKeys.email: email, ApiKeys.providedCode: code},
+      );
+      return Right(null);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(DioApiFailure.fromDioException(e));
+      } else {
+        return Left(DioApiFailure.unknown(
+          e.toString(),
+        ));
       }
     }
   }
