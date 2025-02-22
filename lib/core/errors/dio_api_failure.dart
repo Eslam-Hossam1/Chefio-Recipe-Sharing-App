@@ -1,7 +1,6 @@
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/errors/error_codes.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
-import 'package:chefio_app/core/errors/api_response_error.dart';
 import 'package:chefio_app/core/errors/error_to_applocalization_key_parser.dart';
 import 'package:chefio_app/core/errors/failures.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
