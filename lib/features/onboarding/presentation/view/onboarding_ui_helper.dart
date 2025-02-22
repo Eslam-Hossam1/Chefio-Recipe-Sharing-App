@@ -24,7 +24,7 @@ abstract class OnboardingUIHelper {
         baseDishWidth);
   }
 
-  static const double centerDishSize = 160;
+  static const double centerDishSize = 140;
   static const double centerRightDishSize = 72;
   static const double centerLeftDishSize = 104;
   static const double topRightDishSize = 104;

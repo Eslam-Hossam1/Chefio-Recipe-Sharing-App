@@ -103,7 +103,7 @@ class OnBourdingDishesSectionMobile extends StatelessWidget {
 
         // Bottom
         Positioned(
-          bottom: -20 *
+          bottom: -35 *
               OnboardingUIHelper.dishSizeScalingRatio(context,
                   baseDishWidth: OnboardingUIHelper.bottomDishSize),
           right: 80 *

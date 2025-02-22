@@ -21,10 +21,10 @@ class DishImage extends StatelessWidget {
 
   double getDishResponsiveSize(BuildContext context,
       {required double baseWidth}) {
-    double upperLimit = baseWidth * 4;
+    double upperLimit = baseWidth * 3;
     double lowerLimit = baseWidth * 0.75;
     double dishResponsiveSize =
         baseWidth * (MediaQuery.sizeOf(context).width / Constants.kDesignWidth);
-    return (dishResponsiveSize + 25).clamp(lowerLimit, upperLimit);
+    return (dishResponsiveSize + 15).clamp(lowerLimit, upperLimit);
   }
 }
