@@ -28,8 +28,7 @@ class CustomTextButton extends StatelessWidget {
           onPressed: onPressed,
           style: TextButton.styleFrom(
               side: borderSide,
-              backgroundColor:
-                  backgroundColor ?? context.primaryColor),
+              backgroundColor: backgroundColor ?? context.primaryColor),
           child: child),
     );
   }
@@ -37,7 +36,7 @@ class CustomTextButton extends StatelessWidget {
   double getCustomButtonResponsiveHeight(BuildContext context) {
     double bigTabletWidth = 1000;
     double width = MediaQuery.sizeOf(context).width;
-    double upperlimit = width >= bigTabletWidth ? 70 : 60;
+    double upperlimit = width >= bigTabletWidth ? 70 : 65;
     return (56 * (width / Constants.kDesignWidth)).clamp(56, upperlimit);
   }
 }
