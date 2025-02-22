@@ -30,10 +30,16 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
   Widget build(BuildContext context) {
     return BlocConsumer<VerificationCodeCubit, VerificationCodeState>(
       listener: (context, state) {
-        if (state is VerificationCodeFailure) {
+        if (state is SendVerificationCodeFailure) {
           DialogHelper.showErrorDialog(
             context,
-            errorMessage: state.errorMessage,
+            errorMessage: state.errorLocalizationKey.tr(),
+            btnOkOnPress: () {},
+          );
+        } else if (state is VerifyVerificationCodeFailure) {
+          DialogHelper.showErrorDialog(
+            context,
+            errorMessage: state.errorLocalizationKey.tr(),
             btnOkOnPress: () {},
           );
         } else if (state is VerifyVerificationCodeSuccess) {
@@ -65,6 +71,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                 errorMessage: AppLocalizationKeys
                     .auth.verificationCodeViewExitWarning
                     .tr(),
+                btnOkOnPress: () => context.go(AppRouter.kSignUpView),
               );
             },
             child: Scaffold(
