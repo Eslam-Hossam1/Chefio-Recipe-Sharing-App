@@ -8,6 +8,7 @@ import 'package:chefio_app/features/auth/presentation/manager/verification_code_
 import 'package:chefio_app/features/auth/presentation/view/widgets/code_expires_in.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_pin_code_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/send_again_button.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/verification_code_send_again_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/verifiy_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +36,6 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
             onSaved: (pinCodeText) {
               pinCodetext = pinCodeText;
             },
-          
           ),
           SizedBox(
             height: 48,
@@ -54,7 +54,8 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
                       await BlocProvider.of<VerificationCodeCubit>(context)
-                          .verfiyVerificationCode(code: int.parse(pinCodetext!));
+                          .verfiyVerificationCode(
+                              code: int.parse(pinCodetext!));
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
@@ -65,12 +66,7 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
                 SizedBox(
                   height: 16,
                 ),
-                SendAgainButton(
-                  onPressed: () {
-                    BlocProvider.of<VerificationCodeCubit>(context)
-                        .resendVerificationCode();
-                  },
-                ),
+                VerificationCodeSendAgainButton(),
               ],
             ),
           ),
@@ -82,3 +78,4 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
   getVerificationFormButtonsPadding(BuildContext context) =>
       getAuthHorizontalPadding(context);
 }
+
