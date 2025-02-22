@@ -11,7 +11,7 @@ import 'package:chefio_app/features/auth/presentation/manager/validate_reset_pas
 import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/forget_password_verfication_code_view.dart';
-import 'package:chefio_app/features/auth/presentation/view/home_view.dart';
+import 'package:chefio_app/features/home/presentation/view/home_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
