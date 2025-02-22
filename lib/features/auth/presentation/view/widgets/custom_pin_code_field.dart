@@ -23,14 +23,15 @@ class CustomPinCodeField extends StatelessWidget {
       padding:
           EdgeInsets.symmetric(horizontal: getPinCodeTextFeildPadding(context)),
       child: PinCodeTextField(
+        autovalidateMode: AutovalidateMode.disabled,
         onSaved: onSaved,
         validator: FormValidators.pincodeTextFormFieldValidator,
         pastedTextStyle: Styles.textStyleBold15(context)
-            .copyWith(color:context.primaryColor),
+            .copyWith(color: context.primaryColor),
         appContext: context,
         length: 6,
         textStyle: Styles.textStyleSemiBold34(context)
-            .copyWith(color:context.mainTextColor),
+            .copyWith(color: context.mainTextColor),
         showCursor: false,
         animationType: AnimationType.fade,
         keyboardType: TextInputType.number,
@@ -40,7 +41,7 @@ class CustomPinCodeField extends StatelessWidget {
           fieldHeight: getfieldWidth(context),
           fieldWidth: getfieldWidth(context),
           activeColor: context.primaryColor,
-          inactiveColor:context.outlineColor,
+          inactiveColor: context.outlineColor,
           selectedColor: Colors.blue,
         ),
         onChanged: onChanged, // Optional for real-time input tracking
