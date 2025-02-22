@@ -1,14 +1,17 @@
-abstract class EndPoint {
+abstract class EndPoints {
   static const String baseUrl = "https://chefio-beta.vercel.app/api/v1/";
   static const String logIn = "auth/signin/";
   static const String signUp = "auth/signup";
   static const String sendVerificationCode = "auth/send-verification-code";
   static const String verifyVerificationCode = "auth/verify-verification-code";
   //test
-  static const String enterEmailToRecoverPassword =
-      "auth/verify-verification-code";
-  static const String resetPassword = "auth/verify-verification-code";
-  static const String logInWithGoogle = "auth/verify-verification-code";
+  static const String sendForgotPasswordVerificationCode =
+      "auth/send-forgot-password-code";
+  static const String verifyForgotPasswordVerificationCode =
+      "auth/verify-forgot-password-code";
+  static const String resetPassword = "auth/reset-password";
+  static const String refreshToken = "auth/refresh-token";
+  static const String googleSignIn = "auth/google-signin";
 
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
