@@ -31,7 +31,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
                 AppLocalizationKeys.auth.forgetPasswordViewPasswordRecovery
                     .tr(),
                 style: Styles.textStyleBold22(context).copyWith(
-                  color:context.mainTextColor,
+                  color: context.mainTextColor,
                 ),
               ),
               SizedBox(
@@ -43,7 +43,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
                     .auth.forgetPasswordViewEnterEmailRecoverPassword
                     .tr(),
                 style: Styles.textStyleMedium15(context).copyWith(
-                  color: context.secondaryColor,
+                  color: context.secondaryTextColor,
                 ),
               ),
               SizedBox(

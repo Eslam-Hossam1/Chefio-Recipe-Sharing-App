@@ -36,8 +36,8 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
       child: Column(
         children: [
           CustomeEmailTextFormField(onSaved: (value) {
-              email = value;
-            }),
+            email = value;
+          }),
           SizedBox(
             height: 32.h,
           ),
@@ -46,7 +46,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
                 await BlocProvider.of<ForgotPasswordCubit>(context)
-                    .enterEmailtoRecoverPassword(email: email!);
+                    .sendVerficationCode(email: email!);
               } else {
                 setState(() {
                   _autovalidateMode = AutovalidateMode.always;
