@@ -1,26 +1,25 @@
+import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:equatable/equatable.dart';
 
 class LogInSuccessModel extends Equatable {
   final bool? success;
-  final String token;
+  final String accessToken;
+  final String refreshToken;
   final String? message;
 
-  const LogInSuccessModel({this.success,required this.token, this.message});
+  const LogInSuccessModel({this.success, required this.accessToken,required this.refreshToken, this.message});
 
   factory LogInSuccessModel.fromJson(Map<String, dynamic> json) {
     return LogInSuccessModel(
-      success: json['success'] as bool?,
-      token: json['token'] as String,
-      message: json['message'] as String?,
+      success: json[ApiKeys.success] as bool?,
+      accessToken: json[ApiKeys.accessToken] as String,
+      message: json[ApiKeys.message] as String?,
+      refreshToken: json[ApiKeys.refreshToken] as String,
     );
   }
 
-  Map<String, dynamic> toJson() => {
-        'success': success,
-        'token': token,
-        'message': message,
-      };
+
 
   @override
-  List<Object?> get props => [success, token, message];
+  List<Object?> get props => [success, accessToken, message];
 }
