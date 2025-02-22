@@ -24,11 +24,11 @@ class SignUpButton extends StatelessWidget {
         if (state is SignUpFailure) {
           DialogHelper.showErrorDialog(
             context,
-            errorMessage: state.errorMessage,
+            errorMessage: state.errorLocalizationKey.tr(),
             btnOkOnPress: () {},
           );
-        }  else if (state is SignUpSuccess) {
-            context.go(AppRouter.kVerificationCodeView,extra:state.email);
+        } else if (state is SignUpSuccess) {
+          context.go(AppRouter.kVerificationCodeView, extra: state.email);
         }
       },
       builder: (context, state) {

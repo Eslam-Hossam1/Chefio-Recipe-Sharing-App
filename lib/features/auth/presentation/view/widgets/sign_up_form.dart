@@ -24,7 +24,7 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   late GlobalKey<FormState> _formKey;
   late AutovalidateMode _autovalidateMode;
-    String? username;
+  String? username;
   String? email;
   String? password;
 
@@ -66,14 +66,10 @@ class _SignUpFormState extends State<SignUpForm> {
             height: 16.h,
           ),
           ObsecureTextFormField(
-            validator: 
-                BlocProvider.of<ValidateSignUpPasswordCubit>(context)
-                 .passwordTextFieldValidator
-            ,
-            onChanged: 
-              BlocProvider.of<ValidateSignUpPasswordCubit>(context)
-                 .validatePasswordOnChange
-            ,
+            validator: BlocProvider.of<ValidateSignUpPasswordCubit>(context)
+                .passwordTextFieldValidator,
+            onChanged: BlocProvider.of<ValidateSignUpPasswordCubit>(context)
+                .validatePasswordOnChange,
             hint: AppLocalizationKeys.auth.passwordTextFieldHint.tr(),
             onSaved: (value) {
               password = value;
@@ -90,10 +86,8 @@ class _SignUpFormState extends State<SignUpForm> {
             onPressed: () async {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
-                await BlocProvider.of<SignUpCubit>(context)
-                    .signUp(
-                      username:username! ,
-                        email: email!, password: password!);
+                await BlocProvider.of<SignUpCubit>(context).signUp(
+                    username: username!, email: email!, password: password!);
               } else {
                 setState(() {
                   _autovalidateMode = AutovalidateMode.always;
