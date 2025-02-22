@@ -1,16 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
+import 'package:chefio_app/core/errors/error_codes.dart';
+import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/secure_storage_helper.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/features/auth/data/models/log_in_success_model.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo.dart';
 import 'package:equatable/equatable.dart';
 
 part 'log_in_state.dart';
 
 class LogInCubit extends Cubit<LogInState> {
-  LogInCubit(this._authRepo) : super(LogInInitial());
+  LogInCubit(this._authRepo, this._authCredentialsHelper)
+      : super(LogInInitial());
   final AuthRepo _authRepo;
-
+  final AuthCredentialsHelper _authCredentialsHelper;
   Future<void> logIn({
     required String email,
     required String password,
@@ -21,15 +25,19 @@ class LogInCubit extends Cubit<LogInState> {
 
     logInResult.fold(
       (failure) {
-        if (failure.errMsg == "is not verify!") {
+        if (failure.errCode == ErrorCodes.forbidden) {
           emit(LogInNeedVerification(email: email));
         } else {
-          emit(LogInFailure(errorMessage: failure.errMsg));
+          emit(LogInFailure(
+              errorMessage: failure.errMsg,
+              errorLocalizationKey: failure.localizaitonKey));
         }
       },
       (logInSuccessModel) async {
-        await getIt<SecureStorageHelper>()
-            .setData(key: ApiKeys.token, value: logInSuccessModel.token);
+        await _authCredentialsHelper.storeTokens(
+          accessToken: logInSuccessModel.accessToken,
+          refreshToken: logInSuccessModel.refreshToken,
+        );
         emit(LogInSuccess());
       },
     );
@@ -42,12 +50,16 @@ class LogInCubit extends Cubit<LogInState> {
 
     logInResult.fold(
       (failure) {
-        emit(LogInFailure(errorMessage: failure.errMsg));
+        emit(LogInFailure(
+            errorMessage: failure.errMsg,
+            errorLocalizationKey: failure.localizaitonKey));
       },
       (nullableLogInSuccessModel) async {
         if (nullableLogInSuccessModel != null) {
-          await getIt<SecureStorageHelper>().setData(
-              key: ApiKeys.token, value: nullableLogInSuccessModel.token);
+          await _authCredentialsHelper.storeTokens(
+          accessToken: nullableLogInSuccessModel.accessToken,
+          refreshToken: nullableLogInSuccessModel.refreshToken,
+        );
           emit(LogInSuccess());
         } else {
           emit(LogInInitial());

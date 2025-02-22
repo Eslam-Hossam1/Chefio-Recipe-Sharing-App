@@ -9,7 +9,6 @@ sealed class LogInState extends Equatable {
 
 final class LogInInitial extends LogInState {}
 
-
 final class LogInSuccess extends LogInState {
   const LogInSuccess();
 }
@@ -18,11 +17,13 @@ final class LogInLoading extends LogInState {}
 
 final class LogInFailure extends LogInState {
   final String errorMessage;
-
- const  LogInFailure({required this.errorMessage});
+  final String errorLocalizationKey;
+  const LogInFailure(
+      {required this.errorMessage, required this.errorLocalizationKey});
 }
+
 final class LogInNeedVerification extends LogInState {
   final String email;
 
- const  LogInNeedVerification({required this.email});
+  const LogInNeedVerification({required this.email});
 }
