@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
@@ -7,7 +6,8 @@ import 'package:flutter/material.dart';
 
 class VerifyButton extends StatelessWidget {
   const VerifyButton({
-    super.key, this.onPressed,
+    super.key,
+    this.onPressed,
   });
   final void Function()? onPressed;
   @override
@@ -17,7 +17,11 @@ class VerifyButton extends StatelessWidget {
         Expanded(
           child: CustomTextButton(
             onPressed: onPressed,
-            child: Text(AppLocalizationKeys.auth.verificationCodeViewVerify.tr(),style: Styles.textStyleBold15(context).copyWith(color: Colors.white),),
+            child: Text(
+              AppLocalizationKeys.auth.verificationCodeViewVerify.tr(),
+              style:
+                  Styles.textStyleBold15(context).copyWith(color: Colors.white),
+            ),
           ),
         ),
       ],
