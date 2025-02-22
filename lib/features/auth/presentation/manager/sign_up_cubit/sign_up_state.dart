@@ -15,6 +15,8 @@ final class SignUpLoading extends SignUpState {}
 
 final class SignUpFailure extends SignUpState {
   final String errorMessage;
+  final String errorLocalizationKey;
 
-  SignUpFailure({required this.errorMessage});
+  SignUpFailure(
+      {required this.errorMessage, required this.errorLocalizationKey});
 }

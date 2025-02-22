@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:chefio_app/core/Functions/get_auth_padding.dart';
 import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
@@ -22,7 +23,7 @@ class LoginView extends StatelessWidget {
         if (state is LogInFailure) {
           DialogHelper.showErrorDialog(
             context,
-            errorMessage: state.errorMessage,
+            errorMessage: state.errorLocalizationKey.tr(),
             btnOkOnPress: () {},
           );
         } else if (state is LogInNeedVerification) {
