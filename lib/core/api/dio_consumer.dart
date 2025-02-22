@@ -1,15 +1,19 @@
 import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_interceptors.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
+import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
+import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
 
   DioConsumer({required this.dio}) {
-    dio.options.baseUrl = EndPoint.baseUrl;
-    dio.interceptors.add(ApiInterceptor());
-    dio.interceptors.add(LogInterceptor(
+    dio.options.baseUrl = EndPoints.baseUrl;
+    dio.interceptors.add(ApiInterceptor(client: dio,authCredentialsHelper: getIt<AuthCredentialsHelper>()));
+    if(kDebugMode){
+      dio.interceptors.add(LogInterceptor(
       request: true,
       requestHeader: true,
       requestBody: true,
@@ -17,6 +21,8 @@ class DioConsumer extends ApiConsumer {
       responseBody: true,
       error: true,
     ));
+    }
+    
   }
 
   @override
@@ -26,26 +32,23 @@ class DioConsumer extends ApiConsumer {
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
   }) async {
-
-      final response = await dio.delete(
-        path,
-        data: isFromData ? FormData.fromMap(data) : data,
-        queryParameters: queryParameters,
-      );
-      return response.data;
-    
+    final response = await dio.delete(
+      path,
+      data: isFromData ? FormData.fromMap(data) : data,
+      queryParameters: queryParameters,
+    );
+    return response.data;
   }
 
   @override
   Future get(String path,
       {Object? data, Map<String, dynamic>? queryParameters}) async {
-      final response = await dio.get(
-        path,
-        data: data,
-        queryParameters: queryParameters,
-      );
-      return response.data;
-
+    final response = await dio.get(
+      path,
+      data: data,
+      queryParameters: queryParameters,
+    );
+    return response.data;
   }
 
   @override
@@ -55,14 +58,12 @@ class DioConsumer extends ApiConsumer {
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
   }) async {
-
-      final response = await dio.patch(
-        path,
-        data: isFromData ? FormData.fromMap(data) : data,
-        queryParameters: queryParameters,
-      );
-      return response.data;
-   
+    final response = await dio.patch(
+      path,
+      data: isFromData ? FormData.fromMap(data) : data,
+      queryParameters: queryParameters,
+    );
+    return response.data;
   }
 
   @override
@@ -72,12 +73,11 @@ class DioConsumer extends ApiConsumer {
     Map<String, dynamic>? queryParameters,
     bool isFromData = false,
   }) async {
-      final response = await dio.post(
-        path,
-        data: isFromData ? FormData.fromMap(data) : data,
-        queryParameters: queryParameters,
-      );
-      return response.data;
-   
+    final response = await dio.post(
+      path,
+      data: isFromData ? FormData.fromMap(data) : data,
+      queryParameters: queryParameters,
+    );
+    return response.data;
   }
 }
