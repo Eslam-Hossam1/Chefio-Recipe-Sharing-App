@@ -3,6 +3,7 @@ import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
+import 'package:chefio_app/features/home/presentation/widgets/search_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -15,30 +16,7 @@ class HomeViewBody extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: 16,),
-        CustomTextButton(
-            backgroundColor: context.formColor,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 24,
-                ),
-                SvgPicture.asset(
-                  Assets.imagesSearch,
-                  colorFilter:
-                      ColorFilter.mode(context.mainTextColor, BlendMode.srcIn),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  AppLocalizationKeys.global.search.tr(),
-                  style: Styles.textStyleMedium15(context).copyWith(
-                    color: context.secondaryTextColor,
-                  ),
-                )
-              ],
-            ))
+        SearchButton()
       ],
     );
   }
