@@ -82,6 +82,8 @@
         }
 
         
+
+        
     },
 
     "profile_setup":{
@@ -105,7 +107,16 @@
         "info":"Info",
         "success":"Success",
         "exit":"Exit",
-        "stay":"Stay"
+        "stay":"Stay",
+        "search":"search",
+        "all":"All",
+        "food":"Food",
+        "drink":"Drink",
+        "home":"Home",
+        "upload":"Upload",
+        "notification":"Notification",
+        "profile":"Profile"
+
     },
 
     "errors": {

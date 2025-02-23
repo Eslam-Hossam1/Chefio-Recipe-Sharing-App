@@ -104,8 +104,16 @@
         "error":"خطأ",
         "info":"معلومة",
         "success":"تم بنجاح",
-        "confirm_exit":"Exit",
-        "stay":"Stay"
+        "confirm_exit":"الخروج",
+        "stay":"البقاء",
+        "search":"بحث",
+        "all": "الكل",
+        "food": "طعام",
+        "drink": "شراب",
+        "home": "الرئيسية",
+        "upload": "رفع",
+        "notification": "الإشعارات",
+        "profile": "الملف الشخصي"
 
     },
 

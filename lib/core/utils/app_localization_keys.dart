@@ -133,6 +133,14 @@ class Global {
   final String success = 'global.success';
   final String exit = 'global.exit';
   final String stay = 'global.stay';
+  final String search = 'global.search';
+  final String all = 'global.all';
+  final String food = 'global.food';
+  final String drink = 'global.drink';
+  final String home = 'global.home';
+  final String upload = 'global.upload';
+  final String notification = 'global.notification';
+  final String profile = 'global.profile';
 }
 
 class Error {
