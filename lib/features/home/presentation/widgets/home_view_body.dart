@@ -14,9 +14,20 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 16,),
-        SearchButton()
+        SizedBox(
+          height: 16,
+        ),
+        SearchButton(),
+        SizedBox(
+          height: 24,
+        ),
+        Text(
+          AppLocalizationKeys.global.category.tr(),
+          style: Styles.textStyleBold17(context)
+              .copyWith(color: context.mainTextColor),
+        ),
       ],
     );
   }

@@ -141,6 +141,7 @@ class Global {
   final String upload = 'global.upload';
   final String notification = 'global.notification';
   final String profile = 'global.profile';
+  final String category = 'global.category';
 }
 
 class Error {
