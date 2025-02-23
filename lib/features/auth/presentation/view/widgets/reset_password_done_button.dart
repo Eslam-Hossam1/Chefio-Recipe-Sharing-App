@@ -2,6 +2,7 @@ import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/app_router.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/features/auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -37,15 +38,24 @@ class ResetPasswordDoneButton extends StatelessWidget {
         }
       },
       builder: (context, state) {
+         bool isLoading = state is ResetPasswordLoading;
         return Row(
           children: [
-            Expanded(
-              child: CustomTextButton(
-                onPressed: onPressed,
-                child: Text(
-                  AppLocalizationKeys.auth.resetPasswordViewDone.tr(),
-                  style: Styles.textStyleBold15(context)
-                      .copyWith(color: Colors.white),
+             Expanded(
+              child: AbsorbPointer(
+                absorbing: isLoading,
+                child: CustomTextButton(
+                  onPressed: onPressed,
+                  child: isLoading
+                      ? Center(
+                          child: CustomCircularProgressIndicator(
+                          color: Colors.white,
+                        ))
+                      : Text(
+                          AppLocalizationKeys.auth.resetPasswordViewDone.tr(),
+                          style: Styles.textStyleBold15(context)
+                              .copyWith(color: Colors.white),
+                        ),
                 ),
               ),
             ),
