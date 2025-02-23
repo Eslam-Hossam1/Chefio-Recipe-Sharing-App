@@ -1,11 +1,12 @@
-
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/assets.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class SearchButton extends StatelessWidget {
@@ -21,7 +22,7 @@ class SearchButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              width: 24,
+              width: 16,
             ),
             SvgPicture.asset(
               Assets.imagesSearch,

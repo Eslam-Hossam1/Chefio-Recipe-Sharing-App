@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:flutter/foundation.dart';
@@ -22,7 +24,7 @@ class CustomTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? getCustomButtonResponsiveHeight(context),
+      height: height ?? 56,
       width: width,
       child: TextButton(
           onPressed: onPressed,
@@ -32,7 +34,7 @@ class CustomTextButton extends StatelessWidget {
           child: child),
     );
   }
-
+  //not used
   double getCustomButtonResponsiveHeight(BuildContext context) {
     double bigTabletWidth = 1000;
     double width = MediaQuery.sizeOf(context).width;
