@@ -36,11 +36,11 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: '/',
+        path: '/splash',
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
-        path: kHomeView,
+        path: '/',
         builder: (context, state) => const HomeView(),
       ),
       GoRoute(

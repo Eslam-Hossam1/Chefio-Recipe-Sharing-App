@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/Functions/get_text_theme.dart';
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
 import 'package:chefio_app/core/utils/app_router.dart';
@@ -7,7 +6,6 @@ import 'package:chefio_app/core/utils/constants.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,7 +30,7 @@ class Chefio extends StatelessWidget {
                   builder: DevicePreview.appBuilder,
                   //getting textTheme bassed on context cuz of using easy localization
                   // for localization to access current locale and get the textTheme bassed on it
-                  themeMode: ThemeMode.dark,
+                  themeMode: ThemeMode.light,
                   theme: AppThemes.lightTheme
                       .copyWith(textTheme: getTextTheme(context)),
                   darkTheme: AppThemes.darkTheme
