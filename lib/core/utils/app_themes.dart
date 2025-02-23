@@ -18,6 +18,7 @@ abstract class AppThemes {
       CustomColors(
         mainTextColor: AppColors.lightMainTextColor,
         secondaryTextColor: AppColors.lightSecondaryTextColor,
+        formColor: AppColors.lightFormColor
       ),
     ],
   );
@@ -37,6 +38,7 @@ abstract class AppThemes {
       CustomColors(
         mainTextColor: AppColors.darkMainTextColor,
         secondaryTextColor: AppColors.darkSecondaryTextColor,
+        formColor: AppColors.darkFormColor
       ),
     ],
   );
