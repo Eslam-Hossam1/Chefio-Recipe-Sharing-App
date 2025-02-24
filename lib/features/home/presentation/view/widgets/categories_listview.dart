@@ -1,4 +1,6 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/features/home/data/models/category_type_enum.dart';
 import 'package:chefio_app/features/home/data/models/category_model.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/category_button.dart';
@@ -28,15 +30,20 @@ class _CategoriesListViewState extends State<CategoriesListView> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
     return SizedBox(
       height: 48,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
-        padding: EdgeInsets.only(left: 16),
+        padding: EdgeInsets.only(
+            left: width < SizeConfig.tabletBreakPoint
+                ? Constants.kMobileHorizontalPadding
+                : Constants.kTabletHorizontalpadding),
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsets.only(right: 16),
+            padding: EdgeInsets.only(
+                right: width < SizeConfig.tabletBreakPoint ? 16 : 24),
             child: CategoryButton(
               //هنا هتبقي تقارن ب category type الي رجعلك من ال cubit
               isSelected:

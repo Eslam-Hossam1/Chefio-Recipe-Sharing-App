@@ -23,6 +23,11 @@ class HomeViewBody extends StatelessWidget {
           height: 16,
         ),
         CategoriesListView(),
+        Divider(
+          height: 48,
+          thickness: 8,
+          color: context.formColor,
+        )
       ],
     );
   }
