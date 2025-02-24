@@ -5,8 +5,9 @@ import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
+import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/home_app_bar.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/home_sliver_app_bar.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipes_grid.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/search_button.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -15,24 +16,27 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'dart:ui';
 
-class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+class HomeViewBodyMobile extends StatelessWidget {
+  const HomeViewBodyMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        AdaptivePadding(child: HomeAppBar()),
-        SizedBox(
-          height: 16,
+    return CustomScrollView(
+      slivers: [
+        HomeSliverAppBar(),
+        SliverToBoxAdapter(
+          child: SizedBox(
+            height: 16,
+          ),
         ),
-        CategoriesListView(),
-        Divider(
-          height: 48,
-          thickness: 8,
-          color: context.formColor,
+        SliverToBoxAdapter(
+          child: Divider(
+            height: 48,
+            thickness: 8,
+            color: context.formColor,
+          ),
         ),
-        Expanded(child: AdaptivePadding(child: RecipesGrid()))
+        SliverAdaptivePadding(sliver: RecipesGrid())
       ],
     );
   }
