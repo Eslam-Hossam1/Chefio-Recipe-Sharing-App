@@ -6,7 +6,7 @@ import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/secure_storage_helper.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
-import 'package:chefio_app/features/home/presentation/widgets/home_view_body.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,10 +17,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: Constants.kMobileHorizontalPadding),
-              child: HomeViewBody())),
+          child: HomeViewBody()),
     );
   }
 }

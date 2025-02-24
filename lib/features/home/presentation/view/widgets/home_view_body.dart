@@ -2,8 +2,11 @@ import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
-import 'package:chefio_app/features/home/presentation/widgets/search_button.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/home_app_bar.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/search_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,20 +17,12 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        AdaptivePadding(child: HomeAppBar()),
         SizedBox(
           height: 16,
         ),
-        SearchButton(),
-        SizedBox(
-          height: 24,
-        ),
-        Text(
-          AppLocalizationKeys.global.category.tr(),
-          style: Styles.textStyleBold17(context)
-              .copyWith(color: context.mainTextColor),
-        ),
+        CategoriesListView(),
       ],
     );
   }
