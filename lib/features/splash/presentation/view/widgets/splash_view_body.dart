@@ -44,7 +44,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   navigationAfterDuration(String toGoView) {
     return Future.delayed(Constants.kSplashNavigationDelayDuration, () {
       if (mounted) {
-        context.push(toGoView);
+        context.go(toGoView);
       }
     });
   }

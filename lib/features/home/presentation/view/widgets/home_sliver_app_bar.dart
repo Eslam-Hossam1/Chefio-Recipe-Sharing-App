@@ -25,6 +25,7 @@ class HomeSliverAppBar extends StatelessWidget {
       pinned: false,
       floating: true,
       expandedHeight: 100,
+      automaticallyImplyLeading: false,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       surfaceTintColor: Colors.transparent,
       flexibleSpace: FlexibleSpaceBar(

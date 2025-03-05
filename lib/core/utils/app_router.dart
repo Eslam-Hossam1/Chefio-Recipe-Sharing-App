@@ -18,31 +18,117 @@ import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/verification_code_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/forget_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/reset_password_done_button.dart';
+import 'package:chefio_app/features/main/presentation/view/main_view.dart';
+import 'package:chefio_app/features/notifiactions/presentation/view/notifications_view_test.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
+import 'package:chefio_app/features/profile/presentation/view/profile_view_test.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view_test.dart';
+import 'package:chefio_app/features/search/presentation/view/search_view_test.dart';
 import 'package:chefio_app/features/splash/presentation/view/splash_view.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
-  static const kHomeView = "/homeview";
-  static const kOnBoardingView = "/onboardingview";
-  static const kSignUpView = "/signupview";
-  static const kLoginView = "/loginview";
-  static const kVerificationCodeView = "/verificationcodeview";
-  static const kForgetPasswordView = "/Forgetpasswordview";
-  static const kResetPasswordView = "/resetpasswordview";
+  static const kHomeView = "/home";
+  static const kOnBoardingView = "/onboarding";
+  static const kSignUpView = "/signup";
+  static const kLoginView = "/login";
+  static const kVerificationCodeView = "/verificationcode";
+  static const kForgetPasswordView = "/forgetpassword";
+  static const kResetPasswordView = "/resetpassword";
   static const kForgetPasswordVerificationCodeView =
-      "/ForgetpasswordVerificationcode";
+      "/forgetpasswordverificationcode";
+  static const kSearchView = '/search';
+  static const kNotificationsView = '/notification';
+  static const kProfileView = '/profile'; //
+  static const kRecipeDetailsView = 'recipe-detail';
+
+  ///context.gp('/dashboard/dashboard-detail');
+
+  static final _rootNavigatorKey = GlobalKey<NavigatorState>();
+
+  static final _shellNavigatorHomeKey =
+      GlobalKey<NavigatorState>(debugLabel: 'home');
+  static final _shellNavigatorSearchKey =
+      GlobalKey<NavigatorState>(debugLabel: 'search');
+
+  static final _shellNavigatorNotificationKey =
+      GlobalKey<NavigatorState>(debugLabel: 'notification');
+  static final _shellNavigatorProfileKey =
+      GlobalKey<NavigatorState>(debugLabel: 'profile');
+
   static final router = GoRouter(
+    navigatorKey: _rootNavigatorKey,
+    debugLogDiagnostics: true,
     routes: [
-      GoRoute(
-        path: '/splash',
-        builder: (context, state) => const SplashView(),
+      StatefulShellRoute.indexedStack(
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state, navigationShell) {
+          return MainScalffoldView(
+            navigationShell: navigationShell,
+          );
+        },
+        branches: [
+          StatefulShellBranch(
+            navigatorKey: _shellNavigatorHomeKey,
+            routes: [
+              GoRoute(
+                  path: kHomeView,
+                  builder: (context, state) {
+                    return const HomeView();
+                  },
+                  routes: [
+                    GoRoute(
+                        path: kRecipeDetailsView,
+                        builder: (context, state) => const RecipeDetailsPage(),
+                        routes: [])
+                  ])
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: _shellNavigatorSearchKey,
+            routes: [
+              GoRoute(
+                  path: kSearchView,
+                  builder: (context, state) {
+                    return const SearchPage();
+                  },
+                  )
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: _shellNavigatorNotificationKey,
+            routes: [
+              GoRoute(
+                  path: kNotificationsView,
+                  builder: (context, state) {
+                    return const NotificationPage();
+                  },
+                 )
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: _shellNavigatorProfileKey,
+            routes: [
+              GoRoute(
+                  path: kProfileView,
+                  builder: (context, state) {
+                    return const ProfilePage();
+                  },
+                  )
+            ],
+          ),
+        ],
       ),
       GoRoute(
         path: '/',
-        builder: (context, state) => const HomeView(),
+        builder: (context, state) => const SplashView(),
       ),
+      // GoRoute(
+      //   path: kHomeView,
+      //   builder: (context, state) => const HomeView(),
+      // ),
       GoRoute(
         path: kResetPasswordView,
         builder: (context, state) => MultiBlocProvider(
@@ -54,7 +140,9 @@ abstract class AppRouter {
               create: (context) => ResetPasswordCubit(getIt<AuthRepoImpl>()),
             ),
           ],
-          child:  ResetPasswordView(email: state.extra as String,),
+          child: ResetPasswordView(
+            email: state.extra as String,
+          ),
         ),
       ),
       GoRoute(
@@ -67,7 +155,8 @@ abstract class AppRouter {
       GoRoute(
         path: kLoginView,
         builder: (context, state) => BlocProvider(
-          create: (context) => LogInCubit(getIt<AuthRepoImpl>(),getIt<AuthCredentialsHelper>()),
+          create: (context) =>
+              LogInCubit(getIt<AuthRepoImpl>(), getIt<AuthCredentialsHelper>()),
           child: const LoginView(),
         ),
       ),
