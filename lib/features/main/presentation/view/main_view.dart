@@ -2,15 +2,15 @@ import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class MainScalffoldView extends StatefulWidget {
-  const MainScalffoldView({super.key, this.navigationShell});
+class MainScaffoldView extends StatefulWidget {
+  const MainScaffoldView({super.key, this.navigationShell});
   final StatefulNavigationShell? navigationShell;
 
   @override
-  State<MainScalffoldView> createState() => _MainScalffoldViewState();
+  State<MainScaffoldView> createState() => _MainScaffoldViewState();
 }
 
-class _MainScalffoldViewState extends State<MainScalffoldView> {
+class _MainScaffoldViewState extends State<MainScaffoldView> {
   void _goBranch(int index) {
     widget.navigationShell!.goBranch(
       index,
@@ -43,7 +43,6 @@ class _MainScalffoldViewState extends State<MainScalffoldView> {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'profile',
-            
           ),
         ],
         currentIndex: widget.navigationShell!.currentIndex,
@@ -52,7 +51,6 @@ class _MainScalffoldViewState extends State<MainScalffoldView> {
         elevation: 0,
         showUnselectedLabels: true,
         showSelectedLabels: true,
-        
         onTap: (index) {
           _goBranch(index);
         },

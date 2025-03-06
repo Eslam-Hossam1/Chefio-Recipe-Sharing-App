@@ -1,8 +1,9 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:chefio_app/core/Functions/get_auth_padding.dart';
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';
@@ -27,9 +28,9 @@ class LoginView extends StatelessWidget {
             btnOkOnPress: () {},
           );
         } else if (state is LogInNeedVerification) {
-          context.go(AppRouter.kVerificationCodeView, extra: state.email);
+          context.go(RoutePaths.verificationCode, extra: state.email);
         } else if (state is LogInSuccess) {
-          context.go(AppRouter.kHomeView);
+          context.go(RoutePaths.home);
         }
       },
       builder: (context, state) {

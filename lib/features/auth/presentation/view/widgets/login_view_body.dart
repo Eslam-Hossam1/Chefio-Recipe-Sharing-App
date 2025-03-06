@@ -1,6 +1,7 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/clickable_text.dart';
@@ -64,7 +65,7 @@ class LoginViewBody extends StatelessWidget {
                   ),
                   ClickableText(
                     onTap: () {
-                      context.go(AppRouter.kSignUpView);
+                      context.go(RoutePaths.signup);
                     },
                     text: AppLocalizationKeys.auth.signup.tr(),
                     style: Styles.textStyleBold15(context).copyWith(

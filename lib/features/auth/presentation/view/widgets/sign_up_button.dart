@@ -1,6 +1,7 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
@@ -28,7 +29,7 @@ class SignUpButton extends StatelessWidget {
             btnOkOnPress: () {},
           );
         } else if (state is SignUpSuccess) {
-          context.go(AppRouter.kVerificationCodeView, extra: state.email);
+          context.go(RoutePaths.verificationCode, extra: state.email);
         }
       },
       builder: (context, state) {

@@ -1,5 +1,6 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/clickable_text.dart';
@@ -16,7 +17,7 @@ class ForgetPasswordClickableText extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClickableText(
       onTap: () {
-        context.push(AppRouter.kForgetPasswordView);
+        context.push(RoutePaths.forgetPassword);
       },
       text: AppLocalizationKeys.auth.forgetPasswordQuestion.tr(),
       style: Styles.textStyleSemiBold15(context).copyWith(

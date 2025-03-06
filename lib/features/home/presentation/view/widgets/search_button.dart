@@ -1,7 +1,8 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
@@ -20,7 +21,7 @@ class SearchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        context.go('${AppRouter.kHomeView}/${AppRouter.kRecipeDetailsView}');
+        context.go('${RoutePaths.home}/${RoutePaths.recipeDetails}');
       },
       icon: SvgPicture.asset(
         Assets.imagesSearch,

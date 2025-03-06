@@ -1,6 +1,7 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
@@ -71,7 +72,7 @@ class OnBoardingBottomSectionMobile extends StatelessWidget {
       BuildContext context) async {
     await getIt<OnboardingViewModel>().setOnBoardingCompletedToTrue(context);
     if (context.mounted) {
-      context.push(AppRouter.kSignUpView);
+      context.push(RoutePaths.signup);
     }
   }
 }

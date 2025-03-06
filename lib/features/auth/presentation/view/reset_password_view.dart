@@ -2,7 +2,8 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:chefio_app/core/Functions/get_auth_padding.dart';
 import 'package:chefio_app/core/Functions/show_custom_exit_confirmation_dialog.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
@@ -38,7 +39,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
         showCustomExitConfirmationDialog(context,
             errorMessage:
                 AppLocalizationKeys.auth.resetPasswordExitWarning.tr(),
-            btnOkOnPress: () => context.go(AppRouter.kLoginView));
+            btnOkOnPress: () => context.go(RoutePaths.login));
       },
       child: Scaffold(
         body: SafeArea(

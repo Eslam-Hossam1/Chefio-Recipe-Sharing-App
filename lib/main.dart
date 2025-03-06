@@ -1,7 +1,7 @@
 import 'package:chefio_app/chefio_app.dart';
 import 'package:chefio_app/core/Functions/get_text_theme.dart';
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/app_themes.dart';
 import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/constants.dart';

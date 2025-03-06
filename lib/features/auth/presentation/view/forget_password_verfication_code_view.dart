@@ -2,8 +2,9 @@ import 'dart:developer';
 
 import 'package:chefio_app/core/Functions/show_custom_exit_confirmation_dialog.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/auth/presentation/manager/forgot_password_verification_code_cubit/forgot_password_verification_code_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
@@ -50,7 +51,7 @@ class _ForgetPasswordVerificationCodeViewState
             btnOkOnPress: () {},
           );
         } else if (state is VerifyForgotPasswordVerificationCodeSuccess) {
-                        context.go(AppRouter.kResetPasswordView,extra: widget.email);
+                        context.go(RoutePaths.resetPassword,extra: widget.email);
         }
       },
       builder: (context, state) {

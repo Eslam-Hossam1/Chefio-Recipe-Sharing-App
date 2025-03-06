@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/utils/google_auth_service.dart';

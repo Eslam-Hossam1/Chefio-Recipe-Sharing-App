@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:chefio_app/core/api/api_keys.dart';
-import 'package:chefio_app/core/utils/app_router.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/secure_storage_helper.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
