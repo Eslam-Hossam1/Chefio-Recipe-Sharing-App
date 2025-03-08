@@ -27,7 +27,7 @@ class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
-    initialLocation: RoutePaths.verificationCode,
+    initialLocation: RoutePaths.splash,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
@@ -39,7 +39,7 @@ class AppRouter {
         branches: ShellBranches.branches,
       ),
       GoRoute(
-        path: '/',
+        path: RoutePaths.splash,
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
@@ -69,7 +69,7 @@ class AppRouter {
         path: RoutePaths.verificationCode,
         builder: (context, state) => BlocProvider(
           create: (context) => VerificationCodeCubit(getIt<AuthRepoImpl>()),
-          child: VerificationCodeView(email: state.extra as String?),
+          child: VerificationCodeView(email: state.extra as String),
         ),
       ),
       GoRoute(
@@ -80,7 +80,7 @@ class AppRouter {
         ),
       ),
       GoRoute(
-        path: RoutePaths.forgetPasswordVerificationCode,
+        path: RoutePaths.forgotPasswordVerificationCode,
         builder: (context, state) => BlocProvider(
           create: (context) =>
               ForgotPasswordVerificationCodeCubit(getIt<AuthRepoImpl>()),
