@@ -25,8 +25,11 @@ class HomeViewBodyMobile extends StatelessWidget {
       slivers: [
         HomeSliverAppBar(),
         SliverToBoxAdapter(
+          child: CategoriesListView(),
+        ),
+        SliverToBoxAdapter(
           child: SizedBox(
-            height: 16,
+            height: 8,
           ),
         ),
         SliverToBoxAdapter(

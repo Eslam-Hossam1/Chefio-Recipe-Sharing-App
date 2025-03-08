@@ -25,6 +25,9 @@ class HomeViewBodyTablet extends StatelessWidget {
       slivers: [
         HomeSliverAppBar(),
         SliverToBoxAdapter(
+          child: CategoriesListView(),
+        ),
+        SliverToBoxAdapter(
           child: SizedBox(
             height: 16,
           ),

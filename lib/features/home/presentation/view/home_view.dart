@@ -8,7 +8,7 @@ import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_view_body_mobile.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/home_view_body_table.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/home_view_body_tablet.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

@@ -15,36 +15,24 @@ class HomeSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      bottom: PreferredSize(
-        preferredSize: Size.fromHeight(56),
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: CategoriesListView(),
-        ),
-      ),
       pinned: false,
       floating: true,
-      expandedHeight: 100,
       automaticallyImplyLeading: false,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       surfaceTintColor: Colors.transparent,
       flexibleSpace: FlexibleSpaceBar(
-        title: Column(
-          children: [
-            AdaptivePadding(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Chefio',
-                    style: Styles.textStyleBold22(context)
-                        .copyWith(color: context.primaryColor),
-                  ),
-                  const SearchButton(),
-                ],
+        title: AdaptivePadding(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Chefio',
+                style: Styles.textStyleBold22(context)
+                    .copyWith(color: context.primaryColor),
               ),
-            ),
-          ],
+              const SearchButton(),
+            ],
+          ),
         ),
       ),
     );
