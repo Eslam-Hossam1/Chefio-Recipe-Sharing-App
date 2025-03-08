@@ -24,7 +24,7 @@ class VerificationCodeViewBody extends StatelessWidget {
           children: [
             Expanded(
                 child: SizedBox(
-              height: 40,
+              height: 20,
             )),
             Text(
               AppLocalizationKeys.auth.verificationCodeViewCheckYourEmail.tr(),
@@ -48,7 +48,7 @@ class VerificationCodeViewBody extends StatelessWidget {
             Expanded(
                 flex: 2,
                 child: SizedBox(
-                  height: 40,
+                  height: 20,
                 )),
           ],
         ),

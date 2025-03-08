@@ -8,7 +8,7 @@ abstract class RoutePaths {
   static const forgetPassword = "/forgetpassword";
   static const resetPassword = "/resetpassword";
   static const forgotPasswordVerificationCode =
-      "/forgetpasswordverificationcode";
+      "/forgotpasswordverificationcode";
   static const search = "/search";
   static const notifications = "/notification";
   static const profile = "/profile";
