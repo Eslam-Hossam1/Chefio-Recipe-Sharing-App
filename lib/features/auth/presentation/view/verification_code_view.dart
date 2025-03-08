@@ -18,7 +18,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class VerificationCodeView extends StatefulWidget {
   const VerificationCodeView({super.key, required this.email});
-  final String? email;
+  final String email;
   @override
   State<VerificationCodeView> createState() => _VerificationCodeViewState();
 }
@@ -27,7 +27,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
   @override
   void initState() {
     BlocProvider.of<VerificationCodeCubit>(context)
-        .sendVerificationCode(email: widget.email??'');
+        .sendVerificationCode(email: widget.email);
     super.initState();
   }
 

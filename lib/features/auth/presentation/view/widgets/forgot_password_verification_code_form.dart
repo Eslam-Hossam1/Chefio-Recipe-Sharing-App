@@ -48,38 +48,33 @@ class _ForgotPasswordVerificationCodeFormState
           SizedBox(
             height: 24,
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: getVerificationFormButtonsPadding(context)),
-            child: Column(
-              children: [
-                VerifyButton(
-                  onPressed: () async {
-                    if (formKey.currentState!.validate()) {
-                      formKey.currentState!.save();
-                      await BlocProvider.of<
-                              ForgotPasswordVerificationCodeCubit>(context)
-                          .verfiyForgotPasswordVerificationCode(
-                              code: int.parse(pinCodetext!));
-                    } else {
-                      setState(() {
-                        autovalidateMode = AutovalidateMode.always;
-                      });
-                    }
-                  },
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                ForgotPasswordVerificationSendAgainButton(),
-              ],
-            ),
+          Column(
+            children: [
+              VerifyButton(
+                onPressed: () async {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    await BlocProvider.of<
+                            ForgotPasswordVerificationCodeCubit>(context)
+                        .verfiyForgotPasswordVerificationCode(
+                            code: int.parse(pinCodetext!));
+                  } else {
+                    setState(() {
+                      autovalidateMode = AutovalidateMode.always;
+                    });
+                  }
+                },
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              ForgotPasswordVerificationSendAgainButton(),
+            ],
           ),
         ],
       ),
     );
   }
 
-  getVerificationFormButtonsPadding(BuildContext context) =>
-      getAuthHorizontalPadding(context);
+  
 }

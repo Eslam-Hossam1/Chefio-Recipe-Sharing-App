@@ -2,13 +2,17 @@ import 'dart:developer';
 
 import 'package:chefio_app/core/Functions/show_custom_exit_confirmation_dialog.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/auth/presentation/manager/forgot_password_verification_code_cubit/forgot_password_verification_code_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/forgot_password_verification_code_body.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/forgot_password_verification_code_view_body_tablet.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/forgot_password_view_body_tablet.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/verification_code_view_body.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +65,11 @@ class _ForgotPasswordVerificationCodeViewState
           progressIndicator: CustomCircularProgressIndicator(),
           child: Scaffold(
             body: SafeArea(
-              child: ForgotPasswordVerificationCodeViewBody(),
+              child: AdaptiveLayout(mobileLayout:(context)=> Padding(
+                padding:  EdgeInsets.symmetric(horizontal: Constants.kMobileHorizontalPadding),
+                child: ForgotPasswordVerificationCodeViewBody(),
+              ),
+              tabletLayout: (context)=>ForgotPasswordVerificationCodeViewBodyTablet(),),
             ),
           ),
         );

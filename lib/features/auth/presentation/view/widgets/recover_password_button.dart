@@ -28,7 +28,7 @@ class PasswordRecoveryButton extends StatelessWidget {
             btnOkOnPress: () {},
           );
         } else if (state is ForgotPasswordSuccess) {
-          context.push(RoutePaths.forgetPasswordVerificationCode,
+          context.push(RoutePaths.forgotPasswordVerificationCode,
               extra: state.email);
         }
       },
