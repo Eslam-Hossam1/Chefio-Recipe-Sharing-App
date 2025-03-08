@@ -1,11 +1,15 @@
 import 'package:chefio_app/core/Functions/show_custom_exit_confirmation_dialog.dart';
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
+import 'package:chefio_app/core/widgets/tablet_form_container.dart';
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/verification_code_view_body.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/verification_code_view_body_tablet.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +18,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class VerificationCodeView extends StatefulWidget {
   const VerificationCodeView({super.key, required this.email});
-  final String email;
+  final String? email;
   @override
   State<VerificationCodeView> createState() => _VerificationCodeViewState();
 }
@@ -23,7 +27,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
   @override
   void initState() {
     BlocProvider.of<VerificationCodeCubit>(context)
-        .sendVerificationCode(email: widget.email);
+        .sendVerificationCode(email: widget.email??'');
     super.initState();
   }
 
@@ -77,7 +81,11 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
             },
             child: Scaffold(
               body: SafeArea(
-                child: VerificationCodeViewBody(),
+                child: AdaptiveLayout(mobileLayout:(context)=> Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: Constants.kMobileHorizontalPadding),
+                  child: VerificationCodeViewBody(),
+                ),
+                tabletLayout: (context)=>VerificationCodeViewBodyTablet(),),
               ),
             ),
           ),

@@ -44,38 +44,32 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
           SizedBox(
             height: 24,
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: getVerificationFormButtonsPadding(context)),
-            child: Column(
-              children: [
-                VerifyButton(
-                  onPressed: () async {
-                    if (formKey.currentState!.validate()) {
-                      formKey.currentState!.save();
-                      await BlocProvider.of<VerificationCodeCubit>(context)
-                          .verfiyVerificationCode(
-                              code: int.parse(pinCodetext!));
-                    } else {
-                      setState(() {
-                        autovalidateMode = AutovalidateMode.always;
-                      });
-                    }
-                  },
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                VerificationCodeSendAgainButton(),
-              ],
-            ),
+          Column(
+            children: [
+              VerifyButton(
+                onPressed: () async {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    await BlocProvider.of<VerificationCodeCubit>(context)
+                        .verfiyVerificationCode(
+                            code: int.parse(pinCodetext!));
+                  } else {
+                    setState(() {
+                      autovalidateMode = AutovalidateMode.always;
+                    });
+                  }
+                },
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              VerificationCodeSendAgainButton(),
+            ],
           ),
         ],
       ),
     );
   }
 
-  getVerificationFormButtonsPadding(BuildContext context) =>
-      getAuthHorizontalPadding(context);
 }
 

@@ -19,48 +19,36 @@ class CustomPinCodeField extends StatelessWidget {
   final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: getPinCodeTextFeildPadding(context)),
-      child: PinCodeTextField(
-        autovalidateMode: AutovalidateMode.disabled,
-        onSaved: onSaved,
-        validator: FormValidators.pincodeTextFormFieldValidator,
-        pastedTextStyle: Styles.textStyleBold15(context)
-            .copyWith(color: context.primaryColor),
-        appContext: context,
-        length: 6,
-        textStyle: Styles.textStyleSemiBold34(context)
-            .copyWith(color: context.mainTextColor),
-        showCursor: false,
-        animationType: AnimationType.fade,
-        keyboardType: TextInputType.number,
-        pinTheme: PinTheme(
-          shape: PinCodeFieldShape.box,
-          borderRadius: BorderRadius.circular(16.r),
-          fieldHeight: getfieldWidth(context),
-          fieldWidth: getfieldWidth(context),
-          activeColor: context.primaryColor,
-          inactiveColor: context.outlineColor,
-          selectedColor: Colors.blue,
-        ),
-        onChanged: onChanged, // Optional for real-time input tracking
-        onCompleted: onCompleted, // Callback when the user completes input
+    return PinCodeTextField(
+      autovalidateMode: AutovalidateMode.disabled,
+      onSaved: onSaved,
+      validator: FormValidators.pincodeTextFormFieldValidator,
+      pastedTextStyle: Styles.textStyleBold15(context)
+          .copyWith(color: context.primaryColor),
+      appContext: context,
+      length: 6,
+      textStyle: Styles.textStyleSemiBold34(context)
+          .copyWith(color: context.mainTextColor),
+      showCursor: false,
+      animationType: AnimationType.fade,
+      keyboardType: TextInputType.number,
+      pinTheme: PinTheme(
+        shape: PinCodeFieldShape.box,
+        borderRadius: BorderRadius.circular(16.r),
+        fieldHeight: getfieldWidth(context),
+        fieldWidth: getfieldWidth(context),
+        activeColor: context.primaryColor,
+        inactiveColor: context.outlineColor,
+        selectedColor: Colors.blue,
       ),
+      onChanged: onChanged, // Optional for real-time input tracking
+      onCompleted: onCompleted, // Callback when the user completes input
     );
   }
 
-  double getPinCodeTextFeildPadding(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
-    if (width < SizeConfig.tabletBreakPoint) {
-      return (24 * (MediaQuery.sizeOf(context).width / Constants.kDesignWidth));
-    } else {
-      return (50 * (MediaQuery.sizeOf(context).width / Constants.kDesignWidth));
-    }
-  }
 
   double getfieldWidth(context) {
     double width = MediaQuery.sizeOf(context).width;
-    return (48 * (width / Constants.kDesignWidth)).clamp(18, 72);
+    return (48 * (width / Constants.kDesignWidth)).clamp(18, 60);
   }
 }
