@@ -51,12 +51,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Flexible(
-          fit: FlexFit.loose,
-          child: Center(
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
             child: AnimatedOpacity(
               opacity: _opacity,
               duration: Constants.kFadeInDuration,
@@ -71,8 +70,8 @@ class _SplashViewBodyState extends State<SplashViewBody> {
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

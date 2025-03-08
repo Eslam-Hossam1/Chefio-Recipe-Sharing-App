@@ -12,12 +12,12 @@ import 'package:chefio_app/features/auth/presentation/manager/reset_password_cub
 import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/view/forget_password_verfication_code_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/forgot_password_verfication_code_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/verification_code_view.dart';
-import 'package:chefio_app/features/auth/presentation/view/forget_password_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/forgot_password_view.dart';
 import 'package:chefio_app/features/main/presentation/view/main_view.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:chefio_app/features/splash/presentation/view/splash_view.dart';
@@ -27,7 +27,7 @@ class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
-    initialLocation:RoutePaths.login ,
+    initialLocation: RoutePaths.login,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
@@ -76,7 +76,7 @@ class AppRouter {
         path: RoutePaths.forgetPassword,
         builder: (context, state) => BlocProvider(
           create: (context) => ForgotPasswordCubit(getIt<AuthRepoImpl>()),
-          child: const ForgetPasswordView(),
+          child: const ForgotPasswordView(),
         ),
       ),
       GoRoute(
@@ -85,7 +85,7 @@ class AppRouter {
           create: (context) =>
               ForgotPasswordVerificationCodeCubit(getIt<AuthRepoImpl>()),
           child:
-              ForgetPasswordVerificationCodeView(email: state.extra as String),
+              ForgotPasswordVerificationCodeView(email: state.extra as String),
         ),
       ),
       GoRoute(

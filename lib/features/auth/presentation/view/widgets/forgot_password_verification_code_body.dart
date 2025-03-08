@@ -13,8 +13,8 @@ import 'package:chefio_app/features/auth/presentation/view/widgets/verifiy_butto
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class ForgetPasswordVerificationCodeViewBody extends StatelessWidget {
-  const ForgetPasswordVerificationCodeViewBody({super.key});
+class ForgotPasswordVerificationCodeViewBody extends StatelessWidget {
+  const ForgotPasswordVerificationCodeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/forget_password_form.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/forgot_password_form.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -10,8 +10,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ForgetPasswordViewBody extends StatelessWidget {
-  const ForgetPasswordViewBody({super.key});
+class ForgotPasswordViewBody extends StatelessWidget {
+  const ForgotPasswordViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
               SizedBox(
                 height: 32,
               ),
-              const ForgetPasswordForm(),
+              const ForgotPasswordForm(),
               Expanded(
                 flex: 2,
                 child: SizedBox(

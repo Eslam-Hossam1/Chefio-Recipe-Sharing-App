@@ -6,19 +6,19 @@ import 'package:chefio_app/features/auth/presentation/manager/verification_code_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ForgetPasswordVerificationCountdownTimer extends StatefulWidget {
+class ForgotPasswordVerificationCountdownTimer extends StatefulWidget {
   final int seconds;
 
-  const ForgetPasswordVerificationCountdownTimer(
+  const ForgotPasswordVerificationCountdownTimer(
       {super.key, required this.seconds});
 
   @override
-  State<ForgetPasswordVerificationCountdownTimer> createState() =>
-      ForgetPasswordVerificationCountdownTimerState();
+  State<ForgotPasswordVerificationCountdownTimer> createState() =>
+      ForgotPasswordVerificationCountdownTimerState();
 }
 
-class ForgetPasswordVerificationCountdownTimerState
-    extends State<ForgetPasswordVerificationCountdownTimer> {
+class ForgotPasswordVerificationCountdownTimerState
+    extends State<ForgotPasswordVerificationCountdownTimer> {
   late int _remainingSeconds;
   Timer? _timer;
 

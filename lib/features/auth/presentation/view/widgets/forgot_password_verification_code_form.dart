@@ -8,7 +8,7 @@ import 'package:chefio_app/features/auth/presentation/manager/forgot_password_ve
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/code_expires_in.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_pin_code_field.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/forget_password_verification_code_expires_in.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/forgot_password_verification_code_expires_in.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/forgot_password_verfication_send_again_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/send_again_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/verifiy_button.dart';
@@ -71,7 +71,7 @@ class _ForgotPasswordVerificationCodeFormState
                 SizedBox(
                   height: 16,
                 ),
-                ForgetPasswordVerificationSendAgainButton(),
+                ForgotPasswordVerificationSendAgainButton(),
               ],
             ),
           ),

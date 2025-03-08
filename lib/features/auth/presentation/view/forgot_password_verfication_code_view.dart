@@ -8,7 +8,7 @@ import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/auth/presentation/manager/forgot_password_verification_code_cubit/forgot_password_verification_code_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/forget_password_verification_code_body.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/forgot_password_verification_code_body.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/verification_code_view_body.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -16,16 +16,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class ForgetPasswordVerificationCodeView extends StatefulWidget {
-  const ForgetPasswordVerificationCodeView({super.key, required this.email});
+class ForgotPasswordVerificationCodeView extends StatefulWidget {
+  const ForgotPasswordVerificationCodeView({super.key, required this.email});
   final String email;
   @override
-  State<ForgetPasswordVerificationCodeView> createState() =>
-      _ForgetPasswordVerificationCodeViewState();
+  State<ForgotPasswordVerificationCodeView> createState() =>
+      _ForgotPasswordVerificationCodeViewState();
 }
 
-class _ForgetPasswordVerificationCodeViewState
-    extends State<ForgetPasswordVerificationCodeView> {
+class _ForgotPasswordVerificationCodeViewState
+    extends State<ForgotPasswordVerificationCodeView> {
   @override
   void initState() {
     BlocProvider.of<ForgotPasswordVerificationCodeCubit>(context)
@@ -51,7 +51,7 @@ class _ForgetPasswordVerificationCodeViewState
             btnOkOnPress: () {},
           );
         } else if (state is VerifyForgotPasswordVerificationCodeSuccess) {
-                        context.go(RoutePaths.resetPassword,extra: widget.email);
+          context.go(RoutePaths.resetPassword, extra: widget.email);
         }
       },
       builder: (context, state) {
@@ -61,7 +61,7 @@ class _ForgetPasswordVerificationCodeViewState
           progressIndicator: CustomCircularProgressIndicator(),
           child: Scaffold(
             body: SafeArea(
-              child: ForgetPasswordVerificationCodeViewBody(),
+              child: ForgotPasswordVerificationCodeViewBody(),
             ),
           ),
         );

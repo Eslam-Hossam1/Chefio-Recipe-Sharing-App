@@ -1,11 +1,10 @@
-
 import 'package:chefio_app/features/auth/presentation/manager/forgot_password_verification_code_cubit/forgot_password_verification_code_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/send_again_button.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ForgetPasswordVerificationSendAgainButton extends StatelessWidget {
-  const ForgetPasswordVerificationSendAgainButton({
+class ForgotPasswordVerificationSendAgainButton extends StatelessWidget {
+  const ForgotPasswordVerificationSendAgainButton({
     super.key,
   });
 
@@ -17,8 +16,7 @@ class ForgetPasswordVerificationSendAgainButton extends StatelessWidget {
         if (state is ShowSendAgain) {
           return SendAgainButton(
             onPressed: () {
-              BlocProvider.of<ForgotPasswordVerificationCodeCubit>(
-                      context)
+              BlocProvider.of<ForgotPasswordVerificationCodeCubit>(context)
                   .resendForgotPasswordVerificationCode();
             },
           );

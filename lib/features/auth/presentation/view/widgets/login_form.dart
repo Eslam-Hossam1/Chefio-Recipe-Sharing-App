@@ -4,7 +4,7 @@ import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custome_email_text_form_field.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/forget_password_clickable_text.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/forgot_password_clickable_text.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/log_in_with_google_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/login_with_email_and_password_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/obsecure_text_form_field.dart';
@@ -57,7 +57,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
           const Align(
             alignment: AlignmentDirectional.centerEnd,
-            child: ForgetPasswordClickableText(),
+            child: ForgotPasswordClickableText(),
           ),
           SizedBox(
             height: 72.h,
@@ -69,8 +69,7 @@ class _LoginFormState extends State<LoginForm> {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                     await BlocProvider.of<LogInCubit>(context)
-                        .logIn(
-                            email: email!, password: password!);
+                        .logIn(email: email!, password: password!);
                   } else {
                     setState(() {
                       _autovalidateMode = AutovalidateMode.always;
@@ -84,7 +83,7 @@ class _LoginFormState extends State<LoginForm> {
               Text(
                 AppLocalizationKeys.auth.orContinueWith.tr(),
                 style: Styles.textStyleMedium15(context).copyWith(
-                  color:context.secondaryTextColor,
+                  color: context.secondaryTextColor,
                 ),
               ),
               SizedBox(

@@ -9,14 +9,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ForgetPasswordForm extends StatefulWidget {
-  const ForgetPasswordForm({super.key});
+class ForgotPasswordForm extends StatefulWidget {
+  const ForgotPasswordForm({super.key});
 
   @override
-  State<ForgetPasswordForm> createState() => _ForgetPasswordFormState();
+  State<ForgotPasswordForm> createState() => _ForgotPasswordFormState();
 }
 
-class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
+class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
   late GlobalKey<FormState> _formKey;
   late AutovalidateMode _autovalidateMode;
   String? email;

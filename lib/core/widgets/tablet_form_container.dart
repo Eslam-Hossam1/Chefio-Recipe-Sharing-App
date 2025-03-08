@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class TabletFormContainer extends StatelessWidget {
@@ -6,7 +5,7 @@ class TabletFormContainer extends StatelessWidget {
   final Widget Function(BuildContext) child;
   @override
   Widget build(BuildContext context) {
-    double width = (MediaQuery.sizeOf(context).width * 0.65).clamp(400, 540);
+    double width = (MediaQuery.sizeOf(context).width * 0.65).clamp(400, 480);
     return Center(
       child: SizedBox(
         width: width,
