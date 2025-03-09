@@ -23,7 +23,7 @@ class RecipeItemImageWithIcon extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(
-                    fit: BoxFit.contain,
+                    fit: BoxFit.fill,
                     image: AssetImage(Assets.imagesPancakeTest))),
           ),
           Positioned(
