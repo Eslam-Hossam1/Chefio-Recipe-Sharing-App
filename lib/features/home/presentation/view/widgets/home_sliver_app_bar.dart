@@ -2,16 +2,16 @@ import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/search_button.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/search_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/search_button.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/search_icon_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeSliverAppBar extends StatelessWidget {
-  const HomeSliverAppBar({super.key});
-
+  const HomeSliverAppBar({super.key, this.searchWidget});
+  final Widget? searchWidget;
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -30,7 +30,7 @@ class HomeSliverAppBar extends StatelessWidget {
                 style: Styles.textStyleBold22(context)
                     .copyWith(color: context.primaryColor),
               ),
-              const SearchButton(),
+              searchWidget ?? SizedBox(),
             ],
           ),
         ),
