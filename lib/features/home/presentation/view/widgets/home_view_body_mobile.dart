@@ -9,7 +9,7 @@ import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_sliver_app_bar.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipes_grid.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/search_button.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/search_icon_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +23,9 @@ class HomeViewBodyMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        HomeSliverAppBar(),
+        HomeSliverAppBar(
+          searchWidget: SearchIconButton(),
+        ),
         SliverToBoxAdapter(
           child: CategoriesListView(),
         ),
