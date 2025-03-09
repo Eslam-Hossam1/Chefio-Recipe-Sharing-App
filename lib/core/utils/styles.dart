@@ -126,14 +126,11 @@ abstract class Styles {
 
   static double _getScaleFactor(context) {
     double width = MediaQuery.sizeOf(context).width;
-    return width / Constants.kDesignWidth;
+    
+    if (width < SizeConfig.tabletBreakPoint) {
+      return width / Constants.kDesignWidth;
+    } else {
+      return width / 800;
+    }
   }
 }
-
-//if (width < SizeConfig.tabletBreakPoint) {
-//   return width / 600;
-// } else if (width < SizeConfig.desktopBreakPoint) {
-//   return width / 1100;
-// } else {
-//   return width / 1550;
-// }
