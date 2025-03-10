@@ -19,4 +19,6 @@ abstract class ApiKeys {
   static const String success = "success";
   static const String error = "error";
   static const String client = "client";
+  static const String limit='limit';
+  static const String skip='skip';
 }
