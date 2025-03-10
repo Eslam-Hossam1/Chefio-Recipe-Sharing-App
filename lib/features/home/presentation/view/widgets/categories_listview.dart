@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
-import 'package:chefio_app/features/home/data/models/category_type_enum.dart';
+import 'package:chefio_app/features/home/data/enums/category_type_enum.dart';
 import 'package:chefio_app/features/home/data/models/category_model.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/category_button.dart';
 import 'package:flutter/material.dart';
@@ -17,15 +17,9 @@ class CategoriesListView extends StatefulWidget {
 class _CategoriesListViewState extends State<CategoriesListView> {
   CategoryType selectedCategoryType = CategoryType.all;
   List<CategoryModel> categories = [
-    CategoryModel(
-        categoryType: CategoryType.all,
-        applocalizationKey: AppLocalizationKeys.global.all),
-    CategoryModel(
-        categoryType: CategoryType.food,
-        applocalizationKey: AppLocalizationKeys.global.food),
-    CategoryModel(
-        categoryType: CategoryType.drink,
-        applocalizationKey: AppLocalizationKeys.global.drink),
+    CategoryModel.fromCategoryType(categoryType: CategoryType.all),
+    CategoryModel.fromCategoryType(categoryType: CategoryType.food),
+    CategoryModel.fromCategoryType(categoryType: CategoryType.drink),
   ];
 
   @override
