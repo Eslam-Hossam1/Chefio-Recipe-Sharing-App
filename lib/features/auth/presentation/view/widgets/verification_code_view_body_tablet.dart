@@ -7,6 +7,6 @@ class VerificationCodeViewBodyTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TabletFormContainer(child: (context)=>VerificationCodeViewBody());
+    return TabletFormContainer(child: (context) => VerificationCodeViewBody());
   }
 }

@@ -69,7 +69,7 @@ class LoginViewBody extends StatelessWidget {
                     },
                     text: AppLocalizationKeys.auth.signup.tr(),
                     style: Styles.textStyleBold15(context).copyWith(
-                      color:context.primaryColor,
+                      color: context.primaryColor,
                     ),
                   ),
                 ],

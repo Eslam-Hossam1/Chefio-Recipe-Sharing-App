@@ -3,7 +3,7 @@ import 'custom_colors.dart';
 
 extension ThemeColorsExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
-  CustomColors get customColorsExtension =>theme.extension<CustomColors>()!;
+  CustomColors get customColorsExtension => theme.extension<CustomColors>()!;
   ColorScheme get colorScheme => theme.colorScheme;
 
   Color get mainTextColor => customColorsExtension.mainTextColor;

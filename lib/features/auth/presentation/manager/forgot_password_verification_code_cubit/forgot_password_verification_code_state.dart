@@ -15,8 +15,8 @@ final class SendForgotPasswordVerificationCodeSuccess
 
 final class VerifyForgotPasswordVerificationCodeSuccess
     extends ForgotPasswordVerificationCodeState {}
-final class ShowSendAgain
-    extends ForgotPasswordVerificationCodeState {}
+
+final class ShowSendAgain extends ForgotPasswordVerificationCodeState {}
 
 final class SendForgotPasswordVerificationCodeFailure
     extends ForgotPasswordVerificationCodeState {

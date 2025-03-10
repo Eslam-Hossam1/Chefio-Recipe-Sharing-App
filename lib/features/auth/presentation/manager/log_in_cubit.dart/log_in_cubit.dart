@@ -57,9 +57,9 @@ class LogInCubit extends Cubit<LogInState> {
       (nullableLogInSuccessModel) async {
         if (nullableLogInSuccessModel != null) {
           await _authCredentialsHelper.storeTokens(
-          accessToken: nullableLogInSuccessModel.accessToken,
-          refreshToken: nullableLogInSuccessModel.refreshToken,
-        );
+            accessToken: nullableLogInSuccessModel.accessToken,
+            refreshToken: nullableLogInSuccessModel.refreshToken,
+          );
           emit(LogInSuccess());
         } else {
           emit(LogInInitial());

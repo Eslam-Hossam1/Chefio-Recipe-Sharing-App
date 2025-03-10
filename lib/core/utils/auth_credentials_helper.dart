@@ -37,7 +37,8 @@ class AuthCredentialsHelper {
     _authCredentialsModel?.refreshToken = token;
   }
 
-  Future<void> storeTokens({required String accessToken,required String refreshToken}) async {
+  Future<void> storeTokens(
+      {required String accessToken, required String refreshToken}) async {
     await Future.wait([
       storeAccessToken(accessToken),
       storeRefreshToken(refreshToken),

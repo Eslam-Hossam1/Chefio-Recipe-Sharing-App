@@ -62,9 +62,8 @@ class SignUpPasswordStandardsColumn extends StatelessWidget {
             PasswordStandard(
               isValid: BlocProvider.of<ValidateSignUpPasswordCubit>(context)
                   .isContainsSpecialLetter,
-              standardText: AppLocalizationKeys
-                  .auth.signUpViewContainsSpecialLetter
-                  .tr(),
+              standardText:
+                  AppLocalizationKeys.auth.signUpViewContainsSpecialLetter.tr(),
             ),
             SizedBox(
               height: 16.h,

@@ -51,8 +51,7 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     await BlocProvider.of<VerificationCodeCubit>(context)
-                        .verfiyVerificationCode(
-                            code: int.parse(pinCodetext!));
+                        .verfiyVerificationCode(code: int.parse(pinCodetext!));
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
@@ -70,6 +69,4 @@ class _VerificationCodeFormState extends State<VerificationCodeForm> {
       ),
     );
   }
-
 }
-

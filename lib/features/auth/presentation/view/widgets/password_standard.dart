@@ -25,9 +25,7 @@ class PasswordStandard extends StatelessWidget {
         Text(
           standardText,
           style: Styles.textStyleMedium15(context).copyWith(
-            color: isValid
-                ?context.mainTextColor
-                :context.secondaryTextColor,
+            color: isValid ? context.mainTextColor : context.secondaryTextColor,
           ),
         ),
       ],

@@ -7,7 +7,11 @@ class LogInSuccessModel extends Equatable {
   final String refreshToken;
   final String? message;
 
-  const LogInSuccessModel({this.success, required this.accessToken,required this.refreshToken, this.message});
+  const LogInSuccessModel(
+      {this.success,
+      required this.accessToken,
+      required this.refreshToken,
+      this.message});
 
   factory LogInSuccessModel.fromJson(Map<String, dynamic> json) {
     return LogInSuccessModel(
@@ -17,8 +21,6 @@ class LogInSuccessModel extends Equatable {
       refreshToken: json[ApiKeys.refreshToken] as String,
     );
   }
-
-
 
   @override
   List<Object?> get props => [success, accessToken, message];

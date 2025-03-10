@@ -1,8 +1,7 @@
-
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 
 String getLocalizationKeyFromErrorCode(String errorKey) {
-   Map<String, String> errorMap = {
+  Map<String, String> errorMap = {
     "bad_request": AppLocalizationKeys.error.badRequest,
     "unauthorized": AppLocalizationKeys.error.unauthorized,
     "forbidden": AppLocalizationKeys.error.forbidden,

@@ -7,6 +7,7 @@ class ForgotPasswordVerificationCodeViewBodyTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TabletFormContainer(child: (context)=>ForgotPasswordVerificationCodeViewBody());
+    return TabletFormContainer(
+        child: (context) => ForgotPasswordVerificationCodeViewBody());
   }
 }

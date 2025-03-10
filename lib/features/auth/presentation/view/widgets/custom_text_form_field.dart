@@ -51,7 +51,7 @@ class CustomTextFormField extends StatelessWidget {
         focusedBorder: FormStyles.buildBorder(context).copyWith(
           borderSide: BorderSide(
             width: 2,
-            color:context.primaryColor,
+            color: context.primaryColor,
           ),
         ),
       ),

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class SendAgainButton extends StatelessWidget {
   const SendAgainButton({super.key, this.onPressed});
-  final void Function()? onPressed; 
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,7 +24,7 @@ class SendAgainButton extends StatelessWidget {
             child: Text(
               AppLocalizationKeys.auth.verificationCodeViewSendAgain.tr(),
               style: Styles.textStyleBold15(context).copyWith(
-                color:context.secondaryTextColor,
+                color: context.secondaryTextColor,
               ),
             ),
           ),

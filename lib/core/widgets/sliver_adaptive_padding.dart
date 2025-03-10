@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 
 class SliverAdaptivePadding extends StatelessWidget {
   const SliverAdaptivePadding({super.key, required this.sliver});
-    final Widget sliver;
+  final Widget sliver;
 
   @override
   Widget build(BuildContext context) {
-    return SliverPadding(padding: EdgeInsets.symmetric(horizontal: getPadding(context)),
-        sliver: sliver,);
+    return SliverPadding(
+      padding: EdgeInsets.symmetric(horizontal: getPadding(context)),
+      sliver: sliver,
+    );
   }
 
   double getPadding(BuildContext context) {

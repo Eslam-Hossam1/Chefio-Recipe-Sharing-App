@@ -34,6 +34,7 @@ class CustomTextButton extends StatelessWidget {
           child: child),
     );
   }
+
   //not used
   double getCustomButtonResponsiveHeight(BuildContext context) {
     double bigTabletWidth = 1000;

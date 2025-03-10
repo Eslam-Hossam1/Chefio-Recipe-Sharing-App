@@ -23,8 +23,8 @@ class CustomPinCodeField extends StatelessWidget {
       autovalidateMode: AutovalidateMode.disabled,
       onSaved: onSaved,
       validator: FormValidators.pincodeTextFormFieldValidator,
-      pastedTextStyle: Styles.textStyleBold15(context)
-          .copyWith(color: context.primaryColor),
+      pastedTextStyle:
+          Styles.textStyleBold15(context).copyWith(color: context.primaryColor),
       appContext: context,
       length: 6,
       textStyle: Styles.textStyleSemiBold34(context)
@@ -45,7 +45,6 @@ class CustomPinCodeField extends StatelessWidget {
       onCompleted: onCompleted, // Callback when the user completes input
     );
   }
-
 
   double getfieldWidth(context) {
     double width = MediaQuery.sizeOf(context).width;

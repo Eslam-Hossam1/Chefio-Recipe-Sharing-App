@@ -54,8 +54,8 @@ class _ForgotPasswordVerificationCodeFormState
                 onPressed: () async {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    await BlocProvider.of<
-                            ForgotPasswordVerificationCodeCubit>(context)
+                    await BlocProvider.of<ForgotPasswordVerificationCodeCubit>(
+                            context)
                         .verfiyForgotPasswordVerificationCode(
                             code: int.parse(pinCodetext!));
                   } else {
@@ -75,6 +75,4 @@ class _ForgotPasswordVerificationCodeFormState
       ),
     );
   }
-
-  
 }

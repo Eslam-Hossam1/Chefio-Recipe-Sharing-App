@@ -46,12 +46,12 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
       child: Scaffold(
         body: SafeArea(
           child: AdaptiveLayout(
-            mobileLayout:(context)=> Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: Constants.kMobileHorizontalPadding),
-                child: const ResetPasswordViewBody(),),
-            tabletLayout: (context) => ResetPasswordViewBodyTablet()
-          ),
+              mobileLayout: (context) => Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: Constants.kMobileHorizontalPadding),
+                    child: const ResetPasswordViewBody(),
+                  ),
+              tabletLayout: (context) => ResetPasswordViewBodyTablet()),
         ),
       ),
     );

@@ -42,7 +42,7 @@ class SignUpViewBody extends StatelessWidget {
                 textAlign: TextAlign.center,
                 AppLocalizationKeys.auth.enterAccount.tr(),
                 style: Styles.textStyleMedium15(context).copyWith(
-                  color:context.secondaryTextColor,
+                  color: context.secondaryTextColor,
                 ),
               ),
               const SizedBox(
@@ -59,7 +59,7 @@ class SignUpViewBody extends StatelessWidget {
                     AppLocalizationKeys.auth.signUpViewAlreadyHaveAnAccount
                         .tr(),
                     style: Styles.textStyleSemiBold15(context).copyWith(
-                      color:context.mainTextColor,
+                      color: context.mainTextColor,
                     ),
                   ),
                   const SizedBox(

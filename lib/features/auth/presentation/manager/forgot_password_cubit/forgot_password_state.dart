@@ -20,5 +20,6 @@ final class ForgotPasswordLoading extends ForgotPasswordState {}
 final class ForgotPasswordFailure extends ForgotPasswordState {
   final String errorMessage;
   final String errorLocalizaitonKey;
-  const ForgotPasswordFailure({required this.errorMessage, required this.errorLocalizaitonKey});
+  const ForgotPasswordFailure(
+      {required this.errorMessage, required this.errorLocalizaitonKey});
 }

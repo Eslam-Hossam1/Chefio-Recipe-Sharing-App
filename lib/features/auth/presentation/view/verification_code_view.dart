@@ -81,11 +81,14 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
             },
             child: Scaffold(
               body: SafeArea(
-                child: AdaptiveLayout(mobileLayout:(context)=> Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: Constants.kMobileHorizontalPadding),
-                  child: VerificationCodeViewBody(),
+                child: AdaptiveLayout(
+                  mobileLayout: (context) => Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: Constants.kMobileHorizontalPadding),
+                    child: VerificationCodeViewBody(),
+                  ),
+                  tabletLayout: (context) => VerificationCodeViewBodyTablet(),
                 ),
-                tabletLayout: (context)=>VerificationCodeViewBodyTablet(),),
               ),
             ),
           ),

@@ -65,11 +65,15 @@ class _ForgotPasswordVerificationCodeViewState
           progressIndicator: CustomCircularProgressIndicator(),
           child: Scaffold(
             body: SafeArea(
-              child: AdaptiveLayout(mobileLayout:(context)=> Padding(
-                padding:  EdgeInsets.symmetric(horizontal: Constants.kMobileHorizontalPadding),
-                child: ForgotPasswordVerificationCodeViewBody(),
+              child: AdaptiveLayout(
+                mobileLayout: (context) => Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Constants.kMobileHorizontalPadding),
+                  child: ForgotPasswordVerificationCodeViewBody(),
+                ),
+                tabletLayout: (context) =>
+                    ForgotPasswordVerificationCodeViewBodyTablet(),
               ),
-              tabletLayout: (context)=>ForgotPasswordVerificationCodeViewBodyTablet(),),
             ),
           ),
         );

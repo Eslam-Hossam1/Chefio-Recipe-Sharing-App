@@ -27,16 +27,15 @@ class ApiInterceptor extends Interceptor {
         'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
     if (err.response?.statusCode == 401) {
       if (authCredentialsHelper.userIsAuthenticated()) {
-        try{
-           if (await _refreshToken()) {
-          return handler.resolve(await _retry(err.requestOptions));
-        }else{
+        try {
+          if (await _refreshToken()) {
+            return handler.resolve(await _retry(err.requestOptions));
+          } else {
+            handler.next(err);
+          }
+        } catch (e) {
           handler.next(err);
         }
-        }catch(e){
-          handler.next(err);
-        }
-       
       }
     }
     super.onError(err, handler);
@@ -64,7 +63,8 @@ class ApiInterceptor extends Interceptor {
       authCredentialsHelper.storeAccessToken(accessToken);
       return true;
     } else {
-      authCredentialsHelper.clearTokens(); // ⬅️ احذف بيانات المستخدم لو التوكن فشل
+      authCredentialsHelper
+          .clearTokens(); // ⬅️ احذف بيانات المستخدم لو التوكن فشل
       return false;
     }
   }

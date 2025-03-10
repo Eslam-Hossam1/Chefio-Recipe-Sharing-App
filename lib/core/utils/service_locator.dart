@@ -29,15 +29,16 @@ Future<void> setupServiceLocator() async {
   getIt.registerSingleton<SecureStorageHelper>(
       SecureStorageHelper(secureStorage));
 
-
   getIt.registerLazySingleton<OnboardingViewModel>(() => OnboardingViewModel());
 
-  getIt.registerSingleton<AuthCredentialsHelper>(AuthCredentialsHelper(secureStorageHelper: getIt<SecureStorageHelper>()));
+  getIt.registerSingleton<AuthCredentialsHelper>(
+      AuthCredentialsHelper(secureStorageHelper: getIt<SecureStorageHelper>()));
 
   getIt.registerSingleton<DioConsumer>(DioConsumer(dio: Dio()));
 
   getIt.registerSingleton<GoogleAuthService>(GoogleAuthService());
-  getIt.registerSingleton<SplashViewModel>(SplashViewModel(getIt<AuthCredentialsHelper>()));
+  getIt.registerSingleton<SplashViewModel>(
+      SplashViewModel(getIt<AuthCredentialsHelper>()));
   getIt.registerSingleton<AuthRepoImpl>(
       AuthRepoImpl(getIt<DioConsumer>(), getIt<GoogleAuthService>()));
 }

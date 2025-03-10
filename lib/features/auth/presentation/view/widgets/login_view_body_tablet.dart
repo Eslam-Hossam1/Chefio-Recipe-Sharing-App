@@ -7,8 +7,8 @@ class LoginViewBodyTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  TabletFormContainer(
-      child: (context)=> const LoginViewBody(),
+    return TabletFormContainer(
+      child: (context) => const LoginViewBody(),
     );
   }
 }

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 void showCustomExitConfirmationDialog(BuildContext context,
-    {required String errorMessage,required void Function()? btnOkOnPress}) {
+    {required String errorMessage, required void Function()? btnOkOnPress}) {
   DialogHelper.showWarningDialog(context,
       errorMessage: errorMessage,
       btnOkOnPress: btnOkOnPress,

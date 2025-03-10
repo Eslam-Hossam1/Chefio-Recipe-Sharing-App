@@ -27,7 +27,7 @@ class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
-    initialLocation: RoutePaths.splash,
+    initialLocation: RoutePaths.home,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [

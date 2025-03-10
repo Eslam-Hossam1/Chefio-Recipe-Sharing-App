@@ -22,10 +22,10 @@ class ForgotPasswordCubit extends Cubit<ForgotPasswordState> {
 
     result.fold(
       (failure) {
-        if(failure.errCode==ErrorCodes.notFound){
+        if (failure.errCode == ErrorCodes.notFound) {
           emit(ForgotPasswordFailure(
-            errorMessage: failure.errMsg,
-            errorLocalizaitonKey: failure.localizaitonKey));
+              errorMessage: failure.errMsg,
+              errorLocalizaitonKey: failure.localizaitonKey));
         }
         emit(ForgotPasswordFailure(
             errorMessage: failure.errMsg,

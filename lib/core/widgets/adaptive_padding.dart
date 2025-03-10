@@ -8,8 +8,9 @@ class AdaptivePadding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: getPadding(context)),
-        child: child,);
+      padding: EdgeInsets.symmetric(horizontal: getPadding(context)),
+      child: child,
+    );
   }
 
   double getPadding(BuildContext context) {

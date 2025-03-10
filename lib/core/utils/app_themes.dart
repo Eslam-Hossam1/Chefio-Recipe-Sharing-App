@@ -16,10 +16,9 @@ abstract class AppThemes {
     ),
     extensions: <ThemeExtension<dynamic>>[
       CustomColors(
-        mainTextColor: AppColors.lightMainTextColor,
-        secondaryTextColor: AppColors.lightSecondaryTextColor,
-        formColor: AppColors.lightFormColor
-      ),
+          mainTextColor: AppColors.lightMainTextColor,
+          secondaryTextColor: AppColors.lightSecondaryTextColor,
+          formColor: AppColors.lightFormColor),
     ],
   );
 
@@ -36,10 +35,9 @@ abstract class AppThemes {
     brightness: Brightness.dark,
     extensions: <ThemeExtension<dynamic>>[
       CustomColors(
-        mainTextColor: AppColors.darkMainTextColor,
-        secondaryTextColor: AppColors.darkSecondaryTextColor,
-        formColor: AppColors.darkFormColor
-      ),
+          mainTextColor: AppColors.darkMainTextColor,
+          secondaryTextColor: AppColors.darkSecondaryTextColor,
+          formColor: AppColors.darkFormColor),
     ],
   );
 }

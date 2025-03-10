@@ -7,8 +7,7 @@ class ResetPasswordViewBodyTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  TabletFormContainer(
-        child: (context) => const ResetPasswordViewBody()
-    );
+    return TabletFormContainer(
+        child: (context) => const ResetPasswordViewBody());
   }
 }

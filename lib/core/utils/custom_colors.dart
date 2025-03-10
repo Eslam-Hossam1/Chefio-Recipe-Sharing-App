@@ -16,7 +16,6 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? mainTextColor,
     Color? secondaryTextColor,
     Color? formColor,
-    
   }) {
     return CustomColors(
       mainTextColor: mainTextColor ?? this.mainTextColor,
@@ -32,8 +31,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       mainTextColor: Color.lerp(mainTextColor, other.mainTextColor, t)!,
       secondaryTextColor:
           Color.lerp(secondaryTextColor, other.secondaryTextColor, t)!,
-                formColor: Color.lerp(formColor, other.formColor, t)!,
-
+      formColor: Color.lerp(formColor, other.formColor, t)!,
     );
   }
 }

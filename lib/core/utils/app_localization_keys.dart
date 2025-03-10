@@ -103,7 +103,8 @@ class Auth {
   final String resetPasswordViewPleaseEnterNewPassword =
       'auth.reset_password.please_enter_new_password';
   final String resetPasswordViewDone = 'auth.reset_password.done';
-  final String resetPasswordExitWarning = 'auth.reset_password.reset_password_exit_warning';
+  final String resetPasswordExitWarning =
+      'auth.reset_password.reset_password_exit_warning';
   final String resetPasswordViewSuccess =
       'auth.reset_password.reset_password_success';
 }

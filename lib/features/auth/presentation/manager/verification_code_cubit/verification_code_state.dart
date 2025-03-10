@@ -12,6 +12,7 @@ final class VerificationCodeInitial extends VerificationCodeState {}
 final class SendVerificationCodeSuccess extends VerificationCodeState {}
 
 final class VerifyVerificationCodeSuccess extends VerificationCodeState {}
+
 final class ShowSendAgain extends VerificationCodeState {}
 
 final class SendVerificationCodeFailure extends VerificationCodeState {

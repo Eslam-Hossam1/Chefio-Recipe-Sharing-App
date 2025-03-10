@@ -39,10 +39,10 @@ class ResetPasswordDoneButton extends StatelessWidget {
         }
       },
       builder: (context, state) {
-         bool isLoading = state is ResetPasswordLoading;
+        bool isLoading = state is ResetPasswordLoading;
         return Row(
           children: [
-             Expanded(
+            Expanded(
               child: AbsorbPointer(
                 absorbing: isLoading,
                 child: CustomTextButton(
