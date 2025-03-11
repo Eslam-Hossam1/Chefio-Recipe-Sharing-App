@@ -5,5 +5,5 @@ import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
   Future<Either<ApiFailure, List<RecipeModel>>> fetchRecipesFromApi(
-      {required String name, required int limit, required int skip});
+      {required String categoryName, required int limit, required int skip});
 }

@@ -13,14 +13,14 @@ class HomeRepoImpl implements HomeRepo {
   final ApiConsumer _apiConsumer;
   HomeRepoImpl(this._apiConsumer);
   @override
-  Future<Either<ApiFailure, List<RecipeModel>>> fetchRecipesFromApi(
-      {required String name, required int limit, required int skip}) async {
+  Future<Either<DioApiFailure, List<RecipeModel>>> fetchRecipesFromApi(
+      {required String categoryName,required int limit, required int skip}) async {
     try {
       final response = await _apiConsumer.get(EndPoints.home, queryParameters: {
         ApiKeys.limit: limit,
         ApiKeys.skip: skip,
       });
-      List<Map<String, dynamic>> products = response['products'];
+      List<dynamic> products = response['products'];
       final List<RecipeModel> recipes = products
           .map(
             (recipeJson) => RecipeModel.fromJson(recipeJson),
