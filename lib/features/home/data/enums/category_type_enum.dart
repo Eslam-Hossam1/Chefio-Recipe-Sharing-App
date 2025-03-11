@@ -8,7 +8,7 @@ extension CategoryTypeExtension on CategoryType {
   String get name {
     switch (this) {
       case CategoryType.all:
-        return "aLL";
+        return "all";
       case CategoryType.food:
         return "food";
       case CategoryType.drink:
