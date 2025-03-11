@@ -62,7 +62,7 @@ class RecipeModel extends Equatable {
         discountPercentage: (json['discountPercentage'] as num?)?.toDouble(),
         rating: (json['rating'] as num?)?.toDouble(),
         stock: json['stock'] as int?,
-        tags: json['tags'] as List<String>?,
+        tags:( json['tags'] as List<dynamic>?)?.cast<String>(),
         brand: json['brand'] as String?,
         sku: json['sku'] as String?,
         weight: json['weight'] as int?,
@@ -80,7 +80,7 @@ class RecipeModel extends Equatable {
         meta: json['meta'] == null
             ? null
             : Meta.fromJson(json['meta'] as Map<String, dynamic>),
-        images: json['images'] as List<String>?,
+        images: (json['images'] as List<dynamic>?)?.cast<String>(),
         thumbnail: json['thumbnail'] as String?,
       );
 
