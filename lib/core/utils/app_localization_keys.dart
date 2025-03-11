@@ -28,7 +28,6 @@ class Auth {
   final String orContinueWith = 'auth.shared.or_continue_with';
   final String confirm = 'auth.shared.confirm';
   final String thisFieldRequired = 'auth.shared.this_field_required';
-  final String unknownError = 'auth.shared.unknown_error';
   final String invalidEmail = 'auth.shared.invalid_email';
   final String userNotFound = 'auth.shared.user_not_found';
   final String invalidRecipientEmail = 'auth.shared.invalid_recipient_email';
@@ -182,4 +181,5 @@ class Error {
   final String noInternetConnection = "errors.no_internet_connection";
   final String validationError = "errors.validation_error";
   final String invalidCode = "errors.invalid_code";
+
 }
