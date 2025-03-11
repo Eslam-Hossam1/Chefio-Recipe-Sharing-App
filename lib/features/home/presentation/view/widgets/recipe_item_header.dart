@@ -1,13 +1,15 @@
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/features/home/data/models/recipe_model/recipe_model.dart';
 import 'package:flutter/material.dart';
 
 class RecipeItemHeader extends StatelessWidget {
   const RecipeItemHeader({
     super.key,
+    required this.recipeModel,
   });
-
+  final RecipeModel recipeModel;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,7 +25,8 @@ class RecipeItemHeader extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: AssetImage(Assets.imagesUserOneTest))),
+                        image: NetworkImage(recipeModel.thumbnail ??
+                            "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png"))),
               ),
             ),
           ),
@@ -31,10 +34,13 @@ class RecipeItemHeader extends StatelessWidget {
         SizedBox(
           width: 8,
         ),
-        Text(
-          'Eslam Hossam',
-          style: Styles.textStyleMedium12(context)
-              .copyWith(color: context.mainTextColor),
+        Expanded(
+          child: Text(
+            overflow: TextOverflow.ellipsis,
+            recipeModel.title ?? "null",
+            style: Styles.textStyleMedium12(context)
+                .copyWith(color: context.mainTextColor),
+          ),
         ),
       ],
     );

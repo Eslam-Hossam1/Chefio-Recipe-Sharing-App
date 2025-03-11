@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/features/home/data/models/recipe_model/recipe_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,9 +11,9 @@ import 'package:flutter_svg/svg.dart';
 
 class RecipeItemImageWithIcon extends StatelessWidget {
   const RecipeItemImageWithIcon({
-    super.key,
+    super.key, required this.recipeModel,
   });
-
+  final RecipeModel recipeModel;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -24,7 +25,7 @@ class RecipeItemImageWithIcon extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(Assets.imagesPancakeTest))),
+                    image: NetworkImage(recipeModel.thumbnail??"https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png"))),
           ),
           Positioned(
             top: 16,
