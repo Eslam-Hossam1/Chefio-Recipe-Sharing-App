@@ -1,4 +1,6 @@
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,22 +29,27 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
     return Scaffold(
       body: widget.navigationShell,
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        type: BottomNavigationBarType.shifting,
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+            backgroundColor: context.scaffoldBackgroundColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'search',
+            backgroundColor: context.scaffoldBackgroundColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications_active),
             label: 'notification',
+            backgroundColor: context.scaffoldBackgroundColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'profile',
+            backgroundColor: context.scaffoldBackgroundColor,
           ),
         ],
         currentIndex: widget.navigationShell!.currentIndex,
