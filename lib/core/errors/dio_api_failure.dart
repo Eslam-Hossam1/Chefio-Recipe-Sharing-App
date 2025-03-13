@@ -54,8 +54,15 @@ class DioApiFailure extends ApiFailure {
     }
   }
   factory DioApiFailure.frombadResponse(int status, dynamic responseBody) {
-    String appLocalizationKey =
-        getLocalizationKeyFromErrorCode(responseBody[ApiKeys.error]);
+    String appLocalizationKey;
+    //in case 404 but without body
+    if (responseBody=='') {
+       appLocalizationKey =
+          getLocalizationKeyFromErrorCode(ErrorCodes.unknownError);
+    } else {
+          appLocalizationKey =
+          getLocalizationKeyFromErrorCode(responseBody[ApiKeys.error]);
+    }
 
     switch (status) {
       case 400:
@@ -72,7 +79,7 @@ class DioApiFailure extends ApiFailure {
 
       case 404:
         return DioApiFailure(
-            responseBody["message"] ??
+      responseBody==''   ? "Your request not found, Please try later!":   responseBody["message"] ??
                 "Your request not found, Please try later!",
             appLocalizationKey,
             ErrorCodes.notFound);
