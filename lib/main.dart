@@ -1,6 +1,7 @@
 import 'package:chefio_app/chefio_app.dart';
 import 'package:chefio_app/core/Functions/get_text_theme.dart';
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
+import 'package:chefio_app/core/utils/app_bloc_observer.dart';
 import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/app_themes.dart';
 import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
@@ -18,6 +19,7 @@ import 'package:path_provider/path_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = AppBlocObserver();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
         ? HydratedStorageDirectory.web
@@ -26,7 +28,7 @@ void main() async {
   await dotenv.load(fileName: ".env");
   await setupServiceLocator();
   await EasyLocalization.ensureInitialized();
-  await getIt<AuthCredentialsHelper>().init(); // هنا بتعمل init بعد الـ register
+  await getIt<AuthCredentialsHelper>().init(); 
 
   runApp(
     DevicePreview(
@@ -35,7 +37,8 @@ void main() async {
           supportedLocales: const [Locale('en'), Locale('ar')],
           path: "assets/translations",
           fallbackLocale: const Locale('en'),
-          child: const Chefio()), // Wrap your app
+          child: const Chefio(),
+          ), // Wrap your app
     ),
   );
 }
