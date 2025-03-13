@@ -7,21 +7,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:chefio_app/features/home/presentation/view/home_view.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view_test.dart';
-import 'package:chefio_app/features/search/presentation/view/search_view_test.dart';
+import 'package:chefio_app/features/upload/presentation/view/upload_view_test.dart';
 import 'package:chefio_app/features/notifiactions/presentation/view/notifications_view_test.dart';
 import 'package:chefio_app/features/profile/presentation/view/profile_view_test.dart';
 
 abstract class ShellBranches {
   // Define navigator keys
   static final _homeKey = GlobalKey<NavigatorState>();
-  static final _searchKey = GlobalKey<NavigatorState>();
+  static final _uploadKey = GlobalKey<NavigatorState>();
   static final _notificationKey = GlobalKey<NavigatorState>();
   static final _profileKey = GlobalKey<NavigatorState>();
 
   // Method to return the list of StatefulShellBranch
   static List<StatefulShellBranch> get branches => [
         _homeBranch(),
-        _searchBranch(),
+        _uploadBranch(),
         _notificationBranch(),
         _profileBranch(),
       ];
@@ -48,13 +48,13 @@ abstract class ShellBranches {
     );
   }
 
-  static StatefulShellBranch _searchBranch() {
+  static StatefulShellBranch _uploadBranch() {
     return StatefulShellBranch(
-      navigatorKey: _searchKey,
+      navigatorKey: _uploadKey,
       routes: [
         GoRoute(
-          path: RoutePaths.search,
-          builder: (context, state) => const SearchPage(),
+          path: RoutePaths.upload,
+          builder: (context, state) => const UploadPage(),
         ),
       ],
     );

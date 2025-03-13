@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 
-class SearchPage extends StatelessWidget {
-  const SearchPage({super.key});
+class UploadPage extends StatelessWidget {
+  const UploadPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('SearchPage'),
+      child: Text('UploadPage'),
     );
   }
 }
