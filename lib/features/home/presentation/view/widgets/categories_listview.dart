@@ -28,7 +28,8 @@ class _CategoriesListViewState extends State<CategoriesListView> {
     double width = MediaQuery.sizeOf(context).width;
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-      CategoryType  selectedCategoryType = context.read<HomeCubit>().categoryType;
+        CategoryType selectedCategoryType =
+            context.read<HomeCubit>().categoryType;
         return SizedBox(
           height: 48,
           child: ListView.builder(
@@ -47,8 +48,8 @@ class _CategoriesListViewState extends State<CategoriesListView> {
                       selectedCategoryType == categories[index].categoryType,
                   applocalizationKey: categories[index].applocalizationKey,
                   onPressed: () {
-                    context.read<HomeCubit>().fetchRecipesWithCategory(categorytype: categories[index].categoryType);
-                    
+                    context.read<HomeCubit>().fetchRecipesWithChangeCategory(
+                        categorytype: categories[index].categoryType);
                   },
                 ),
               );
