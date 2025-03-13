@@ -15,19 +15,28 @@ final class HomefirstLoading extends HomeState {}
 
 final class HomeSuccess extends HomeState {}
 
-final class HomeFailureApi extends HomeState {
+//while scrolling
+final class HomeScrollingFailureApi extends HomeState {
   final String errorMessage;
   final String errorLocalizationKey;
 
-  const HomeFailureApi(
+  const HomeScrollingFailureApi(
       {required this.errorMessage, required this.errorLocalizationKey,});
 }
-
-final class HomeFailureCacche extends HomeState {
+//at first time
+final class HomeFirstApiFetchFailure extends HomeState {
   final String errorMessage;
   final String errorLocalizationKey;
 
-  const HomeFailureCacche(
+  const HomeFirstApiFetchFailure(
       {required this.errorMessage, required this.errorLocalizationKey,});
 }
-final class HomeHasNoMore extends HomeState {}
+
+// final class HomeFailureCache extends HomeState {
+//   final String errorMessage;
+//   final String errorLocalizationKey;
+
+//   const HomeFailureCache(
+//       {required this.errorMessage, required this.errorLocalizationKey,});
+// }
+// final class HomeHasNoMore extends HomeState {}

@@ -17,11 +17,13 @@ class HomeCubit extends Cubit<HomeState> {
   bool isLoading = false;
   bool hasMoreData = true;
   CategoryType categoryType = CategoryType.all;
-  Future<void> fetchRecipesWithCategory(
+  Future<void> fetchRecipesWithChangeCategory(
       {required CategoryType categorytype}) async {
     if (categorytype == this.categoryType) {
       return;
     } else {
+      emit(HomefirstLoading());
+
       this.categoryType = categorytype;
       recipes.clear();
       skip = 0;
@@ -32,13 +34,21 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> refresh() async {
     recipes.clear();
     skip = 0;
+    emit(HomefirstLoading());
+    await fetchRecipes();
+  }
+
+  Future<void> firstFetchRecipes() async {
+    emit(HomefirstLoading());
     await fetchRecipes();
   }
 
   Future<void> fetchRecipes() async {
     if (isLoading || !hasMoreData) return;
+     if (recipes.isNotEmpty) {
+      emit(HomeLoadingNextRecipes());
+    }
     isLoading = true;
-    emit(HomeLoadingNextRecipes());
 
     var result = await _homeRepo.fetchRecipesFromApi(
       categoryName: this.categoryType.name,
@@ -48,9 +58,21 @@ class HomeCubit extends Cubit<HomeState> {
     result.fold(
       (failure) {
         isLoading = false;
-        emit(HomeFailureApi(
-            errorMessage: failure.localizaitonKey,
-            errorLocalizationKey: failure.errCode));
+        if (recipes.isEmpty) {
+          emit(
+            HomeFirstApiFetchFailure(
+              errorMessage: failure.errMsg,
+              errorLocalizationKey: failure.localizaitonKey,
+            ),
+          );
+        } else {
+          emit(
+            HomeScrollingFailureApi(
+              errorMessage: failure.errMsg,
+              errorLocalizationKey: failure.localizaitonKey,
+            ),
+          );
+        }
       },
       (newRecipes) {
         if (newRecipes.length < limit) {
