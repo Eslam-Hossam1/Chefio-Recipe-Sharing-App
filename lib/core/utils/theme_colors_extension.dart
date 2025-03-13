@@ -8,6 +8,7 @@ extension ThemeColorsExtension on BuildContext {
 
   Color get mainTextColor => customColorsExtension.mainTextColor;
   Color get secondaryTextColor => customColorsExtension.secondaryTextColor;
+  Color get toastColor => customColorsExtension.toastColor;
   Color get formColor => customColorsExtension.formColor;
   Color get outlineColor => colorScheme.outline;
   Color get dialogBackgroundColor => theme.dialogBackgroundColor;

@@ -5,10 +5,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color mainTextColor;
   final Color secondaryTextColor;
   final Color formColor;
+  final Color toastColor;
   const CustomColors({
     required this.mainTextColor,
     required this.secondaryTextColor,
     required this.formColor,
+    required this.toastColor,
   });
 
   @override
@@ -16,11 +18,14 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? mainTextColor,
     Color? secondaryTextColor,
     Color? formColor,
+    Color? toastColor,
+    
   }) {
     return CustomColors(
       mainTextColor: mainTextColor ?? this.mainTextColor,
       secondaryTextColor: secondaryTextColor ?? this.secondaryTextColor,
       formColor: formColor ?? this.formColor,
+      toastColor: toastColor ?? this.toastColor,
     );
   }
 
@@ -32,6 +37,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       secondaryTextColor:
           Color.lerp(secondaryTextColor, other.secondaryTextColor, t)!,
       formColor: Color.lerp(formColor, other.formColor, t)!,
+      toastColor: Color.lerp(toastColor, other.toastColor, t)!,
     );
   }
 }
