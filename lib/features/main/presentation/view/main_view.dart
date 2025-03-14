@@ -1,8 +1,13 @@
+import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/features/main/presentation/view/widgets/custom_svg_nav_icon.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:chefio_app/features/main/data/models/bottom_nav_bar_model.dart';
 
 class MainScaffoldView extends StatefulWidget {
   const MainScaffoldView({super.key, this.navigationShell});
@@ -24,34 +29,39 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
     );
   }
 
+  final List<BottomNavBarModel> bottomNavBarModelsList = [
+    BottomNavBarModel(
+      image: Assets.imagesHome,
+      localizationKey: AppLocalizationKeys.global.home,
+    ),
+    BottomNavBarModel(
+      image: Assets.imagesEdit,
+      localizationKey: AppLocalizationKeys.global.upload,
+    ),
+    BottomNavBarModel(
+      image: Assets.imagesNotification,
+      localizationKey: AppLocalizationKeys.global.notification,
+    ),
+    BottomNavBarModel(
+      image: Assets.imagesProfile,
+      localizationKey: AppLocalizationKeys.global.profile,
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: widget.navigationShell,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-            backgroundColor: context.scaffoldBackgroundColor,
+        items: List.generate(
+          bottomNavBarModelsList.length,
+          (index) => _buildBottomNavigationBarItem(
+            context,
+            image: bottomNavBarModelsList[index].image,
+            localizationKey: bottomNavBarModelsList[index].localizationKey,
+            isSelected: widget.navigationShell!.currentIndex == index,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'search',
-            backgroundColor: context.scaffoldBackgroundColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_active),
-            label: 'notification',
-            backgroundColor: context.scaffoldBackgroundColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'profile',
-            backgroundColor: context.scaffoldBackgroundColor,
-          ),
-        ],
+        ),
         currentIndex: widget.navigationShell!.currentIndex,
         selectedItemColor: context.primaryColor,
         unselectedItemColor: context.secondaryTextColor,
@@ -62,6 +72,22 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
           _goBranch(index);
         },
       ),
+    );
+  }
+
+  BottomNavigationBarItem _buildBottomNavigationBarItem(
+    BuildContext context, {
+    required String image,
+    required String localizationKey,
+    required bool isSelected,
+  }) {
+    return BottomNavigationBarItem(
+      icon: CustomSvgNavIcon(
+        asset: image,
+        isSelected: isSelected,
+      ),
+      label: localizationKey.tr(),
+      backgroundColor: context.scaffoldBackgroundColor,
     );
   }
 }
