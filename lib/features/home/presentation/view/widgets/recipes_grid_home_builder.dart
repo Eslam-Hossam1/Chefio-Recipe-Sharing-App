@@ -2,9 +2,12 @@ import 'dart:developer';
 
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/utils/assets.dart';
+import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/home/data/models/recipe_model/recipe_model.dart';
 import 'package:chefio_app/features/home/presentation/manager/cubit/home_cubit.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_recipes_grid.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_skeletonizer_recipes_grid.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -29,13 +32,7 @@ class RecipesGridHomeBuilder extends StatelessWidget {
         if (state is HomeFirstApiFetchFailure) {
           return SliverFillRemaining(
             hasScrollBody: false,
-            child: Center(
-              child: Text(
-                textAlign: TextAlign.center,
-                state.errorLocalizationKey.tr(),
-                style: TextStyle(fontSize: 17, color: Colors.white),
-              ),
-            ),
+            child: CustomTextErrorMessage(text: state.errorLocalizationKey.tr(),),
           );
         } else if (state is HomefirstLoading) {
           return SliverSkeletonizerRecipesGrid();
