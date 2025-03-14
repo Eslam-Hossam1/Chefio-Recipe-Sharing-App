@@ -1,24 +1,15 @@
-import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/constants.dart';
-import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
-import 'package:chefio_app/core/widgets/adaptive_padding.dart';
-import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
-import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/home/presentation/manager/cubit/home_cubit.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/categories_and_divider_section.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/home_scrolling_loading_indicator_builder.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_sliver_app_bar.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/recipes_grid.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/recipes_grid_home_builder.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/search_icon_button.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/sliver_scrolling_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'dart:ui';
-
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomeViewBodyMobile extends StatefulWidget {
@@ -30,7 +21,7 @@ class HomeViewBodyMobile extends StatefulWidget {
 
 class _HomeViewBodyMobileState extends State<HomeViewBodyMobile> {
   late ScrollController _scrollController;
-  final RefreshController _refreshController = RefreshController();
+  late RefreshController _refreshController;
 
   Future<void> _onRefresh() async {
     await context.read<HomeCubit>().refresh();
@@ -42,7 +33,8 @@ class _HomeViewBodyMobileState extends State<HomeViewBodyMobile> {
     super.initState();
     _scrollController = ScrollController();
     _scrollController.addListener(_onScroll);
-    context.read<HomeCubit>().fetchRecipes();
+    _refreshController = RefreshController();
+    context.read<HomeCubit>().firstFetchRecipes();
   }
 
   void _onScroll() {
@@ -55,58 +47,29 @@ class _HomeViewBodyMobileState extends State<HomeViewBodyMobile> {
   @override
   void dispose() {
     _scrollController.dispose();
+    _refreshController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        return SmartRefresher(
-          onRefresh: _onRefresh,
-          controller: _refreshController,
-          header: ClassicHeader(),
-          child: CustomScrollView(
-            controller: _scrollController,
-            slivers: [
-              HomeSliverAppBar(
-                searchWidget: SearchIconButton(),
-              ),
-              SliverToBoxAdapter(
-                child: CategoriesListView(),
-              ),
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 8,
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: Divider(
-                  height: 48,
-                  thickness: 8,
-                  color: context.formColor,
-                ),
-              ),
-              SliverAdaptivePadding(
-                sliver: RecipesGrid(recipes: context.read<HomeCubit>().recipes,),
-              ),
-                showLoadingIndicator(context)
-            ],
+    return SmartRefresher(
+      onRefresh: _onRefresh,
+      controller: _refreshController,
+      header: ClassicHeader(),
+      child: CustomScrollView(
+        controller: _scrollController,
+        slivers: [
+          HomeSliverAppBar(
+            searchWidget: SearchIconButton(),
           ),
-        );
-      },
+          SliverToBoxAdapter(
+            child: CategoriesAndDividerSection(),
+          ),
+          SliverAdaptivePadding(sliver: RecipesGridHomeBuilder()),
+          HomeScrollingLoadingIndicatorbuilder(),
+        ],
+      ),
     );
   }
-
-  Widget showLoadingIndicator(BuildContext context) =>
-      context.read<HomeCubit>().isLoading
-          ? SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Center(child: CustomCircularProgressIndicator()),
-              ),
-            )
-          : SliverToBoxAdapter(
-              child: SizedBox(),
-            );
 }
