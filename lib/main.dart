@@ -38,7 +38,7 @@ void main() async {
           path: "assets/translations",
           fallbackLocale: const Locale('en'),
           child: const Chefio(),
-          ), // Wrap your app
+          ),
     ),
   );
 }
