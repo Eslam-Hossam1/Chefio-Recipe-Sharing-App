@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +15,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
       fit: BoxFit.fill,
       imageUrl: url,
       placeholder: (context, url) => Container(
-        color: Colors.grey[700],
+        color: Colors.grey[300],
       ),
       errorWidget: (context, url, error) => Icon(Icons.error),
     );
