@@ -17,7 +17,11 @@ class CustomCachedNetworkImage extends StatelessWidget {
       placeholder: (context, url) => Container(
         color: Colors.grey[300],
       ),
-      errorWidget: (context, url, error) => Icon(Icons.error),
+      errorWidget: (context, url, error) => Center(
+        child: Icon(
+          Icons.wifi_off,
+        ),
+      ),
     );
   }
 }
