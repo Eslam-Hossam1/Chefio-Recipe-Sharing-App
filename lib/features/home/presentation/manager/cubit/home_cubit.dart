@@ -45,8 +45,8 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> fetchRecipes() async {
     if (isLoading || !hasMoreData) return;
-     if (recipes.isNotEmpty) {
-      emit(HomeLoadingNextRecipes());
+    if (recipes.isNotEmpty) {
+      emit(HomeLoadingMore());
     }
     isLoading = true;
 
@@ -67,7 +67,7 @@ class HomeCubit extends Cubit<HomeState> {
           );
         } else {
           emit(
-            HomeScrollingFailureApi(
+            HomeLoadingMoreFailure(
               errorMessage: failure.errMsg,
               errorLocalizationKey: failure.localizaitonKey,
             ),

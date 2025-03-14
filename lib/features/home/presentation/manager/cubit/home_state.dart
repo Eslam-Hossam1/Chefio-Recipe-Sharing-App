@@ -9,27 +9,32 @@ sealed class HomeState extends Equatable {
 
 final class HomeInitial extends HomeState {}
 
-final class HomeLoadingNextRecipes extends HomeState {}
+final class HomeLoadingMore extends HomeState {}
 
 final class HomefirstLoading extends HomeState {}
 
 final class HomeSuccess extends HomeState {}
 
 //while scrolling
-final class HomeScrollingFailureApi extends HomeState {
+final class HomeLoadingMoreFailure extends HomeState {
   final String errorMessage;
   final String errorLocalizationKey;
 
-  const HomeScrollingFailureApi(
-      {required this.errorMessage, required this.errorLocalizationKey,});
+  const HomeLoadingMoreFailure({
+    required this.errorMessage,
+    required this.errorLocalizationKey,
+  });
 }
+
 //at first time
 final class HomeFirstApiFetchFailure extends HomeState {
   final String errorMessage;
   final String errorLocalizationKey;
 
-  const HomeFirstApiFetchFailure(
-      {required this.errorMessage, required this.errorLocalizationKey,});
+  const HomeFirstApiFetchFailure({
+    required this.errorMessage,
+    required this.errorLocalizationKey,
+  });
 }
 
 // final class HomeFailureCache extends HomeState {

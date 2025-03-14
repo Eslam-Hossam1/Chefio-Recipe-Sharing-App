@@ -12,7 +12,7 @@ class HomeScrollingLoadingIndicatorbuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        return state is HomeLoadingNextRecipes
+        return state is HomeLoadingMore
             ? SliverScrollingLoadingIndIcator()
             : SliverToBoxAdapter(
                 child: SizedBox(),
