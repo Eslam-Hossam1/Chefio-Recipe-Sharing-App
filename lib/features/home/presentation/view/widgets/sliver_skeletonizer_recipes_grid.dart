@@ -8,8 +8,10 @@ class SliverSkeletonizerRecipesGrid extends StatelessWidget {
     super.key,
   });
 
-  static List<RecipeModel> recipes =
-      List.generate(12, (index) => RecipeModel(title: "Eslam Hossam"),);
+  static List<RecipeModel> recipes = List.generate(
+    12,
+    (index) => RecipeModel(title: "Eslam Hossam"),
+  );
 
   @override
   Widget build(BuildContext context) {
