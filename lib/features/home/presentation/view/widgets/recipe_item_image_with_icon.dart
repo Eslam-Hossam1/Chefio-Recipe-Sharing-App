@@ -3,8 +3,10 @@ import 'dart:ui';
 
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/home/data/models/recipe_model/recipe_model.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/favourite_icon_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -42,8 +44,9 @@ class RecipeItemImageWithIcon extends StatelessWidget {
                   height: 32,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(8)),
-                  child:
-                      Center(child: SvgPicture.asset(Assets.imagesHeartIcon)),
+                  child: Center(
+                    child: FavouriteIconButton(recipeModel: recipeModel,),
+                  ),
                 ),
               ),
             ),
