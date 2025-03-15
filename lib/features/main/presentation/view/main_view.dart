@@ -74,29 +74,25 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
         showUnselectedLabels: true,
         showSelectedLabels: true,
         onTap: (index) {
-          onNavBarItemTap(context, callBackIndex: index, uploadItemIndex: 1);
+          _onNavBarItemTap(context, callBackIndex: index, uploadItemIndex: 1);
         },
       ),
     );
   }
 
-  void onNavBarItemTap(
+  void _onNavBarItemTap(
     BuildContext context, {
     required int callBackIndex,
     required int uploadItemIndex,
   }) {
-    int toGoBranchIndex;
     if (callBackIndex == uploadItemIndex) {
       context.push(RoutePaths.upload);
-    } else if (callBackIndex > uploadItemIndex) {
-      toGoBranchIndex = callBackIndex - 1;
-      selectedNavBarItemIndex = callBackIndex;
-      _goBranch(toGoBranchIndex);
-    } else {
-      toGoBranchIndex = callBackIndex;
-      selectedNavBarItemIndex = callBackIndex;
-
-      _goBranch(toGoBranchIndex);
+      return;
     }
+
+    selectedNavBarItemIndex = callBackIndex;
+    int toGoBranchIndex =
+        callBackIndex > uploadItemIndex ? callBackIndex - 1 : callBackIndex;
+    _goBranch(toGoBranchIndex);
   }
 }
