@@ -15,19 +15,16 @@ class RecipeItemHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
       children: [
-        Flexible(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 40),
-            child: AspectRatio(
-              aspectRatio: 1,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: CustomCachedNetworkImage(
-                  url: recipeModel.thumbnail ??
-                      "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
-                ),
+        ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 40),
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: CustomCachedNetworkImage(
+                url: recipeModel.thumbnail ??
+                    "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
               ),
             ),
           ),
@@ -38,6 +35,7 @@ class RecipeItemHeader extends StatelessWidget {
         Expanded(
           child: Text(
             overflow: TextOverflow.ellipsis,
+            maxLines: 1,
             recipeModel.title ?? "null",
             style: Styles.textStyleMedium12(context)
                 .copyWith(color: context.mainTextColor),
