@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class UploadPage extends StatelessWidget {
-  const UploadPage({super.key});
+class UploadView extends StatelessWidget {
+  const UploadView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/features/upload/presentation/view/upload_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -41,6 +42,10 @@ class AppRouter {
       GoRoute(
         path: RoutePaths.splash,
         builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: RoutePaths.upload,
+        builder: (context, state) => const UploadView(),
       ),
       GoRoute(
         path: RoutePaths.onboarding,
