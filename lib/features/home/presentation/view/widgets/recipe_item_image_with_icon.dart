@@ -24,31 +24,22 @@ class RecipeItemImageWithIcon extends StatelessWidget {
       aspectRatio: 1,
       child: Stack(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(16),
-            child: CustomCachedNetworkImage(
-              url: recipeModel.thumbnail ??
-                  "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
+          AspectRatio(
+            aspectRatio: 1,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: CustomCachedNetworkImage(
+                url: recipeModel.thumbnail ??
+                    "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
+              ),
             ),
           ),
           Positioned(
             top: 16,
             right: context.locale == Constants.arabicLocale ? null : 16,
             left: context.locale == Constants.arabicLocale ? 16 : null,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(8)),
-                  child: Center(
-                    child: FavouriteIconButton(recipeModel: recipeModel,),
-                  ),
-                ),
-              ),
+            child: FavouriteIconButton(
+              recipeModel: recipeModel,
             ),
           )
         ],
