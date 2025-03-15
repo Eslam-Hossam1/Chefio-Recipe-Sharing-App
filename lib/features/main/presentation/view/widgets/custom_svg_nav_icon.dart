@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomSvgNavIcon extends StatelessWidget {
-  final String asset;
+  final String svgImagePath;
   final bool isSelected;
-  
-  const CustomSvgNavIcon({required this.asset, required this.isSelected, super.key});
+
+  const CustomSvgNavIcon(
+      {required this.svgImagePath, required this.isSelected, super.key});
 
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      asset,
+      svgImagePath,
       colorFilter: ColorFilter.mode(
         isSelected ? context.primaryColor : context.secondaryTextColor,
         BlendMode.srcIn,

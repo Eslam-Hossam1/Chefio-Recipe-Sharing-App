@@ -1,11 +1,9 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
-import 'package:chefio_app/features/main/presentation/view/widgets/custom_svg_nav_icon.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:chefio_app/features/main/presentation/view/utils/bottom_nav_bar_item_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:chefio_app/features/main/data/models/bottom_nav_bar_model.dart';
 
@@ -18,6 +16,13 @@ class MainScaffoldView extends StatefulWidget {
 }
 
 class _MainScaffoldViewState extends State<MainScaffoldView> {
+  late int selectedNavBarItemIndex;
+  @override
+  void initState() {
+    selectedNavBarItemIndex = widget.navigationShell!.currentIndex;
+    super.initState();
+  }
+
   void _goBranch(int index) {
     widget.navigationShell!.goBranch(
       index,
@@ -55,39 +60,43 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
         type: BottomNavigationBarType.shifting,
         items: List.generate(
           bottomNavBarModelsList.length,
-          (index) => _buildBottomNavigationBarItem(
+          (index) => buildBottomNavigationBarItem(
             context,
-            image: bottomNavBarModelsList[index].image,
+            svgImagePath: bottomNavBarModelsList[index].image,
             localizationKey: bottomNavBarModelsList[index].localizationKey,
-            isSelected: widget.navigationShell!.currentIndex == index,
+            isSelected: selectedNavBarItemIndex == index,
           ),
         ),
-        currentIndex: widget.navigationShell!.currentIndex,
+        currentIndex: selectedNavBarItemIndex,
         selectedItemColor: context.primaryColor,
         unselectedItemColor: context.secondaryTextColor,
         elevation: 0,
         showUnselectedLabels: true,
         showSelectedLabels: true,
         onTap: (index) {
-          _goBranch(index);
+          onNavBarItemTap(context, callBackIndex: index, uploadItemIndex: 1);
         },
       ),
     );
   }
 
-  BottomNavigationBarItem _buildBottomNavigationBarItem(
+  void onNavBarItemTap(
     BuildContext context, {
-    required String image,
-    required String localizationKey,
-    required bool isSelected,
+    required int callBackIndex,
+    required int uploadItemIndex,
   }) {
-    return BottomNavigationBarItem(
-      icon: CustomSvgNavIcon(
-        asset: image,
-        isSelected: isSelected,
-      ),
-      label: localizationKey.tr(),
-      backgroundColor: context.scaffoldBackgroundColor,
-    );
+    int toGoBranchIndex;
+    if (callBackIndex == uploadItemIndex) {
+      context.push(RoutePaths.upload);
+    } else if (callBackIndex > uploadItemIndex) {
+      toGoBranchIndex = callBackIndex - 1;
+      selectedNavBarItemIndex = callBackIndex;
+      _goBranch(toGoBranchIndex);
+    } else {
+      toGoBranchIndex = callBackIndex;
+      selectedNavBarItemIndex = callBackIndex;
+
+      _goBranch(toGoBranchIndex);
+    }
   }
 }
