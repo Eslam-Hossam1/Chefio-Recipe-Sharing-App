@@ -7,6 +7,7 @@ import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custome_email_text_form_field.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_cover_photo.dart';
+import 'package:chefio_app/features/upload/presentation/view/widgets/cooking_duration_section.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/food_name_and_description_section.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/sliver_uplaod_header.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -46,6 +47,12 @@ class UploadFirstStepPage extends StatelessWidget {
             ),
           ),
           FoodNameAndDescriptionSection(),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24,
+            ),
+          ),
+          CookingDurationSection()
         ],
       ),
     );
