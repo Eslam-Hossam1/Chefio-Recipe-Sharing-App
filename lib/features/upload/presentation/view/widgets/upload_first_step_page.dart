@@ -1,9 +1,13 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/assets.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
+import 'package:chefio_app/features/auth/presentation/view/widgets/custome_email_text_form_field.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_cover_photo.dart';
+import 'package:chefio_app/features/upload/presentation/view/widgets/food_name_and_description_section.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/sliver_uplaod_header.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -15,6 +19,7 @@ class UploadFirstStepPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setLocale(Constants.englishLocale);
     return AdaptivePadding(
       child: CustomScrollView(
         slivers: [
@@ -34,7 +39,13 @@ class UploadFirstStepPage extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: AddCoverPhoto(),
-          )
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24,
+            ),
+          ),
+          FoodNameAndDescriptionSection(),
         ],
       ),
     );
