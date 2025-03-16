@@ -142,6 +142,7 @@ class Global {
   final String notification = 'global.notification';
   final String profile = 'global.profile';
   final String category = 'global.category';
+  final String cancel = 'global.cancel';
 }
 
 class Error {

@@ -114,7 +114,9 @@
         "upload": "رفع",
         "notification": "الإشعارات",
         "profile": "الملف الشخصي",
-        "category":"الفئة"
+        "category":"الفئة",
+        "cancel":"الغاء"
+
 
 
     },
