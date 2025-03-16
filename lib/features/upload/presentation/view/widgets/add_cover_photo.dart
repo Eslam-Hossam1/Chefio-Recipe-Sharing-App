@@ -14,36 +14,40 @@ class AddCoverPhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DottedBorder(
-        borderType: BorderType.RRect,
-        color: context.secondaryTextColor,
-        dashPattern: [6, 6, 6, 6],
-        radius: Radius.circular(16),
-        padding: EdgeInsets.all(17),
-        child: Center(
-          child: Column(
-            children: [
-              SvgPicture.asset(Assets.imagesUploadImage),
-              SizedBox(
-                height: 16,
-              ),
-              Text(
-                AppLocalizationKeys.upload.addCoverPhoto.tr(),
-                style: Styles.textStyleBold15(context).copyWith(
-                  color: context.mainTextColor,
+    return AspectRatio(
+      aspectRatio: 327 / 161,
+      child: DottedBorder(
+          borderType: BorderType.RRect,
+          color: context.secondaryTextColor,
+          dashPattern: [6, 6, 6, 6],
+          radius: Radius.circular(16),
+          padding: EdgeInsets.all(17),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(Assets.imagesUploadImage),
+                SizedBox(
+                  height: 16,
                 ),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Text(
-                AppLocalizationKeys.upload.upTo.tr(),
-                style: Styles.textStyleMedium12(context).copyWith(
-                  color: context.secondaryTextColor,
+                Text(
+                  AppLocalizationKeys.upload.addCoverPhoto.tr(),
+                  style: Styles.textStyleBold15(context).copyWith(
+                    color: context.mainTextColor,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ));
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  AppLocalizationKeys.upload.upTo.tr(),
+                  style: Styles.textStyleMedium12(context).copyWith(
+                    color: context.secondaryTextColor,
+                  ),
+                ),
+              ],
+            ),
+          )),
+    );
   }
 }
