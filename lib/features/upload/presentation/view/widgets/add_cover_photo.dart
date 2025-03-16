@@ -18,7 +18,7 @@ class AddCoverPhoto extends StatelessWidget {
         borderType: BorderType.RRect,
         color: context.secondaryTextColor,
         dashPattern: [6, 6, 6, 6],
-        radius: Radius.circular(12),
+        radius: Radius.circular(16),
         padding: EdgeInsets.all(17),
         child: Center(
           child: Column(
