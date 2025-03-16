@@ -17,15 +17,20 @@ class CustomTextFormField extends StatelessWidget {
     this.verticalPadding,
     this.prefixIcon,
     this.validator,
+    this.maxLines,
+    this.borderRadius,
   });
   final String hint;
   final void Function(String?)? onSaved;
   final double? verticalPadding;
   final Widget? prefixIcon;
   final String? Function(String?)? validator;
+  final int? maxLines;
+  final double? borderRadius;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLines,
       onSaved: onSaved,
       validator: validator ?? FormValidators.customTextFormFieldValidator,
       cursorColor: context.primaryColor,
@@ -34,21 +39,29 @@ class CustomTextFormField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         errorMaxLines: 2,
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 16,
-        ),
+        contentPadding:
+            const EdgeInsetsDirectional.only(top: 16, bottom: 16, start: 24),
         hintText: hint,
         hintStyle: Styles.textStyleMedium15(context).copyWith(
           color: context.secondaryTextColor,
         ),
         prefixIcon: prefixIcon != null
             ? Padding(
-                padding: const EdgeInsetsDirectional.only(start: 24, end: 10),
+                padding: const EdgeInsetsDirectional.only(end: 10),
                 child: prefixIcon)
             : null,
-        border: FormStyles.buildBorder(context),
-        enabledBorder: FormStyles.buildBorder(context),
-        focusedBorder: FormStyles.buildBorder(context).copyWith(
+        border: FormStyles.buildBorder(
+          context,
+          borderRadius: borderRadius,
+        ),
+        enabledBorder: FormStyles.buildBorder(
+          context,
+          borderRadius: borderRadius,
+        ),
+        focusedBorder: FormStyles.buildBorder(
+          context,
+          borderRadius: borderRadius,
+        ).copyWith(
           borderSide: BorderSide(
             width: 2,
             color: context.primaryColor,
