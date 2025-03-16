@@ -136,6 +136,9 @@ class Upload {
   final String descriptionHint = 'upload.tell_a_little_about_your_food';
   final String cookingDuration = 'upload.cooking_duration';
   final String inMinutes = 'upload.in_minutes';
+  final String enterIngredient = 'upload.enter_ingredient';
+  final String addIngredient = 'upload.add_ingredient';
+  final String stepHint = 'upload.step_hint';
 }
 
 class Global {
@@ -158,6 +161,9 @@ class Global {
   final String category = 'global.category';
   final String cancel = 'global.cancel';
   final String next = 'global.next';
+  final String ingredients = 'global.ingredients';
+  final String steps = 'global.steps';
+  final String back = 'global.back';
 }
 
 class Error {

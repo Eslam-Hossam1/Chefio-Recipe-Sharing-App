@@ -109,7 +109,10 @@
         "description":"Description",
         "tell_a_little_about_your_food":"Tell a little about your food",
         "cooking_duration":"Cooking Duration",
-        "in_minutes":"(in minutes)"
+        "in_minutes":"(in minutes)",
+        "enter_ingredient":"Enter ingredient",
+        "add_ingredient":"Ingredient",
+        "step_hint":"Enter step"
     },
     
     "global":{
@@ -129,7 +132,10 @@
         "profile":"Profile",
         "category":"Category",
         "cancel":"Cancel",
-        "next":"Next"
+        "next":"Next",
+        "ingredients":"Ingredients",
+        "steps":"Steps",
+        "back":"Back"
 
     },
 

@@ -101,14 +101,17 @@
     },
 
     "upload": {
-    "add_cover_photo": "إضافة صورة الغلاف",
-    "up_to":"(تصل الي 12  Mb)",
-    "food_name": "اسم الطبق",
-    "enter_food_Name": "أدخل اسم الطبق",
-    "description": "الوصف",
-    "tell_a_little_about_your_food": "أخبرنا قليلاً عن طبقك",
-    "cooking_duration": "مدة الطهي",
-    "in_minutes": "(بالدقائق)"
+        "add_cover_photo": "إضافة صورة الغلاف",
+        "up_to":"(تصل الي 12  Mb)",
+        "food_name": "اسم الطبق",
+        "enter_food_Name": "أدخل اسم الطبق",
+        "description": "الوصف",
+        "tell_a_little_about_your_food": "أخبرنا قليلاً عن طبقك",
+        "cooking_duration": "مدة الطهي",
+        "in_minutes": "(بالدقائق)",
+        "enter_ingredient": "أدخل المكون",
+        "add_ingredient": "اضف مكون",
+        "step_hint": "أدخل الخطوة"
     },
     
     "global":{
@@ -128,8 +131,10 @@
         "profile": "الملف الشخصي",
         "category":"الفئة",
         "cancel":"الغاء",
-        "next":"التالي"
-
+        "next":"التالي",
+        "ingredients":"المقادير",
+        "steps":"الخطوات",
+        "back":"الرجوع"
 
 
     },
