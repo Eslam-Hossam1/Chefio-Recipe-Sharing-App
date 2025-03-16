@@ -39,15 +39,15 @@ class CustomTextFormField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         errorMaxLines: 2,
-        contentPadding:
-            const EdgeInsetsDirectional.only(top: 16, bottom: 16, start: 24),
+        contentPadding: EdgeInsetsDirectional.only(
+            top: 16, bottom: 16, start: prefixIcon == null ? 24 : 0),
         hintText: hint,
         hintStyle: Styles.textStyleMedium15(context).copyWith(
           color: context.secondaryTextColor,
         ),
         prefixIcon: prefixIcon != null
             ? Padding(
-                padding: const EdgeInsetsDirectional.only(end: 10),
+                padding: const EdgeInsetsDirectional.only(start: 24, end: 10),
                 child: prefixIcon)
             : null,
         border: FormStyles.buildBorder(
