@@ -14,11 +14,16 @@ class UploadFirstStepPage extends StatelessWidget {
     return AdaptivePadding(
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: 12,),),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 12,
+            ),
+          ),
           SliverUploadHeader(
             currentStep: '1',
             steps: '2',
           ),
+          
         ],
       ),
     );
