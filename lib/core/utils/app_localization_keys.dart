@@ -4,6 +4,7 @@ abstract class AppLocalizationKeys {
   static ProfileSetup profileSetup = ProfileSetup._instance;
   static Global global = Global._instance;
   static Error error = Error._instance;
+  static Upload upload = Upload._instance;
 }
 
 class OnBoarding {
@@ -124,6 +125,19 @@ class ProfileSetup {
   final String savingProfileSuccess = 'profile_setup.saving_profile_success';
 }
 
+class Upload {
+  Upload._();
+  static final Upload _instance = Upload._();
+  final String addCoverPhoto = 'upload.add_cover_photo';
+  final String foodName = 'upload.food_name';
+  final String upTo = 'upload.up_to';
+  final String enterFoodName = 'upload.enter_food_Name';
+  final String description = 'upload.description';
+  final String descriptionHint = 'upload.tell_a_little_about_your_food';
+  final String cookingDuration = 'upload.cooking_duration';
+  final String inMinutes = 'upload.in_minutes';
+}
+
 class Global {
   Global._();
   static final Global _instance = Global._();
@@ -143,6 +157,7 @@ class Global {
   final String profile = 'global.profile';
   final String category = 'global.category';
   final String cancel = 'global.cancel';
+  final String next = 'global.next';
 }
 
 class Error {
@@ -182,5 +197,4 @@ class Error {
   final String noInternetConnection = "errors.no_internet_connection";
   final String validationError = "errors.validation_error";
   final String invalidCode = "errors.invalid_code";
-
 }

@@ -158,6 +158,10 @@ class Assets {
   /// assets/images/top_right_dish.png
   static const String imagesTopRightDish = "assets/images/top_right_dish.png";
 
+  /// Assets for imagesUploadImage
+  /// assets/images/upload_image.svg
+  static const String imagesUploadImage = "assets/images/upload_image.svg";
+
   /// Assets for imagesUserFourTest
   /// assets/images/user_four_test.png
   static const String imagesUserFourTest = "assets/images/user_four_test.png";

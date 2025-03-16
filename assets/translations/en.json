@@ -100,6 +100,17 @@
     
           
     },
+
+    "upload":{
+        "add_cover_photo":"Add Cover Photo",
+        "up_to":"(up to 12 Mb)",
+        "food_name":"Food Name",
+        "enter_food_Name":"Enter food name",
+        "description":"Description",
+        "tell_a_little_about_your_food":"Tell a little about your food",
+        "cooking_duration":"Cooking Duration",
+        "in_minutes":"(in minutes)"
+    },
     
     "global":{
         "warning":"Warning",
@@ -117,7 +128,8 @@
         "notification":"Notification",
         "profile":"Profile",
         "category":"Category",
-        "cancel":"Cancel"
+        "cancel":"Cancel",
+        "next":"Next"
 
     },
 

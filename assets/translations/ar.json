@@ -99,6 +99,18 @@
         
             
     },
+
+    "upload": {
+    "add_cover_photo": "إضافة صورة الغلاف",
+    "up_to":"(تصل الي 12  Mb)",
+    "food_name": "اسم الطبق",
+    "enter_food_Name": "أدخل اسم الطبق",
+    "description": "الوصف",
+    "tell_a_little_about_your_food": "أخبرنا قليلاً عن طبقك",
+    "cooking_duration": "مدة الطهي",
+    "in_minutes": "(بالدقائق)"
+    },
+    
     "global":{
         "warning":"تحذير",
         "error":"خطأ",
@@ -115,7 +127,8 @@
         "notification": "الإشعارات",
         "profile": "الملف الشخصي",
         "category":"الفئة",
-        "cancel":"الغاء"
+        "cancel":"الغاء",
+        "next":"التالي"
 
 
 
