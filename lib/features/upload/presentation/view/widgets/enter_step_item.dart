@@ -26,7 +26,7 @@ class EnterStepItem extends StatelessWidget {
               child: Text(
                 '${stepIndex + 1}',
                 style: Styles.textStyleBold12(context).copyWith(
-                  color: Colors.white,
+                  color: context.scaffoldBackgroundColor,
                 ),
               ),
             ),
