@@ -57,7 +57,7 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
     return Scaffold(
       body: widget.navigationShell,
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.shifting,
+        type: BottomNavigationBarType.fixed,
         items: List.generate(
           bottomNavBarModelsList.length,
           (index) => buildBottomNavigationBarItem(
