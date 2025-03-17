@@ -112,6 +112,7 @@
         "in_minutes":"(in minutes)",
         "enter_ingredient":"Enter ingredient",
         "add_ingredient":"Ingredient",
+        "add_step":"step",
         "step_hint":"Enter step"
     },
     

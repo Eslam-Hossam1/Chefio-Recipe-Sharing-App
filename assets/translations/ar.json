@@ -111,6 +111,7 @@
         "in_minutes": "(بالدقائق)",
         "enter_ingredient": "أدخل المكون",
         "add_ingredient": "اضف مكون",
+        "add_step":"اضف خطوة",
         "step_hint": "أدخل الخطوة"
     },
     

@@ -138,6 +138,7 @@ class Upload {
   final String inMinutes = 'upload.in_minutes';
   final String enterIngredient = 'upload.enter_ingredient';
   final String addIngredient = 'upload.add_ingredient';
+  final String addStep = 'upload.add_step';
   final String stepHint = 'upload.step_hint';
 }
 
