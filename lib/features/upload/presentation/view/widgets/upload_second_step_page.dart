@@ -17,13 +17,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UploadSecondStepPage extends StatefulWidget {
-  const UploadSecondStepPage({super.key});
-
+  const UploadSecondStepPage({super.key, required this.onBack});
+  final VoidCallback onBack;
   @override
   State<UploadSecondStepPage> createState() => _UploadSecondStepPageState();
 }
 
-class _UploadSecondStepPageState extends State<UploadSecondStepPage> {
+class _UploadSecondStepPageState extends State<UploadSecondStepPage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   List<int> ingredients = [1];
   GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey =
       GlobalKey<SliverAnimatedListState>();
@@ -44,6 +48,7 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return AdaptivePadding(
       top: 12,
       child: CustomScrollView(
@@ -58,14 +63,15 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage> {
             ),
           ),
           SliverToBoxAdapter(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                AppLocalizationKeys.global.ingredients.tr(),
-                style: Styles.textStyleBold17(context).copyWith(
-                  color: context.mainTextColor,
+            child: Row(
+              children: [
+                Text(
+                  AppLocalizationKeys.global.ingredients.tr(),
+                  style: Styles.textStyleBold17(context).copyWith(
+                    color: context.mainTextColor,
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
           SliverToBoxAdapter(
@@ -95,14 +101,15 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage> {
             ),
           ),
           SliverToBoxAdapter(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                AppLocalizationKeys.global.steps.tr(),
-                style: Styles.textStyleBold17(context).copyWith(
-                  color: context.mainTextColor,
+            child: Row(
+              children: [
+                Text(
+                  AppLocalizationKeys.global.steps.tr(),
+                  style: Styles.textStyleBold17(context).copyWith(
+                    color: context.mainTextColor,
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
           SliverToBoxAdapter(
@@ -126,7 +133,9 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage> {
           ),
           SliverFillRemaining(
             hasScrollBody: false,
-            child: BackAndNextButtons(),
+            child: BackAndNextButtons(
+              onBack: widget.onBack,
+            ),
           ),
         ],
       ),

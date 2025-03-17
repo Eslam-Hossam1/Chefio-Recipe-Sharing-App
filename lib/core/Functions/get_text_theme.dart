@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 TextTheme getTextTheme(BuildContext context) {
   switch (context.locale) {
     case Constants.arabicLocale:
-      return GoogleFonts.tajawalTextTheme();
+      return GoogleFonts.cairoTextTheme();
     case Constants.englishLocale:
       return GoogleFonts.interTextTheme();
     default:

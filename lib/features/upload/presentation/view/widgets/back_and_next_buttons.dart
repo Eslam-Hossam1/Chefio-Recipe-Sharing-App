@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
@@ -8,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BackAndNextButtons extends StatelessWidget {
-  const BackAndNextButtons({super.key});
-
+  const BackAndNextButtons({super.key, required this.onBack});
+  final VoidCallback onBack;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -20,6 +19,7 @@ class BackAndNextButtons extends StatelessWidget {
           children: [
             Expanded(
               child: CustomTextButton(
+                onPressed: onBack,
                 backgroundColor: context.formColor,
                 child: Text(
                   AppLocalizationKeys.global.back.tr(),
