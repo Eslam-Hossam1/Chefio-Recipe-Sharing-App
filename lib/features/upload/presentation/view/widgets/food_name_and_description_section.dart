@@ -1,10 +1,11 @@
-
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
+import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FoodNameAndDescriptionSection extends StatelessWidget {
   const FoodNameAndDescriptionSection({
@@ -27,9 +28,12 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
             height: 10,
           ),
           CustomTextFormField(
+            onSaved: (foodName) {
+              context.read<UploadRecipeCubit>().foodName = foodName!;
+            },
             hint: AppLocalizationKeys.upload.enterFoodName.tr(),
           ),
-           SizedBox(
+          SizedBox(
             height: 24,
           ),
           Text(
@@ -42,9 +46,13 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
             height: 10,
           ),
           CustomTextFormField(
+            onSaved: (foodDescription) {
+              context.read<UploadRecipeCubit>().foodDescription =
+                  foodDescription!;
+            },
             hint: AppLocalizationKeys.upload.descriptionHint.tr(),
             borderRadius: 8,
-            maxLines:   4,
+            maxLines: 4,
           ),
         ],
       ),
