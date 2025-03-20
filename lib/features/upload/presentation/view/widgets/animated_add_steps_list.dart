@@ -1,43 +1,22 @@
+import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/enter_step_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AnimatedAddStepsList extends StatefulWidget {
+class AnimatedAddStepsList extends StatelessWidget {
   const AnimatedAddStepsList({
     super.key,
     required this.animatedListKey,
-    required this.stepsList,
   });
 
   final GlobalKey<SliverAnimatedListState> animatedListKey;
-  final List stepsList;
-  @override
-  State<AnimatedAddStepsList> createState() =>
-      _AnimatedAddStepsListState();
-}
-
-class _AnimatedAddStepsListState
-    extends State<AnimatedAddStepsList> {
-  late List stepsList;
-  @override
-  void initState() {
-    stepsList = widget.stepsList;
-    super.initState();
-  }
-
-  void removeStep(int index) {
-    widget.animatedListKey.currentState!.removeItem(index,
-        (context, animation) {
-      return SizedBox(width: 0, height: 0);
-    });
-    stepsList.removeAt(index);
-  }
 
   @override
   Widget build(BuildContext context) {
+    var addIngredientsCubit = context.read<UploadRecipeCubit>();
     return SliverAnimatedList(
-      key: widget.animatedListKey,
-      initialItemCount: stepsList.length,
+      key: animatedListKey,
+      initialItemCount: addIngredientsCubit.steps.length,
       itemBuilder: (context, index, animation) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 16.0),
@@ -49,19 +28,27 @@ class _AnimatedAddStepsListState
               ),
             ),
             child: Dismissible(
-                key: Key('${stepsList[index].hashCode}'),
-                onDismissed: (direction) => removeStep(index),
-                background: Container(
-                  color: Colors.red,
-                  child: Center(
-                    child: Icon(
-                      Icons.delete,
-                      color: Colors.white,
-                    ),
+              key: Key('${addIngredientsCubit.steps[index].hashCode}'),
+              onDismissed: (direction) => addIngredientsCubit.removeStep(
+                stepsAnimatedListKey: animatedListKey,
+                index: index,
+              ),
+              background: Container(
+                color: Colors.red,
+                child: Center(
+                  child: Icon(
+                    Icons.delete,
+                    color: Colors.white,
                   ),
                 ),
-                direction:stepsList.length<2? DismissDirection.none: DismissDirection.startToEnd,
-                child: EnterStepItem(stepIndex: index,),),
+              ),
+              direction: addIngredientsCubit.steps.length < 2
+                  ? DismissDirection.none
+                  : DismissDirection.startToEnd,
+              child: EnterStepItem(
+                stepIndex: index,
+              ),
+            ),
           ),
         );
       },
