@@ -21,7 +21,7 @@ abstract class ShellBranches {
   // Method to return the list of StatefulShellBranch
   static List<StatefulShellBranch> get branches => [
         _homeBranch(),
-       // _uploadBranch(),
+        // _uploadBranch(),
         _notificationBranch(),
         _profileBranch(),
       ];
