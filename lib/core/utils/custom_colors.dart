@@ -19,7 +19,6 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? secondaryTextColor,
     Color? formColor,
     Color? toastColor,
-    
   }) {
     return CustomColors(
       mainTextColor: mainTextColor ?? this.mainTextColor,
