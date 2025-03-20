@@ -2,9 +2,11 @@ import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
+import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_step_photo_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EnterStepItem extends StatelessWidget {
@@ -47,6 +49,17 @@ class EnterStepItem extends StatelessWidget {
           child: Column(
             children: [
               CustomTextFormField(
+                initialValue:
+                    context.read<UploadRecipeCubit>().steps[stepIndex],
+                onSaved: (step) {
+                  // cubit.ingredints[stepIndex].stepText=value;
+                  // cubit.ingredints[stepIndex].image=selectedImage;
+                  context.read<UploadRecipeCubit>().steps[stepIndex] = step!;
+                },
+                onChanged: (stepChange) {
+                  context.read<UploadRecipeCubit>().steps[stepIndex] =
+                      stepChange;
+                },
                 hint: AppLocalizationKeys.upload.stepHint.tr(),
                 borderRadius: 8,
                 maxLines: 4,
@@ -54,6 +67,7 @@ class EnterStepItem extends StatelessWidget {
               SizedBox(
                 height: 8.h,
               ),
+              // AddStepPhotoButton(selectedImage),
               AddStepPhotoButton(),
             ],
           ),
