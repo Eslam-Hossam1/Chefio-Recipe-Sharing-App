@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/errors/failures.dart';
 import 'package:chefio_app/features/home/data/enums/category_type_enum.dart';
 import 'package:chefio_app/features/home/data/models/category_model.dart';
-import 'package:chefio_app/features/home/data/models/recipe_model/recipe_model.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo.dart';
 import 'package:equatable/equatable.dart';
 
@@ -11,12 +11,12 @@ part 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._homeRepo) : super(HomeInitial());
   final HomeRepo _homeRepo;
-  List<RecipeModel> recipes = [];
-  int skip = 0;
+  List<Recipe> recipes = [];
+  int page = 0;
   int limit = 30;
   bool isLoading = false;
   bool hasMoreData = true;
-  CategoryType categoryType = CategoryType.all;
+  CategoryType categoryType = CategoryType.generalDishes;
   Future<void> fetchRecipesWithChangeCategory(
       {required CategoryType categorytype}) async {
     if (categorytype == this.categoryType) {
@@ -26,14 +26,14 @@ class HomeCubit extends Cubit<HomeState> {
 
       this.categoryType = categorytype;
       recipes.clear();
-      skip = 0;
+      page = 0;
     }
     await fetchRecipes();
   }
 
   Future<void> refresh() async {
     recipes.clear();
-    skip = 0;
+    page = 0;
     emit(HomefirstLoading());
     await fetchRecipes();
   }
@@ -52,7 +52,7 @@ class HomeCubit extends Cubit<HomeState> {
 
     var result = await _homeRepo.fetchRecipesFromApi(
       categoryName: this.categoryType.name,
-      skip: skip,
+      page: page,
       limit: limit,
     );
     result.fold(
@@ -79,7 +79,7 @@ class HomeCubit extends Cubit<HomeState> {
           hasMoreData = false;
         }
         recipes.addAll(newRecipes);
-        skip += limit;
+        page += 1;
         isLoading = false;
         emit(HomeSuccess());
       },
