@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
-import 'package:chefio_app/features/home/data/models/recipe_model/recipe_model.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class RecipeItemHeader extends StatelessWidget {
     super.key,
     required this.recipeModel,
   });
-  final RecipeModel recipeModel;
+  final Recipe recipeModel;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,7 +23,7 @@ class RecipeItemHeader extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: CustomCachedNetworkImage(
-                url: recipeModel.thumbnail ??
+                url: recipeModel.createdBy?.profilePicture ??
                     "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
               ),
             ),
@@ -36,7 +36,7 @@ class RecipeItemHeader extends StatelessWidget {
           child: Text(
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
-            recipeModel.title ?? "null",
+            recipeModel.createdBy?.username ?? "null",
             style: Styles.textStyleMedium12(context)
                 .copyWith(color: context.mainTextColor),
           ),

@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
-import 'package:chefio_app/features/home/data/models/recipe_model/recipe_model.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/home/presentation/manager/cubit/home_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipe_item.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -12,7 +12,7 @@ class SliverRecipesGrid extends StatelessWidget {
     super.key,
     required this.recipes,
   });
-  final List<RecipeModel> recipes;
+  final List<Recipe> recipes;
 
   @override
   Widget build(BuildContext context) {
