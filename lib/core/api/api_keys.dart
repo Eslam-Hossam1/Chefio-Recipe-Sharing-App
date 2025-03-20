@@ -19,6 +19,9 @@ abstract class ApiKeys {
   static const String success = "success";
   static const String error = "error";
   static const String client = "client";
-  static const String limit='limit';
-  static const String skip='skip';
+  static const String limit = 'limit';
+  static const String page = 'page';
+  static const String skip = 'skip';
+  static const String category = 'category';
+  static const String cookie = 'Cookie';
 }
