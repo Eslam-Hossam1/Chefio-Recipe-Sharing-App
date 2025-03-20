@@ -7,6 +7,14 @@
 		<string>en</string>
 		<string>ar</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+<string>We need camera access to take pictures</string>
+
+<key>NSPhotoLibraryUsageDescription</key>
+<string>We need photo library access to pick images</string>
+
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>We need access to save images to your gallery</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
