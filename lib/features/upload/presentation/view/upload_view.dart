@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/utils/constants.dart';
-import 'package:chefio_app/features/upload/presentation/manager/cubit/add_ingredients_cubit.dart';
+import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/upload_first_step_page.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/upload_second_step_page.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -36,17 +36,19 @@ class _UploadViewState extends State<UploadView> {
 
   @override
   Widget build(BuildContext context) {
-    context.setLocale(Constants.arabicLocale);
-    return Scaffold(
-        body: SafeArea(
-      child: PageView(
-        controller: _pageController,
-        physics: NeverScrollableScrollPhysics(),
-        children: [
-          UploadFirstStepPage(onNext: _nextPage),
-          UploadSecondStepPage(onBack: _previousPage),
-        ],
-      ),
-    ));
+    return BlocProvider(
+      create: (context) => UploadRecipeCubit(),
+      child: Scaffold(
+          body: SafeArea(
+        child: PageView(
+          controller: _pageController,
+          physics: NeverScrollableScrollPhysics(),
+          children: [
+            UploadFirstStepPage(onNext: _nextPage),
+            UploadSecondStepPage(onBack: _previousPage),
+          ],
+        ),
+      )),
+    );
   }
 }
