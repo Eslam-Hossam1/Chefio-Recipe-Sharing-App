@@ -12,7 +12,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      fit: BoxFit.fill,
+      fit: BoxFit.cover,
       imageUrl: url,
       placeholder: (context, url) => Container(
         color: Colors.grey[300],
