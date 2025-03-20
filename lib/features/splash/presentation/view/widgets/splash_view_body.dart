@@ -51,26 +51,19 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: AnimatedOpacity(
-              opacity: _opacity,
-              duration: Constants.kFadeInDuration,
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                alignment: Alignment.center,
-                child: Text(
-                  "Chefio",
-                  style: Styles.textStyleExtraBold40(context)
-                      .copyWith(color: Colors.white),
-                ),
-              ),
+    return Center(
+      child: SingleChildScrollView(
+        child: Center(
+          child: AnimatedOpacity(
+            opacity: _opacity,
+            duration: Constants.kFadeInDuration,
+            child: Text(
+              "Chefio",
+              style: Styles.textStyleExtraBold40(context)
+                  .copyWith(color: Colors.white),
             ),
           ),
-        ],
+        ),
       ),
     );
   }
