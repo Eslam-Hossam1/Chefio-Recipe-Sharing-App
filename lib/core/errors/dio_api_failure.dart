@@ -55,40 +55,41 @@ class DioApiFailure extends ApiFailure {
   }
   factory DioApiFailure.frombadResponse(int status, dynamic responseBody) {
     String appLocalizationKey;
-    //in case 404 but without body
-    if (responseBody=='') {
-       appLocalizationKey =
-          getLocalizationKeyFromErrorCode(ErrorCodes.unknownError);
-    } else {
-          appLocalizationKey =
-          getLocalizationKeyFromErrorCode(responseBody[ApiKeys.error]);
-    }
 
     switch (status) {
       case 400:
+        appLocalizationKey =
+            getLocalizationKeyFromErrorCode(responseBody[ApiKeys.error]);
         return DioApiFailure(
             responseBody["message"], appLocalizationKey, ErrorCodes.badRequest);
 
       case 401:
+        appLocalizationKey =
+            getLocalizationKeyFromErrorCode(responseBody[ApiKeys.error]);
         return DioApiFailure(responseBody["message"], appLocalizationKey,
             ErrorCodes.unauthorized);
 
       case 403:
+        appLocalizationKey =
+            getLocalizationKeyFromErrorCode(responseBody[ApiKeys.error]);
         return DioApiFailure(
             responseBody["message"], appLocalizationKey, ErrorCodes.forbidden);
 
       case 404:
-        return DioApiFailure(
-      responseBody==''   ? "Your request not found, Please try later!":   responseBody["message"] ??
-                "Your request not found, Please try later!",
-            appLocalizationKey,
-            ErrorCodes.notFound);
+        appLocalizationKey =
+            getLocalizationKeyFromErrorCode(ErrorCodes.notFound);
+        return DioApiFailure("Your request not found, Please try later!",
+            appLocalizationKey, ErrorCodes.notFound);
 
       case 500:
+        appLocalizationKey =
+            getLocalizationKeyFromErrorCode(ErrorCodes.internalServerError);
         return DioApiFailure("Internal server error, Please try later",
             appLocalizationKey, ErrorCodes.internalServerError);
 
       default:
+        appLocalizationKey =
+            getLocalizationKeyFromErrorCode(ErrorCodes.unknownError);
         return DioApiFailure("Oops there was an error, Please try again",
             appLocalizationKey, ErrorCodes.unknownError);
     }
