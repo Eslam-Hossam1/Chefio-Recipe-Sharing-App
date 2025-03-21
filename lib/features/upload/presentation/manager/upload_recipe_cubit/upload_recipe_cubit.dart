@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/category.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,9 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
   String foodName = '';
   String foodDescription = '';
   int foodCookDuration = 0;
+  String? categoryName;
   late Uint8List foodImage;
-
+  List<Category> categories=[];
   UploadRecipeCubit() : super(UploadRecipeInitial());
   void addIngerdient(
       {required GlobalKey<SliverAnimatedListState>
