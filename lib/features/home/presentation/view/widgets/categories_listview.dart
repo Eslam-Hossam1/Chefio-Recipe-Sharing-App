@@ -1,9 +1,7 @@
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
-import 'package:chefio_app/features/home/data/enums/category_type_enum.dart';
-import 'package:chefio_app/features/home/data/models/category_model.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/category.dart';
+import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/presentation/manager/cubit/home_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/category_button.dart';
 import 'package:easy_localization/easy_localization.dart';

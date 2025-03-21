@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/api/dio_consumer.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/category.dart';
+import 'package:chefio_app/core/models/category.dart';
 
 class CategoriesService {
   List<Category> categories = [];

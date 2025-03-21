@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'category.dart';
+import '../../../../../core/models/category.dart';
 import 'created_by.dart';
 
 class Recipe extends Equatable {

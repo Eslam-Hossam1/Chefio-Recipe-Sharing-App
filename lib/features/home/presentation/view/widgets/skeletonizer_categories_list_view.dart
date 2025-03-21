@@ -1,4 +1,4 @@
-import 'package:chefio_app/features/home/data/models/home_success_model/category.dart';
+import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
 import 'package:flutter/material.dart';
 

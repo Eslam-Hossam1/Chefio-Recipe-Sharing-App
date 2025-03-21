@@ -7,7 +7,7 @@ import 'package:chefio_app/core/utils/secure_storage_helper.dart';
 import 'package:chefio_app/core/utils/shared_prefernce_helper.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo_impl.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/category.dart';
+import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:chefio_app/features/onboarding/presentation/view_model/onboarding_view_model.dart';
 import 'package:chefio_app/features/splash/presentation/view_model/splash_view_model.dart';
