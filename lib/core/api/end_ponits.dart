@@ -11,6 +11,7 @@ abstract class EndPoints {
       "auth/verify-forgot-password-code";
   static const String resetPassword = "auth/reset-password";
   static const String refreshToken = "auth/refresh-token";
+  static const String categories = "recipe/get-categories";
   //test
   static const String googleSignIn = "auth/google-signin";
   static const String recipes = "recipe/get-recipes";
