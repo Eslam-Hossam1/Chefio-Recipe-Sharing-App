@@ -1,7 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/core/errors/failures.dart';
-import 'package:chefio_app/features/home/data/enums/category_type_enum.dart';
-import 'package:chefio_app/features/home/data/models/category_model.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/category.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -12,19 +10,41 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._homeRepo) : super(HomeInitial());
   final HomeRepo _homeRepo;
   List<Recipe> recipes = [];
+  List<Category> categories = [];
   int page = 0;
   int limit = 30;
   bool isLoading = false;
   bool hasMoreData = true;
-  CategoryType categoryType = CategoryType.generalDishes;
+  String categoryName = '';
+  Future<void> fetchCategoriesThenRecipes() async {
+    emit(HomefirstLoading());
+    var result = await _homeRepo.fetchCategories();
+    result.fold((failure) {
+      emit(
+        HomeFirstApiFetchFailure(
+          errorMessage: failure.errMsg,
+          errorLocalizationKey: failure.localizaitonKey,
+        ),
+      );
+    }, (categories) {
+      this.categories = categories;
+      categoryName = categories[0].name; 
+      emit(
+        HomeCategoriesLoaded(),
+      );
+
+      fetchRecipes();
+    });
+  }
+
   Future<void> fetchRecipesWithChangeCategory(
-      {required CategoryType categorytype}) async {
-    if (categorytype == this.categoryType) {
+      {required String categoryName}) async {
+    if (categoryName == this.categoryName) {
       return;
     } else {
-      emit(HomefirstLoading());
+      emit(HomeFirstLoadingRecipes());
 
-      this.categoryType = categorytype;
+      this.categoryName = categoryName;
       recipes.clear();
       page = 0;
     }
@@ -34,13 +54,14 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> refresh() async {
     recipes.clear();
     page = 0;
-    emit(HomefirstLoading());
-    await fetchRecipes();
-  }
-
-  Future<void> firstFetchRecipes() async {
-    emit(HomefirstLoading());
-    await fetchRecipes();
+    if (categories.isEmpty) {
+      emit(HomefirstLoading());
+      await fetchCategoriesThenRecipes();
+    }else{
+       emit(HomeFirstLoadingRecipes());
+        await fetchRecipes();
+    }
+   
   }
 
   Future<void> fetchRecipes() async {
@@ -51,7 +72,7 @@ class HomeCubit extends Cubit<HomeState> {
     isLoading = true;
 
     var result = await _homeRepo.fetchRecipesFromApi(
-      categoryName: this.categoryType.name,
+      categoryName: this.categoryName,
       page: page,
       limit: limit,
     );
@@ -60,7 +81,7 @@ class HomeCubit extends Cubit<HomeState> {
         isLoading = false;
         if (recipes.isEmpty) {
           emit(
-            HomeFirstApiFetchFailure(
+            HomeFirstRecipesFetchFailure(
               errorMessage: failure.errMsg,
               errorLocalizationKey: failure.localizaitonKey,
             ),
