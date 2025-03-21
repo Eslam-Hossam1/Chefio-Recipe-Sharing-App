@@ -6,6 +6,8 @@ import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
+import 'package:chefio_app/core/utils/categories_service.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/category.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/home_success_model.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo.dart';
@@ -14,7 +16,8 @@ import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiConsumer _apiConsumer;
-  HomeRepoImpl(this._apiConsumer);
+  final CategoriesService _categoriesService;
+  HomeRepoImpl(this._apiConsumer, this._categoriesService);
   @override
   Future<Either<DioApiFailure, List<Recipe>>> fetchRecipesFromApi(
       {required String categoryName,
@@ -29,6 +32,22 @@ class HomeRepoImpl implements HomeRepo {
       });
       final List<Recipe> recipes = HomeSuccessModel.fromJson(response).recipes!;
       return Right(recipes);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(DioApiFailure.fromDioException(e));
+      } else {
+        return Left(DioApiFailure.unknown(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, List<Category>>> fetchCategories() async {
+    try {
+      if (_categoriesService.categories.isEmpty) {
+        await _categoriesService.fetchAndSetCategories();
+      }
+      return Right(_categoriesService.categories);
     } catch (e) {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
