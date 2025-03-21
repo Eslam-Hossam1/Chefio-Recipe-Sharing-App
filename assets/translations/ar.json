@@ -114,6 +114,14 @@
         "add_step":"اضف خطوة",
         "step_hint": "أدخل الخطوة"
     },
+
+    "category": {
+        "general_dishes": "أطباق عامة",
+        "main_dishes": "الأطباق الرئيسية",
+        "fast_food": "الوجبات السريعة",
+        "healthy_meals": "وجبات صحية",
+        "desserts_and_bakery": "الحلويات والمخبوزات"
+    },
     
     "global":{
         "warning":"تحذير",

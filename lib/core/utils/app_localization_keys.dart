@@ -5,6 +5,7 @@ abstract class AppLocalizationKeys {
   static Global global = Global._instance;
   static Error error = Error._instance;
   static Upload upload = Upload._instance;
+  static LocalizationCategory category = LocalizationCategory._instance;
 }
 
 class OnBoarding {
@@ -165,6 +166,16 @@ class Global {
   final String ingredients = 'global.ingredients';
   final String steps = 'global.steps';
   final String back = 'global.back';
+}
+
+class LocalizationCategory {
+  LocalizationCategory._();
+  static final LocalizationCategory _instance = LocalizationCategory._();
+  final String generalDishes = 'category.general_dishes';
+  final String mainDishes = 'category.main_dishes';
+  final String fastFood = 'category.fast_food';
+  final String healthyMeals = 'category.healthy_meals';
+  final String dessertsAndBakery = 'category.desserts_and_bakery';
 }
 
 class Error {

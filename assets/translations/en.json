@@ -115,6 +115,14 @@
         "add_step":"step",
         "step_hint":"Enter step"
     },
+
+    "category":{
+        "general_dishes":"General Dishes",
+        "main_dishes":"Main Dishes",
+        "fast_food":"Fast Food",
+        "healthy_meals":"healthy Meals",
+        "desserts_and_bakery":"Desserts & Bakery"
+    },
     
     "global":{
         "warning":"Warning",
