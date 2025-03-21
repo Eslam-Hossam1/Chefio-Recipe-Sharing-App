@@ -1,8 +1,8 @@
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/home/presentation/manager/cubit/home_cubit.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/categories_and_divider_section.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/home_categories_and_divider_section_builder.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_scrolling_loading_indicator_builder.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_sliver_app_bar.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipes_grid_home_builder.dart';
@@ -34,7 +34,7 @@ class _HomeViewBodyMobileState extends State<HomeViewBodyMobile> {
     _scrollController = ScrollController();
     _scrollController.addListener(_onScroll);
     _refreshController = RefreshController();
-    context.read<HomeCubit>().firstFetchRecipes();
+    context.read<HomeCubit>().fetchCategoriesThenRecipes();
   }
 
   void _onScroll() {
@@ -64,7 +64,7 @@ class _HomeViewBodyMobileState extends State<HomeViewBodyMobile> {
             searchWidget: SearchIconButton(),
           ),
           SliverToBoxAdapter(
-            child: CategoriesAndDividerSection(),
+            child: HomeCategoriesAndDividerSectionBuilder(),
           ),
           SliverAdaptivePadding(sliver: RecipesGridHomeBuilder()),
           HomeScrollingLoadingIndicatorbuilder(),
