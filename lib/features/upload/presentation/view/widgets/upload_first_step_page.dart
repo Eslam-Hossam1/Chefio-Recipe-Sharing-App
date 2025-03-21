@@ -1,14 +1,12 @@
-import 'dart:developer';
 
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
-import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_cover_photo.dart';
+import 'package:chefio_app/features/upload/presentation/view/widgets/choose_category_section.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/cooking_duration_section.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/food_name_and_description_section.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/next_button.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/sliver_uplaod_header.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UploadFirstStepPage extends StatefulWidget {
@@ -66,6 +64,7 @@ class _UploadFirstStepPageState extends State<UploadFirstStepPage>
               ),
             ),
             CookingDurationSection(),
+            UploadChooseCategorySection(),
             SliverFillRemaining(
               hasScrollBody: false,
               child: NextButton(

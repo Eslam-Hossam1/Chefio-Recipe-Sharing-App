@@ -1,0 +1,36 @@
+import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/category.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
+import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class UploadChooseCategorySection extends StatelessWidget {
+  const UploadChooseCategorySection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          AppLocalizationKeys.global.category.tr(),
+          style: Styles.textStyleBold17(context).copyWith(
+            color: context.mainTextColor,
+          ),
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        CategoriesListView(
+          categories: context.read<UploadRecipeCubit>().categories,
+          onCategoryPressed: (categoryName) {
+            context.read<UploadRecipeCubit>().categoryName = categoryName;
+          },
+        )
+      ],
+    );
+  }
+}
