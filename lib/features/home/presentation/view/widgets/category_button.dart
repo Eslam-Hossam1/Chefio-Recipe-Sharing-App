@@ -8,10 +8,10 @@ class CategoryButton extends StatelessWidget {
   const CategoryButton(
       {super.key,
       required this.isSelected,
-      required this.applocalizationKey,
+      required this.categoryName,
       this.onPressed});
   final bool isSelected;
-  final String applocalizationKey;
+  final String categoryName;
   final void Function()? onPressed;
 
   @override
@@ -21,7 +21,7 @@ class CategoryButton extends StatelessWidget {
       onPressed: onPressed,
       backgroundColor: isSelected ? context.primaryColor : context.formColor,
       child: Text(
-        applocalizationKey.tr(),
+        categoryName,
         style: Styles.textStyleBold15(context).copyWith(
           color: isSelected ? Colors.white : context.secondaryTextColor,
         ),
