@@ -30,7 +30,6 @@ class RecipesGridHomeBuilder extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        log(getIt<AuthCredentialsHelper>().refreshToken.toString());
         if (state is HomeFirstApiFetchFailure) {
           return SliverFillRemaining(
             hasScrollBody: false,
@@ -38,7 +37,14 @@ class RecipesGridHomeBuilder extends StatelessWidget {
               text: state.errorLocalizationKey.tr(),
             ),
           );
-        } else if (state is HomefirstLoading) {
+        } else if (state is HomeFirstRecipesFetchFailure) {
+          return SliverFillRemaining(
+            hasScrollBody: false,
+            child: CustomTextErrorMessage(
+              text: state.errorLocalizationKey.tr(),
+            ),
+          );
+        } else if (state is HomefirstLoading||state is HomeFirstLoadingRecipes||state is HomeCategoriesLoaded) {
           return SliverSkeletonizerRecipesGrid();
         } else {
           return SliverRecipesGrid(recipes: context.read<HomeCubit>().recipes);
