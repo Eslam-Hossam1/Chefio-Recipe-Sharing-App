@@ -13,24 +13,28 @@ class UploadChooseCategorySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          AppLocalizationKeys.global.category.tr(),
-          style: Styles.textStyleBold17(context).copyWith(
-            color: context.mainTextColor,
+    return SliverToBoxAdapter(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppLocalizationKeys.global.category.tr(),
+            style: Styles.textStyleBold17(context).copyWith(
+              color: context.mainTextColor,
+            ),
           ),
-        ),
-        SizedBox(
-          height: 16,
-        ),
-        CategoriesListView(
-          categories: context.read<UploadRecipeCubit>().categories,
-          onCategoryPressed: (categoryName) {
-            context.read<UploadRecipeCubit>().categoryName = categoryName;
-          },
-        )
-      ],
+          SizedBox(
+            height: 16,
+          ),
+          CategoriesListView(
+            applyPadding: false,
+            categories: context.read<UploadRecipeCubit>().categories,
+            onCategoryPressed: (categoryName) {
+              context.read<UploadRecipeCubit>().categoryName = categoryName;
+            },
+          )
+        ],
+      ),
     );
   }
 }
