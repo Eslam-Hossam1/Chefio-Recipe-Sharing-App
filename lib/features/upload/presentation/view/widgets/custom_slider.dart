@@ -17,7 +17,7 @@ class _CustomsliderState extends State<Customslider> {
   late double currentValue;
   @override
   void initState() {
-    currentValue = 0;
+    currentValue = 1;
     super.initState();
   }
 
@@ -25,39 +25,34 @@ class _CustomsliderState extends State<Customslider> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SliderDurationLabel(
-              text: "<10",
-              active: true,
-            ),
-            SliderDurationLabel(
-              text: "30",
-              active: currentValue >= 30.0,
-            ),
-            SliderDurationLabel(
-              text: ">60",
-              active: currentValue >= 60.0,
-            ),
-          ],
-        ),
-        Slider(
-          thumbColor: context.primaryColor,
-          activeColor: context.primaryColor,
-          inactiveColor: context.formColor,
-          value: currentValue,
-          min: 0,
-          max: 60,
-          onChangeEnd: (cookDuration) {
-            context.read<UploadRecipeCubit>().foodCookDuration =
-                cookDuration.toInt();
-          },
-          onChanged: (value) {
-            setState(() {
-              currentValue = value;
-            });
-          },
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          SliderDurationLabel(duration: 1, currentValue: currentValue.round()),
+          SliderDurationLabel(duration: 45, currentValue: currentValue.round()),
+          SliderDurationLabel(duration: 90, currentValue: currentValue.round()),
+        ]),
+        SliderTheme(
+          data: SliderTheme.of(context).copyWith(
+            trackHeight: 8,
+          ),
+          child: Slider(
+            divisions: 120,
+            label: '${currentValue.round()}',
+            thumbColor: context.primaryColor,
+            activeColor: context.primaryColor,
+            inactiveColor: context.formColor,
+            value: currentValue,
+            min: 1,
+            max: 90,
+            onChangeEnd: (cookDuration) {
+              context.read<UploadRecipeCubit>().foodCookDuration =
+                  cookDuration.toInt();
+            },
+            onChanged: (value) {
+              setState(() {
+                currentValue = value;
+              });
+            },
+          ),
         ),
       ],
     );
