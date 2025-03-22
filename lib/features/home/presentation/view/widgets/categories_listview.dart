@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
@@ -11,9 +13,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoriesListView extends StatefulWidget {
   const CategoriesListView(
-      {super.key, required this.categories, required this.onCategoryPressed});
+      {super.key,
+      required this.categories,
+      required this.onCategoryPressed,
+      this.applyPadding = true});
   final List<Category> categories;
   final Function(String categoryName) onCategoryPressed;
+  final bool applyPadding;
   @override
   State<CategoriesListView> createState() => _CategoriesListViewState();
 }
@@ -25,53 +31,46 @@ class _CategoriesListViewState extends State<CategoriesListView> {
     super.initState();
     selectedCategoryIndex = 0;
   }
-  // List<CategoryModel> categories = [
-  //   CategoryModel.fromCategoryType(categoryType: CategoryType.generalDishes),
-  //   CategoryModel.fromCategoryType(categoryType: CategoryType.mainDishes),
-  //   CategoryModel.fromCategoryType(
-  //       categoryType: CategoryType.dessertsAndBakery),
-  // ];
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        // CategoryType selectedCategoryType =
-        //     context.read<HomeCubit>().categoryType;
-        return SizedBox(
-          height: 48,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: widget.categories.length,
-            padding: EdgeInsetsDirectional.only(
+    return SizedBox(
+      height: 48,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: widget.categories.length,
+        padding: widget.applyPadding == true
+            ? EdgeInsetsDirectional.only(
                 start: width < SizeConfig.tabletBreakPoint
                     ? Constants.kMobileHorizontalPadding
-                    : Constants.kTabletHorizontalpadding),
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsetsDirectional.only(
-                    end: width < SizeConfig.tabletBreakPoint ? 16 : 24),
-                child: CategoryButton(
-                  isSelected: selectedCategoryIndex == index,
-                  categoryName:
-                      widget.categories[index].categoryLocalizationKey?.tr() ??
-                          widget.categories[index].name,
-                  // onPressed: () {
-                  //   context.read<HomeCubit>().fetchRecipesWithChangeCategory(
-                  //       categorytype: categories[index].categoryType);
-                  // },
-                  onPressed: () {
-                    setState(() {
-                      selectedCategoryIndex = index;
-                    });
-                  },
-                ),
-              );
-            },
-          ),
-        );
-      },
+                    : Constants.kTabletHorizontalpadding)
+            : null,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsetsDirectional.only(
+                end: width < SizeConfig.tabletBreakPoint ? 16 : 24),
+            child: CategoryButton(
+              isSelected: selectedCategoryIndex == index,
+              categoryName:
+                  widget.categories[index].categoryLocalizationKey?.tr() ??
+                      widget.categories[index].name,
+              // onPressed: () {
+              //   context.read<HomeCubit>().fetchRecipesWithChangeCategory(
+              //       categorytype: categories[index].categoryType);
+              // },
+              onPressed: () {
+                if (index == selectedCategoryIndex) return;
+                log('click');
+                setState(() {
+                  selectedCategoryIndex = index;
+                });
+                widget.onCategoryPressed(widget.categories[index].name);
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }
