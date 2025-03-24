@@ -1,17 +1,19 @@
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
+import 'package:chefio_app/features/upload/data/models/recipe_detail_model.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_cover_photo.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/upload_choose_category_section.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/cooking_duration_section.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/food_name_and_description_section.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/next_button.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/sliver_uplaod_header.dart';
+import 'package:chefio_app/features/upload/presentation/view/widgets/upload_choose_category_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UploadFirstStepPage extends StatefulWidget {
-  const UploadFirstStepPage({super.key, required this.onNext});
+  const UploadFirstStepPage(
+      {super.key, required this.onNext, this.recipeDetailModel});
   final VoidCallback onNext;
-
+  final RecipeDetailModel? recipeDetailModel;
   @override
   State<UploadFirstStepPage> createState() => _UploadFirstStepPageState();
 }
@@ -69,7 +71,6 @@ class _UploadFirstStepPageState extends State<UploadFirstStepPage>
               ),
             ),
             CookingDurationSection(),
-            
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 24.h,
