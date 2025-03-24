@@ -4,7 +4,7 @@ import 'package:chefio_app/features/recipe_details/presentation/view/recipe_deta
 import 'package:chefio_app/features/search/presentation/views/search_view.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:chefio_app/features/upload/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/manager/set_recipe_cubit/upload_recipe_cubit.dart';
+import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/upload_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
