@@ -1,4 +1,10 @@
+import 'package:chefio_app/core/utils/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view.dart';
+import 'package:chefio_app/features/search/presentation/views/search_view.dart';
+import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
+import 'package:chefio_app/features/upload/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
+import 'package:chefio_app/features/upload/presentation/manager/set_recipe_cubit/upload_recipe_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/upload_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +34,7 @@ class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
-    initialLocation: RoutePaths.upload,
+    initialLocation: RoutePaths.recipeDetails,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
@@ -44,8 +50,27 @@ class AppRouter {
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
+        path: RoutePaths.recipeDetailsDeep,
+        builder: (context, state) => RecipeDetailsView(isFromDeepLink: true),
+      ),
+      GoRoute(
+        path: RoutePaths.recipeDetails,
+        builder: (context, state) => const RecipeDetailsView(),
+      ),
+      GoRoute(
         path: RoutePaths.upload,
-        builder: (context, state) => const UploadView(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => UploadRecipeCubit(getIt<UploadRepoImpl>()),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  AddCoverPhotoCubit(getIt<CroppedImagePickerHelper>()),
+            ),
+          ],
+          child: const UploadView(),
+        ),
       ),
       GoRoute(
         path: RoutePaths.onboarding,
