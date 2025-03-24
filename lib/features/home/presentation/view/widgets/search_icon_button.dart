@@ -21,7 +21,7 @@ class SearchIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        context.go('${RoutePaths.home}/${RoutePaths.recipeDetails}');
+        context.push('${RoutePaths.home}/${RoutePaths.search}');
       },
       icon: SvgPicture.asset(
         Assets.imagesSearch,

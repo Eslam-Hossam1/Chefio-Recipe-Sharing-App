@@ -20,7 +20,7 @@ class SearchTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomTextButton(
       onPressed: () {
-        context.go('${RoutePaths.home}/${RoutePaths.recipeDetails}');
+        context.push('${RoutePaths.home}/${RoutePaths.search}');
       },
       backgroundColor: context.formColor,
       child: Padding(
