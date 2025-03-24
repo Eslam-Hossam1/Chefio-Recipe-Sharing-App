@@ -1,53 +1,79 @@
-import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
-import 'package:dotted_border/dotted_border.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
+import 'package:chefio_app/features/upload/data/models/recipe_detail_model.dart';
+import 'package:chefio_app/features/upload/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
+import 'package:chefio_app/features/upload/presentation/manager/set_recipe_cubit/upload_recipe_cubit.dart';
+import 'package:chefio_app/features/upload/presentation/view/widgets/empty_cover_photo.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddCoverPhoto extends StatelessWidget {
+class AddCoverPhoto extends StatefulWidget {
   const AddCoverPhoto({
     super.key,
+    this.recipeDetailModel,
   });
+  final RecipeDetailModel? recipeDetailModel;
+  @override
+  State<AddCoverPhoto> createState() => _AddCoverPhotoState();
+}
+
+class _AddCoverPhotoState extends State<AddCoverPhoto> {
+  @override
+  void initState() {
+    context.read<AddCoverPhotoCubit>().init(
+          imageUrl: widget.recipeDetailModel?.imageUrl,
+        );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 327 / 161,
-      child: DottedBorder(
-          borderType: BorderType.RRect,
-          color: context.secondaryTextColor,
-          dashPattern: [6, 6, 6, 6],
-          radius: Radius.circular(16),
-          padding: EdgeInsets.all(17),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(Assets.imagesUploadImage),
-                SizedBox(
-                  height: 16,
-                ),
-                Text(
-                  AppLocalizationKeys.upload.addCoverPhoto.tr(),
-                  style: Styles.textStyleBold15(context).copyWith(
-                    color: context.mainTextColor,
+    return Center(
+      child: SizedBox(
+        width: (MediaQuery.sizeOf(context).width * .8).clamp(200, 400),
+        child: AspectRatio(
+          aspectRatio: 1,
+          child: GestureDetector(
+            onTap: () {
+              showModalBottomSheet(
+                backgroundColor: context.scaffoldBackgroundColor,
+                context: context,
+                builder: (context) {
+                  return ChooseImageSourceBottomSheet(
+                    pickImageMethod:
+                        context.read<AddCoverPhotoCubit>().pickRecipeImage,
+                  );
+                },
+              );
+            },
+            child: BlocConsumer<AddCoverPhotoCubit, AddCoverPhotoState>(
+                listener: (context, state) {
+              if (state is PickedRecipeImage) {
+                context.read<UploadRecipeCubit>().foodImage =
+                    state.recipeImageFile;
+              }
+            }, builder: (context, state) {
+              if (state is UrlImage) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: CustomCachedNetworkImage(url: state.imageUrl),
+                );
+              } else if (state is PickedRecipeImage) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.file(
+                    state.recipeImageFile,
+                    fit: BoxFit.contain,
                   ),
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                Text(
-                  AppLocalizationKeys.upload.upTo.tr(),
-                  style: Styles.textStyleMedium12(context).copyWith(
-                    color: context.secondaryTextColor,
-                  ),
-                ),
-              ],
-            ),
-          )),
+                );
+              } else {
+                return EmptyCoverPhoto();
+              }
+            }),
+          ),
+        ),
+      ),
     );
   }
 }
