@@ -58,6 +58,7 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
       body: widget.navigationShell,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        backgroundColor: context.scaffoldBackgroundColor,
         items: List.generate(
           bottomNavBarModelsList.length,
           (index) => buildBottomNavigationBarItem(
