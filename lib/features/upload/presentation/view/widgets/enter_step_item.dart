@@ -49,16 +49,14 @@ class EnterStepItem extends StatelessWidget {
           child: Column(
             children: [
               CustomTextFormField(
-                initialValue:
-                    context.read<UploadRecipeCubit>().steps[stepIndex],
+                initialValue: context.read<UploadRecipeCubit>().steps[stepIndex],
                 onSaved: (step) {
                   // cubit.ingredints[stepIndex].stepText=value;
                   // cubit.ingredints[stepIndex].image=selectedImage;
                   context.read<UploadRecipeCubit>().steps[stepIndex] = step!;
                 },
                 onChanged: (stepChange) {
-                  context.read<UploadRecipeCubit>().steps[stepIndex] =
-                      stepChange;
+                  context.read<UploadRecipeCubit>().steps[stepIndex] = stepChange;
                 },
                 hint: AppLocalizationKeys.upload.stepHint.tr(),
                 borderRadius: 8,

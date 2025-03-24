@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
@@ -6,17 +5,20 @@ import 'package:flutter/material.dart';
 class SliderDurationLabel extends StatelessWidget {
   const SliderDurationLabel({
     super.key,
-    required this.text,
-    required this.active,
+    required this.duration,
+    required this.currentValue, this.text,
   });
-  final String text;
-  final bool active;
+  final int duration;
+  final int currentValue;
+  final String? text;
   @override
   Widget build(BuildContext context) {
     return Text(
-      text,
+      text??'$duration',
       style: Styles.textStyleBold15(context).copyWith(
-        color: active ? context.primaryColor : context.secondaryTextColor,
+        color: currentValue >= duration
+            ? context.primaryColor
+            : context.secondaryTextColor,
       ),
     );
   }
