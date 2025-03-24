@@ -8,7 +8,7 @@ abstract class ApiKeys {
   static const String refreshToken = "refreshToken";
   static const String newPassword = "newPassword";
   static const String message = "message";
-  static const String id = "id";
+  static const String id = "_id";
   static const String name = "name";
   static const String phone = "phone";
   static const String confirmPassword = "confirmPassword";
@@ -24,4 +24,10 @@ abstract class ApiKeys {
   static const String skip = 'skip';
   static const String category = 'category';
   static const String cookie = 'Cookie';
+  static const String recipePicture = 'recipePicture';
+  static const String foodName = 'foodName';
+  static const String ingredients = 'ingredients';
+  static const String steps = 'steps';
+  static const String description = 'description';
+  static const String cookingDuration = 'cookingDuration';
 }
