@@ -9,9 +9,10 @@ abstract class RoutePaths {
   static const resetPassword = "/resetpassword";
   static const forgotPasswordVerificationCode =
       "/forgotpasswordverificationcode";
-  static const search = "/search";
+  static const search = "search";
   static const upload = "/upload";
   static const notifications = "/notification";
   static const profile = "/profile";
-  static const recipeDetails = "recipe-detail";
+  static const recipeDetails = "/recipe-detail";
+  static const recipeDetailsDeep = '/recipe-details-deep';
 }
