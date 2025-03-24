@@ -11,7 +11,7 @@ import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:chefio_app/features/onboarding/presentation/view_model/onboarding_view_model.dart';
 import 'package:chefio_app/features/splash/presentation/view_model/splash_view_model.dart';
-import 'package:chefio_app/features/upload/data/repos/set_recipe_repo_impl.dart';
+import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
@@ -75,8 +75,8 @@ Future<void> setupServiceLocator() async {
       getIt<CategoriesService>(),
     ),
   );
-  getIt.registerSingleton<SetRecipeRepoImpl>(
-    SetRecipeRepoImpl(
+  getIt.registerSingleton<UploadRepoImpl>(
+    UploadRepoImpl(
       getIt<DioConsumer>(),
       getIt<CategoriesService>(),
     ),
