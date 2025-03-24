@@ -16,6 +16,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class UploadSecondStepPage extends StatefulWidget {
   const UploadSecondStepPage({super.key, required this.onBack});
@@ -45,107 +46,114 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return AdaptivePadding(
-      top: 12,
-      child: Form(
-        key: formKey,
-        autovalidateMode: autovalidateMode,
-        child: CustomScrollView(
-          slivers: [
-            SliverUploadHeader(
-              currentStep: '2',
-              steps: '2',
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 47.h,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Row(
-                children: [
-                  Text(
-                    AppLocalizationKeys.global.ingredients.tr(),
-                    style: Styles.textStyleBold17(context).copyWith(
-                      color: context.mainTextColor,
+    return BlocBuilder<UploadRecipeCubit, UploadRecipeState>(
+      builder: (context, state) {
+        return ModalProgressHUD(
+          inAsyncCall: state is UploadRecipeLoading,
+          child: AdaptivePadding(
+            top: 12,
+            child: Form(
+              key: formKey,
+              autovalidateMode: autovalidateMode,
+              child: CustomScrollView(
+                slivers: [
+                  SliverUploadHeader(
+                    currentStep: '2',
+                    steps: '2',
+                  ),
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 47.h,
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Row(
+                      children: [
+                        Text(
+                          AppLocalizationKeys.global.ingredients.tr(),
+                          style: Styles.textStyleBold17(context).copyWith(
+                            color: context.mainTextColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 36.h,
+                    ),
+                  ),
+                  AnimatedAddIngredientsList(
+                    animatedListKey: ingredientsAnimatedListKey,
+                  ),
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 20.h,
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: AddIngredintButton(
+                      onPressed: () {
+                        context.read<UploadRecipeCubit>().addIngerdient(
+                            ingredientsAnimatedListKey:
+                                ingredientsAnimatedListKey);
+                      },
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Divider(
+                      height: 48,
+                      thickness: 8,
+                      color: context.formColor,
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Row(
+                      children: [
+                        Text(
+                          AppLocalizationKeys.global.steps.tr(),
+                          style: Styles.textStyleBold17(context).copyWith(
+                            color: context.mainTextColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 24.h,
+                    ),
+                  ),
+                  AnimatedAddStepsList(
+                    animatedListKey: stepsAnimatedListKey,
+                  ),
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 24.h,
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: AddStepButton(
+                      onPressed: () {
+                        context.read<UploadRecipeCubit>().addStep(
+                            stepsAnimatedListKey: stepsAnimatedListKey);
+                      },
+                    ),
+                  ),
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: BackAndNextButtons(
+                      onBack: widget.onBack,
+                      formKey: formKey,
+                      enableAutoValidation: enableAutoValidation,
                     ),
                   ),
                 ],
               ),
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 36.h,
-              ),
-            ),
-            AnimatedAddIngredientsList(
-              animatedListKey: ingredientsAnimatedListKey,
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 20.h,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: AddIngredintButton(
-                onPressed: () {
-                  context.read<UploadRecipeCubit>().addIngerdient(
-                      ingredientsAnimatedListKey: ingredientsAnimatedListKey);
-                },
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Divider(
-                height: 48,
-                thickness: 8,
-                color: context.formColor,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Row(
-                children: [
-                  Text(
-                    AppLocalizationKeys.global.steps.tr(),
-                    style: Styles.textStyleBold17(context).copyWith(
-                      color: context.mainTextColor,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 24.h,
-              ),
-            ),
-            AnimatedAddStepsList(
-              animatedListKey: stepsAnimatedListKey,
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 24.h,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: AddStepButton(
-                onPressed: () {
-                  context
-                      .read<UploadRecipeCubit>()
-                      .addStep(stepsAnimatedListKey: stepsAnimatedListKey);
-                },
-              ),
-            ),
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: BackAndNextButtons(
-                onBack: widget.onBack,
-                formKey: formKey,
-                enableAutoValidation: enableAutoValidation,
-              ),
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
