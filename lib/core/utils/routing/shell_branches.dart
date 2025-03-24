@@ -2,12 +2,12 @@ import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:chefio_app/features/home/presentation/manager/cubit/home_cubit.dart';
+import 'package:chefio_app/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:chefio_app/features/home/presentation/view/home_view.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view_test.dart';
-import 'package:chefio_app/features/upload/presentation/view/upload_view.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view.dart';
 import 'package:chefio_app/features/notifiactions/presentation/view/notifications_view_test.dart';
 import 'package:chefio_app/features/profile/presentation/view/profile_view_test.dart';
 
@@ -39,8 +39,8 @@ abstract class ShellBranches {
           ),
           routes: [
             GoRoute(
-              path: RoutePaths.recipeDetails,
-              builder: (context, state) => const RecipeDetailsPage(),
+              path: RoutePaths.search,
+              builder: (context, state) => const SearchView(),
             ),
           ],
         ),
