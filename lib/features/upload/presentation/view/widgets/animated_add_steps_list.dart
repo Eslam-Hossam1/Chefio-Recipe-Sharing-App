@@ -1,4 +1,4 @@
-import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
+import 'package:chefio_app/features/upload/presentation/manager/set_recipe_cubit/upload_recipe_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/enter_step_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,10 +13,10 @@ class AnimatedAddStepsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var addIngredientsCubit = context.read<UploadRecipeCubit>();
+    var uploadRecipeCubit = context.read<UploadRecipeCubit>();
     return SliverAnimatedList(
       key: animatedListKey,
-      initialItemCount: addIngredientsCubit.steps.length,
+      initialItemCount: uploadRecipeCubit.steps.length,
       itemBuilder: (context, index, animation) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 16.0),
@@ -28,8 +28,8 @@ class AnimatedAddStepsList extends StatelessWidget {
               ),
             ),
             child: Dismissible(
-              key: Key('${addIngredientsCubit.steps[index].hashCode}'),
-              onDismissed: (direction) => addIngredientsCubit.removeStep(
+              key: Key('${uploadRecipeCubit.steps[index].hashCode}'),
+              onDismissed: (direction) => uploadRecipeCubit.removeStep(
                 stepsAnimatedListKey: animatedListKey,
                 index: index,
               ),
@@ -42,7 +42,7 @@ class AnimatedAddStepsList extends StatelessWidget {
                   ),
                 ),
               ),
-              direction: addIngredientsCubit.steps.length < 2
+              direction: uploadRecipeCubit.steps.length < 2
                   ? DismissDirection.none
                   : DismissDirection.startToEnd,
               child: EnterStepItem(
