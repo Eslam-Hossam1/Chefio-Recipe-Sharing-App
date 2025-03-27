@@ -23,6 +23,7 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
         (MediaQuery.sizeOf(context).height * .1 + (leadingItemHeight / 2))
             .clamp((kToolbarHeight * 1.5), (kToolbarHeight * 2));
     return SliverAppBar(
+      automaticallyImplyLeading: false,
       pinned: true,
       expandedHeight: appBarImageInitialHeight,
       flexibleSpace: LayoutBuilder(builder: (context, constraints) {
