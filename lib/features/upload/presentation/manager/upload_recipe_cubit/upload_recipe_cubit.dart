@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Functions/convert_to_multipart.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/upload/data/models/edit_recipe_model.dart';
-import 'package:chefio_app/features/upload/data/models/recipe_detail_model.dart';
+import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
 import 'package:chefio_app/features/upload/data/models/upload_recipe_model.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo.dart';
 import 'package:equatable/equatable.dart';

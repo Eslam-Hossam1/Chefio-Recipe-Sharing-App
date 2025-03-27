@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
-import 'package:chefio_app/features/upload/data/models/recipe_detail_model.dart';
+import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_cover_photo.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/cooking_duration_section.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/food_name_and_description_section.dart';
