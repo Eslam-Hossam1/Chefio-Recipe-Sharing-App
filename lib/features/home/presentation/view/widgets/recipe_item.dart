@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/widgets/recipe_category_with_cooking_duration_text.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipe_item_header.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipe_item_image_with_icon.dart';
@@ -41,10 +42,9 @@ class RecipeItem extends StatelessWidget {
         SizedBox(
           height: 8,
         ),
-        Text(
-          "${recipeModel.category?.name} ${recipeModel.cookingDuration} min",
-          style: Styles.textStyleMedium12(context)
-              .copyWith(color: context.secondaryTextColor),
+        RecipeCategoryWithCookingDurationText(
+          categoryName: recipeModel.foodName!,
+          cookingDuration: recipeModel.cookingDuration.toString(),
         ),
       ],
     );
