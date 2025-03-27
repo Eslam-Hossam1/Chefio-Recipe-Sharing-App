@@ -20,7 +20,10 @@ abstract class EndPoints {
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }
-  static String getEditRecipeEndPoint(int recipeId) {
+  static String getEditRecipeEndPoint(String recipeId) {
     return "recipe/update-recipe/$recipeId";
+  }
+  static String getRecipeDetailsEndPoint(String recipeId) {
+    return "recipe/get-recipe/$recipeId";
   }
 }
