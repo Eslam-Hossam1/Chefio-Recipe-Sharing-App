@@ -1,5 +1,5 @@
 class RecipeDetailModel {
-  final int id;
+  final String id;
   final String imageUrl;
   final String foodName;
   final String foodDescription;
