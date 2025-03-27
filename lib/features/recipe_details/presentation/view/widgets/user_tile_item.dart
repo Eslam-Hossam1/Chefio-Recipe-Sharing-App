@@ -1,0 +1,41 @@
+import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class UserTileItem extends StatelessWidget {
+  const UserTileItem({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          clipBehavior: Clip.hardEdge,
+          decoration: BoxDecoration(shape: BoxShape.circle),
+          height: (32.w).clamp(32, 40),
+          width: (32.w).clamp(32, 40),
+          child: CustomCachedNetworkImage(
+            url:
+                'https://images.unsplash.com/photo-1575936123452-b67c3203c357?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D',
+          ),
+        ),
+        SizedBox(
+          width: 8.w,
+        ),
+        Expanded(
+          child: Text(
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            'Mena Shalldkfj;lasjfklaj;sfjlaby',
+            style: Styles.textStyleBold17(context)
+                .copyWith(color: context.mainTextColor),
+          ),
+        ),
+      ],
+    );
+  }
+}
