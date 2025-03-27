@@ -2,6 +2,7 @@ import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/categories_service.dart';
+import 'package:chefio_app/core/utils/decoder/jwt_decoder_impl.dart';
 import 'package:chefio_app/core/utils/google_auth_service.dart';
 import 'package:chefio_app/core/utils/secure_storage_helper.dart';
 import 'package:chefio_app/core/utils/shared_prefernce_helper.dart';
@@ -10,6 +11,7 @@ import 'package:chefio_app/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:chefio_app/features/onboarding/presentation/view_model/onboarding_view_model.dart';
+import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/splash/presentation/view_model/splash_view_model.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:dio/dio.dart';
@@ -44,6 +46,7 @@ Future<void> setupServiceLocator() async {
   getIt.registerSingleton<AuthCredentialsHelper>(
     AuthCredentialsHelper(
       secureStorageHelper: getIt<SecureStorageHelper>(),
+      jwtDecoder: JwtDecoderImpl()
     ),
   );
 
@@ -79,6 +82,11 @@ Future<void> setupServiceLocator() async {
     UploadRepoImpl(
       getIt<DioConsumer>(),
       getIt<CategoriesService>(),
+    ),
+  );
+  getIt.registerSingleton<RecipeDetailsRepoImpl>(
+    RecipeDetailsRepoImpl(
+      getIt<DioConsumer>(),
     ),
   );
 }
