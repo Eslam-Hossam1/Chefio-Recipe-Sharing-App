@@ -30,6 +30,7 @@ class RecipeDetailsStepItem extends StatelessWidget {
         ),
         Expanded(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Your recipe has been uploaded, you can see it on your profile. Your recipe has been uploaded, you can see it on your',
