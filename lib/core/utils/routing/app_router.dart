@@ -49,10 +49,7 @@ class AppRouter {
         path: RoutePaths.splash,
         builder: (context, state) => const SplashView(),
       ),
-      GoRoute(
-        path: RoutePaths.recipeDetailsDeep,
-        builder: (context, state) => RecipeDetailsView(isFromDeepLink: true),
-      ),
+     
       GoRoute(
         path: RoutePaths.recipeDetails,
         builder: (context, state) => const RecipeDetailsView(),

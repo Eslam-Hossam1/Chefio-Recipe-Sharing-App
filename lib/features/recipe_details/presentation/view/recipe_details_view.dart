@@ -6,19 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class RecipeDetailsView extends StatelessWidget {
-  const RecipeDetailsView({super.key, this.isFromDeepLink = false});
-  final bool isFromDeepLink;
+  const RecipeDetailsView({super.key});
   @override
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) async {
         if (didPop) return;
-        if (isFromDeepLink) {
-          context.go('${RoutePaths.home}/${RoutePaths.search}');
-        } else {
+         if (context.canPop()) {
           context.pop();
-        }
+        } else {
+            context.go('${RoutePaths.home}/${RoutePaths.search}');
+          }
+        
       },
       child: Scaffold(
         body: RecipeDetailsViewBody(),

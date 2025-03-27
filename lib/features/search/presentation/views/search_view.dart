@@ -29,7 +29,9 @@ class SearchView extends StatelessWidget {
             style: TextStyle(color: Colors.white),
           ),
           onPressed: () {
-                        context.go(RoutePaths.recipeDetailsDeep,);
+            context.go(
+              RoutePaths.recipeDetails,
+            );
           },
         ),
       ],

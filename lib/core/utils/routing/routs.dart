@@ -14,5 +14,4 @@ abstract class RoutePaths {
   static const notifications = "/notification";
   static const profile = "/profile";
   static const recipeDetails = "/recipe-detail";
-  static const recipeDetailsDeep = '/recipe-details-deep';
 }
