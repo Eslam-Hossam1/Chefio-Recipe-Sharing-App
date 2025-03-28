@@ -1,14 +1,8 @@
 import 'dart:ui';
-
-import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
-import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_action_button.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_bottom.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_items.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,8 +17,8 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
     double bottomheight = 48;
     double appBarImageInitialHeight = MediaQuery.sizeOf(context).height * .46;
     double collapseHeight =
-        (MediaQuery.sizeOf(context).height * .1 + (leadingItemHeight / 2))
-            .clamp((kToolbarHeight * 1.5), (kToolbarHeight * 2));
+        (MediaQuery.sizeOf(context).height * .06 + (leadingItemHeight / 2))
+            .clamp((kToolbarHeight * 1), (kToolbarHeight * 2));
     return SliverAppBar(
       automaticallyImplyLeading: false,
       pinned: true,
@@ -41,7 +35,14 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             // Recipe Image
-           CustomCachedNetworkImage(url: context.read<RecipeDetailsCubit>().recipeDetailModel!.imageUrl),
+            CustomCachedNetworkImage(
+                placeHolder: Container(
+                  color: Colors.grey,
+                ),
+                url: context
+                    .read<RecipeDetailsCubit>()
+                    .recipeDetailModel!
+                    .imageUrl),
 
             // Dark Overlay: Becomes more visible as the AppBar collapses
             AnimatedOpacity(
@@ -57,7 +58,9 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
               top: collapseHeight / 2,
               left: 16.w,
               right: 16.w,
-              child: RecipeDetailsAppBarItems(collapseRatio: collapseRatio,),
+              child: RecipeDetailsAppBarItems(
+                collapseRatio: collapseRatio,
+              ),
             ),
           ],
         );
