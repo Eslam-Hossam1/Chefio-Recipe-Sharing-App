@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Functions/convert_to_multipart.dart';
@@ -69,11 +70,16 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
   }
 
   void checkAndInitForEditing({required RecipeDetailModel? recipeDetailModel}) {
+    log('negga 1');
     if (recipeDetailModel == null) return;
     foodName = recipeDetailModel.foodName;
+    log(foodName);
+
     foodDescription = recipeDetailModel.foodDescription;
     foodCookDuration = recipeDetailModel.foodCookDuration;
     categoryName = recipeDetailModel.categoryName;
+        log(foodName);
+
     ingredients = recipeDetailModel.ingredients;
     steps = recipeDetailModel.steps;
     isEdit = true;
@@ -90,9 +96,22 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
           errorLocalizationKey: failure.localizaitonKey,
         ),
       );
-    }, (categories) {
-      this.categories = categories;
-      categoryName = categories[0].name;
+    }, (returnedCategories) {
+      this.categories = returnedCategories;
+      if (!isEdit) {
+        categoryName = categories[0].name;
+      } else {
+        for (int i = 0; i < categories.length; i++) {
+          if (categories[i].name == categoryName) {
+            log(categories[i].name);
+            log(categoryName);
+            Category temp = categories[i];
+            categories[i] = categories[0];
+            categories[0] = temp;
+            break;
+          }
+        }
+      }
       emit(
         CategoriesLoaded(),
       );
@@ -101,9 +120,9 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
 
   bool validateImage() {
     if (isEdit == false && foodImage == null) {
-      return false;
-    } else {
       return true;
+    } else {
+      return false;
     }
   }
 
