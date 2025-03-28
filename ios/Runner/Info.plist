@@ -58,5 +58,18 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+		<key>FlutterDeepLinkingEnabled</key>
+	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+	<dict>
+		<key>CFBundleURLSchemes</key>
+		<array>
+		<string>chefio-beta.vercel.app</string>
+		</array>
+		<key>CFBundleURLName</key>
+		<string>com.example.chefioApp</string>
+	</dict>
+	</array>
 </dict>
 </plist>
