@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
@@ -29,6 +31,8 @@ class _AddCoverPhotoState extends State<AddCoverPhoto> {
 
   @override
   Widget build(BuildContext context) {
+    final addCoverPhotoCubit = context.read<AddCoverPhotoCubit>();
+
     return Center(
       child: SizedBox(
         width: (MediaQuery.sizeOf(context).width * .8).clamp(200, 400),
@@ -42,7 +46,7 @@ class _AddCoverPhotoState extends State<AddCoverPhoto> {
                 builder: (context) {
                   return ChooseImageSourceBottomSheet(
                     pickImageMethod:
-                        context.read<AddCoverPhotoCubit>().pickRecipeImage,
+                       addCoverPhotoCubit.pickRecipeImage,
                   );
                 },
               );
