@@ -1,16 +1,20 @@
 import 'dart:developer';
 
+import 'package:chefio_app/core/api/end_ponits.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ShareHelper {
-  static const String _baseUrl = "https://chefio-beta.vercel.app/recipe-detail/";
-  static const String _customScheme = "chefio_app://recipe-detail/";
+  //      "https://chefio-beta.vercel.app/recipe-detail/";
+  static const String _baseUrl = EndPoints.baseUrl;
 
   /// Share recipe using HTTPS App Link
-  static Future<void> shareRecipe({required String recipeId, bool useAppLink = true}) async {
-    final String link = useAppLink ? "$_baseUrl$recipeId" : "$_customScheme$recipeId";
+   Future<void> shareRecipe({
+    required String recipeId,
+  }) async {
+    final String link = _baseUrl + "recipe/get-recipe/" + recipeId;
     final String message = "Check out this delicious recipe! 🍽️\n$link";
-    
+
     try {
       await Share.share(message);
     } catch (e) {
