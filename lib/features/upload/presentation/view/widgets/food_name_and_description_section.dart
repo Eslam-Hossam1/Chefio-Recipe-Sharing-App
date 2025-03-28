@@ -28,6 +28,7 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
             height: 10,
           ),
           CustomTextFormField(
+            initialValue: context.read<UploadRecipeCubit>().foodName,
             onSaved: (foodName) {
               context.read<UploadRecipeCubit>().foodName = foodName!;
             },
@@ -46,6 +47,8 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
             height: 10,
           ),
           CustomTextFormField(
+                        initialValue: context.read<UploadRecipeCubit>().foodDescription,
+
             onSaved: (foodDescription) {
               context.read<UploadRecipeCubit>().foodDescription = foodDescription!;
             },
