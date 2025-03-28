@@ -2,7 +2,9 @@ import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
+import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeDetailsStepItem extends StatelessWidget {
@@ -33,7 +35,7 @@ class RecipeDetailsStepItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Your recipe has been uploaded, you can see it on your profile. Your recipe has been uploaded, you can see it on your',
+                context.read<RecipeDetailsCubit>().recipeDetailModel!.steps[stepIndex],
                 style: Styles.textStyleMedium15(context).copyWith(
                   color: context.mainTextColor,
                 ),

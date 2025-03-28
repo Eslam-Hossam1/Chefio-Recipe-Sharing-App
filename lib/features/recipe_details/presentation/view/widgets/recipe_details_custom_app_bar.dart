@@ -2,18 +2,21 @@ import 'dart:ui';
 
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
+import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
+import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_action_button.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_bottom.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_items.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_back_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeDetailsCustomAppBar extends StatelessWidget {
   const RecipeDetailsCustomAppBar({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     double leadingItemHeight = 56;
@@ -38,10 +41,7 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             // Recipe Image
-            Image.asset(
-              Assets.imagesFoodDetailsPictureTest,
-              fit: BoxFit.cover,
-            ),
+           CustomCachedNetworkImage(url: context.read<RecipeDetailsCubit>().recipeDetailModel!.imageUrl),
 
             // Dark Overlay: Becomes more visible as the AppBar collapses
             AnimatedOpacity(
@@ -57,7 +57,7 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
               top: collapseHeight / 2,
               left: 16.w,
               right: 16.w,
-              child: RecipeDetailsAppBarItems(collapseRatio: collapseRatio),
+              child: RecipeDetailsAppBarItems(collapseRatio: collapseRatio,),
             ),
           ],
         );

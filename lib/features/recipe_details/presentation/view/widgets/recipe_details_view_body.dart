@@ -1,7 +1,7 @@
-
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
+import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/custom_bold_17_title.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_custom_divider.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_ingredients_sliver_list.dart';
@@ -13,8 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeDetailsViewBody extends StatelessWidget {
-  const RecipeDetailsViewBody({super.key});
-
+  const RecipeDetailsViewBody({super.key,});
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(

@@ -1,7 +1,9 @@
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
+import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserTileItem extends StatelessWidget {
@@ -20,7 +22,7 @@ class UserTileItem extends StatelessWidget {
           width: (32.w).clamp(32, 40),
           child: CustomCachedNetworkImage(
             url:
-                'https://images.unsplash.com/photo-1575936123452-b67c3203c357?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D',
+                context.read<RecipeDetailsCubit>().recipeDetailModel!.imageUrl
           ),
         ),
         SizedBox(
@@ -30,7 +32,7 @@ class UserTileItem extends StatelessWidget {
           child: Text(
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            'Mena Shalldkfj;lasjfklaj;sfjlaby',
+            context.read<RecipeDetailsCubit>().recipeDetailModel!.foodName,
             style: Styles.textStyleBold17(context)
                 .copyWith(color: context.mainTextColor),
           ),
