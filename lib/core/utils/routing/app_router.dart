@@ -1,5 +1,8 @@
 import 'package:chefio_app/core/utils/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
+import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
+import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view.dart';
 import 'package:chefio_app/features/search/presentation/views/search_view.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
@@ -49,11 +52,28 @@ class AppRouter {
         path: RoutePaths.splash,
         builder: (context, state) => const SplashView(),
       ),
-     
       GoRoute(
-        path: RoutePaths.recipeDetails,
-        builder: (context, state) => const RecipeDetailsView(),
-      ),
+          path: RoutePaths.recipeDetails,
+          builder: (context, state) {
+            final String recipeId = state.pathParameters['id']!;
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => RecipeDetailsCubit(
+                    getIt<RecipeDetailsRepoImpl>(),
+                  ),
+                ),
+                BlocProvider(
+                  create: (context) => RecipeDetailsActionsCubit(
+                    authCredentialsHelper: getIt<AuthCredentialsHelper>(),
+                  ),
+                ),
+              ],
+              child: RecipeDetailsView(
+                id: recipeId,
+              ),
+            );
+          }),
       GoRoute(
         path: RoutePaths.upload,
         builder: (context, state) => MultiBlocProvider(
