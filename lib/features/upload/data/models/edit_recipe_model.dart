@@ -2,7 +2,7 @@ import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:dio/dio.dart';
 
 class EditRecipeModel {
-  final int id;
+  final String id;
   final MultipartFile? foodImage;
   final String foodName;
   final String foodDescription;

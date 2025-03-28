@@ -14,7 +14,7 @@ part 'upload_recipe_state.dart';
 class UploadRecipeCubit extends Cubit<UploadRecipeState> {
   final UploadRepo _uploadRepo;
   bool isEdit = false;
-  int? id;
+  String? id;
   List<String> ingredients = [""];
   List<String> steps = [""];
   String foodName = '';
