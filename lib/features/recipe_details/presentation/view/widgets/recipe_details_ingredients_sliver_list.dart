@@ -11,14 +11,12 @@ class RecipeDetailsIngredientsSliverList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var recipeDetailsCubit = context.read<RecipeDetailsCubit>();
     return SliverList.separated(
-      itemCount: 3,
+      itemCount: recipeDetailsCubit.recipeDetailModel!.ingredients.length,
       itemBuilder: (context, index) {
         return RecipeDetailsIngredientItem(
-          ingredientText: context
-              .read<RecipeDetailsCubit>()
-              .recipeDetailModel!
-              .ingredients[index],
+          ingredientText: recipeDetailsCubit.recipeDetailModel!.ingredients[index],
         );
       },
       separatorBuilder: (context, index) {
