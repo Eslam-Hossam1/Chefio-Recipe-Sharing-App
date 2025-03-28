@@ -1,11 +1,14 @@
 import 'package:chefio_app/core/api/api_keys.dart';
+import 'package:chefio_app/core/utils/decoder/jwt_decoder_interface.dart';
 import 'package:chefio_app/core/utils/secure_storage_helper.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
 
 class AuthCredentialsHelper {
   final SecureStorageHelper secureStorageHelper;
-
-  AuthCredentialsHelper({required this.secureStorageHelper});
+  final JwtDecoderInterface jwtDecoder;
+  AuthCredentialsHelper({
+    required this.secureStorageHelper,
+    required this.jwtDecoder,
+  });
 
   AuthCredentials? _authCredentialsModel;
 
@@ -18,6 +21,12 @@ class AuthCredentialsHelper {
 
   String? get accessToken => _authCredentialsModel?.accessToken;
   String? get refreshToken => _authCredentialsModel?.refreshToken;
+  String? get userId {
+    var decodedToken = jwtDecoder.decodeToken(
+      token: _authCredentialsModel?.accessToken,
+    );
+    return decodedToken?['id'];
+  }
 
   Future<String?> getAccessToken() async {
     return await secureStorageHelper.getString(key: ApiKeys.accessToken);
