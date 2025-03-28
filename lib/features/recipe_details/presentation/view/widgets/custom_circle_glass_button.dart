@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 class CustomCircleGlassButton extends StatelessWidget {
   const CustomCircleGlassButton({
     super.key,
-    required this.child, this.onPressed,
+    required this.child,
+    this.onPressed,
   });
   final Widget child;
   final VoidCallback? onPressed;
@@ -15,13 +16,14 @@ class CustomCircleGlassButton extends StatelessWidget {
       onTap: onPressed,
       child: ClipOval(
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+          filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
           child: CircleAvatar(
-              radius: 28,
-              backgroundColor: Colors.transparent,
-              child: Center(
-                child: child,
-              )),
+            radius: 28,
+            backgroundColor: Colors.transparent,
+            child: Center(
+              child: child,
+            ),
+          ),
         ),
       ),
     );
