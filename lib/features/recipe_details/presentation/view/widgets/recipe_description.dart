@@ -17,6 +17,7 @@ class RecipeDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         RecipeDetailsCustomDivider(),
         CustomBold17Title(
@@ -26,13 +27,12 @@ class RecipeDescription extends StatelessWidget {
           height: 8.h,
         ),
         Text(
-      context.read<RecipeDetailsCubit>().recipeDetailModel!.foodDescription,
+          context.read<RecipeDetailsCubit>().recipeDetailModel!.foodDescription,
           style: Styles.textStyleMedium15(context).copyWith(
             color: context.secondaryTextColor,
           ),
         ),
-               RecipeDetailsCustomDivider(),
-
+        RecipeDetailsCustomDivider(),
       ],
     );
   }
