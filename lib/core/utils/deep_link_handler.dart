@@ -1,12 +1,16 @@
 import 'package:app_links/app_links.dart';
+import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/routing/routing_helper.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class DeepLinkHandler {
   final AppLinks _appLinks;
-
-  DeepLinkHandler({required AppLinks appLinks}) : _appLinks = appLinks;
+  final AuthCredentialsHelper authCredentialsHelper;
+  DeepLinkHandler(
+      {required AppLinks appLinks, required this.authCredentialsHelper})
+      : _appLinks = appLinks;
 
   void startHandleDeepLinks(BuildContext context) {
     _setupDeepLinkHandler(context);
@@ -30,8 +34,10 @@ class DeepLinkHandler {
   }
 
   void _handleDeepLink(Uri uri, BuildContext context) {
-    if (uri.pathSegments.isNotEmpty &&
-        uri.pathSegments.first == 'recipe-detail') {
+    if (!authCredentialsHelper.userIsAuthenticated()) {
+      context.go(RoutePaths.login);
+    } else if (uri.pathSegments.isNotEmpty &&
+        uri.pathSegments.contains('get-recipe')) {
       final recipeId = uri.pathSegments.last;
       if (recipeId.isNotEmpty) {
         context.go(RoutingHelper.getRecipeDetailsPath(recipeId: recipeId));
