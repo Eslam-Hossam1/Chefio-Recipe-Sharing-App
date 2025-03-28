@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/custom_circle_glass_button.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +41,14 @@ class EditAndSharePopUpMenuButton extends StatelessWidget {
                 Icon(Icons.share, color: context.mainTextColor)
               ],
             ),
-            onTap: () {},
+            onTap: () async {
+              await context.read<RecipeDetailsActionsCubit>().shareRecipe(
+                    recipeId: context
+                        .read<RecipeDetailsCubit>()
+                        .recipeDetailModel!
+                        .id,
+                  );
+            },
           ),
           PopupMenuItem(
               child: Row(
@@ -54,6 +64,7 @@ class EditAndSharePopUpMenuButton extends StatelessWidget {
                 ],
               ),
               onTap: () {
+                
                 context.push(
                   RoutePaths.upload,
                   extra: context.read<RecipeDetailsCubit>().recipeDetailModel,
