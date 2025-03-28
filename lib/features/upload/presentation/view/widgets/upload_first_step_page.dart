@@ -51,7 +51,7 @@ class _UploadFirstStepPageState extends State<UploadFirstStepPage>
               ),
             ),
             SliverToBoxAdapter(
-              child: AddCoverPhoto(),
+              child: AddCoverPhoto(recipeDetailModel: widget.recipeDetailModel,),
             ),
             SliverToBoxAdapter(
               child: SizedBox(
