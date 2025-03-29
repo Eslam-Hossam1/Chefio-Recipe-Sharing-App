@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/utils/cropped_image_picker_helper.dart';
+import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/share_helper.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
@@ -39,7 +40,7 @@ class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
-    initialLocation: RoutePaths.recipeDetails,
+    initialLocation: RoutingHelper.getSearchNestedRoutePath,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
