@@ -10,10 +10,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class RecipeDetailsAppBarItems extends StatelessWidget {
   const RecipeDetailsAppBarItems({
     super.key,
-    required this.collapseRatio,
+    required this.collapseRatio, required this.titleAppearOnCollapseRatio,
   });
 
   final double collapseRatio;
+  final double titleAppearOnCollapseRatio;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -26,12 +27,12 @@ class RecipeDetailsAppBarItems extends StatelessWidget {
 
         Expanded(
           child: AnimatedOpacity(
-            opacity: collapseRatio <= 0.3 ? 1.0 : 0.0, // Show when collapsed
+            opacity: collapseRatio <= titleAppearOnCollapseRatio ? 1.0 : 0.0, // Show when collapsed
             duration: Duration(milliseconds: 300),
             child: Text(
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-             context.read<RecipeDetailsCubit>().recipeDetailModel!.foodName,
+              context.read<RecipeDetailsCubit>().recipeDetailModel!.foodName,
               style: Styles.textStyleBold17(context).copyWith(
                 color: Colors.white,
               ),

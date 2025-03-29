@@ -13,21 +13,24 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    double leadingItemHeight = 56;
-    double bottomheight = 48;
+    const double leadingItemHeight = 56;
+    const double titleAppearOnCollapseRatio = 0.3;
+    const double bottomheight = 48;
+    const double bottomFromAppBarDifference = 8;
     double appBarImageInitialHeight = MediaQuery.sizeOf(context).height * .46;
-    double collapseHeight =
-        (MediaQuery.sizeOf(context).height * .06 + (leadingItemHeight / 2))
-            .clamp((kToolbarHeight * 1), (kToolbarHeight * 2));
+    double appearCollapseHeight = (MediaQuery.sizeOf(context).height * .1)
+        .clamp((kToolbarHeight * 1.5), (kToolbarHeight * 3));
+    final double realCollapseHeight =
+        appearCollapseHeight + bottomheight + bottomFromAppBarDifference;
+
     return SliverAppBar(
       automaticallyImplyLeading: false,
       pinned: true,
       expandedHeight: appBarImageInitialHeight,
       flexibleSpace: LayoutBuilder(builder: (context, constraints) {
         // Calculate the collapse ratio
-        double collapseRatio =
-            (constraints.maxHeight - collapseHeight - bottomheight - 8) /
-                (appBarImageInitialHeight - collapseHeight - bottomheight - 8);
+        double collapseRatio = (constraints.maxHeight - realCollapseHeight) /
+            (appBarImageInitialHeight - realCollapseHeight);
         collapseRatio = collapseRatio.clamp(0.0, 1.0);
         // log('maxHeight: ${constraints.maxHeight} , collapseheight: ${collapseHeight}  , expandedheight: ${appBarImageInitialHeight} , collapseRatio: ${collapseRatio}');
 
@@ -55,12 +58,15 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
             ),
 
             Positioned(
-              top: collapseHeight / 2,
+              // top: collapseHeight / 2,
+              top: collapseRatio <= titleAppearOnCollapseRatio
+                  ? appearCollapseHeight / 2 + 8
+                  : appBarImageInitialHeight / 5,
               left: 16.w,
               right: 16.w,
               child: RecipeDetailsAppBarItems(
-                collapseRatio: collapseRatio,
-              ),
+                  collapseRatio: collapseRatio,
+                  titleAppearOnCollapseRatio: titleAppearOnCollapseRatio),
             ),
           ],
         );
@@ -68,7 +74,7 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
 
       backgroundColor: Colors.transparent, // Allow dynamic background
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(collapseHeight),
+        preferredSize: Size.fromHeight(appearCollapseHeight),
         child: RecipeDetailsAppBarBottom(),
       ),
     );
