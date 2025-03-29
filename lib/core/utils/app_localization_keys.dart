@@ -6,6 +6,7 @@ abstract class AppLocalizationKeys {
   static Error error = Error._instance;
   static Upload upload = Upload._instance;
   static LocalizationCategory category = LocalizationCategory._instance;
+  static RecipeDetails recipeDetails = RecipeDetails._instance;
 }
 
 class OnBoarding {
@@ -166,6 +167,7 @@ class Global {
   final String ingredients = 'global.ingredients';
   final String steps = 'global.steps';
   final String back = 'global.back';
+  final String mins = 'global.mins';
 }
 
 class LocalizationCategory {
@@ -176,6 +178,13 @@ class LocalizationCategory {
   final String fastFood = 'category.fast_food';
   final String healthyMeals = 'category.healthy_meals';
   final String dessertsAndBakery = 'category.desserts_and_bakery';
+}
+
+class RecipeDetails {
+  RecipeDetails._();
+  static final RecipeDetails _instance = RecipeDetails._();
+  final String shareRecipe = 'recipe_details.share_recipe';
+  final String editRecipe = 'recipe_details.edit_recipe';
 }
 
 class Error {

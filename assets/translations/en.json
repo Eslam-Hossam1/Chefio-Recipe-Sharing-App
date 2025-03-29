@@ -123,6 +123,11 @@
         "healthy_meals":"healthy Meals",
         "desserts_and_bakery":"Desserts & Bakery"
     },
+
+    "recipe_details":{
+        "share_recipe":"Share Recipe",
+        "edit_recipe": "Edit Recipe"
+    },
     
     "global":{
         "warning":"Warning",
@@ -144,7 +149,8 @@
         "next":"Next",
         "ingredients":"Ingredients",
         "steps":"Steps",
-        "back":"Back"
+        "back":"Back",
+        "mins":"mins"
 
     },
 

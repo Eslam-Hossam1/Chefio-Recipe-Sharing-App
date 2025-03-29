@@ -143,9 +143,14 @@
         "next":"التالي",
         "ingredients":"المقادير",
         "steps":"الخطوات",
-        "back":"الرجوع"
+        "back":"الرجوع",
+        "mins":"دقيقة"
 
+    },
 
+    "recipe_details": {
+        "share_recipe": "مشاركة الوصفة",
+        "edit_recipe": "تعديل الوصفة"
     },
 
     "errors": {
