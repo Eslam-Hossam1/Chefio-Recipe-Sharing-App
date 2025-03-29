@@ -77,9 +77,10 @@ class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
                 : const ClosedEyeIcon(),
           ),
         ),
-        border: FormStyles.buildBorder(context),
-        enabledBorder: FormStyles.buildBorder(context),
-        focusedBorder: FormStyles.buildBorder(context).copyWith(
+        border: FormStyles.buildCustomTextFormFieldBorder(context),
+        enabledBorder: FormStyles.buildCustomTextFormFieldBorder(context),
+        focusedBorder:
+            FormStyles.buildCustomTextFormFieldBorder(context).copyWith(
           borderSide: BorderSide(
             width: 2,
             color: context.primaryColor,
