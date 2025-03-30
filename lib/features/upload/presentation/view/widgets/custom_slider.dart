@@ -35,7 +35,7 @@ class _CustomsliderState extends State<Customslider> {
             trackHeight: 8,
           ),
           child: Slider(
-            divisions: 120,
+            divisions: 90,
             label: '${currentValue.round()}',
             thumbColor: context.primaryColor,
             activeColor: context.primaryColor,
