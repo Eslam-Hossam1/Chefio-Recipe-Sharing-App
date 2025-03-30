@@ -13,7 +13,6 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.maxLines,
     this.borderRadius,
-    this.initialValue,
     this.onChanged,
     this.suffixIcon,
     this.onSubmitted,
@@ -30,7 +29,6 @@ class CustomTextField extends StatelessWidget {
   final int? maxLines;
   final TextInputAction? textInputAction;
   final double? borderRadius;
-  final String? initialValue;
   final void Function(String)? onChanged;
   final void Function(String)? onSubmitted;
   final TextStyle? hintStyle;
@@ -38,6 +36,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      
       controller: controller,
       textInputAction: textInputAction,
       onSubmitted: onSubmitted,
