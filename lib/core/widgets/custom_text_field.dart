@@ -19,6 +19,7 @@ class CustomTextField extends StatelessWidget {
     this.onSubmitted,
     this.textInputAction,
     this.hintStyle,
+    this.controller,
   });
   final String hint;
   final void Function(String?)? onSaved;
@@ -33,9 +34,11 @@ class CustomTextField extends StatelessWidget {
   final void Function(String)? onChanged;
   final void Function(String)? onSubmitted;
   final TextStyle? hintStyle;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       textInputAction: textInputAction,
       onSubmitted: onSubmitted,
       onChanged: onChanged,
@@ -63,6 +66,7 @@ class CustomTextField extends StatelessWidget {
                 padding: const EdgeInsetsDirectional.only(start: 10, end: 24),
                 child: suffixIcon)
             : null,
+        suffixIconConstraints: BoxConstraints(),
         border: FormStyles.buildRadiusTransperantBorder(
           context,
           borderRadius: borderRadius,
