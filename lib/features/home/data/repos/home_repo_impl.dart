@@ -44,10 +44,8 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<ApiFailure, List<Category>>> fetchCategories() async {
     try {
-      
-        await _categoriesService.fetchAndSetCategories();
-      
-      return Right(_categoriesService.categories);
+      List<Category> categories=   await _categoriesService.getCategories();
+      return Right(categories);
     } catch (e) {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
