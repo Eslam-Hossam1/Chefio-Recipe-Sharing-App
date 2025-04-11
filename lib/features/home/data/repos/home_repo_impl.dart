@@ -6,6 +6,7 @@ import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
+import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/categories_service.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/home_success_model.dart';
@@ -44,7 +45,17 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<ApiFailure, List<Category>>> fetchCategories() async {
     try {
-      List<Category> categories=   await _categoriesService.getCategories();
+      List<Category> categories = [];
+      //add All category 'means when clicked dont specify category' 
+      categories.add(
+        Category(
+          name: '',
+          categoryLocalizationKey: AppLocalizationKeys.global.all,
+        ),
+      );
+    //add categories from api
+     categories.addAll(await _categoriesService.getCategories());
+
       return Right(categories);
     } catch (e) {
       if (e is DioException) {

@@ -1,13 +1,5 @@
-import 'dart:developer';
-
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
-import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
-import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
-import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
-import 'package:chefio_app/features/home/presentation/manager/cubit/home_cubit.dart';
+import 'package:chefio_app/features/home/presentation/manager/cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_recipes_grid.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_skeletonizer_recipes_grid.dart';
@@ -20,9 +12,9 @@ class RecipesGridHomeBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
+    return BlocConsumer<HomeRecipesCubit, HomeRecipesState>(
       listener: (context, state) {
-        if (state is HomeLoadingMoreFailure) {
+        if (state is HomeRecipesLoadingMoreFailure) {
           showCustomToast(
             context,
             message: state.errorLocalizationKey.tr(),
@@ -30,24 +22,18 @@ class RecipesGridHomeBuilder extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        if (state is HomeFirstApiFetchFailure) {
+        if (state is HomeRecipesFirstFetchFailure) {
           return SliverFillRemaining(
             hasScrollBody: false,
             child: CustomTextErrorMessage(
               text: state.errorLocalizationKey.tr(),
             ),
           );
-        } else if (state is HomeFirstRecipesFetchFailure) {
-          return SliverFillRemaining(
-            hasScrollBody: false,
-            child: CustomTextErrorMessage(
-              text: state.errorLocalizationKey.tr(),
-            ),
-          );
-        } else if (state is HomefirstLoading||state is HomeFirstLoadingRecipes||state is HomeCategoriesLoaded) {
+        } else if (state is HomeRecipesFirstLoading) {
           return SliverSkeletonizerRecipesGrid();
         } else {
-          return SliverRecipesGrid(recipes: context.read<HomeCubit>().recipes);
+          return SliverRecipesGrid(
+              recipes: context.read<HomeRecipesCubit>().recipes);
         }
       },
     );

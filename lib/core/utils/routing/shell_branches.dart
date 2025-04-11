@@ -1,7 +1,8 @@
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/features/home/data/repos/home_categories_cubit/home_categories_cubit.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
-import 'package:chefio_app/features/home/presentation/manager/cubit/home_cubit.dart';
+import 'package:chefio_app/features/home/presentation/manager/cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/search/data/repos/search_recipe_rebo_impl.dart';
 import 'package:chefio_app/features/search/presentation/manager/search_recipe_cubit/search_recipe_cubit.dart';
 import 'package:chefio_app/features/search/presentation/views/search_view.dart';
@@ -35,8 +36,15 @@ abstract class ShellBranches {
       routes: [
         GoRoute(
           path: RoutePaths.home,
-          builder: (context, state) => BlocProvider(
-            create: (context) => HomeCubit(getIt<HomeRepoImpl>()),
+          builder: (context, state) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => HomeRecipesCubit(getIt<HomeRepoImpl>()),
+              ),
+              BlocProvider(
+                create: (context) => HomeCategoriesCubit(getIt<HomeRepoImpl>()),
+              ),
+            ],
             child: const HomeView(),
           ),
           routes: [

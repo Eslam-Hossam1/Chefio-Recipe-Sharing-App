@@ -1,8 +1,9 @@
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
-import 'package:chefio_app/features/home/presentation/manager/cubit/home_cubit.dart';
+import 'package:chefio_app/features/home/data/repos/home_categories_cubit/home_categories_cubit.dart';
+import 'package:chefio_app/features/home/presentation/manager/cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/home_categories_and_divider_section_builder.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/home_categories_builder.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_scrolling_loading_indicator_builder.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_sliver_app_bar.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipes_grid_home_builder.dart';
@@ -25,7 +26,10 @@ class _HomeViewBodyTabletState extends State<HomeViewBodyTablet> {
   late RefreshController _refreshController;
 
   Future<void> _onRefresh() async {
-    await context.read<HomeCubit>().refresh();
+    await Future.wait([
+      context.read<HomeCategoriesCubit>().refreshCategories(),
+      context.read<HomeRecipesCubit>().refreshRecipes(),
+    ]);
     _refreshController.refreshCompleted(); // Stop refresh indicator
   }
 
@@ -35,13 +39,14 @@ class _HomeViewBodyTabletState extends State<HomeViewBodyTablet> {
     _scrollController = ScrollController();
     _scrollController.addListener(_onScroll);
     _refreshController = RefreshController();
-    context.read<HomeCubit>().fetchCategoriesThenRecipes();
+    context.read<HomeCategoriesCubit>().fetchCategories();
+    context.read<HomeRecipesCubit>().fetchRecipes();
   }
 
   void _onScroll() {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent) {
-      context.read<HomeCubit>().fetchRecipes();
+      context.read<HomeRecipesCubit>().fetchRecipes();
     }
   }
 
@@ -65,7 +70,7 @@ class _HomeViewBodyTabletState extends State<HomeViewBodyTablet> {
             searchWidget: SearchTextButton(),
           ),
           SliverToBoxAdapter(
-            child: HomeCategoriesAndDividerSectionBuilder(),
+            child: HomeCategoriesBuilder(),
           ),
           SliverAdaptivePadding(sliver: RecipesGridHomeBuilder()),
           HomeScrollingLoadingIndicatorbuilder(),
