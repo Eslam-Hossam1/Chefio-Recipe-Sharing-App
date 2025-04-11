@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
@@ -15,9 +17,10 @@ class ApiInterceptor extends Interceptor {
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     String? token = authCredentialsHelper.accessToken;
-    options.headers[ApiKeys.token] = token != null ? 'FOODAPI $token' : null;
+    options.headers[ApiKeys.authorization] = token;
     options.headers[ApiKeys.client] = "not-browser";
     super.onRequest(options, handler);
+ 
   }
 
   @override
@@ -25,19 +28,30 @@ class ApiInterceptor extends Interceptor {
       DioException err, ErrorInterceptorHandler handler) async {
     debugPrint(
         'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
+
     if (err.response?.statusCode == 401) {
-      if (authCredentialsHelper.userIsAuthenticated()) {
+      if (authCredentialsHelper.userIsAuthenticated() &&
+          !(err.requestOptions.extra['retrying'] ?? false)) {
+        // ⬅️ منع التكرار
+
+        err.requestOptions.extra['retrying'] =
+            true; // ⬅️ إضافة علامة إننا بنعمل retry
+
         try {
-          if (await _refreshToken()) {
+          bool refreshed = await _refreshToken();
+          if (refreshed) {
             return handler.resolve(await _retry(err.requestOptions));
           } else {
-            handler.next(err);
+            authCredentialsHelper
+                .clearTokens(); // ⬅️ حذف بيانات المستخدم لو التوكن فشل
           }
-        } catch (e) {
-          handler.next(err);
+        } catch (e) {          
+          authCredentialsHelper
+              .clearTokens(); // ⬅️ تأكيد حذف التوكنات لو حصل خطأ
         }
       }
     }
+
     super.onError(err, handler);
   }
 
@@ -54,15 +68,19 @@ class ApiInterceptor extends Interceptor {
 
   Future<bool> _refreshToken() async {
     final response = await client.post(EndPoints.refreshToken, data: {
-      EndPoints.refreshToken: authCredentialsHelper.refreshToken,
+      ApiKeys.refreshToken: authCredentialsHelper.refreshToken,
     });
+    log(response.toString());
 
     if (response.statusCode == 200) {
+      log('refresh success');
       final json = response.data;
-      String accessToken = json[ApiKeys.accessToken];
+      String accessToken = json[ApiKeys.newAccessToken];
       authCredentialsHelper.storeAccessToken(accessToken);
       return true;
     } else {
+      log('refresh failed');
+
       authCredentialsHelper
           .clearTokens(); // ⬅️ احذف بيانات المستخدم لو التوكن فشل
       return false;

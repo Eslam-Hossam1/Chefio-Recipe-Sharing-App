@@ -5,6 +5,7 @@ abstract class ApiKeys {
   static const String token = "token";
   static const String idToken = "IdToken";
   static const String accessToken = "accessToken";
+  static const String newAccessToken = "newAccessToken";
   static const String refreshToken = "refreshToken";
   static const String newPassword = "newPassword";
   static const String message = "message";
@@ -31,4 +32,5 @@ abstract class ApiKeys {
   static const String description = 'description';
   static const String cookingDuration = 'cookingDuration';
   static const String search = 'search';
+  static const String authorization = 'Authorization';
 }
