@@ -17,10 +17,13 @@ class RecipeCategoryWithCookingDurationText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          "$categoryName $cookingDuration ${AppLocalizationKeys.global.mins.tr()}",
-          style: Styles.textStyleMedium12(context)
-              .copyWith(color: context.secondaryTextColor),
+        Expanded(
+          child: Text(
+            overflow: TextOverflow.ellipsis,
+            "$categoryName $cookingDuration ${AppLocalizationKeys.global.mins.tr()}",
+            style: Styles.textStyleMedium12(context)
+                .copyWith(color: context.secondaryTextColor),
+          ),
         ),
       ],
     );

@@ -36,7 +36,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     return SizedBox(
-      height: 48,
+      height: 45 + (8 * 2),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: widget.categories.length,

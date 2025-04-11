@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_recipes_grid.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class SliverSkeletonizerRecipesGrid extends StatelessWidget {
 
   static List<Recipe> recipes = List.generate(
     12,
-    (index) => Recipe(foodName: "Eslam Hossam"),
+    (index) => Recipe(foodName: "Eslam Hossam",category: Category(name: 'test category')),
   );
 
   @override

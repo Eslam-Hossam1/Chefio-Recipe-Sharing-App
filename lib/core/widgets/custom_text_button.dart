@@ -14,13 +14,14 @@ class CustomTextButton extends StatelessWidget {
       this.onPressed,
       this.height,
       this.width,
-      this.borderSide});
+      this.borderSide, this.padding});
   final Color? backgroundColor;
   final Widget child;
   final void Function()? onPressed;
   final double? height;
   final double? width;
   final BorderSide? borderSide;
+  final EdgeInsetsGeometry? padding;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -29,6 +30,7 @@ class CustomTextButton extends StatelessWidget {
       child: TextButton(
           onPressed: onPressed,
           style: TextButton.styleFrom(
+              padding:padding,
               side: borderSide,
               backgroundColor: backgroundColor ?? context.primaryColor),
           child: child),

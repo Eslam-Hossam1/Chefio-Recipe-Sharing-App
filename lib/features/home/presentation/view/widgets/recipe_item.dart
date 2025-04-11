@@ -7,6 +7,7 @@ import 'package:chefio_app/core/widgets/recipe_category_with_cooking_duration_te
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipe_item_header.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipe_item_image_with_icon.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -43,7 +44,8 @@ class RecipeItem extends StatelessWidget {
           height: 8,
         ),
         RecipeCategoryWithCookingDurationText(
-          categoryName: recipeModel.foodName!,
+          categoryName: recipeModel.category.categoryLocalizationKey?.tr() ??
+              recipeModel.category.name,
           cookingDuration: recipeModel.cookingDuration.toString(),
         ),
       ],

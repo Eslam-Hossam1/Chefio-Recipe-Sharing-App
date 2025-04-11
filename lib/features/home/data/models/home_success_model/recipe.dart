@@ -8,7 +8,7 @@ class Recipe extends Equatable {
   final String? foodName;
   final String? recipePicture;
   final int? cookingDuration;
-  final Category? category;
+  final Category category;
   final CreatedBy? createdBy;
   final dynamic likes;
   final DateTime? createdAt;
@@ -18,7 +18,7 @@ class Recipe extends Equatable {
     this.foodName,
     this.recipePicture,
     this.cookingDuration,
-    this.category,
+    required this.category,
     this.createdBy,
     this.likes,
     this.createdAt,
@@ -29,9 +29,7 @@ class Recipe extends Equatable {
         foodName: json['foodName'] as String?,
         recipePicture: json['recipePicture'] as String?,
         cookingDuration: json['cookingDuration'] as int?,
-        category: json['category'] == null
-            ? null
-            : Category.fromJson(json['category'] as Map<String, dynamic>),
+        category: Category.fromJson(json['category'] as Map<String, dynamic>),
         createdBy: json['createdBy'] == null
             ? null
             : CreatedBy.fromJson(json['createdBy'] as Map<String, dynamic>),
@@ -46,7 +44,7 @@ class Recipe extends Equatable {
         'foodName': foodName,
         'recipePicture': recipePicture,
         'cookingDuration': cookingDuration,
-        'category': category?.toJson(),
+        'category': category.toJson(),
         'createdBy': createdBy?.toJson(),
         'likes': likes,
         'createdAt': createdAt?.toIso8601String(),
