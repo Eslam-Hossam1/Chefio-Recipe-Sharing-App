@@ -1,0 +1,27 @@
+
+import 'package:chefio_app/core/utils/assets.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+class MyProfileSliverAppBar extends StatelessWidget {
+  const MyProfileSliverAppBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverAppBar(actions: [
+      IconButton(
+        onPressed: () {},
+        icon: SvgPicture.asset(
+          Assets.imagesShare,
+          colorFilter: ColorFilter.mode(
+            context.mainTextColor,
+            BlendMode.srcIn,
+          ),
+        ),
+      ),
+    ]);
+  }
+}

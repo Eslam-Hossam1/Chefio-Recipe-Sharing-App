@@ -11,7 +11,7 @@ import 'package:go_router/go_router.dart';
 import 'package:chefio_app/features/home/presentation/view/home_view.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view.dart';
 import 'package:chefio_app/features/notifiactions/presentation/view/notifications_view_test.dart';
-import 'package:chefio_app/features/profile/presentation/view/profile_view_test.dart';
+import 'package:chefio_app/features/my_profile/presentation/view/my_profile_view.dart';
 
 abstract class ShellBranches {
   // Define navigator keys
@@ -83,8 +83,8 @@ abstract class ShellBranches {
       navigatorKey: _profileKey,
       routes: [
         GoRoute(
-          path: RoutePaths.profile,
-          builder: (context, state) => const ProfilePage(),
+          path: RoutePaths.myProfile,
+          builder: (context, state) => const MyProfileView(),
         ),
       ],
     );

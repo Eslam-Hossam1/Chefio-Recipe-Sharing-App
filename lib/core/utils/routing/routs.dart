@@ -10,13 +10,14 @@ abstract class RoutePaths {
   static const verificationCode = "/verificationcode";
   static const forgetPassword = "/forgetpassword";
   static const resetPassword = "/resetpassword";
-  static const forgotPasswordVerificationCode = "/forgotpasswordverificationcode";
+  static const forgotPasswordVerificationCode =
+      "/forgotpasswordverificationcode";
 
   // 📌 Features
   static const search = "search";
   static const upload = "/upload";
   static const notifications = "/notification";
-  static const profile = "/profile";
+  static const myProfile = "/my-profile";
 
   // 🍽 Recipe Details
   static const recipeDetailsWithoutId = "/recipe-detail";
