@@ -28,7 +28,7 @@ class Category extends Equatable {
       return AppLocalizationKeys.category.mainDishes;
     }else if(categoryName=="Fast Food"){
       return AppLocalizationKeys.category.fastFood;
-    }else if(categoryName=="Healthy Food"){
+    }else if(categoryName=="Healthy Meals"){
       return AppLocalizationKeys.category.healthyMeals;
     }else if(categoryName=="Desserts & Bakery"){
       return AppLocalizationKeys.category.dessertsAndBakery;
