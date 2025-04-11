@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
-import 'package:chefio_app/features/home/data/repos/home_categories_cubit/home_categories_cubit.dart';
-import 'package:chefio_app/features/home/presentation/manager/cubit/home_recipes_cubit.dart';
+import 'package:chefio_app/features/home/presentation/manager/home_categories_cubit/home_categories_cubit.dart';
+import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_categories_builder.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_scrolling_loading_indicator_builder.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_sliver_app_bar.dart';

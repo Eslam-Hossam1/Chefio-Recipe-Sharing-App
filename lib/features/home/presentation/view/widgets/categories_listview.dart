@@ -4,7 +4,7 @@ import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/core/models/category.dart';
-import 'package:chefio_app/features/home/presentation/manager/cubit/home_recipes_cubit.dart';
+import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/category_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
