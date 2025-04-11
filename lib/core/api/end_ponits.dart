@@ -26,4 +26,7 @@ abstract class EndPoints {
   static String getRecipeDetailsEndPoint(String recipeId) {
     return "recipe/get-recipe/$recipeId";
   }
+  static String getLikeRecipeEndPoint(String recipeId) {
+    return "recipe/like-recipe/$recipeId";
+  }
 }

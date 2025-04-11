@@ -19,7 +19,7 @@ class GlassFavouriteIcon extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(8),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
           width: 32,
           height: 32,

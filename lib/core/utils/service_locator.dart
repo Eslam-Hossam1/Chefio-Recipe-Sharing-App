@@ -7,6 +7,7 @@ import 'package:chefio_app/core/utils/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/utils/decoder/jwt_decoder_impl.dart';
 import 'package:chefio_app/core/utils/deep_link_handler.dart';
 import 'package:chefio_app/core/utils/google_auth_service.dart';
+import 'package:chefio_app/core/utils/like_recipe_helper.dart';
 import 'package:chefio_app/core/utils/secure_storage_helper.dart';
 import 'package:chefio_app/core/utils/share_helper.dart';
 import 'package:chefio_app/core/utils/shared_prefernce_helper.dart';
@@ -113,6 +114,11 @@ Future<void> setupServiceLocator() async {
     CroppedImagePickerHelper(
       ImagePicker(),
       ImageCropper(),
+    ),
+  );
+  getIt.registerSingleton<LikeRecipeHelper>(
+    LikeRecipeHelper(
+      apiConsumer: getIt<DioConsumer>(),
     ),
   );
 }
