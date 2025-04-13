@@ -49,7 +49,7 @@ class SearchViewBodyError extends StatelessWidget {
                         .copyWith(color: Colors.white),
                   ),
                   onPressed: () {
-                    context.read<SearchRecipeCubit>().tryAgain();
+                    context.read<SearchRecipeCubit>().trySearchAgain();
                   },
                 ),
               ],
