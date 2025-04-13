@@ -168,6 +168,7 @@ class Global {
   final String steps = 'global.steps';
   final String back = 'global.back';
   final String mins = 'global.mins';
+  final String likes = 'global.likes';
 }
 
 class LocalizationCategory {
