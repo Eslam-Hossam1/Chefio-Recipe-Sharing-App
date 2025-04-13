@@ -20,7 +20,6 @@ class ApiInterceptor extends Interceptor {
     options.headers[ApiKeys.authorization] = token;
     options.headers[ApiKeys.client] = "not-browser";
     super.onRequest(options, handler);
- 
   }
 
   @override
@@ -42,12 +41,13 @@ class ApiInterceptor extends Interceptor {
           if (refreshed) {
             return handler.resolve(await _retry(err.requestOptions));
           } else {
-            authCredentialsHelper
-                .clearTokens(); // ⬅️ حذف بيانات المستخدم لو التوكن فشل
+            // authCredentialsHelper
+            //     .clearTokens(); // ⬅️ حذف بيانات المستخدم لو التوكن فشل
           }
-        } catch (e) {          
-          authCredentialsHelper
-              .clearTokens(); // ⬅️ تأكيد حذف التوكنات لو حصل خطأ
+        } catch (e) {
+          log(e.toString());
+          // authCredentialsHelper
+          //     .clearTokens(); // ⬅️ تأكيد حذف التوكنات لو حصل خطأ
         }
       }
     }
@@ -80,9 +80,12 @@ class ApiInterceptor extends Interceptor {
       return true;
     } else {
       log('refresh failed');
+      if (response.statusCode == 401) {
+        authCredentialsHelper
+            .clearTokens(); // ⬅️ احذف بيانات المستخدم لو التوكن فشل
+        log('refresh token expired');
+      }
 
-      authCredentialsHelper
-          .clearTokens(); // ⬅️ احذف بيانات المستخدم لو التوكن فشل
       return false;
     }
   }
