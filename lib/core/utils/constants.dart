@@ -2,6 +2,7 @@ import 'dart:ui';
 
 abstract class Constants {
   static const String kIsOnBoardingCompletedKey = "isOnBoardingOpenedBefore";
+  static const String jwtUserId = "userId";
   static const Locale arabicLocale = Locale('ar');
   static const Locale englishLocale = Locale('en');
   static const double kMobileHorizontalPadding = 24;
@@ -13,4 +14,6 @@ abstract class Constants {
   static const Duration kFadeInDuration = Duration(seconds: 1);
   static const Duration kSplashNavigationDelayDuration =
       Duration(milliseconds: 2000);
+  static const nullProfileUserImageUrl =
+      "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png";
 }
