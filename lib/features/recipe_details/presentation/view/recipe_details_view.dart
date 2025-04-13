@@ -24,6 +24,7 @@ class _RecipeDetailsViewState extends State<RecipeDetailsView> {
 
   @override
   Widget build(BuildContext context) {
+    
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) async {
@@ -31,7 +32,7 @@ class _RecipeDetailsViewState extends State<RecipeDetailsView> {
         if (context.canPop()) {
           context.pop();
         } else {
-          context.go('${RoutePaths.home}/${RoutePaths.search}');
+          context.go(RoutePaths.home);
         }
       },
       child: Scaffold(
@@ -39,7 +40,8 @@ class _RecipeDetailsViewState extends State<RecipeDetailsView> {
           builder: (context, state) {
             if (state is RecipeDetailsFailure) {
               return RecipeDetailsFailureBody(
-                  text: state.errorLocalizationKey.tr(),);
+                text: state.errorLocalizationKey.tr(),
+              );
             } else if (state is RecipeDetailsSuccess) {
               return RecipeDetailsViewBody();
             } else {

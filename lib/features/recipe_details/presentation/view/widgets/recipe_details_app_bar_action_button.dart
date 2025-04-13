@@ -21,7 +21,7 @@ class _RecipeDetailsAppBarActionButtonState
   void initState() {
     //need to be modified not the final code
     final String recipeCreatorId =
-        context.read<RecipeDetailsCubit>().recipeDetailModel!.id;
+        context.read<RecipeDetailsCubit>().recipeDetailModel!.createdBy.id;
     context
         .read<RecipeDetailsActionsCubit>()
         .checkIsMyRecipe(recipeCreatorId: recipeCreatorId);

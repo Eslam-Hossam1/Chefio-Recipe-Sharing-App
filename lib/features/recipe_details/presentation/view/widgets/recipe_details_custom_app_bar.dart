@@ -45,7 +45,7 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
                 url: context
                     .read<RecipeDetailsCubit>()
                     .recipeDetailModel!
-                    .imageUrl),
+                    .recipePicture),
 
             // Dark Overlay: Becomes more visible as the AppBar collapses
             AnimatedOpacity(

@@ -27,7 +27,7 @@ class RecipeDescription extends StatelessWidget {
           height: 8.h,
         ),
         Text(
-          context.read<RecipeDetailsCubit>().recipeDetailModel!.foodDescription,
+          context.read<RecipeDetailsCubit>().recipeDetailModel!.description!,
           style: Styles.textStyleMedium15(context).copyWith(
             color: context.secondaryTextColor,
           ),

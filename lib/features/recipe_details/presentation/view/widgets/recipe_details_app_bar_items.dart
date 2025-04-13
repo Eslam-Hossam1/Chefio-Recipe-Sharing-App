@@ -1,5 +1,4 @@
 import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_action_button.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_back_button.dart';
@@ -10,7 +9,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class RecipeDetailsAppBarItems extends StatelessWidget {
   const RecipeDetailsAppBarItems({
     super.key,
-    required this.collapseRatio, required this.titleAppearOnCollapseRatio,
+    required this.collapseRatio,
+    required this.titleAppearOnCollapseRatio,
   });
 
   final double collapseRatio;
@@ -27,7 +27,9 @@ class RecipeDetailsAppBarItems extends StatelessWidget {
 
         Expanded(
           child: AnimatedOpacity(
-            opacity: collapseRatio <= titleAppearOnCollapseRatio ? 1.0 : 0.0, // Show when collapsed
+            opacity: collapseRatio <= titleAppearOnCollapseRatio
+                ? 1.0
+                : 0.0, // Show when collapsed
             duration: Duration(milliseconds: 300),
             child: Text(
               maxLines: 1,

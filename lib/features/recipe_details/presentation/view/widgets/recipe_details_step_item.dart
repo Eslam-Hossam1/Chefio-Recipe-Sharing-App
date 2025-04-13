@@ -35,7 +35,10 @@ class RecipeDetailsStepItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                context.read<RecipeDetailsCubit>().recipeDetailModel!.steps[stepIndex],
+                context
+                    .read<RecipeDetailsCubit>()
+                    .recipeDetailModel!
+                    .steps[stepIndex],
                 style: Styles.textStyleMedium15(context).copyWith(
                   color: context.mainTextColor,
                 ),
@@ -49,12 +52,15 @@ class RecipeDetailsStepItem extends StatelessWidget {
                         ),
                         // AddStepPhotoButton(selectedImage),
                         ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: AspectRatio(
-                                aspectRatio: 271 / 155,
-                                child: Image.asset(
-                                    fit: BoxFit.cover,
-                                    Assets.imagesPancakeTest))),
+                          borderRadius: BorderRadius.circular(12),
+                          child: AspectRatio(
+                            aspectRatio: 271 / 155,
+                            child: Image.asset(
+                              fit: BoxFit.cover,
+                              Assets.imagesPancakeTest,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
             ],

@@ -2,7 +2,7 @@ import 'package:chefio_app/core/utils/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/share_helper.dart';
-import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
+import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
@@ -40,7 +40,7 @@ class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
-    initialLocation: RoutingHelper.getSearchNestedRoutePath,
+    initialLocation: RoutePaths.splash,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
@@ -90,7 +90,8 @@ class AppRouter {
                   AddCoverPhotoCubit(getIt<CroppedImagePickerHelper>()),
             ),
           ],
-          child:  UploadView(recipeDetailModel:  state.extra as RecipeDetailModel?),
+          child:
+              UploadView(recipeDetailModel: state.extra as RecipeDetailsModel?),
         ),
       ),
       GoRoute(

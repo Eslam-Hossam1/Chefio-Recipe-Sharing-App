@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
@@ -21,9 +22,12 @@ class UserTileItem extends StatelessWidget {
           height: (32.w).clamp(32, 40),
           width: (32.w).clamp(32, 40),
           child: CustomCachedNetworkImage(
-            url:
-                context.read<RecipeDetailsCubit>().recipeDetailModel!.imageUrl
-          ),
+              url: context
+                      .read<RecipeDetailsCubit>()
+                      .recipeDetailModel!
+                      .createdBy
+                      .profilePicture ??
+                  Constants.nullProfileUserImageUrl),
         ),
         SizedBox(
           width: 8.w,
@@ -32,7 +36,11 @@ class UserTileItem extends StatelessWidget {
           child: Text(
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            context.read<RecipeDetailsCubit>().recipeDetailModel!.foodName,
+            context
+                .read<RecipeDetailsCubit>()
+                .recipeDetailModel!
+                .createdBy
+                .username,
             style: Styles.textStyleBold17(context)
                 .copyWith(color: context.mainTextColor),
           ),

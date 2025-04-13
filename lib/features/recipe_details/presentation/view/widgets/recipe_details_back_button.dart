@@ -17,9 +17,8 @@ class RecipeDetailsBackButton extends StatelessWidget {
         if (context.canPop()) {
           context.pop();
         } else {
-            context.go('${RoutePaths.home}/${RoutePaths.search}');
-          }
-        
+          context.go(RoutePaths.home);
+        }
       },
       child: SvgPicture.asset(
         Assets.imagesIosBackOutline,

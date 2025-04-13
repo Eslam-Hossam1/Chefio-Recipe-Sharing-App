@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
-import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
+import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
+import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_api_success_model.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -13,26 +16,19 @@ class RecipeDetailsRepoImpl implements RecipeDetailsRepo {
   RecipeDetailsRepoImpl(this._apiConsumer);
 
   @override
-  Future<Either<ApiFailure, RecipeDetailModel>> fetchRecipeDetails(
+  Future<Either<ApiFailure, RecipeDetailsModel>> fetchRecipeDetails(
       {required String recipeId}) async {
     try {
-      // var response =
-      //     await _apiConsumer.get(EndPoints.getRecipeDetailsEndPoint(recipeId));
-      //parse here
-      return Right(RecipeDetailModel(
-          imageUrl:
-              'https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          id: 'lolololololololool',
-          foodName: 'ملوخية',
-          foodDescription: 'foodDescription',
-          foodCookDuration: 40,
-          categoryName: 'مقبلات',
-          ingredients: ['ingredient1', 'ingredient2'],
-          steps: ['step1', 'step2']));
+      var response =
+          await _apiConsumer.get(EndPoints.getRecipeDetailsEndPoint(recipeId));
+      RecipeDetailsModel recipeDetailsModel =
+          RecipeDetailsApiSuccessModel.fromJson(response).recipeDetailsModel;
+      return Right(recipeDetailsModel);
     } catch (e) {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
       } else {
+        log(e.toString());
         return Left(DioApiFailure.unknown(e.toString()));
       }
     }

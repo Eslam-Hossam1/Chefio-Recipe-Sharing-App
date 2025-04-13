@@ -16,7 +16,8 @@ class RecipeDetailsIngredientsSliverList extends StatelessWidget {
       itemCount: recipeDetailsCubit.recipeDetailModel!.ingredients.length,
       itemBuilder: (context, index) {
         return RecipeDetailsIngredientItem(
-          ingredientText: recipeDetailsCubit.recipeDetailModel!.ingredients[index],
+          ingredientText:
+              recipeDetailsCubit.recipeDetailModel!.ingredients[index],
         );
       },
       separatorBuilder: (context, index) {
