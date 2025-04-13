@@ -18,7 +18,7 @@ class CustomTextField extends StatelessWidget {
     this.onSubmitted,
     this.textInputAction,
     this.hintStyle,
-    this.controller,
+    this.controller, this.focusNode,
   });
   final String hint;
   final void Function(String?)? onSaved;
@@ -33,12 +33,13 @@ class CustomTextField extends StatelessWidget {
   final void Function(String)? onSubmitted;
   final TextStyle? hintStyle;
   final TextEditingController? controller;
+  final FocusNode? focusNode;
   @override
   Widget build(BuildContext context) {
     return TextField(
-      
       controller: controller,
       textInputAction: textInputAction,
+      focusNode: focusNode,
       onSubmitted: onSubmitted,
       onChanged: onChanged,
       maxLines: maxLines,

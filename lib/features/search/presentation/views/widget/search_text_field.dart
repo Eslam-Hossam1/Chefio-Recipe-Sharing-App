@@ -21,12 +21,16 @@ class SearchTextField extends StatefulWidget {
 
 class _SearchTextFieldState extends State<SearchTextField> {
   final TextEditingController textEditingController = TextEditingController();
+    final FocusNode _focusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     textEditingController.text =
         context.read<SearchRecipeCubit>().searchRecipeName;
     return CustomTextField(
       maxLines: 1,
+            focusNode: _focusNode, 
+
       controller: textEditingController,
       textInputAction: TextInputAction.search,
       hint: AppLocalizationKeys.global.search.tr(),
@@ -40,6 +44,8 @@ class _SearchTextFieldState extends State<SearchTextField> {
       suffixIcon: IconButton(
         onPressed: () {
           textEditingController.clear();
+          _focusNode.requestFocus();
+
         },
         icon: SvgPicture.asset(
           Assets.imagesCloseIcon,
@@ -59,6 +65,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
   @override
   void dispose() {
     textEditingController.dispose();
+        _focusNode.dispose(); 
     super.dispose();
   }
 }
