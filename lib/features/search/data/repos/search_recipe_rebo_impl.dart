@@ -3,6 +3,7 @@ import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
+import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/home_success_model.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/search/data/repos/search_recipe_repo.dart';
@@ -28,10 +29,7 @@ class SearchRecipeRepoImpl implements SearchRecipeRepo {
         ApiKeys.search: searchRecipeName,
       });
       final List<Recipe> recipes = HomeSuccessModel.fromJson(response).recipes!;
-      return Right(List.generate(
-        limit,
-        (index) => Recipe(foodName: 'Pasta'),
-      ));
+      return Right(recipes);
     } catch (e) {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
