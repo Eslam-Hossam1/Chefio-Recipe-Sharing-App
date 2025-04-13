@@ -15,7 +15,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
   bool isLoading = false;
   bool hasMoreData = true;
   String categoryName = '';
-  
+
   Future<void> fetchRecipesWithChangeCategory(
       {required String categoryName}) async {
     if (categoryName == this.categoryName) {
@@ -24,6 +24,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
       this.categoryName = categoryName;
       recipes.clear();
       page = 0;
+      hasMoreData = true;
     }
     await fetchRecipes();
   }
@@ -31,6 +32,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
   Future<void> refreshRecipes() async {
     recipes.clear();
     page = 0;
+    hasMoreData = true;
     categoryName = '';
     await fetchRecipes();
   }
