@@ -20,20 +20,19 @@ class HomeSliverAppBar extends StatelessWidget {
       automaticallyImplyLeading: false,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       surfaceTintColor: Colors.transparent,
-      flexibleSpace: FlexibleSpaceBar(
-        titlePadding: EdgeInsets.symmetric(vertical: 8),
-        title: AdaptivePadding(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Chefio',
-                style: Styles.textStyleBold22(context)
-                    .copyWith(color: context.primaryColor),
-              ),
-              searchWidget ?? SizedBox(),
-            ],
-          ),
+      expandedHeight: 60,
+      flexibleSpace: AdaptivePadding(
+        top: 8,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Chefio',
+              style: Styles.textStyleBold22(context)
+                  .copyWith(color: context.primaryColor),
+            ),
+            searchWidget ?? SizedBox(),
+          ],
         ),
       ),
     );

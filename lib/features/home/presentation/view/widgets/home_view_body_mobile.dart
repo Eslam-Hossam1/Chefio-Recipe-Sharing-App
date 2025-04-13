@@ -68,7 +68,7 @@ class _HomeViewBodyMobileState extends State<HomeViewBodyMobile> {
           ),
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 24,
+              height: 16,
             ),
           ),
           SliverToBoxAdapter(

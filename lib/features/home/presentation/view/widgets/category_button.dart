@@ -16,7 +16,7 @@ class CategoryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomTextButton(
-      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
       height: 45,
       onPressed: onPressed,
       backgroundColor: isSelected ? context.primaryColor : context.formColor,

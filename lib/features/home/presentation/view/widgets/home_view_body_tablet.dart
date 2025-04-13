@@ -70,7 +70,19 @@ class _HomeViewBodyTabletState extends State<HomeViewBodyTablet> {
             searchWidget: SearchTextButton(),
           ),
           SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
+            ),
+          ),
+          SliverToBoxAdapter(
             child: HomeCategoriesBuilder(),
+          ),
+           SliverToBoxAdapter(
+            child: Divider(
+              height: 48,
+              thickness: 8,
+              color: context.formColor,
+            ),
           ),
           SliverAdaptivePadding(sliver: RecipesGridHomeBuilder()),
           HomeScrollingLoadingIndicatorbuilder(),
