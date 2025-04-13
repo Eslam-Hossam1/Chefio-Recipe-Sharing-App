@@ -1,5 +1,4 @@
-
-import 'package:chefio_app/features/my_profile/presentation/view/widgets/user_follower_item.dart';
+import 'package:chefio_app/features/profile_common/widgets/user_follower_item.dart';
 import 'package:flutter/material.dart';
 
 class UserInfoRow extends StatelessWidget {
