@@ -19,7 +19,7 @@ class SearchRecipeCubit extends Cubit<SearchRecipeState> {
     required String searchRecipeName,
   }) async {
     emit(FirstLoading());
-     // Reset all related values for searching again with another searchRecipeName
+    // Reset all related values for searching again with another searchRecipeName
     recipes.clear();
     page = 0;
     hasMoreData = true;
@@ -28,7 +28,7 @@ class SearchRecipeCubit extends Cubit<SearchRecipeState> {
     await fetchMoreRecipes();
   }
 
-  Future<void> tryAgain() async {
+  Future<void> trySearchAgain() async {
     //here hasMoreData is true because this method will run only at first search error happens
     // means that (hasMoreData,page,recipes) already not changed so there is no need to reset it all
     emit(FirstLoading());
