@@ -1,10 +1,13 @@
 import 'package:chefio_app/core/Functions/get_text_theme.dart';
+import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
 import 'package:chefio_app/core/utils/deep_link_handler.dart';
+import 'package:chefio_app/core/utils/like_recipe_helper.dart';
 import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/app_themes.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/core/cubit/recipe_like_cubit/recipe_like_cubit.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +34,15 @@ class _ChefioState extends State<Chefio> {
         designSize: const Size(Constants.kDesignWidth, Constants.kDesignHeight),
         minTextAdapt: true,
         builder: (context, child) {
-          return BlocProvider(
-            create: (context) => ThemeCubit(),
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => ThemeCubit(),
+              ),
+              BlocProvider(
+                create: (context) => RecipeLikeCubit(getIt<LikeRecipeHelper>()),
+              ),
+            ],
             child: BlocBuilder<ThemeCubit, ThemeMode>(
               builder: (context, mode) {
                 return MaterialApp.router(
