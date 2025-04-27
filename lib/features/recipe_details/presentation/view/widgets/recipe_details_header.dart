@@ -46,9 +46,7 @@ class RecipeDetailsHeader extends StatelessWidget {
               width: 12.w,
             ),
             RecipeDetailsCustomLike(
-              likes: recipeDetailsModel
-                  .likesConut,
-              isLiked: recipeDetailsModel.isLiked??false,
+              recipeDetailsModel: recipeDetailsModel,
             ),
           ],
         ),

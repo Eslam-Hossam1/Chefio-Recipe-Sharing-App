@@ -1,0 +1,24 @@
+import 'package:chefio_app/core/utils/assets.dart';
+import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+class RecipeDetailsCircleLikeIcon extends StatelessWidget {
+  const RecipeDetailsCircleLikeIcon({
+    super.key,
+    required this.isLiked,
+  });
+
+  final bool isLiked;
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      backgroundColor: isLiked ? context.primaryColor : context.outlineColor,
+      child: Center(
+          child: SvgPicture.asset(
+        Assets.imagesLikesHeart,
+      )),
+    );
+  }
+}

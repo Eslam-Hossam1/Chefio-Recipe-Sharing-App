@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'created_by.dart';
 
 class RecipeDetailsModel extends Equatable {
-  final int likesConut;
+  final int likesCount;
   final bool? isLiked;
   final String id;
   final CreatedBy createdBy;
@@ -20,28 +20,29 @@ class RecipeDetailsModel extends Equatable {
   final DateTime updatedAt;
 
   const RecipeDetailsModel({
-  required  this.likesConut,
-  this.isLiked,
-  required  this.id,
-  required  this.createdBy,
-  required  this.recipePicture,
-  required  this.foodName,
-  required  this.description,
-  required  this.cookingDuration,
-  required  this.ingredients,
-  required  this.steps,
-  required  this.category,
-  required  this.v,
-  required  this.createdAt,
-  required  this.updatedAt,
+    required this.likesCount,
+    this.isLiked,
+    required this.id,
+    required this.createdBy,
+    required this.recipePicture,
+    required this.foodName,
+    required this.description,
+    required this.cookingDuration,
+    required this.ingredients,
+    required this.steps,
+    required this.category,
+    required this.v,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   factory RecipeDetailsModel.fromJson(Map<String, dynamic> json) =>
       RecipeDetailsModel(
-        likesConut: json['likesConut'] as int,
+        likesCount: json['likesCount'] as int,
         isLiked: json['isLiked'] as bool?,
         id: json['_id'] as String,
-        createdBy: CreatedBy.fromJson(json['createdBy'] as Map<String, dynamic>),
+        createdBy:
+            CreatedBy.fromJson(json['createdBy'] as Map<String, dynamic>),
         recipePicture: json['recipePicture'] as String,
         foodName: json['foodName'] as String,
         description: json['description'] as String,
@@ -50,12 +51,12 @@ class RecipeDetailsModel extends Equatable {
         steps: (json['steps'] as List<dynamic>).cast<String>(),
         category: Category.fromJson(json['category'] as Map<String, dynamic>),
         v: json['__v'] as int?,
-        createdAt:  DateTime.parse(json['createdAt'] as String),
+        createdAt: DateTime.parse(json['createdAt'] as String),
         updatedAt: DateTime.parse(json['updatedAt'] as String),
       );
 
   Map<String, dynamic> toJson() => {
-        'likesConut': likesConut,
+        'likesConut': likesCount,
         'isLiked': isLiked,
         '_id': id,
         'createdBy': createdBy.toJson(),
@@ -74,7 +75,7 @@ class RecipeDetailsModel extends Equatable {
   @override
   List<Object?> get props {
     return [
-      likesConut,
+      likesCount,
       isLiked,
       id,
       createdBy,

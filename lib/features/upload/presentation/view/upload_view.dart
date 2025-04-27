@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
-import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
+import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/upload_success_dialog.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/upload_second_step_page.dart';
@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UploadView extends StatefulWidget {
   const UploadView({super.key, this.recipeDetailModel});
-  final RecipeDetailModel? recipeDetailModel;
+  final RecipeDetailsModel? recipeDetailModel;
   @override
   State<UploadView> createState() => _UploadViewState();
 }

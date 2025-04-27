@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:dio/dio.dart';
 
@@ -25,8 +27,8 @@ class UploadRecipeModel {
         ApiKeys.foodName: foodName,
         ApiKeys.description: foodDescription,
         ApiKeys.cookingDuration: foodCookDuration,
-        ApiKeys.category: categoryName,
-        ApiKeys.ingredients: ingredients,
-        ApiKeys.steps: steps
+        // ApiKeys.category: categoryName,
+        ApiKeys.ingredients:  jsonEncode(ingredients),
+        ApiKeys.steps: jsonEncode(steps)
       };
 }

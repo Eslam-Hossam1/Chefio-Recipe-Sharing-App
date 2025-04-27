@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Functions/convert_to_multipart.dart';
 import 'package:chefio_app/core/models/category.dart';
+import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/upload/data/models/edit_recipe_model.dart';
-import 'package:chefio_app/features/recipe_details/data/models/recipe_detail_model.dart';
 import 'package:chefio_app/features/upload/data/models/upload_recipe_model.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -69,16 +69,16 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
     steps.removeAt(index);
   }
 
-  void checkAndInitForEditing({required RecipeDetailModel? recipeDetailModel}) {
-    log('negga 1');
+  void checkAndInitForEditing(
+      {required RecipeDetailsModel? recipeDetailModel}) {
     if (recipeDetailModel == null) return;
     foodName = recipeDetailModel.foodName;
     log(foodName);
 
-    foodDescription = recipeDetailModel.foodDescription;
-    foodCookDuration = recipeDetailModel.foodCookDuration;
-    categoryName = recipeDetailModel.categoryName;
-        log(foodName);
+    foodDescription = recipeDetailModel.description;
+    foodCookDuration = recipeDetailModel.cookingDuration;
+    categoryName = recipeDetailModel.category.name!;
+    log(foodName);
 
     ingredients = recipeDetailModel.ingredients;
     steps = recipeDetailModel.steps;
@@ -135,8 +135,11 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
   }
 
   Future<void> editRecipe() async {
+    emit(UploadRecipeLoading());
+
     EditRecipeModel editRecipeModel = _getEditRecipeModel();
     //place edit request here
+
     var result = await _uploadRepo.editRecipe(editRecipeModel: editRecipeModel);
     result.fold((failure) {
       emit(
@@ -150,6 +153,7 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
   }
 
   Future<void> uploadRecipe() async {
+    emit(UploadRecipeLoading());
     UploadRecipeModel uploadRecipeModel = _getUploadRecipeModel();
     var result =
         await _uploadRepo.uploadRecipe(uploadRecipeModel: uploadRecipeModel);

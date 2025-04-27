@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
@@ -19,6 +21,7 @@ class UploadRepoImpl implements UploadRepo {
   @override
   Future<Either<ApiFailure, void>> uploadRecipe(
       {required UploadRecipeModel uploadRecipeModel}) async {
+    log('uploadRecipeModel: ${uploadRecipeModel.toJson()}');
     try {
       await _apiConsumer.post(EndPoints.uploadRecipe,
           data: uploadRecipeModel.toJson(), isFromData: true);
@@ -35,10 +38,7 @@ class UploadRepoImpl implements UploadRepo {
   @override
   Future<Either<ApiFailure, List<Category>>> fetchCategories() async {
     try {
-      if (_categoriesService.categories.isEmpty) {
-        await _categoriesService.fetchAndSetCategories();
-      }
-      return Right(_categoriesService.categories);
+      return Right(await _categoriesService.getCategories());
     } catch (e) {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
@@ -49,10 +49,15 @@ class UploadRepoImpl implements UploadRepo {
   }
 
   @override
-  Future<Either<ApiFailure, void>> editRecipe({required EditRecipeModel editRecipeModel})async {
+  Future<Either<ApiFailure, void>> editRecipe(
+      {required EditRecipeModel editRecipeModel}) async {
+            log('uploadRecipeModel: ${editRecipeModel.toJson()}');
+
     try {
-      await _apiConsumer.patch(EndPoints.getEditRecipeEndPoint(editRecipeModel.id),
-          data: editRecipeModel.toJson(), isFromData: true);
+      await _apiConsumer.patch(
+          EndPoints.getEditRecipeEndPoint(editRecipeModel.id),
+          data: editRecipeModel.toJson(),
+          isFromData: true);
       return Right(null);
     } catch (e) {
       if (e is DioException) {
