@@ -22,4 +22,7 @@ class RecipeLikeCubit extends Cubit<RecipeLikeState> {
       },
     );
   }
+  void syncRecipeLikeFromRecipeDetails({required String recipeId}) {
+    emit(SyncRecipeLikedFromRecipeDetails(recipeId: recipeId));
+  }
 }

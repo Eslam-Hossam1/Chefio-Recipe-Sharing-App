@@ -13,7 +13,7 @@ class LikeRecipeHelper {
       {required String recipeId}) async {
     try {
       var result =
-          await _apiConsumer.patch(EndPoints.getLikeRecipeEndPoint(recipeId));
+          await _apiConsumer.post(EndPoints.getLikeRecipeEndPoint(recipeId));
       return Right(null);
     } catch (e) {
       if (e is DioException) {

@@ -22,16 +22,16 @@ class FavouriteIconButton extends StatefulWidget {
 }
 
 class _FavouriteIconButtonState extends State<FavouriteIconButton> {
-  late bool isFavourte;
+  late bool isLiked;
   @override
   void initState() {
-    isFavourte = widget.recipeModel.likes is int;
+    isLiked = widget.recipeModel.isLiked ?? false;
     super.initState();
   }
 
   void toggle() {
     setState(() {
-      isFavourte = !isFavourte;
+      isLiked = !isLiked;
       context
           .read<RecipeLikeCubit>()
           .likeRecipe(recipeId: widget.recipeModel.id!);
@@ -50,14 +50,19 @@ class _FavouriteIconButtonState extends State<FavouriteIconButton> {
       builder: (context, state) {
         if (state is RecipeLikeFailed &&
             state.recipeId == widget.recipeModel.id) {
-          isFavourte = !isFavourte;
+          isLiked = !isLiked;
+        }
+        if (state is SyncRecipeLikedFromRecipeDetails &&
+            state.recipeId == widget.recipeModel.id) {
+          widget.recipeModel.isLiked = !widget.recipeModel.isLiked;
+          isLiked = widget.recipeModel.isLiked;
         }
         return GestureDetector(
           onTap: () {
             toggle();
           },
           child: GlassFavouriteIcon(
-            isFavourte: isFavourte,
+            isFavourte: isLiked,
           ),
         );
       },

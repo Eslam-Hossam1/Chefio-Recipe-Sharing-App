@@ -11,7 +11,10 @@ final class RecipeLikeInitial extends RecipeLikeState {}
 
 final class RecipeLikeSuccess extends RecipeLikeState {}
 final class RecipeLikeProcessing extends RecipeLikeState {}
-
+final class SyncRecipeLikedFromRecipeDetails extends RecipeLikeState {
+  final String recipeId;
+  const SyncRecipeLikedFromRecipeDetails({required this.recipeId});
+}
 final class RecipeLikeFailed extends RecipeLikeState {
   final String errorMessage;
   final String errorLocalizationKey;
