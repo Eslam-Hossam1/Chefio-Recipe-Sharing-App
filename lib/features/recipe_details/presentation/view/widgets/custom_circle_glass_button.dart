@@ -16,7 +16,7 @@ class CustomCircleGlassButton extends StatelessWidget {
       onTap: onPressed,
       child: ClipOval(
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
           child: CircleAvatar(
             radius: 28,
             backgroundColor: Colors.transparent,
