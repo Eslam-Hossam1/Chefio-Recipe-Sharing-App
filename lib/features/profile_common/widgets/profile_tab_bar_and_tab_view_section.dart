@@ -17,7 +17,7 @@ class ProfileTabBarAndTabViewSection extends StatelessWidget {
       children: [
         ProfileTabBar(),
         SizedBox(
-          height: 16,
+          height: 4,
         ),
         Expanded(
           child: AdaptivePadding(
@@ -28,6 +28,7 @@ class ProfileTabBarAndTabViewSection extends StatelessWidget {
                     30,
                     (index) => Recipe(
                         foodName: "$index",
+                        isLiked: false,
                         category: Category(name: 'test category')),
                   ),
                 ),
@@ -36,6 +37,8 @@ class ProfileTabBarAndTabViewSection extends StatelessWidget {
                     30,
                     (index) => Recipe(
                         foodName: "$index",
+                                                isLiked: false,
+
                         category: Category(name: 'test category')),
                   ),
                 )

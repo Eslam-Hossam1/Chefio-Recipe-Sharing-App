@@ -26,8 +26,8 @@ class ProfileUserAvatarWithTitle extends StatelessWidget {
               child: Container(
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(shape: BoxShape.circle),
-                  height: (100.w).clamp(80, 120),
-                  width: (100.w).clamp(80, 120),
+                  height: (100.w).clamp(80, 140),
+                  width: (100.w).clamp(80, 140),
                   child: Image.asset(Assets.imagesBigUserAvatarImageTest)),
             ),
           ),
