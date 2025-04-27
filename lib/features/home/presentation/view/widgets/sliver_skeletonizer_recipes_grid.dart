@@ -11,7 +11,11 @@ class SliverSkeletonizerRecipesGrid extends StatelessWidget {
 
   static List<Recipe> recipes = List.generate(
     12,
-    (index) => Recipe(foodName: "Eslam Hossam",category: Category(name: 'test category')),
+    (index) => Recipe(
+      foodName: "Eslam Hossam",
+      category: Category(name: 'test category'),
+      isLiked: false,
+    ),
   );
 
   @override

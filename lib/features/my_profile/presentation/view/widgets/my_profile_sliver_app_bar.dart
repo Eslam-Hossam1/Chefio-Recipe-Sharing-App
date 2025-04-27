@@ -14,7 +14,7 @@ class MyProfileSliverAppBar extends StatelessWidget {
     return SliverAppBar(
         automaticallyImplyLeading: false,
         pinned: false,
-        floating: true,
+        floating: false,
         surfaceTintColor: Colors.transparent,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         flexibleSpace: AdaptivePadding(
