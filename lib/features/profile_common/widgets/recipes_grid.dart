@@ -19,6 +19,7 @@ class RecipesGrid extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     bool isMobile = width < SizeConfig.tabletBreakPoint;
     return GridView.builder(
+        padding: EdgeInsets.only(top: 16),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: isMobile ? 2 : 3,
             childAspectRatio: isMobile ? 0.500 : 0.560,
