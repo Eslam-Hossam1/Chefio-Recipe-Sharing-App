@@ -2,6 +2,7 @@ import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
+import 'package:chefio_app/core/widgets/custom_back_icon_button.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/filter_icon.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_filter_bottom_sheet.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_text_field.dart';
@@ -29,18 +30,7 @@ class SearchAppBar extends StatelessWidget {
         child: AdaptivePadding(
           child: Row(
             children: [
-              IconButton(
-                onPressed: () {
-                  context.pop();
-                },
-                icon: SvgPicture.asset(
-                  Assets.imagesIosBackOutline,
-                  colorFilter: ColorFilter.mode(
-                    context.mainTextColor,
-                    BlendMode.srcIn,
-                  ),
-                ),
-              ),
+              CustomBackIconButton(),
               SizedBox(
                 width: 8,
               ),
