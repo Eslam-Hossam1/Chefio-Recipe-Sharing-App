@@ -17,7 +17,7 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
     const double titleAppearOnCollapseRatio = 0.3;
     const double bottomheight = 48;
     const double bottomFromAppBarDifference = 8;
-    double appBarImageInitialHeight = MediaQuery.sizeOf(context).height * .46;
+    double appBarImageInitialHeight = MediaQuery.sizeOf(context).width;
     double appearCollapseHeight = (MediaQuery.sizeOf(context).height * .1)
         .clamp((kToolbarHeight * 1.5), (kToolbarHeight * 3));
     final double realCollapseHeight =
