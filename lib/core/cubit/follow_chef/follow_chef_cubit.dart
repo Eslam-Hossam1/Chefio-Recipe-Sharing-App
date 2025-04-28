@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/core/services/follow_chef/follow_chef_service.dart';
+import 'package:chefio_app/core/services/follow_chef_service.dart';
 import 'package:equatable/equatable.dart';
 
 part 'follow_chef_state.dart';

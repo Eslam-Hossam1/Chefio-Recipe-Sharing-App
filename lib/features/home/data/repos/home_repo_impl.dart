@@ -7,7 +7,7 @@ import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
-import 'package:chefio_app/core/services/categories/categories_service.dart';
+import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/home_success_model.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';

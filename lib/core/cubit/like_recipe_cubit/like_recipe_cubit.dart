@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/core/services/like_recipe/like_recipe_service.dart';
+import 'package:chefio_app/core/services/like_recipe_service.dart';
 import 'package:equatable/equatable.dart';
 
 part 'like_recipe_state.dart';
