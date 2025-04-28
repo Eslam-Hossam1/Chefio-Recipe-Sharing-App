@@ -1,4 +1,4 @@
-abstract class ErrorCodes {
+abstractclass ErrorCodes {
   static const String badRequest = 'bad_request';
   static const String unauthorized = 'unauthorized';
   static const String forbidden = 'forbidden';

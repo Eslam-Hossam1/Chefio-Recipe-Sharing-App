@@ -87,35 +87,56 @@ class DioApiFailure extends ApiFailure {
           AppLocalizationKeys.error.badRequest,
           ErrorCodes.badRequest,
         );
-    
+
       case 401:
         return DioApiFailure(
           'Unauthorized',
           AppLocalizationKeys.error.unauthorized,
           ErrorCodes.unauthorized,
         );
-    
+
       case 403:
         return DioApiFailure(
           'Forbidden',
           AppLocalizationKeys.error.forbidden,
           ErrorCodes.forbidden,
         );
-    
+
       case 404:
         return DioApiFailure(
           'Not Found',
           AppLocalizationKeys.error.notFound,
           ErrorCodes.notFound,
         );
-    
+
       case 500:
         return DioApiFailure(
           'Internal Server Error',
           AppLocalizationKeys.error.internalServerError,
           ErrorCodes.internalServerError,
         );
-    
+
+      case 502:
+        return DioApiFailure(
+          'Bad Gateway',
+          AppLocalizationKeys.error.badGateway,
+          ErrorCodes.badGateway,
+        );
+
+      case 503:
+        return DioApiFailure(
+          'Service Unavailable',
+          AppLocalizationKeys.error.serviceUnavailable,
+          ErrorCodes.serviceUnavailable,
+        );
+
+      case 504:
+        return DioApiFailure(
+          'Gateway Timeout',
+          AppLocalizationKeys.error.gatewayTimeout,
+          ErrorCodes.gatewayTimeout,
+        );
+
       default:
         return DioApiFailure(
           'Unknown Error',
