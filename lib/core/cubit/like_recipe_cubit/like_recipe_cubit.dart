@@ -7,7 +7,7 @@ part 'like_recipe_state.dart';
 class LikeRecipeCubit extends Cubit<LikeRecipeState> {
   final LikeRecipeService _likeRecipeService;
   LikeRecipeCubit(this._likeRecipeService) : super(LikeRecipeInitial());
-  Future<void> likeRecipe({required String recipeId}) async {
+  Future<void> toggleLikeRecipe({required String recipeId}) async {
     emit(LikeRecipeProcessing());
     var result = await _likeRecipeService.toggleLikeRecipe(recipeId: recipeId);
     result.fold(
