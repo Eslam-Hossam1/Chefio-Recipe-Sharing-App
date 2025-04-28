@@ -6,7 +6,7 @@ import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/utils/jwt_decoder/jwt_decoder_impl.dart';
 import 'package:chefio_app/core/utils/deep_link_handler.dart';
-import 'package:chefio_app/core/utils/google_auth_service.dart';
+import 'package:chefio_app/core/services/google_auth_service.dart';
 import 'package:chefio_app/core/services/like_recipe_service.dart';
 import 'package:chefio_app/core/utils/cache/secure_storage_helper.dart';
 import 'package:chefio_app/core/helpers/share_helper.dart';

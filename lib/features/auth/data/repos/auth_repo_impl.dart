@@ -4,7 +4,7 @@ import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
 import 'package:chefio_app/core/errors/failures.dart';
-import 'package:chefio_app/core/utils/google_auth_service.dart';
+import 'package:chefio_app/core/services/google_auth_service.dart';
 import 'package:chefio_app/features/auth/data/models/log_in_success_model.dart';
 import 'package:chefio_app/features/auth/data/models/sign_up_success_model/sign_up_success_model.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo.dart';
