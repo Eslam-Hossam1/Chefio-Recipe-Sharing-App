@@ -1,4 +1,5 @@
 
+import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_likers_cubit/recipe_likers_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_likers_list_view.dart';
@@ -25,6 +26,10 @@ class RecipeLikersBottomSheetBodyBuilder extends StatelessWidget {
           return RecipeLikersListView(
             scrollController: scrollController,
             recipeLikers: state.recipeLikers,
+          );
+        } else if (state is EmptyRecipeLikers) {
+          return CustomTextErrorMessage(
+            text: AppLocalizationKeys.recipeDetails.recipeNoLikesMessage.tr(),
           );
         } else {
           return SkeletonizerRecipeLikersListView(

@@ -18,6 +18,8 @@ final class RecipeLikersSuccess extends RecipeLikersState {
   });
 }
 
+final class EmptyRecipeLikers extends RecipeLikersState {}
+
 final class RecipeLikersFailure extends RecipeLikersState {
   final String errorMessage;
   final String errorLocalizationKey;

@@ -126,7 +126,8 @@
 
     "recipe_details":{
         "share_recipe":"Share Recipe",
-        "edit_recipe": "Edit Recipe"
+        "edit_recipe": "Edit Recipe",
+        "recipe_no_likes_message": "No one liked this recipe yet."
     },
     
     "global":{

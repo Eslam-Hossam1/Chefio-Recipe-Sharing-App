@@ -151,7 +151,9 @@
 
     "recipe_details": {
         "share_recipe": "مشاركة الوصفة",
-        "edit_recipe": "تعديل الوصفة"
+        "edit_recipe": "تعديل الوصفة",
+        "recipe_no_likes_message": "لا يوجد أي إعجابات على هذه الوصفة بعد."
+
     },
 
     "errors": {
