@@ -6,7 +6,8 @@ class RecipeDetailsApiSuccessModel extends Equatable {
   final bool success;
   final RecipeDetailsModel recipeDetailsModel;
 
-  const RecipeDetailsApiSuccessModel({ required this.success,required this.recipeDetailsModel});
+  const RecipeDetailsApiSuccessModel(
+      {required this.success, required this.recipeDetailsModel});
 
   factory RecipeDetailsApiSuccessModel.fromJson(Map<String, dynamic> json) {
     return RecipeDetailsApiSuccessModel(

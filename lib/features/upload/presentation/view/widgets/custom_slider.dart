@@ -6,7 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Customslider extends StatefulWidget {
   const Customslider({
-    super.key, this.initialCurrentValue,
+    super.key,
+    this.initialCurrentValue,
   });
   final int? initialCurrentValue;
   @override
@@ -17,7 +18,7 @@ class _CustomsliderState extends State<Customslider> {
   late double currentValue;
   @override
   void initState() {
-    currentValue = widget.initialCurrentValue?.toDouble()??1;
+    currentValue = widget.initialCurrentValue?.toDouble() ?? 1;
     super.initState();
   }
 

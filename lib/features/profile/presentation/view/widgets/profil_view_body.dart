@@ -43,7 +43,8 @@ class ProfileViewBody extends StatelessWidget {
             ),
             SliverToBoxAdapter(
                 child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 56.w, vertical: 24),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 56.w, vertical: 24),
                     child: CustomTextButton(
                       child: Text(
                         "Follow",

@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/slider_duration_label.dart';
 import 'package:flutter/material.dart';

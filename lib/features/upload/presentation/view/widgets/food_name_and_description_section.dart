@@ -47,10 +47,10 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
             height: 10,
           ),
           CustomTextFormField(
-                        initialValue: context.read<UploadRecipeCubit>().foodDescription,
-
+            initialValue: context.read<UploadRecipeCubit>().foodDescription,
             onSaved: (foodDescription) {
-              context.read<UploadRecipeCubit>().foodDescription = foodDescription!;
+              context.read<UploadRecipeCubit>().foodDescription =
+                  foodDescription!;
             },
             hint: AppLocalizationKeys.upload.descriptionHint.tr(),
             borderRadius: 8,

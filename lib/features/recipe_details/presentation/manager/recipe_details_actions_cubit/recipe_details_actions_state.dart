@@ -8,5 +8,7 @@ sealed class RecipeDetailsActionsState extends Equatable {
 }
 
 final class RecipeDetailsActionsInitial extends RecipeDetailsActionsState {}
+
 final class MyRecipe extends RecipeDetailsActionsState {}
+
 final class NotMyRecipe extends RecipeDetailsActionsState {}

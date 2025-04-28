@@ -14,7 +14,8 @@ class CustomTextButton extends StatelessWidget {
       this.onPressed,
       this.height,
       this.width,
-      this.borderSide, this.padding});
+      this.borderSide,
+      this.padding});
   final Color? backgroundColor;
   final Widget child;
   final void Function()? onPressed;
@@ -30,7 +31,7 @@ class CustomTextButton extends StatelessWidget {
       child: TextButton(
           onPressed: onPressed,
           style: TextButton.styleFrom(
-              padding:padding,
+              padding: padding,
               side: borderSide,
               backgroundColor: backgroundColor ?? context.primaryColor),
           child: child),

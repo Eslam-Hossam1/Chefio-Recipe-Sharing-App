@@ -1,3 +1,3 @@
 abstract class JwtDecoderInterface {
- Map<String,dynamic>? decodeToken({required String? token});
+  Map<String, dynamic>? decodeToken({required String? token});
 }

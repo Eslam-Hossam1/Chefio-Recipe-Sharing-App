@@ -18,7 +18,8 @@ class CustomTextField extends StatelessWidget {
     this.onSubmitted,
     this.textInputAction,
     this.hintStyle,
-    this.controller, this.focusNode,
+    this.controller,
+    this.focusNode,
   });
   final String hint;
   final void Function(String?)? onSaved;

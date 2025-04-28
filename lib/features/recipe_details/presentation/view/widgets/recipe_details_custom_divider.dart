@@ -16,7 +16,7 @@ class RecipeDetailsCustomDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       thickness: thickness,
-      color: color??context.outlineColor,
+      color: color ?? context.outlineColor,
       height: height,
     );
   }

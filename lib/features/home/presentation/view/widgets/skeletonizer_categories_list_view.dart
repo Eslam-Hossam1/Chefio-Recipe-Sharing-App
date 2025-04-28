@@ -5,13 +5,15 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 class SkeletonizerCategoriesListView extends StatelessWidget {
   const SkeletonizerCategoriesListView({super.key});
-    static List<Category> categories = List.generate(
+  static List<Category> categories = List.generate(
     5,
     (index) => Category(name: "burger"),
   );
 
   @override
   Widget build(BuildContext context) {
-    return Skeletonizer(child: CategoriesListView(categories: categories, onCategoryPressed: (_){}));
+    return Skeletonizer(
+        child: CategoriesListView(
+            categories: categories, onCategoryPressed: (_) {}));
   }
 }

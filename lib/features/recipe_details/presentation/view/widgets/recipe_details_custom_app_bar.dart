@@ -39,13 +39,14 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
           children: [
             // Recipe Image
             CustomCachedNetworkImage(
-                placeHolder: Container(
-                  color: Colors.grey,
-                ),
-                url: context
-                    .read<RecipeDetailsCubit>()
-                    .recipeDetailModel!
-                    .recipePicture),
+              placeHolder: Container(
+                color: Colors.grey,
+              ),
+              url: context
+                  .read<RecipeDetailsCubit>()
+                  .recipeDetailModel!
+                  .recipePicture,
+            ),
 
             // Dark Overlay: Becomes more visible as the AppBar collapses
             AnimatedOpacity(

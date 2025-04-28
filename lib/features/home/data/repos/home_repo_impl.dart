@@ -46,15 +46,15 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<ApiFailure, List<Category>>> fetchCategories() async {
     try {
       List<Category> categories = [];
-      //add All category 'means when clicked dont specify category' 
+      //add All category 'means when clicked dont specify category'
       categories.add(
         Category(
           name: '',
           categoryLocalizationKey: AppLocalizationKeys.global.all,
         ),
       );
-    //add categories from api
-     categories.addAll(await _categoriesService.getCategories());
+      //add categories from api
+      categories.addAll(await _categoriesService.getCategories());
 
       return Right(categories);
     } catch (e) {

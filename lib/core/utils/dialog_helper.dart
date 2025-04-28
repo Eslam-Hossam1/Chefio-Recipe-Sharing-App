@@ -18,10 +18,10 @@ abstract class DialogHelper {
       dialogType: DialogType.error,
       title: AppLocalizationKeys.global.error.tr(),
       desc: errorMessage,
-      btnOkOnPress: btnOkOnPress??(){},
+      btnOkOnPress: btnOkOnPress ?? () {},
       btnOkText: btnOkText,
       btnOk: btnOk,
-      onDismissCallback: onDismissCallback??(DismissType _){},
+      onDismissCallback: onDismissCallback ?? (DismissType _) {},
     ).show();
   }
 

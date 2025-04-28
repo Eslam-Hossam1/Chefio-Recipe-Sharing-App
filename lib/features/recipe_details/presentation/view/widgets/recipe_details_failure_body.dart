@@ -1,11 +1,11 @@
-
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
 import 'package:flutter/material.dart';
 
 class RecipeDetailsFailureBody extends StatelessWidget {
   const RecipeDetailsFailureBody({
-    super.key, required this.text,
+    super.key,
+    required this.text,
   });
   final String text;
   @override
@@ -14,7 +14,7 @@ class RecipeDetailsFailureBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomTextErrorMessage(
-          text:text,
+          text: text,
         ),
         SizedBox(
           height: 20,

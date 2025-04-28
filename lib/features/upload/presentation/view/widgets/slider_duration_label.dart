@@ -6,7 +6,8 @@ class SliderDurationLabel extends StatelessWidget {
   const SliderDurationLabel({
     super.key,
     required this.duration,
-    required this.currentValue, this.text,
+    required this.currentValue,
+    this.text,
   });
   final int duration;
   final int currentValue;
@@ -14,7 +15,7 @@ class SliderDurationLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text??'$duration',
+      text ?? '$duration',
       style: Styles.textStyleBold15(context).copyWith(
         color: currentValue >= duration
             ? context.primaryColor

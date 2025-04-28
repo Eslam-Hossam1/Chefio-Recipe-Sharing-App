@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_scrolling_loading_indicator.dart';
 import 'package:chefio_app/features/search/presentation/manager/search_recipe_cubit/search_recipe_cubit.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +11,13 @@ class SearchScrollingLoadingIndicatorBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchRecipeCubit, SearchRecipeState>(
-          builder: (context, state) {
-    return state is LoadingMore
-        ? SliverScrollingLoadingIndIcator()
-        : SliverToBoxAdapter(
-            child: SizedBox.shrink(),
-          );
-          },
-        );
+      builder: (context, state) {
+        return state is LoadingMore
+            ? SliverScrollingLoadingIndIcator()
+            : SliverToBoxAdapter(
+                child: SizedBox.shrink(),
+              );
+      },
+    );
   }
 }

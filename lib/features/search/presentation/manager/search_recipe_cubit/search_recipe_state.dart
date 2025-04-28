@@ -9,13 +9,9 @@ sealed class SearchRecipeState extends Equatable {
 
 final class SearchRecipeInitial extends SearchRecipeState {}
 
-
-
 final class LoadingMore extends SearchRecipeState {}
 
-
 final class FirstLoading extends SearchRecipeState {}
-
 
 final class LoadingMoreFailure extends SearchRecipeState {
   final String errorMessage;
@@ -27,7 +23,6 @@ final class LoadingMoreFailure extends SearchRecipeState {
   });
 }
 
-
 final class FirstApiFetchFailure extends SearchRecipeState {
   final String errorMessage;
   final String errorLocalizationKey;
@@ -37,7 +32,5 @@ final class FirstApiFetchFailure extends SearchRecipeState {
     required this.errorLocalizationKey,
   });
 }
-
-
 
 final class SearchSuccess extends SearchRecipeState {}

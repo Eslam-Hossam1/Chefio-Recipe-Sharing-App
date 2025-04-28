@@ -6,7 +6,7 @@ import 'created_by.dart';
 class Recipe extends Equatable {
   final String? id;
   final String? foodName;
-   bool isLiked;
+  bool isLiked;
   final String? recipePicture;
   final int? cookingDuration;
   final Category category;
@@ -14,7 +14,7 @@ class Recipe extends Equatable {
   final dynamic likes;
   final DateTime? createdAt;
 
-   Recipe({
+  Recipe({
     this.id,
     this.foodName,
     required this.isLiked,

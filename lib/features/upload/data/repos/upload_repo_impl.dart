@@ -51,7 +51,7 @@ class UploadRepoImpl implements UploadRepo {
   @override
   Future<Either<ApiFailure, void>> editRecipe(
       {required EditRecipeModel editRecipeModel}) async {
-            log('uploadRecipeModel: ${editRecipeModel.toJson()}');
+    log('uploadRecipeModel: ${editRecipeModel.toJson()}');
 
     try {
       await _apiConsumer.patch(

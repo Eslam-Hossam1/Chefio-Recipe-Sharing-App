@@ -28,7 +28,7 @@ class UploadRecipeModel {
         ApiKeys.description: foodDescription,
         ApiKeys.cookingDuration: foodCookDuration,
         // ApiKeys.category: categoryName,
-        ApiKeys.ingredients:  jsonEncode(ingredients),
+        ApiKeys.ingredients: jsonEncode(ingredients),
         ApiKeys.steps: jsonEncode(steps)
       };
 }

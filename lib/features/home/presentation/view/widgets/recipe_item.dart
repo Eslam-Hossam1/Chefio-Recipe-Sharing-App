@@ -27,9 +27,7 @@ class RecipeItem extends StatelessWidget {
         SizedBox(
           height: 16,
         ),
-        Expanded(
-          child: RecipeItemBody(recipeModel: recipeModel)
-        ),
+        Expanded(child: RecipeItemBody(recipeModel: recipeModel)),
       ],
     );
   }

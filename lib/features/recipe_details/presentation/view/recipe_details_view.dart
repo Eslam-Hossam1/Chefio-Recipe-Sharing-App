@@ -24,7 +24,6 @@ class _RecipeDetailsViewState extends State<RecipeDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) async {

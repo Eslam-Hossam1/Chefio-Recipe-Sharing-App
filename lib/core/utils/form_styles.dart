@@ -18,7 +18,6 @@ abstract class FormStyles {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(borderRadius ?? 32),
       borderSide: BorderSide(width: 0, color: Colors.transparent),
-      
     );
   }
 }

@@ -5,10 +5,10 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ChooseImageSourceBottomSheet extends StatelessWidget {
-  const ChooseImageSourceBottomSheet(
-      {super.key,
-      required this.pickImageMethod,
-      });
+  const ChooseImageSourceBottomSheet({
+    super.key,
+    required this.pickImageMethod,
+  });
   final Function({required ImageSource imageSource}) pickImageMethod;
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
@@ -7,7 +6,8 @@ import 'package:flutter/material.dart';
 class AddButton extends StatelessWidget {
   const AddButton({
     super.key,
-    required this.onPressed, required this.text,
+    required this.onPressed,
+    required this.text,
   });
 
   final void Function()? onPressed;

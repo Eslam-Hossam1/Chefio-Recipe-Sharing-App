@@ -5,7 +5,8 @@ class CreatedBy extends Equatable {
   final String username;
   final String? profilePicture;
 
-  const CreatedBy({required this.id,required this.username, this.profilePicture});
+  const CreatedBy(
+      {required this.id, required this.username, this.profilePicture});
 
   factory CreatedBy.fromJson(Map<String, dynamic> json) => CreatedBy(
         id: json['_id'] as String,

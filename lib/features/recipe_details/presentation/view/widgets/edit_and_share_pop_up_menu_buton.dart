@@ -57,7 +57,7 @@ class EditAndSharePopUpMenuButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Icon(Icons.edit, color: context.mainTextColor),
-                   Text(
+                  Text(
                     AppLocalizationKeys.recipeDetails.editRecipe.tr(),
                     style: Styles.textStyleMedium15(context).copyWith(
                       color: context.mainTextColor,

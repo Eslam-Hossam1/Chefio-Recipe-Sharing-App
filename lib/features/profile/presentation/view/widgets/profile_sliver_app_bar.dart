@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
@@ -13,29 +12,29 @@ class ProfileSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-        automaticallyImplyLeading: false,
-        pinned: false,
-        floating: false,
-        surfaceTintColor: Colors.transparent,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        flexibleSpace: AdaptivePadding(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-               CustomBackIconButton(),
-
-              IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset(
-                  Assets.imagesShare,
-                  colorFilter: ColorFilter.mode(
-                    context.mainTextColor,
-                    BlendMode.srcIn,
-                  ),
+      automaticallyImplyLeading: false,
+      pinned: false,
+      floating: false,
+      surfaceTintColor: Colors.transparent,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      flexibleSpace: AdaptivePadding(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomBackIconButton(),
+            IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset(
+                Assets.imagesShare,
+                colorFilter: ColorFilter.mode(
+                  context.mainTextColor,
+                  BlendMode.srcIn,
                 ),
               ),
-            ],
-          ),
-        ),);
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

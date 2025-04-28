@@ -10,7 +10,8 @@ class SearchViewBodyFirstLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      slivers: [ SliverToBoxAdapter(
+      slivers: [
+        SliverToBoxAdapter(
           child: SizedBox(
             height: 16,
           ),
@@ -24,7 +25,7 @@ class SearchViewBodyFirstLoading extends StatelessWidget {
           ),
         ),
         SliverAdaptivePadding(sliver: SliverSkeletonizerRecipesGrid()),
-        ],
+      ],
     );
   }
 }

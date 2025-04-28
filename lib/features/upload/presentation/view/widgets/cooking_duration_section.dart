@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
@@ -37,7 +36,10 @@ class CookingDurationSection extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-          Customslider(initialCurrentValue: context.read<UploadRecipeCubit>().foodCookDuration,),
+          Customslider(
+            initialCurrentValue:
+                context.read<UploadRecipeCubit>().foodCookDuration,
+          ),
         ],
       ),
     );

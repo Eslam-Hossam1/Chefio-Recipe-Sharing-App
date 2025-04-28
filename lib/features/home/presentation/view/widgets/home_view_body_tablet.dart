@@ -77,7 +77,7 @@ class _HomeViewBodyTabletState extends State<HomeViewBodyTablet> {
           SliverToBoxAdapter(
             child: HomeCategoriesBuilder(),
           ),
-           SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Divider(
               height: 48,
               thickness: 8,

@@ -21,12 +21,11 @@ class HomeCategoriesBuilder extends StatelessWidget {
           return SkeletonizerCategoriesListView();
         } else {
           return CategoriesListView(
-              key: ValueKey(context.read<HomeCategoriesCubit>().categories.hashCode),
+            key: ValueKey(
+                context.read<HomeCategoriesCubit>().categories.hashCode),
             categories: context.read<HomeCategoriesCubit>().categories,
             onCategoryPressed: (categoryName) {
-              context
-                  .read<HomeRecipesCubit>()
-                  .fetchRecipesWithChangeCategory(
+              context.read<HomeRecipesCubit>().fetchRecipesWithChangeCategory(
                     categoryName: categoryName,
                   );
             },

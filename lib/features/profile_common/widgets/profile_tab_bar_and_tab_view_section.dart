@@ -37,8 +37,7 @@ class ProfileTabBarAndTabViewSection extends StatelessWidget {
                     30,
                     (index) => Recipe(
                         foodName: "$index",
-                                                isLiked: false,
-
+                        isLiked: false,
                         category: Category(name: 'test category')),
                   ),
                 )

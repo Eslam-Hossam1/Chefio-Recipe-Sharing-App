@@ -30,7 +30,7 @@ class RecipeItemImageWithIcon extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               child: CustomCachedNetworkImage(
                 url: recipeModel.recipePicture ??
-                    "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/375px-Pizza-3007395.jpg",
               ),
             ),
           ),

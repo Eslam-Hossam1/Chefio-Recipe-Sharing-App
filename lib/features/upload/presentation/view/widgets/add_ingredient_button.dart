@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class AddIngredintButton extends StatelessWidget {
   const AddIngredintButton({
     super.key,
-    this.onPressed, 
+    this.onPressed,
   });
   final void Function()? onPressed;
   @override
