@@ -1,32 +1,75 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
-import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipe_item.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SliverRecipesGrid extends StatelessWidget {
   const SliverRecipesGrid({
     super.key,
     required this.recipes,
   });
+
   final List<Recipe> recipes;
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
-    bool isMobile = width < SizeConfig.tabletBreakPoint;
+    final width = MediaQuery.sizeOf(context).width;
+    log('Screen width: $width');
+
+    final bool isBigMobile =
+        width >= 420 && width < SizeConfig.tabletBreakPoint;
+    final bool isMobile = width >= 330 && width < 420;
+    final bool isSmallMobile = width < 330;
+    final bool isSmallTablet =
+        width >= SizeConfig.tabletBreakPoint && width < 650;
+    final bool isTablet = width >= 650 && width < 1000;
+    final bool isBigTablet = width >= 1000 && width < 1300;
+    final bool isDesktop = width >= 1300;
+
+    // نتحكم في maxCrossAxisExtent حسب حجم الشاشة
+    double maxCrossAxisExtent;
+    if (isSmallMobile) {
+      maxCrossAxisExtent = 220;
+    } else if (isMobile) {
+      maxCrossAxisExtent = 200;
+    } else if (isBigMobile) {
+      maxCrossAxisExtent = 240;
+    } else if (isSmallTablet) {
+      maxCrossAxisExtent = 215;
+    } else if (isTablet) {
+      maxCrossAxisExtent = 215;
+    } else if (isBigTablet) {
+      maxCrossAxisExtent = 250;
+    } else {
+      maxCrossAxisExtent = 300;
+    }
+
     return SliverGrid.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: isMobile ? 2 : 3,
-            childAspectRatio: isMobile ? 0.500 : 0.560,
-            crossAxisSpacing: 25,
-            mainAxisSpacing: 32),
-        itemBuilder: (context, index) {
-          return RecipeItem(recipeModel: recipes[index]);
-        },
-        itemCount: recipes.length);
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: maxCrossAxisExtent,
+        childAspectRatio: isMobile
+            ? 0.502
+            : isBigMobile
+                ? .54
+                : isSmallTablet
+                    ? .527
+                    : isTablet
+                        ? .53
+                        : isBigTablet
+                            ? .56
+                            : isDesktop
+                                ? .60
+                                : 0.54,
+        crossAxisSpacing: width > SizeConfig.tabletBreakPoint ? 24 : 16,
+        mainAxisSpacing: width < 550 ? 8 : 16,
+      ),
+      itemBuilder: (context, index) {
+        return RecipeItem(recipeModel: recipes[index]);
+      },
+      itemCount: recipes.length,
+    );
   }
 }

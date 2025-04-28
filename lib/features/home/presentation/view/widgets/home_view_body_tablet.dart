@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_categories_cubit/home_categories_cubit.dart';
@@ -79,7 +82,10 @@ class _HomeViewBodyTabletState extends State<HomeViewBodyTablet> {
           ),
           SliverToBoxAdapter(
             child: Divider(
-              height: 48,
+              height: (48 *
+                      (MediaQuery.sizeOf(context).width /
+                          Constants.kDesignWidth))
+                  .clamp(48, 80),
               thickness: 8,
               color: context.formColor,
             ),
