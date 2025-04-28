@@ -4,7 +4,7 @@ import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/categories_service.dart';
 import 'package:chefio_app/core/utils/cropped_image_picker_helper.dart';
-import 'package:chefio_app/core/utils/decoder/jwt_decoder_impl.dart';
+import 'package:chefio_app/core/utils/jwt_decoder/jwt_decoder_impl.dart';
 import 'package:chefio_app/core/utils/deep_link_handler.dart';
 import 'package:chefio_app/core/utils/google_auth_service.dart';
 import 'package:chefio_app/core/services/like_recipe/like_recipe_service.dart';
