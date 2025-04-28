@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
-import 'package:chefio_app/core/utils/share_helper.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
+import 'package:chefio_app/core/helpers/share_helper.dart';
 import 'package:equatable/equatable.dart';
 
 part 'recipe_details_actions_state.dart';

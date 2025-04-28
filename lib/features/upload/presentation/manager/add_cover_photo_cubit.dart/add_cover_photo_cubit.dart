@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/core/utils/cropped_image_picker_helper.dart';
+import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
 

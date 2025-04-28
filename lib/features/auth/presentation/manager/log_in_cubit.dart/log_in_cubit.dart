@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/errors/error_codes.dart';
-import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/secure_storage_helper.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/auth/data/models/log_in_success_model.dart';

@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:chefio_app/core/utils/constants.dart';
-import 'package:chefio_app/core/utils/cropped_image_picker_helper.dart';
+import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/utils/share_helper.dart';
+import 'package:chefio_app/core/helpers/share_helper.dart';
 import 'package:chefio_app/core/utils/shared_prefernce_helper.dart';
 import 'package:chefio_app/features/profile/presentation/view/profile_view.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
@@ -20,7 +20,7 @@ import 'package:chefio_app/features/upload/presentation/view/upload_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:chefio_app/features/auth/presentation/manager/forgot_password_verification_code_cubit/forgot_password_verification_code_cubit.dart';

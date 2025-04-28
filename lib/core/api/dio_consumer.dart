@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_interceptors.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
-import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
