@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/jwt_decoder/jwt_decoder_interface.dart';
-import 'package:chefio_app/core/utils/secure_storage_helper.dart';
+import 'package:chefio_app/core/utils/cache/secure_storage_helper.dart';
 
 class AuthCredentialsHelper {
   final SecureStorageHelper secureStorageHelper;
