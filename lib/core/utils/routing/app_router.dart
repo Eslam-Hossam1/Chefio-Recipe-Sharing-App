@@ -11,6 +11,7 @@ import 'package:chefio_app/features/recipe_details/data/models/recipe_details_su
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
+import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_likers_cubit/recipe_likers_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:chefio_app/features/upload/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
@@ -44,30 +45,27 @@ class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
-   redirect: (context, state) {
-  log('location: ${state.uri.path}');
-  log('uri: ${state.uri}');
-  log('pathSegments: ${state.uri.pathSegments}');
-  log('queryParameters: ${state.uri.queryParameters}');
+    redirect: (context, state) {
+      log('location: ${state.uri.path}');
+      log('uri: ${state.uri}');
+      log('pathSegments: ${state.uri.pathSegments}');
+      log('queryParameters: ${state.uri.queryParameters}');
 
-  final isLoggedIn = getIt<AuthCredentialsHelper>().userIsAuthenticated();
+      final isLoggedIn = getIt<AuthCredentialsHelper>().userIsAuthenticated();
 
-  // لو جالك deep link وانت مسجل دخول
-  if (state.uri.pathSegments.contains('recipe-details')) {
-    
-  // لو مش مسجل دخول
-  if (!isLoggedIn) {
-    return RoutePaths.login;
-  }
+      // لو جالك deep link وانت مسجل دخول
+      if (state.uri.pathSegments.contains('recipe-details')) {
+        // لو مش مسجل دخول
+        if (!isLoggedIn) {
+          return RoutePaths.login;
+        }
 
-    final recipeId = state.uri.pathSegments.last;
-    return RoutingHelper.getRecipeDetailsPath(recipeId: recipeId);
-    
-  }
+        final recipeId = state.uri.pathSegments.last;
+        return RoutingHelper.getRecipeDetailsPath(recipeId: recipeId);
+      }
 
-  return null; // معناها كمل طبيعي
-}
-,
+      return null; // معناها كمل طبيعي
+    },
     initialLocation: RoutePaths.splash,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
@@ -98,6 +96,7 @@ class AppRouter {
                     getIt<RecipeDetailsRepoImpl>(),
                   ),
                 ),
+
                 BlocProvider(
                   create: (context) => RecipeDetailsActionsCubit(
                     authCredentialsHelper: getIt<AuthCredentialsHelper>(),
