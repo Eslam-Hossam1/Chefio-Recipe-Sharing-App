@@ -15,5 +15,6 @@ abstract class Constants {
   static const Duration kSplashNavigationDelayDuration =
       Duration(milliseconds: 2000);
   static const nullProfileUserImageUrl =
-      "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png";
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsZj4lpbablAmVErKCvjRwv1dfIO_rVf3K4A&s";
+  static const double userTileImageSize = 40;
 }
