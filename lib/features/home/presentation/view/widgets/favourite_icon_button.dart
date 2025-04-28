@@ -4,7 +4,7 @@ import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/theme_colors_extension.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
-import 'package:chefio_app/core/cubit/recipe_like_cubit/recipe_like_cubit.dart';
+import 'package:chefio_app/core/cubit/like_recipe_cubit/like_recipe_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/Glass_favourite_icon.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -33,26 +33,26 @@ class _FavouriteIconButtonState extends State<FavouriteIconButton> {
     setState(() {
       isLiked = !isLiked;
       context
-          .read<RecipeLikeCubit>()
+          .read<LikeRecipeCubit>()
           .likeRecipe(recipeId: widget.recipeModel.id!);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RecipeLikeCubit, RecipeLikeState>(
+    return BlocConsumer<LikeRecipeCubit, LikeRecipeState>(
       listener: (context, state) {
-        if (state is RecipeLikeFailed) {
+        if (state is LikeRecipeFailed) {
           showCustomToast(context,
               message: state.errorLocalizationKey.tr(), seconds: 2);
         }
       },
       builder: (context, state) {
-        if (state is RecipeLikeFailed &&
+        if (state is LikeRecipeFailed &&
             state.recipeId == widget.recipeModel.id) {
           isLiked = !isLiked;
         }
-        if (state is SyncRecipeLikedFromRecipeDetails &&
+        if (state is SyncLikeRecipeFromRecipeDetails &&
             state.recipeId == widget.recipeModel.id) {
           widget.recipeModel.isLiked = !widget.recipeModel.isLiked;
           isLiked = widget.recipeModel.isLiked;
