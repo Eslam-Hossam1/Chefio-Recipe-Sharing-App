@@ -1,9 +1,8 @@
-import 'package:chefio_app/core/api/api_keys.dart';
-import 'package:chefio_app/core/errors/error_codes.dart';
+import 'package:chefio_app/core/errors/api_error_model.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
-import 'package:chefio_app/core/errors/error_to_applocalization_key_parser.dart';
-import 'package:chefio_app/core/errors/failures.dart';
-import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/errors/error_codes.dart';
+import 'package:chefio_app/core/errors/error_to_applocalization_key_mapper.dart';
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:dio/dio.dart';
 
 class DioApiFailure extends ApiFailure {
@@ -13,87 +12,122 @@ class DioApiFailure extends ApiFailure {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return DioApiFailure(
-            "Connection timeout with ApiServer",
-            AppLocalizationKeys.error.connectionTimeout,
-            ErrorCodes.connectionTimeout);
+          "Connection timeout with ApiServer",
+          AppLocalizationKeys.error.connectionTimeout,
+          ErrorCodes.connectionTimeout,
+        );
       case DioExceptionType.sendTimeout:
-        return DioApiFailure("Send timeout with ApiServer",
-            AppLocalizationKeys.error.sendTimeout, ErrorCodes.sendTimeout);
+        return DioApiFailure(
+          "Send timeout with ApiServer",
+          AppLocalizationKeys.error.sendTimeout,
+          ErrorCodes.sendTimeout,
+        );
 
       case DioExceptionType.receiveTimeout:
         return DioApiFailure(
-            "Receive timeout with ApiServer",
-            AppLocalizationKeys.error.receiveTimeout,
-            ErrorCodes.receiveTimeout);
+          "Receive timeout with ApiServer",
+          AppLocalizationKeys.error.receiveTimeout,
+          ErrorCodes.receiveTimeout,
+        );
 
       case DioExceptionType.badCertificate:
         return DioApiFailure(
-            "Bad Certificate ",
-            AppLocalizationKeys.error.badCertificate,
-            ErrorCodes.badCertificate);
+          "Bad Certificate ",
+          AppLocalizationKeys.error.badCertificate,
+          ErrorCodes.badCertificate,
+        );
 
       case DioExceptionType.badResponse:
         return DioApiFailure.frombadResponse(
             dioException.response!.statusCode!, dioException.response!.data);
       case DioExceptionType.cancel:
         return DioApiFailure(
-            "Request to ApiServer was canceld",
-            AppLocalizationKeys.error.requestCancelled,
-            ErrorCodes.requestCancelled);
+          "Request to ApiServer was canceld",
+          AppLocalizationKeys.error.requestCancelled,
+          ErrorCodes.requestCancelled,
+        );
       case DioExceptionType.connectionError:
         return DioApiFailure(
-            "No Internet Connection",
-            AppLocalizationKeys.error.noInternetConnection,
-            ErrorCodes.noInternetConnection);
+          "No Internet Connection",
+          AppLocalizationKeys.error.noInternetConnection,
+          ErrorCodes.noInternetConnection,
+        );
       case DioExceptionType.unknown:
-        return DioApiFailure("Unexpected Error, Please try again",
-            AppLocalizationKeys.error.unknownError, ErrorCodes.unknownError);
+        return DioApiFailure(
+          "Unexpected Error, Please try again",
+          AppLocalizationKeys.error.unknownError,
+          ErrorCodes.unknownError,
+        );
       default:
-        return DioApiFailure("Opps there was an error, Please try again later",
-            AppLocalizationKeys.error.unknownError, ErrorCodes.unknownError);
+        return DioApiFailure(
+          "Opps there was an error, Please try again later",
+          AppLocalizationKeys.error.unknownError,
+          ErrorCodes.unknownError,
+        );
     }
   }
   factory DioApiFailure.frombadResponse(int status, dynamic responseBody) {
-    String appLocalizationKey;
-
-    switch (status) {
-      case 400:
-        appLocalizationKey =
-            getLocalizationKeyFromErrorCode(responseBody[ApiKeys.error]);
-        return DioApiFailure(
-            responseBody["message"], appLocalizationKey, ErrorCodes.badRequest);
-
-      case 401:
-        appLocalizationKey =
-            getLocalizationKeyFromErrorCode(responseBody[ApiKeys.error]);
-        return DioApiFailure(responseBody["message"], appLocalizationKey,
-            ErrorCodes.unauthorized);
-
-      case 403:
-        appLocalizationKey =
-            getLocalizationKeyFromErrorCode(responseBody[ApiKeys.error]);
-        return DioApiFailure(
-            responseBody["message"], appLocalizationKey, ErrorCodes.forbidden);
-
-      case 404:
-        appLocalizationKey =
-            getLocalizationKeyFromErrorCode(ErrorCodes.notFound);
-        return DioApiFailure("Your request not found, Please try later!",
-            appLocalizationKey, ErrorCodes.notFound);
-
-      case 500:
-        appLocalizationKey =
-            getLocalizationKeyFromErrorCode(ErrorCodes.internalServerError);
-        return DioApiFailure("Internal server error, Please try later",
-            appLocalizationKey, ErrorCodes.internalServerError);
-
-      default:
-        appLocalizationKey =
-            getLocalizationKeyFromErrorCode(ErrorCodes.unknownError);
-        return DioApiFailure("Oops there was an error, Please try again",
-            appLocalizationKey, ErrorCodes.unknownError);
+    if (responseBody != null) {
+      ApiErrorModel apiErrorModel = ApiErrorModel.fromJson(responseBody);
+      return DioApiFailure(
+        apiErrorModel.message,
+        ErrorLocalizationMapper.getLocalizationKey(apiErrorModel.errorCode),
+        apiErrorModel.errorCode,
+      );
+    } else {
+      return handleNoRersponseBodyError(status);
     }
   }
+
+  static DioApiFailure handleNoRersponseBodyError(int status) {
+    switch (status) {
+      case 400:
+        return DioApiFailure(
+          'Bad Request',
+          AppLocalizationKeys.error.badRequest,
+          ErrorCodes.badRequest,
+        );
+    
+      case 401:
+        return DioApiFailure(
+          'Unauthorized',
+          AppLocalizationKeys.error.unauthorized,
+          ErrorCodes.unauthorized,
+        );
+    
+      case 403:
+        return DioApiFailure(
+          'Forbidden',
+          AppLocalizationKeys.error.forbidden,
+          ErrorCodes.forbidden,
+        );
+    
+      case 404:
+        return DioApiFailure(
+          'Not Found',
+          AppLocalizationKeys.error.notFound,
+          ErrorCodes.notFound,
+        );
+    
+      case 500:
+        return DioApiFailure(
+          'Internal Server Error',
+          AppLocalizationKeys.error.internalServerError,
+          ErrorCodes.internalServerError,
+        );
+    
+      default:
+        return DioApiFailure(
+          'Unknown Error',
+          AppLocalizationKeys.error.unknownError,
+          ErrorCodes.unknownError,
+        );
+    }
+  }
+
   factory DioApiFailure.unknown(String errMsg) => DioApiFailure(
-      errMsg, AppLocalizationKeys.error.unknownError, ErrorCodes.unknownError);
+        errMsg,
+        AppLocalizationKeys.error.unknownError,
+        ErrorCodes.unknownError,
+      );
 }

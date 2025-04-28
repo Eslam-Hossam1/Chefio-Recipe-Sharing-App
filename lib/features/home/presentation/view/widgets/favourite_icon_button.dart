@@ -34,7 +34,7 @@ class _FavouriteIconButtonState extends State<FavouriteIconButton> {
       isLiked = !isLiked;
       context
           .read<LikeRecipeCubit>()
-          .likeRecipe(recipeId: widget.recipeModel.id!);
+          .toggleLikeRecipe(recipeId: widget.recipeModel.id!);
     });
   }
 

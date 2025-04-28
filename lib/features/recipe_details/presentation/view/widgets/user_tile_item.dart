@@ -12,7 +12,8 @@ class UserTileItem extends StatelessWidget {
     super.key,
     required this.userName,
     this.userImageUrl,
-    this.baseSize = Constants.userTileImageSize,  this.intermediateSpace=12,
+    this.baseSize = Constants.userTileImageSize,
+    this.intermediateSpace = 12,
   });
   final String userName;
   final String? userImageUrl;

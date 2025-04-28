@@ -33,7 +33,7 @@ class _RecipeDetailsCustomLikeState extends State<RecipeDetailsCustomLike> {
   void toggleLike() {
     setState(() {
       toggleLikeUiFields();
-      context.read<LikeRecipeCubit>().likeRecipe(
+      context.read<LikeRecipeCubit>().toggleLikeRecipe(
             recipeId: widget.recipeDetailsModel.id,
           );
       context.read<LikeRecipeCubit>().syncLikeRecipeFromRecipeDetails(

@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:easy_localization/easy_localization.dart';

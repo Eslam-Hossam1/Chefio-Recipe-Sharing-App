@@ -96,7 +96,6 @@ class AppRouter {
                     getIt<RecipeDetailsRepoImpl>(),
                   ),
                 ),
-
                 BlocProvider(
                   create: (context) => RecipeDetailsActionsCubit(
                     authCredentialsHelper: getIt<AuthCredentialsHelper>(),

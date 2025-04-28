@@ -1,4 +1,4 @@
-class ErrorCodes {
+abstract class ErrorCodes {
   static const String badRequest = 'bad_request';
   static const String unauthorized = 'unauthorized';
   static const String forbidden = 'forbidden';
@@ -32,7 +32,9 @@ class ErrorCodes {
   static const String requestCancelled = 'request_cancelled';
   static const String noInternetConnection = 'no_internet_connection';
   static const String validationError = 'validation_error';
+  static const String badGateway = "bad_gateway";
+  static const String gatewayTimeout = "gateway_timeout";
 
-  // Private constructor to prevent instantiation
-  ErrorCodes._();
+
+
 }

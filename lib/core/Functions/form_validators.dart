@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 abstract class FormValidators {

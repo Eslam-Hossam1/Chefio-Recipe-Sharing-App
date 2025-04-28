@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/Functions/show_custom_exit_confirmation_dialog.dart';
-import 'package:chefio_app/core/utils/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';

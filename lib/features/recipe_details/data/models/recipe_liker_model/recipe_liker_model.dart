@@ -11,8 +11,8 @@ class RecipeLikerModel extends Equatable {
   final int? v;
 
   const RecipeLikerModel({
-   required this.id,
-   required this.user,
+    required this.id,
+    required this.user,
     this.recipe,
     this.createdAt,
     this.updatedAt,

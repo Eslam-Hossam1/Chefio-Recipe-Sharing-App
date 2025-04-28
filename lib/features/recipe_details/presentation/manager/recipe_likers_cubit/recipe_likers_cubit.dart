@@ -20,13 +20,12 @@ class RecipeLikersCubit extends Cubit<RecipeLikersState> {
           emit(EmptyRecipeLikers());
         } else {
           emit(
-          RecipeLikersFailure(
-            errorMessage: failure.errMsg,
-            errorLocalizationKey: failure.localizaitonKey,
-          ),
-        );
+            RecipeLikersFailure(
+              errorMessage: failure.errMsg,
+              errorLocalizationKey: failure.localizaitonKey,
+            ),
+          );
         }
-        
       },
       (recipeLikerModel) {
         emit(
