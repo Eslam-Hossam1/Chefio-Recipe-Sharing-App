@@ -1,10 +1,7 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
-import 'package:chefio_app/core/cubit/recipe_like_cubit/recipe_like_cubit.dart';
-import 'package:chefio_app/core/utils/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/constants.dart';
-import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/cubit/like_recipe_cubit/like_recipe_cubit.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/likes_count_trigger.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_detail_circle_like_icon.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -36,10 +33,10 @@ class _RecipeDetailsCustomLikeState extends State<RecipeDetailsCustomLike> {
   void toggleLike() {
     setState(() {
       toggleLikeUiFields();
-      context.read<RecipeLikeCubit>().likeRecipe(
+      context.read<LikeRecipeCubit>().likeRecipe(
             recipeId: widget.recipeDetailsModel.id,
           );
-      context.read<RecipeLikeCubit>().syncRecipeLikeFromRecipeDetails(
+      context.read<LikeRecipeCubit>().syncLikeRecipeFromRecipeDetails(
             recipeId: widget.recipeDetailsModel.id,
           );
     });
@@ -52,21 +49,20 @@ class _RecipeDetailsCustomLikeState extends State<RecipeDetailsCustomLike> {
 
   @override
   Widget build(BuildContext context) {
-
-    return BlocConsumer<RecipeLikeCubit, RecipeLikeState>(
+    return BlocConsumer<LikeRecipeCubit, LikeRecipeState>(
       listener: (context, state) {
-        if (state is RecipeLikeFailed) {
+        if (state is LikeRecipeFailed) {
           showCustomToast(context,
               message: state.errorLocalizationKey.tr(), seconds: 2);
         }
-        // if (state is RecipeLikeSuccess) {
-        //   context.read<RecipeLikeCubit>().syncRecipeLikeFromRecipeDetails(
+        // if (state is LikeRecipeSuccess) {
+        //   context.read<LikeRecipeCubit>().syncLikeRecipeFromRecipeDetails(
         //         recipeId: widget.recipeDetailsModel.id,
         //       );
         // }
       },
       builder: (context, state) {
-        if (state is RecipeLikeFailed &&
+        if (state is LikeRecipeFailed &&
             state.recipeId == widget.recipeDetailsModel.id) {
           toggleLikeUiFields();
         }
@@ -79,15 +75,9 @@ class _RecipeDetailsCustomLikeState extends State<RecipeDetailsCustomLike> {
             SizedBox(
               width: 8.w,
             ),
-            Text(
-              '$likes ',
-              style: Styles.textStyleBold17(context)
-                  .copyWith(color: context.mainTextColor),
-            ),
-            Text(
-              AppLocalizationKeys.global.likes.tr(),
-              style: Styles.textStyleBold17(context)
-                  .copyWith(color: context.mainTextColor),
+            LikesCountTrigger(
+              likes: likes,
+              recipeId: widget.recipeDetailsModel.id,
             ),
           ],
         );
