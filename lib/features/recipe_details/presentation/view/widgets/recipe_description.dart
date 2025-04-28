@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/custom_bold_17_title.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_custom_divider.dart';

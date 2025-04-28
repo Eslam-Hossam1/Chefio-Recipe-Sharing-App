@@ -4,7 +4,7 @@ import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/form_styles.dart';
 import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/forgot_password_form.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

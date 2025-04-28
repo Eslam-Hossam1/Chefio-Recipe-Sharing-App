@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/core/cubit/like_recipe_cubit/like_recipe_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/Glass_favourite_icon.dart';

@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/profile/presentation/view/widgets/profile_sliver_app_bar.dart';

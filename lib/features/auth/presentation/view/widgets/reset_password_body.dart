@@ -2,7 +2,7 @@ import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_loc
 import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/clickable_text.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/reset_password_form.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_form.dart';

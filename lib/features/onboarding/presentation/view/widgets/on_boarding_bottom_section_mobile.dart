@@ -4,7 +4,7 @@ import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/features/onboarding/presentation/view_model/onboarding_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';

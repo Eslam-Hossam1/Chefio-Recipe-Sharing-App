@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_categories_cubit/home_categories_cubit.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';

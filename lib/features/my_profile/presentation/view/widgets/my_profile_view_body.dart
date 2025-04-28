@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/my_profile/presentation/view/widgets/my_profile_sliver_app_bar.dart';
 import 'package:chefio_app/features/profile_common/widgets/profile_tab_bar_and_tab_view_section.dart';

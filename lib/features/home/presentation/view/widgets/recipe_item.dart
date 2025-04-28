@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/recipe_category_with_cooking_duration_text.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipe_item_body.dart';

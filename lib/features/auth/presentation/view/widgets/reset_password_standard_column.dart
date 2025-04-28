@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/manager/validate_reset_password/validate_reset_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/password_standard.dart';
 import 'package:easy_localization/easy_localization.dart';

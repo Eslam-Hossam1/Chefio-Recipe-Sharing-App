@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/models/category.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/profile_common/widgets/profile_tab_bar.dart';

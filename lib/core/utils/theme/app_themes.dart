@@ -1,5 +1,5 @@
-import 'package:chefio_app/core/utils/app_colors.dart';
-import 'package:chefio_app/core/utils/custom_colors.dart';
+import 'package:chefio_app/core/utils/theme/app_colors.dart';
+import 'package:chefio_app/core/utils/theme/custom_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

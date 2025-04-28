@@ -2,7 +2,7 @@ import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/form_styles.dart';
 import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/closed_eye_icon.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/opened_eye_svg.dart';
 import 'package:flutter/material.dart';
