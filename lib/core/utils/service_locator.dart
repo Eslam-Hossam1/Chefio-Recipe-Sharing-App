@@ -2,7 +2,7 @@ import 'package:app_links/app_links.dart';
 import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/utils/auth_credentials_helper.dart';
-import 'package:chefio_app/core/utils/categories_service.dart';
+import 'package:chefio_app/core/services/categories/categories_service.dart';
 import 'package:chefio_app/core/utils/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/utils/jwt_decoder/jwt_decoder_impl.dart';
 import 'package:chefio_app/core/utils/deep_link_handler.dart';
