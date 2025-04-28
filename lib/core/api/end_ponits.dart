@@ -36,4 +36,8 @@ abstract class EndPoints {
   static String getRecipeLikersEndPoint(String recipeId) {
     return "recipe/likes/get-recipe-likes/$recipeId";
   }
+
+  static String getToggleFollowChefEndpoint(String chefId) {
+    return "chef/follow/$chefId";
+  }
 }
