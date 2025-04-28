@@ -14,7 +14,10 @@ class RecipeHeaderAndDescriptionSection extends StatelessWidget {
     return SliverList(
       delegate: SliverChildListDelegate(
         [
-          RecipeDetailsHeader(recipeDetailsModel: context.read<RecipeDetailsCubit>().recipeDetailModel!,),
+          RecipeDetailsHeader(
+            recipeDetailsModel:
+                context.read<RecipeDetailsCubit>().recipeDetailModel!,
+          ),
           RecipeDescription(),
         ],
       ),

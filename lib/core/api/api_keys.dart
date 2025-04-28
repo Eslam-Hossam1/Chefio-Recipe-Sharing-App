@@ -33,4 +33,5 @@ abstract class ApiKeys {
   static const String cookingDuration = 'cookingDuration';
   static const String search = 'search';
   static const String authorization = 'Authorization';
+  static const String likes = 'likes';
 }

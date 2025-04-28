@@ -20,13 +20,20 @@ abstract class EndPoints {
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }
+
   static String getEditRecipeEndPoint(String recipeId) {
     return "recipe/update-recipe/$recipeId";
   }
+
   static String getRecipeDetailsEndPoint(String recipeId) {
     return "recipe/get-recipe/$recipeId";
   }
-  static String getLikeRecipeEndPoint(String recipeId) {
+
+  static String getToggleLikeRecipeEndPoint(String recipeId) {
     return "recipe/likes/$recipeId";
+  }
+
+  static String getRecipeLikersEndPoint(String recipeId) {
+    return "recipe/likes/get-recipe-likes/$recipeId";
   }
 }

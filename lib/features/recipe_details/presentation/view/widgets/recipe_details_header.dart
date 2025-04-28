@@ -11,7 +11,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecipeDetailsHeader extends StatelessWidget {
   const RecipeDetailsHeader({
-    super.key, required this.recipeDetailsModel,
+    super.key,
+    required this.recipeDetailsModel,
   });
   final RecipeDetailsModel recipeDetailsModel;
   @override
@@ -23,16 +24,10 @@ class RecipeDetailsHeader extends StatelessWidget {
         ),
         SizedBox(height: 8),
         RecipeCategoryWithCookingDurationText(
-          categoryName: recipeDetailsModel
-                  .category
-                  .categoryLocalizationKey
-                  ?.tr() ??
-              recipeDetailsModel
-                  .category
-                  .name,
-          cookingDuration: recipeDetailsModel
-              .cookingDuration
-              .toString(),
+          categoryName:
+              recipeDetailsModel.category.categoryLocalizationKey?.tr() ??
+                  recipeDetailsModel.category.name,
+          cookingDuration: recipeDetailsModel.cookingDuration.toString(),
         ),
         SizedBox(
           height: 16,
@@ -40,7 +35,10 @@ class RecipeDetailsHeader extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: UserTileItem(),
+              child: UserTileItem(
+                userName: recipeDetailsModel.createdBy.username,
+                userImageUrl: recipeDetailsModel.createdBy.profilePicture,
+              ),
             ),
             SizedBox(
               width: 12.w,

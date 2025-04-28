@@ -1,9 +1,9 @@
 import 'package:chefio_app/core/Functions/get_text_theme.dart';
-import 'package:chefio_app/core/cubit/recipe_like_cubit/recipe_like_cubit.dart';
+import 'package:chefio_app/core/cubit/like_recipe_cubit/like_recipe_cubit.dart';
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
 import 'package:chefio_app/core/utils/app_themes.dart';
 import 'package:chefio_app/core/utils/constants.dart';
-import 'package:chefio_app/core/utils/like_recipe_helper.dart';
+import 'package:chefio_app/core/services/like_recipe/like_recipe_service.dart';
 import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:device_preview/device_preview.dart';
@@ -27,7 +27,8 @@ class Chefio extends StatelessWidget {
                 create: (context) => ThemeCubit(),
               ),
               BlocProvider(
-                create: (context) => RecipeLikeCubit(getIt<LikeRecipeHelper>()),
+                create: (context) =>
+                    LikeRecipeCubit(getIt<LikeRecipeService>()),
               ),
             ],
             child: BlocBuilder<ThemeCubit, ThemeMode>(

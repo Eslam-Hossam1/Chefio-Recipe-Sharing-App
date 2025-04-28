@@ -10,8 +10,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class UserTileItem extends StatelessWidget {
   const UserTileItem({
     super.key,
+    required this.userName,
+    this.userImageUrl,
+    this.baseSize = Constants.userTileImageSize,  this.intermediateSpace=12,
   });
-
+  final String userName;
+  final String? userImageUrl;
+  final double baseSize;
+  final double intermediateSpace;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,28 +25,19 @@ class UserTileItem extends StatelessWidget {
         Container(
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(shape: BoxShape.circle),
-          height: (32.w).clamp(32, 40),
-          width: (32.w).clamp(32, 40),
+          height: (baseSize.w).clamp(baseSize, baseSize + (baseSize / 4)),
+          width: (baseSize.w).clamp(baseSize, baseSize + (baseSize / 4)),
           child: CustomCachedNetworkImage(
-              url: context
-                      .read<RecipeDetailsCubit>()
-                      .recipeDetailModel!
-                      .createdBy
-                      .profilePicture ??
-                  Constants.nullProfileUserImageUrl),
+              url: userImageUrl ?? Constants.nullProfileUserImageUrl),
         ),
         SizedBox(
-          width: 8.w,
+          width: intermediateSpace.w,
         ),
         Expanded(
           child: Text(
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            context
-                .read<RecipeDetailsCubit>()
-                .recipeDetailModel!
-                .createdBy
-                .username,
+            userName,
             style: Styles.textStyleBold17(context)
                 .copyWith(color: context.mainTextColor),
           ),
