@@ -1,9 +1,5 @@
-import 'dart:developer';
-
-import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
-import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/features/splash/presentation/view_model/splash_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -21,14 +17,16 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
     super.initState();
-    startFadeInAnimation();
-    determineToGoView().then((toGoView) {
-      navigationAfterDuration(toGoView);
-    });
+   WidgetsBinding.instance.addPostFrameCallback((_) {
+  if (mounted) {
+    final toGoView = determineToGoView();
+    context.go(toGoView);
+  }
+});
   }
 
-  Future<String> determineToGoView() async {
-    String toGoView = await getIt<SplashViewModel>().determineToGoView();
+  String determineToGoView() {
+    String toGoView = getIt<SplashViewModel>().determineToGoView();
     return toGoView;
   }
 
@@ -41,7 +39,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     });
   }
 
-  navigationAfterDuration(String toGoView) {
+  navigationAfterSimpleDuration(String toGoView) {
     return Future.delayed(Constants.kSplashNavigationDelayDuration, () {
       if (mounted) {
         context.go(toGoView);
@@ -51,20 +49,6 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        child: Center(
-          child: AnimatedOpacity(
-            opacity: _opacity,
-            duration: Constants.kFadeInDuration,
-            child: Text(
-              "Chefio",
-              style: Styles.textStyleExtraBold40(context)
-                  .copyWith(color: Colors.white),
-            ),
-          ),
-        ),
-      ),
-    );
+    return SizedBox.shrink();
   }
 }

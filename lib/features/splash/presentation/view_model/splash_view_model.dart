@@ -13,7 +13,7 @@ import 'package:go_router/go_router.dart';
 class SplashViewModel {
   final AuthCredentialsHelper authCredentialsHelper;
   SplashViewModel(this.authCredentialsHelper);
-  Future<String> determineToGoView() async {
+  String determineToGoView()  {
     if (!isOnBoardingCompleted()) {
       return RoutePaths.onboarding;
     } else {

@@ -13,7 +13,7 @@ abstract class Constants {
       Duration(milliseconds: 500);
   static const Duration kFadeInDuration = Duration(seconds: 1);
   static const Duration kSplashNavigationDelayDuration =
-      Duration(milliseconds: 2000);
+      Duration(milliseconds:500);
   static const nullProfileUserImageUrl =
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsZj4lpbablAmVErKCvjRwv1dfIO_rVf3K4A&s";
   static const double userTileImageSize = 40;
