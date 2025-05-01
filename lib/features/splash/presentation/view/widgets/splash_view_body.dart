@@ -17,12 +17,12 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
     super.initState();
-   WidgetsBinding.instance.addPostFrameCallback((_) {
-  if (mounted) {
-    final toGoView = determineToGoView();
-    context.go(toGoView);
-  }
-});
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        final toGoView = determineToGoView();
+        context.go(toGoView);
+      }
+    });
   }
 
   String determineToGoView() {

@@ -34,7 +34,4 @@ abstract class ErrorCodes {
   static const String validationError = 'validation_error';
   static const String badGateway = "bad_gateway";
   static const String gatewayTimeout = "gateway_timeout";
-
-
-
 }
