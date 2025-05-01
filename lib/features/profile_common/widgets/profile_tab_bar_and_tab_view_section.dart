@@ -3,7 +3,7 @@ import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
 import 'package:chefio_app/features/profile_common/widgets/profile_tab_bar.dart';
-import 'package:chefio_app/features/profile_common/widgets/recipes_grid.dart';
+import 'package:chefio_app/features/profile_common/widgets/profile_liked_recipes_grid.dart';
 import 'package:flutter/material.dart';
 
 class ProfileTabBarAndTabViewSection extends StatelessWidget {
@@ -23,16 +23,17 @@ class ProfileTabBarAndTabViewSection extends StatelessWidget {
           child: AdaptivePadding(
             child: TabBarView(
               children: [
-                RecipesGrid(
+                ProfileLikedRecipesGrid(
                   recipes: List.generate(
                     30,
                     (index) => Recipe(
-                        foodName: "$index",
+                        foodName:
+                            "$index alsdfjaskljfklajflkjasjfaksjfklajkdfja;kljfklasdj;flk",
                         isLiked: false,
                         category: Category(name: 'test category')),
                   ),
                 ),
-                RecipesGrid(
+                ProfileLikedRecipesGrid(
                   recipes: List.generate(
                     30,
                     (index) => Recipe(
