@@ -12,7 +12,6 @@ abstract class EndPoints {
   static const String resetPassword = "auth/reset-password";
   static const String refreshToken = "auth/refresh-token";
   static const String categories = "recipe/get-categories";
-  //test
   static const String googleSignIn = "auth/google-signin";
   static const String recipes = "recipe/get-recipes";
   static const String uploadRecipe = "recipe/create-recipe";
@@ -40,13 +39,24 @@ abstract class EndPoints {
   static String getToggleFollowChefEndpoint(String chefId) {
     return "chef/follow/$chefId";
   }
+
   static String getChefProfileEndpoint(String chefId) {
     return "user/get-profile/$chefId";
   }
+
   static String getChefRecipesEndpoint(String chefId) {
     return "user/get-recipes-profile/$chefId";
   }
+
   static String getChefLikedRecipesEndpoint(String chefId) {
     return "user/get-liked-recipes-profile/$chefId";
+  }
+
+  static String getChefFollowingEndpoint(String chefId) {
+    return "chef/follow/get-following/$chefId";
+  }
+
+  static String getChefFollowersEndpoint(String chefId) {
+    return "chef/follow/$chefId";
   }
 }
