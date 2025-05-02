@@ -1,4 +1,4 @@
-import 'package:chefio_app/features/my_profile/presentation/view/widgets/my_profile_view_body.dart';
+import 'package:chefio_app/features/profile/presentation/views/widgets/my_profile_view_body.dart';
 import 'package:flutter/cupertino.dart';
 
 class MyProfileView extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:chefio_app/features/profile/presentation/view/widgets/profil_view_body.dart';
+import 'package:chefio_app/features/profile/presentation/views/widgets/profil_view_body.dart';
 import 'package:flutter/material.dart';
 
 class ProfileView extends StatelessWidget {

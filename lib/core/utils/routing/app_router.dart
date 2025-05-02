@@ -6,7 +6,7 @@ import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/helpers/share_helper.dart';
 import 'package:chefio_app/core/utils/cache/shared_prefernce_helper.dart';
-import 'package:chefio_app/features/profile/presentation/view/profile_view.dart';
+import 'package:chefio_app/features/profile/presentation/views/profile_view.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
