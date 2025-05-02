@@ -40,4 +40,13 @@ abstract class EndPoints {
   static String getToggleFollowChefEndpoint(String chefId) {
     return "chef/follow/$chefId";
   }
+  static String getChefProfileEndpoint(String chefId) {
+    return "user/get-profile/$chefId";
+  }
+  static String getChefRecipesEndpoint(String chefId) {
+    return "user/get-recipes-profile/$chefId";
+  }
+  static String getChefLikedRecipesEndpoint(String chefId) {
+    return "user/get-liked-recipes-profile/$chefId";
+  }
 }
