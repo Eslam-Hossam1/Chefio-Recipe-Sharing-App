@@ -34,4 +34,9 @@ abstract class ApiKeys {
   static const String search = 'search';
   static const String authorization = 'Authorization';
   static const String likes = 'likes';
+  static const String profilePage = 'pageRecipes';
+  static const String profileLimit = 'limitRecipes';
+  static const String recipes = 'recipes';
+  static const String following = 'following';
+  static const String followers = 'followers';
 }
