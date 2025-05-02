@@ -1,16 +1,16 @@
 import 'package:chefio_app/core/models/category.dart';
 import 'package:equatable/equatable.dart';
 
-
-class ProfileUserRecipeModel extends Equatable {
+//chef's recipe model whch is used in the profile page
+class ProfileChefRecipeModel extends Equatable {
   final String id;
   final String foodName;
   final String recipePicture;
   final int cookingDuration;
   final Category category;
-   bool isLiked;
+  bool isLiked;
 
-   ProfileUserRecipeModel({
+  ProfileChefRecipeModel({
     required this.id,
     required this.foodName,
     required this.recipePicture,
@@ -19,8 +19,8 @@ class ProfileUserRecipeModel extends Equatable {
     required this.isLiked,
   });
 
-  factory ProfileUserRecipeModel.fromJson(Map<String, dynamic> json) =>
-      ProfileUserRecipeModel(
+  factory ProfileChefRecipeModel.fromJson(Map<String, dynamic> json) =>
+      ProfileChefRecipeModel(
         id: json['_id'] as String,
         foodName: json['foodName'] as String,
         recipePicture: json['recipePicture'] as String,
