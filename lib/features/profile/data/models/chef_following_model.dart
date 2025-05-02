@@ -1,24 +1,24 @@
 import 'package:equatable/equatable.dart';
 
 class ChefFollowingModel extends Equatable {
-  final String? id;
-  final String? username;
-  final String? profilePicture;
-  final bool? isFollowed;
+  final String id;
+  final String username;
+  final String profilePicture;
+  final bool isFollowed;
 
   const ChefFollowingModel({
-    this.id,
-    this.username,
-    this.profilePicture,
-    this.isFollowed,
+    required this.id,
+    required this.username,
+    required this.profilePicture,
+    required this.isFollowed,
   });
 
   factory ChefFollowingModel.fromJson(Map<String, dynamic> json) {
     return ChefFollowingModel(
-      id: json['_id'] as String?,
-      username: json['username'] as String?,
-      profilePicture: json['profilePicture'] as String?,
-      isFollowed: json['isFollowed'] as bool?,
+      id: json['_id'] as String,
+      username: json['username'] as String,
+      profilePicture: json['profilePicture'] as String,
+      isFollowed: json['isFollowed'] as bool,
     );
   }
 
