@@ -30,7 +30,7 @@ class ProfileRepoImpl implements ProfileRepo {
   }) async {
     try {
       var response = await _apiConsumer.get(
-        EndPoints.getChefProfileEndpoint(chefId),
+        EndPoints.getChefLikedRecipesEndpoint(chefId),
         queryParameters: {
           ApiKeys.profilePage: page,
           ApiKeys.profileLimit: limit,
@@ -54,7 +54,7 @@ class ProfileRepoImpl implements ProfileRepo {
   }) async {
     try {
       var response = await _apiConsumer.get(
-        EndPoints.getChefProfileEndpoint(chefId),
+        EndPoints.getChefRecipesEndpoint(chefId),
         queryParameters: {
           ApiKeys.profilePage: page,
           ApiKeys.profileLimit: limit,
@@ -143,15 +143,16 @@ class ProfileRepoImpl implements ProfileRepo {
   
   List<ProfileChefRecipeModel> getProfileChefRecipesFromResponse(response) {
     List<ProfileChefRecipeModel> profileChefRecipesList =
-        (response[ApiKeys.recipes] as List)
+        (response[ApiKeys.recipes][ApiKeys.recipes] as List)
             .map((e) => ProfileChefRecipeModel.fromJson(e))
             .toList();
     return profileChefRecipesList;
   }
 
+
   List<ProfileChefLikedRecipeModel> getProfileChefLikedRecipesFromResponse(response) {
     List<ProfileChefLikedRecipeModel> profileChefLikedRecipesList =
-        (response[ApiKeys.recipes] as List)
+        (response[ApiKeys.recipes][ApiKeys.recipes] as List)
             .map((e) => ProfileChefLikedRecipeModel.fromJson(e))
             .toList();
     return profileChefLikedRecipesList;
@@ -159,13 +160,13 @@ class ProfileRepoImpl implements ProfileRepo {
 
   List<ChefFollowingModel> getFollowingsFromResponse(response) {
     List<ChefFollowingModel> chefFollowings =
-        (response as List).map((e) => ChefFollowingModel.fromJson(e)).toList();
+        (response[ApiKeys.following] as List).map((e) => ChefFollowingModel.fromJson(e)).toList();
     return chefFollowings;
   }
 
   List<ChefFollowerModel> getFollowersFromResponse(response) {
     List<ChefFollowerModel> chefFollowers =
-        (response as List).map((e) => ChefFollowerModel.fromJson(e)).toList();
+        (response[ApiKeys.followers] as List).map((e) => ChefFollowerModel.fromJson(e)).toList();
     return chefFollowers;
   }
 }
