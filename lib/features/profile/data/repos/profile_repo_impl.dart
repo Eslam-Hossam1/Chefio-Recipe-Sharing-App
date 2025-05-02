@@ -3,11 +3,9 @@ import 'dart:developer';
 import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
-import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
 import 'package:chefio_app/features/profile/data/models/chef_follower_model.dart';
 import 'package:chefio_app/features/profile/data/models/chef_following_model.dart';
-
 import 'package:chefio_app/features/profile/data/models/profile_chef_liked_recipe_model.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_chef_recipe_model.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
@@ -22,7 +20,7 @@ class ProfileRepoImpl implements ProfileRepo {
     required ApiConsumer apiConsumer,
   }) : _apiConsumer = apiConsumer;
   @override
-  Future<Either<ApiFailure, List<ProfileChefLikedRecipeModel>>>
+  Future<Either<DioApiFailure, List<ProfileChefLikedRecipeModel>>>
       fetchChefLikedRecipes({
     required String chefId,
     required int page,
@@ -47,7 +45,7 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<Either<ApiFailure, List<ProfileChefRecipeModel>>> fetchChefRecipes({
+  Future<Either<DioApiFailure, List<ProfileChefRecipeModel>>> fetchChefRecipes({
     required String chefId,
     required int page,
     required int limit,
@@ -70,7 +68,7 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<Either<ApiFailure, ProfileModel>> fetchProfileWithInitialChefRecipes({
+  Future<Either<DioApiFailure, ProfileModel>> fetchProfileWithInitialChefRecipes({
     required String chefId,
     required int page,
     required int limit,
@@ -92,7 +90,7 @@ class ProfileRepoImpl implements ProfileRepo {
 
 
   @override
-  Future<Either<ApiFailure, List<ChefFollowingModel>>> fetchChefFollowings({
+  Future<Either<DioApiFailure, List<ChefFollowingModel>>> fetchChefFollowings({
     required String chefId,
   }) async {
     try {
@@ -110,7 +108,7 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<Either<ApiFailure, List<ChefFollowerModel>>> fetchChefFollowers({
+  Future<Either<DioApiFailure, List<ChefFollowerModel>>> fetchChefFollowers({
     required String chefId,
   }) async {
     try {
@@ -127,7 +125,7 @@ class ProfileRepoImpl implements ProfileRepo {
     }
   }
 
-  ApiFailure handleException(Object e) {
+  DioApiFailure handleException(Object e) {
     if (e is DioException) {
       return DioApiFailure.fromDioException(
         e,
