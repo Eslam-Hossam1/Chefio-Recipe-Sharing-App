@@ -16,6 +16,7 @@ import 'package:chefio_app/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:chefio_app/features/onboarding/presentation/view_model/onboarding_view_model.dart';
+import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/search/data/repos/search_recipe_rebo_impl.dart';
 import 'package:chefio_app/features/splash/presentation/view_model/splash_view_model.dart';
@@ -99,6 +100,11 @@ Future<void> setupServiceLocator() async {
   getIt.registerSingleton<SearchRecipeRepoImpl>(
     SearchRecipeRepoImpl(
       getIt<DioConsumer>(),
+    ),
+  );
+  getIt.registerSingleton<ProfileRepoImpl>(
+    ProfileRepoImpl(
+      apiConsumer: getIt<DioConsumer>(),
     ),
   );
   getIt.registerSingleton<DeepLinkHandler>(
