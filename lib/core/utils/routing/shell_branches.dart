@@ -6,6 +6,7 @@ import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit
 import 'package:chefio_app/features/home/presentation/view/home_view.dart';
 import 'package:chefio_app/features/notifiactions/presentation/view/notifications_view_test.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/my_profile_view.dart';
 import 'package:chefio_app/features/search/data/repos/search_recipe_rebo_impl.dart';
@@ -93,10 +94,19 @@ abstract class ShellBranches {
       routes: [
         GoRoute(
           path: RoutePaths.myProfile,
-          builder: (context, state) => BlocProvider(
-            create: (context) => ProfileCubit(
-              profileRepo: getIt<ProfileRepoImpl>(),
-            ),
+          builder: (context, state) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => ProfileCubit(
+                  profileRepo: getIt<ProfileRepoImpl>(),
+                ),
+              ),
+              BlocProvider(
+                create: (context) => ChefProfileRecipesCubit(
+                  profileRepo: getIt<ProfileRepoImpl>(),
+                ),
+              ),
+            ],
             child: const MyProfileView(),
           ),
         ),

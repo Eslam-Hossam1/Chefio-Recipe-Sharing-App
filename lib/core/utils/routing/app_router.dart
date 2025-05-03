@@ -23,6 +23,7 @@ import 'package:chefio_app/features/auth/presentation/view/verification_code_vie
 import 'package:chefio_app/features/main/presentation/view/main_view.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/profile_view.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
@@ -83,10 +84,19 @@ class AppRouter {
       ),
       GoRoute(
         path: RoutePaths.profile,
-        builder: (context, state) => BlocProvider(
-          create: (context) => ProfileCubit(
-            profileRepo: getIt<ProfileRepoImpl>(),
-          ),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => ProfileCubit(
+                profileRepo: getIt<ProfileRepoImpl>(),
+              ),
+            ),
+            BlocProvider(
+              create: (context) => ChefProfileRecipesCubit(
+                profileRepo: getIt<ProfileRepoImpl>(),
+              ),
+            ),
+          ],
           child: const ProfileView(),
         ),
       ),
