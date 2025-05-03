@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart';
+
+import 'package:chefio_app/core/models/category.dart';
 
 class ProfileRecipeEntity {
   final String recipeId;
@@ -9,7 +10,7 @@ class ProfileRecipeEntity {
   final String? chefId;
   final String? chefImageUrl;
   final int recipeCookingDuration;
-  final Category category;
+  final Category recipeCategory;
 
   ProfileRecipeEntity({
     required this.recipeId,
@@ -19,7 +20,7 @@ class ProfileRecipeEntity {
     required this.chefId,
     required this.chefImageUrl,
     required this.recipeCookingDuration,
-    required this.category,
+    required this.recipeCategory,
     required this.recipeIsLiked,
   });
 }
