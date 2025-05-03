@@ -1,18 +1,36 @@
 import 'dart:developer';
 
-import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
+import 'package:chefio_app/core/helpers/share_helper.dart';
 import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/helpers/share_helper.dart';
-import 'package:chefio_app/core/utils/cache/shared_prefernce_helper.dart';
+import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:chefio_app/features/auth/presentation/manager/forgot_password_cubit/forgot_password_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/forgot_password_verification_code_cubit/forgot_password_verification_code_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/view/forgot_password_verfication_code_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/forgot_password_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
+import 'package:chefio_app/features/auth/presentation/view/verification_code_view.dart';
+import 'package:chefio_app/features/main/presentation/view/main_view.dart';
+import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
+import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/profile_view.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
-import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_likers_cubit/recipe_likers_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view.dart';
+import 'package:chefio_app/features/splash/presentation/view/splash_view.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:chefio_app/features/upload/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
@@ -20,25 +38,7 @@ import 'package:chefio_app/features/upload/presentation/view/upload_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
-import 'package:chefio_app/features/auth/data/repos/auth_repo_impl.dart';
-import 'package:chefio_app/features/auth/presentation/manager/forgot_password_verification_code_cubit/forgot_password_verification_code_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/manager/forgot_password_cubit/forgot_password_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/view/forgot_password_verfication_code_view.dart';
-import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
-import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
-import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
-import 'package:chefio_app/features/auth/presentation/view/verification_code_view.dart';
-import 'package:chefio_app/features/auth/presentation/view/forgot_password_view.dart';
-import 'package:chefio_app/features/main/presentation/view/main_view.dart';
-import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
-import 'package:chefio_app/features/splash/presentation/view/splash_view.dart';
+
 import 'shell_branches.dart';
 
 class AppRouter {
@@ -83,7 +83,12 @@ class AppRouter {
       ),
       GoRoute(
         path: RoutePaths.profile,
-        builder: (context, state) => const ProfileView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => ProfileCubit(
+            profileRepo: getIt<ProfileRepoImpl>(),
+          ),
+          child: const ProfileView(),
+        ),
       ),
       GoRoute(
           path: RoutePaths.recipeDetails,

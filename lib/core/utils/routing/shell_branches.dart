@@ -1,18 +1,19 @@
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
-import 'package:chefio_app/features/home/presentation/manager/home_categories_cubit/home_categories_cubit.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:chefio_app/features/home/presentation/manager/home_categories_cubit/home_categories_cubit.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
+import 'package:chefio_app/features/home/presentation/view/home_view.dart';
+import 'package:chefio_app/features/notifiactions/presentation/view/notifications_view_test.dart';
+import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
+import 'package:chefio_app/features/profile/presentation/views/my_profile_view.dart';
 import 'package:chefio_app/features/search/data/repos/search_recipe_rebo_impl.dart';
 import 'package:chefio_app/features/search/presentation/manager/search_recipe_cubit/search_recipe_cubit.dart';
 import 'package:chefio_app/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:chefio_app/features/home/presentation/view/home_view.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view.dart';
-import 'package:chefio_app/features/notifiactions/presentation/view/notifications_view_test.dart';
-import 'package:chefio_app/features/profile/presentation/views/my_profile_view.dart';
 
 abstract class ShellBranches {
   // Define navigator keys
@@ -92,7 +93,12 @@ abstract class ShellBranches {
       routes: [
         GoRoute(
           path: RoutePaths.myProfile,
-          builder: (context, state) => const MyProfileView(),
+          builder: (context, state) => BlocProvider(
+            create: (context) => ProfileCubit(
+              profileRepo: getIt<ProfileRepoImpl>(),
+            ),
+            child: const MyProfileView(),
+          ),
         ),
       ],
     );
