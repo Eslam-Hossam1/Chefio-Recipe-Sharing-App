@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/dio_consumer.dart';
@@ -20,7 +21,7 @@ class HomeRepoImpl implements HomeRepo {
   final CategoriesService _categoriesService;
   HomeRepoImpl(this._apiConsumer, this._categoriesService);
   @override
-  Future<Either<DioApiFailure, List<RecipeModel>>> fetchRecipesFromApi(
+  Future<Either<DioApiFailure, List<RecipeEntity>>> fetchRecipesFromApi(
       {required String categoryName,
       required int limit,
       required int page}) async {
@@ -31,7 +32,7 @@ class HomeRepoImpl implements HomeRepo {
         ApiKeys.page: page,
         ApiKeys.category: categoryName,
       });
-      final List<RecipeModel> recipes =
+      final List<RecipeEntity> recipes =
           HomeSuccessModel.fromJson(response).recipes!;
       return Right(recipes);
     } catch (e) {

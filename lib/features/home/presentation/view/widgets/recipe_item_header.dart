@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
@@ -9,9 +10,9 @@ import 'package:flutter/material.dart';
 class RecipeItemHeader extends StatelessWidget {
   const RecipeItemHeader({
     super.key,
-    required this.recipeModel,
+    required this.recipeEntity,
   });
-  final RecipeModel recipeModel;
+  final RecipeEntity recipeEntity;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,7 +24,7 @@ class RecipeItemHeader extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: CustomCachedNetworkImage(
-                url: recipeModel.createdBy?.profilePicture ??
+                url: recipeEntity.chefImageUrl ??
                     "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
               ),
             ),
@@ -36,7 +37,7 @@ class RecipeItemHeader extends StatelessWidget {
           child: Text(
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
-            recipeModel.createdBy?.username ?? "null",
+            recipeEntity.chefUsername,
             style: Styles.textStyleMedium12(context)
                 .copyWith(color: context.mainTextColor),
           ),

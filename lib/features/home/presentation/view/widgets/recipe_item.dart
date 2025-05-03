@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
@@ -14,20 +15,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class RecipeItem extends StatelessWidget {
-  const RecipeItem({super.key, required this.recipeModel});
-  final RecipeModel recipeModel;
+  const RecipeItem({super.key, required this.recipeEntity});
+  final RecipeEntity recipeEntity;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         RecipeItemHeader(
-          recipeModel: recipeModel,
+          recipeEntity: recipeEntity,
         ),
         SizedBox(
           height: 16,
         ),
-        Expanded(child: RecipeItemBody(recipeModel: recipeModel)),
+        Expanded(child: RecipeItemBody(recipeEntity: recipeEntity)),
       ],
     );
   }

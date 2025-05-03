@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
@@ -12,7 +13,7 @@ class SliverRecipesGrid extends StatelessWidget {
     required this.recipes,
   });
 
-  final List<RecipeModel> recipes;
+  final List<RecipeEntity> recipes;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +68,7 @@ class SliverRecipesGrid extends StatelessWidget {
         mainAxisSpacing: width < 550 ? 8 : 16,
       ),
       itemBuilder: (context, index) {
-        return RecipeItem(recipeModel: recipes[index]);
+        return RecipeItem(recipeEntity: recipes[index]);
       },
       itemCount: recipes.length,
     );
