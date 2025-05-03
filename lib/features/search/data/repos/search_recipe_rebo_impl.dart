@@ -5,7 +5,7 @@ import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/home_success_model.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/search/data/repos/search_recipe_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -16,7 +16,7 @@ class SearchRecipeRepoImpl implements SearchRecipeRepo {
     this._apiConsumer,
   );
   @override
-  Future<Either<ApiFailure, List<Recipe>>> searchRecipe({
+  Future<Either<ApiFailure, List<RecipeModel>>> searchRecipe({
     required String searchRecipeName,
     required int limit,
     required int page,
@@ -28,7 +28,8 @@ class SearchRecipeRepoImpl implements SearchRecipeRepo {
         ApiKeys.page: page,
         ApiKeys.search: searchRecipeName,
       });
-      final List<Recipe> recipes = HomeSuccessModel.fromJson(response).recipes!;
+      final List<RecipeModel> recipes =
+          HomeSuccessModel.fromJson(response).recipes!;
       return Right(recipes);
     } catch (e) {
       if (e is DioException) {

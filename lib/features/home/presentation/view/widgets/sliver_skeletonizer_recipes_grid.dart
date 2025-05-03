@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/models/category.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_recipes_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -9,9 +9,9 @@ class SliverSkeletonizerRecipesGrid extends StatelessWidget {
     super.key,
   });
 
-  static List<Recipe> recipes = List.generate(
+  static List<RecipeModel> recipes = List.generate(
     12,
-    (index) => Recipe(
+    (index) => RecipeModel(
       foodName: "Eslam Hossam",
       category: Category(name: 'test category'),
       isLiked: false,

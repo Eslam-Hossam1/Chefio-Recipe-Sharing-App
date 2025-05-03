@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 
-import 'recipe.dart';
+import 'recipe_model.dart';
 
 class HomeSuccessModel extends Equatable {
   final bool? success;
   final int? totalRecipes;
   final int? currentPage;
   final int? totalPages;
-  final List<Recipe>? recipes;
+  final List<RecipeModel>? recipes;
 
   const HomeSuccessModel({
     this.success,
@@ -24,7 +24,7 @@ class HomeSuccessModel extends Equatable {
       currentPage: json['currentPage'] as int?,
       totalPages: json['totalPages'] as int?,
       recipes: (json['recipes'] as List<dynamic>?)
-          ?.map((e) => Recipe.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => RecipeModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
   }

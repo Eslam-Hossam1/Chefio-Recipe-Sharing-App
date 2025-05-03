@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/models/category.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo.dart';
 import 'package:equatable/equatable.dart';
 
@@ -9,7 +9,7 @@ part 'home_recipes_state.dart';
 class HomeRecipesCubit extends Cubit<HomeRecipesState> {
   HomeRecipesCubit(this._homeRepo) : super(HomeInitial());
   final HomeRepo _homeRepo;
-  List<Recipe> recipes = [];
+  List<RecipeModel> recipes = [];
   int page = 0;
   int limit = 12;
   bool isLoading = false;

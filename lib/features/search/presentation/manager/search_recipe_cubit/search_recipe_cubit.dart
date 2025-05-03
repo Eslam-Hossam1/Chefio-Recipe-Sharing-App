@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/search/data/repos/search_recipe_repo.dart';
 import 'package:equatable/equatable.dart';
 
@@ -8,7 +8,7 @@ part 'search_recipe_state.dart';
 class SearchRecipeCubit extends Cubit<SearchRecipeState> {
   final SearchRecipeRepo _searchRecipeRepo;
   SearchRecipeCubit(this._searchRecipeRepo) : super(SearchRecipeInitial());
-  List<Recipe> recipes = [];
+  List<RecipeModel> recipes = [];
   int page = 0;
   int limit = 30;
   String searchRecipeName = '';

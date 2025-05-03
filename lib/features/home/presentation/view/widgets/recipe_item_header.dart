@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class RecipeItemHeader extends StatelessWidget {
     super.key,
     required this.recipeModel,
   });
-  final Recipe recipeModel;
+  final RecipeModel recipeModel;
   @override
   Widget build(BuildContext context) {
     return Row(

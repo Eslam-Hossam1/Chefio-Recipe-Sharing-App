@@ -10,7 +10,7 @@ import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_loc
 import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/home_success_model.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -20,7 +20,7 @@ class HomeRepoImpl implements HomeRepo {
   final CategoriesService _categoriesService;
   HomeRepoImpl(this._apiConsumer, this._categoriesService);
   @override
-  Future<Either<DioApiFailure, List<Recipe>>> fetchRecipesFromApi(
+  Future<Either<DioApiFailure, List<RecipeModel>>> fetchRecipesFromApi(
       {required String categoryName,
       required int limit,
       required int page}) async {
@@ -31,7 +31,8 @@ class HomeRepoImpl implements HomeRepo {
         ApiKeys.page: page,
         ApiKeys.category: categoryName,
       });
-      final List<Recipe> recipes = HomeSuccessModel.fromJson(response).recipes!;
+      final List<RecipeModel> recipes =
+          HomeSuccessModel.fromJson(response).recipes!;
       return Right(recipes);
     } catch (e) {
       if (e is DioException) {

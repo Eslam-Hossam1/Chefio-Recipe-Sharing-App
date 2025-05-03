@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../../../../../core/models/category.dart';
 import 'created_by.dart';
 
-class Recipe extends Equatable {
+class RecipeModel extends Equatable {
   final String? id;
   final String? foodName;
   bool isLiked;
@@ -14,7 +14,7 @@ class Recipe extends Equatable {
   final dynamic likes;
   final DateTime? createdAt;
 
-  Recipe({
+  RecipeModel({
     this.id,
     this.foodName,
     required this.isLiked,
@@ -26,7 +26,7 @@ class Recipe extends Equatable {
     this.createdAt,
   });
 
-  factory Recipe.fromJson(Map<String, dynamic> json) => Recipe(
+  factory RecipeModel.fromJson(Map<String, dynamic> json) => RecipeModel(
         id: json['_id'] as String?,
         foodName: json['foodName'] as String?,
         isLiked: json['isLiked'] as bool,

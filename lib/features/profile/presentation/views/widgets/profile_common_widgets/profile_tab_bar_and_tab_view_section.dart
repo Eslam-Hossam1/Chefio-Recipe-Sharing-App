@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/recipe.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_tab_bar.dart';
@@ -17,7 +17,6 @@ class ProfileTabBarAndTabViewSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         ProfileTabBar(),
@@ -31,7 +30,7 @@ class ProfileTabBarAndTabViewSection extends StatelessWidget {
                 ProfileChefRecipesGrid(
                   recipes: List.generate(
                     30,
-                    (index) => Recipe(
+                    (index) => RecipeModel(
                         foodName:
                             "$index alsdfjaskljfklajflkjasjfaksjfklajkdfja;kljfklasdj;flk",
                         isLiked: false,
@@ -41,7 +40,7 @@ class ProfileTabBarAndTabViewSection extends StatelessWidget {
                 ProfileLikedRecipesGrid(
                   recipes: List.generate(
                     30,
-                    (index) => Recipe(
+                    (index) => RecipeModel(
                         foodName: "$index",
                         isLiked: false,
                         category: Category(name: 'test category')),
