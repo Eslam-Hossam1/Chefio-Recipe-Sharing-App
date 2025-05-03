@@ -1,41 +1,51 @@
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../../core/models/category.dart';
 import 'created_by.dart';
 
-class RecipeModel extends Equatable {
-  final String? id;
-  final String? foodName;
+class RecipeModel extends RecipeEntity {
+  final String id;
+  final String foodName;
   bool isLiked;
-  final String? recipePicture;
-  final int? cookingDuration;
+  final String recipePicture;
+  final int cookingDuration;
   final Category category;
-  final CreatedBy? createdBy;
+  final CreatedBy createdBy;
   final dynamic likes;
   final DateTime? createdAt;
 
   RecipeModel({
-    this.id,
-    this.foodName,
+    required this.id,
+    required this.foodName,
     required this.isLiked,
-    this.recipePicture,
-    this.cookingDuration,
+    required this.recipePicture,
+    required this.cookingDuration,
     required this.category,
-    this.createdBy,
+    required this.createdBy,
     this.likes,
     this.createdAt,
-  });
+  }) : super(
+          recipeId: id,
+          chefId: createdBy.id,
+          chefUsername: createdBy.username,
+          recipeCategory: category,
+          recipeCookingDuration: cookingDuration,
+          recipeImageUrl: recipePicture,
+          recipeIsLiked: isLiked,
+          recipeName: foodName,
+          chefImageUrl: createdBy.profilePicture,
+        );
 
   factory RecipeModel.fromJson(Map<String, dynamic> json) => RecipeModel(
-        id: json['_id'] as String?,
-        foodName: json['foodName'] as String?,
+        id: json['_id'] as String,
+        foodName: json['foodName'] as String,
         isLiked: json['isLiked'] as bool,
-        recipePicture: json['recipePicture'] as String?,
-        cookingDuration: json['cookingDuration'] as int?,
+        recipePicture: json['recipePicture'] as String,
+        cookingDuration: json['cookingDuration'] as int,
         category: Category.fromJson(json['category'] as Map<String, dynamic>),
-        createdBy: json['createdBy'] == null
-            ? null
-            : CreatedBy.fromJson(json['createdBy'] as Map<String, dynamic>),
+        createdBy:
+            CreatedBy.fromJson(json['createdBy'] as Map<String, dynamic>),
         likes: json['likes'] as dynamic,
         createdAt: json['createdAt'] == null
             ? null
@@ -49,23 +59,8 @@ class RecipeModel extends Equatable {
         'isLiked': isLiked,
         'cookingDuration': cookingDuration,
         'category': category.toJson(),
-        'createdBy': createdBy?.toJson(),
+        'createdBy': createdBy.toJson(),
         'likes': likes,
         'createdAt': createdAt?.toIso8601String(),
       };
-
-  @override
-  List<Object?> get props {
-    return [
-      id,
-      foodName,
-      recipePicture,
-      cookingDuration,
-      category,
-      isLiked,
-      createdBy,
-      likes,
-      createdAt,
-    ];
-  }
 }
