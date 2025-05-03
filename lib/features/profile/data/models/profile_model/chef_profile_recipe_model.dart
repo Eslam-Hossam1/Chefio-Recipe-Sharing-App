@@ -1,9 +1,9 @@
+import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/models/category.dart';
-import 'package:chefio_app/features/profile/domain/profile_recipe_entity.dart';
-import 'package:equatable/equatable.dart';
 
 //chef's recipe model whch is used in the profile page
-class ChefProfileRecipeModel extends ProfileRecipeEntity {
+class ChefProfileRecipeModel extends RecipeBodyEntity {
   final String id;
   final String foodName;
   final String recipePicture;
@@ -22,9 +22,6 @@ class ChefProfileRecipeModel extends ProfileRecipeEntity {
           recipeId: id,
           recipeName: foodName,
           recipeImageUrl: recipePicture,
-          chefUsername: '',
-          chefId: '',
-          chefImageUrl: '',
           recipeCookingDuration: cookingDuration,
           recipeCategory: category,
           recipeIsLiked: isLiked,
@@ -48,16 +45,4 @@ class ChefProfileRecipeModel extends ProfileRecipeEntity {
         'category': category.toJson(),
         'isLiked': isLiked,
       };
-
-  @override
-  List<Object?> get props {
-    return [
-      id,
-      foodName,
-      recipePicture,
-      cookingDuration,
-      category,
-      isLiked,
-    ];
-  }
 }
