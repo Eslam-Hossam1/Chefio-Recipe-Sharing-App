@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
@@ -20,7 +22,7 @@ class ProfileRepoImpl implements ProfileRepo {
     required ApiConsumer apiConsumer,
   }) : _apiConsumer = apiConsumer;
   @override
-  Future<Either<DioApiFailure, List<ChefLikedRecipeModel>>>
+  Future<Either<DioApiFailure, List<RecipeEntity>>>
       fetchChefLikedRecipes({
     required String chefId,
     required int page,
@@ -34,7 +36,7 @@ class ProfileRepoImpl implements ProfileRepo {
           ApiKeys.profileLimit: limit,
         },
       );
-      List<ChefLikedRecipeModel> chefRecipes =
+      List<RecipeEntity> chefRecipes =
           getProfileChefLikedRecipesFromResponse(
         response,
       );
@@ -45,7 +47,7 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<Either<DioApiFailure, List<ChefProfileRecipeModel>>> fetchChefRecipes({
+  Future<Either<DioApiFailure, List<RecipeBodyEntity>>> fetchChefRecipes({
     required String chefId,
     required int page,
     required int limit,
@@ -58,7 +60,7 @@ class ProfileRepoImpl implements ProfileRepo {
           ApiKeys.profileLimit: limit,
         },
       );
-      List<ChefProfileRecipeModel> chefRecipes =
+      List<RecipeBodyEntity> chefRecipes =
           getProfileChefRecipesFromResponse(
         response,
       );
@@ -139,16 +141,16 @@ class ProfileRepoImpl implements ProfileRepo {
     }
   }
 
-  List<ChefProfileRecipeModel> getProfileChefRecipesFromResponse(response) {
-    List<ChefProfileRecipeModel> profileChefRecipesList =
+  List<RecipeBodyEntity> getProfileChefRecipesFromResponse(response) {
+    List<RecipeBodyEntity> profileChefRecipesList =
         (response[ApiKeys.recipes][ApiKeys.recipes] as List)
             .map((e) => ChefProfileRecipeModel.fromJson(e))
             .toList();
     return profileChefRecipesList;
   }
 
-  List<ChefLikedRecipeModel> getProfileChefLikedRecipesFromResponse(response) {
-    List<ChefLikedRecipeModel> profileChefLikedRecipesList =
+  List<RecipeEntity> getProfileChefLikedRecipesFromResponse(response) {
+    List<RecipeEntity> profileChefLikedRecipesList =
         (response[ApiKeys.recipes][ApiKeys.recipes] as List)
             .map((e) => ChefLikedRecipeModel.fromJson(e))
             .toList();

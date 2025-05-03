@@ -1,3 +1,5 @@
+import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/features/profile/data/models/chef_follower_model.dart';
 import 'package:chefio_app/features/profile/data/models/chef_following_model.dart';
@@ -14,13 +16,13 @@ abstract class ProfileRepo {
     required int limit,
   });
 
-  Future<Either<ApiFailure, List<ChefProfileRecipeModel>>> fetchChefRecipes({
+  Future<Either<ApiFailure, List<RecipeBodyEntity>>> fetchChefRecipes({
     required String chefId,
     required int page,
     required int limit,
   });
 
-  Future<Either<ApiFailure, List<ChefLikedRecipeModel>>> fetchChefLikedRecipes({
+  Future<Either<ApiFailure, List<RecipeEntity>>> fetchChefLikedRecipes({
     required String chefId,
     required int page,
     required int limit,

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/features/profile/data/models/chef_liked_recipe_model.dart';
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo.dart';
 import 'package:equatable/equatable.dart';
 
@@ -15,7 +15,7 @@ class ChefLikedRecipesCubit extends Cubit<ChefLikedRecipesState> {
   int limit = 30;
   bool hasMore = true;
   bool isLoading = false;
-  List<ChefLikedRecipeModel> chefLikedRecipes = [];
+  List<RecipeEntity> chefLikedRecipes = [];
 
   Future<void> fetchChefLikedRecipes({required String chefId}) async {
     if (isLoading || !hasMore) return;

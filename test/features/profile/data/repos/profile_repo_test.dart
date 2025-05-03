@@ -1,3 +1,5 @@
+import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/features/profile/data/models/chef_follower_model.dart';
@@ -93,7 +95,7 @@ void main() {
         'fetch profile chef  recipes  method ',
         () {
           test(
-            'Given Profile Repo when call fetch Profile Chef  recipes request  then it should return List<ProfileChefRecipeModel> ',
+            'Given Profile Repo when call fetch Profile Chef  recipes request  then it should return List<RecipeBodyEntity> ',
             () async {
               final Map<String, dynamic> expectedResponse =
                   ProfileExpectedResponseHelper.fetchChefLikedRecipes;
@@ -117,10 +119,10 @@ void main() {
               //Assert
               result.fold(
                 (failure) => fail(
-                  'Expected a List of ProfileChefRecipeModel but got api failure',
+                  'Expected a List of RecipeBodyEntity but got api failure',
                 ),
                 (chefRecipes) =>
-                    expect(chefRecipes, isA<List<ChefProfileRecipeModel>>()),
+                    expect(chefRecipes, isA<List<RecipeBodyEntity>>()),
               );
             },
           );
@@ -190,10 +192,10 @@ void main() {
               //Assert
               result.fold(
                 (failure) => fail(
-                  'Expected a List of ProfileChefLikedModel but got api failure',
+                  'Expected a List of RecipeEntity but got api failure',
                 ),
                 (likedRecipes) =>
-                    expect(likedRecipes, isA<List<ChefLikedRecipeModel>>()),
+                    expect(likedRecipes, isA<List<RecipeEntity>>()),
               );
             },
           );
