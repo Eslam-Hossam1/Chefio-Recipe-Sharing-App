@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
@@ -16,7 +17,7 @@ class SearchRecipeRepoImpl implements SearchRecipeRepo {
     this._apiConsumer,
   );
   @override
-  Future<Either<ApiFailure, List<RecipeModel>>> searchRecipe({
+  Future<Either<ApiFailure, List<RecipeEntity>>> searchRecipe({
     required String searchRecipeName,
     required int limit,
     required int page,
