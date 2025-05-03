@@ -50,6 +50,7 @@ class HomeRepoImpl implements HomeRepo {
       //add All category 'means when clicked dont specify category'
       categories.add(
         Category(
+          id: '',
           name: '',
           categoryLocalizationKey: AppLocalizationKeys.global.all,
         ),

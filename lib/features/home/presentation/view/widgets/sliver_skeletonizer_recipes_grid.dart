@@ -13,7 +13,7 @@ class SliverSkeletonizerRecipesGrid extends StatelessWidget {
     12,
     (index) => RecipeModel(
       foodName: "Eslam Hossam",
-      category: Category(name: 'test category'),
+      category: Category(name: 'test category',id: ''),
       isLiked: false,
     ),
   );

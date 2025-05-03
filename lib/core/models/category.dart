@@ -2,17 +2,17 @@ import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_loc
 import 'package:equatable/equatable.dart';
 
 class Category extends Equatable {
-  final String? id;
+  final String id;
   final String name;
   final String? categoryLocalizationKey;
   const Category({
-    this.id,
+    required this.id,
     required this.name,
     this.categoryLocalizationKey,
   });
 
   factory Category.fromJson(Map<String, dynamic> json) => Category(
-        id: json['_id'] as String?,
+        id: json['_id'] as String,
         name: json['name'] as String,
         categoryLocalizationKey: getCategoryLocalizationKeyFromCategoryName(
             categoryName: json['name'] as String),

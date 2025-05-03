@@ -7,7 +7,7 @@ class SkeletonizerCategoriesListView extends StatelessWidget {
   const SkeletonizerCategoriesListView({super.key});
   static List<Category> categories = List.generate(
     5,
-    (index) => Category(name: "burger"),
+    (index) => Category(name: "burger",id: ''),
   );
 
   @override
