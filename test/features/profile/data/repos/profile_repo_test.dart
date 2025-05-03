@@ -2,8 +2,8 @@ import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/features/profile/data/models/chef_follower_model.dart';
 import 'package:chefio_app/features/profile/data/models/chef_following_model.dart';
-import 'package:chefio_app/features/profile/data/models/profile_chef_liked_recipe_model.dart';
-import 'package:chefio_app/features/profile/data/models/profile_model/profile_chef_recipe_model.dart';
+import 'package:chefio_app/features/profile/data/models/chef_liked_recipe_model.dart';
+import 'package:chefio_app/features/profile/data/models/profile_model/chef_profile_recipe_model.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:dio/dio.dart';
@@ -120,7 +120,7 @@ void main() {
                   'Expected a List of ProfileChefRecipeModel but got api failure',
                 ),
                 (chefRecipes) =>
-                    expect(chefRecipes, isA<List<ProfileChefRecipeModel>>()),
+                    expect(chefRecipes, isA<List<ChefProfileRecipeModel>>()),
               );
             },
           );
@@ -192,8 +192,8 @@ void main() {
                 (failure) => fail(
                   'Expected a List of ProfileChefLikedModel but got api failure',
                 ),
-                (likedRecipes) => expect(
-                    likedRecipes, isA<List<ProfileChefLikedRecipeModel>>()),
+                (likedRecipes) =>
+                    expect(likedRecipes, isA<List<ChefLikedRecipeModel>>()),
               );
             },
           );

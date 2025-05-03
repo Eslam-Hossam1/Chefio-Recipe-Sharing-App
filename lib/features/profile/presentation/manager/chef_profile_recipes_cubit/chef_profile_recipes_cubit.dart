@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/features/profile/data/models/profile_model/profile_chef_recipe_model.dart';
+import 'package:chefio_app/features/profile/data/models/profile_model/chef_profile_recipe_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo.dart';
 import 'package:equatable/equatable.dart';
 
@@ -15,7 +15,7 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
   int limit = 30;
   bool hasMore = true;
   bool isLoading = false;
-  List<ProfileChefRecipeModel> chefRecipes = [];
+  List<ChefProfileRecipeModel> chefRecipes = [];
   Future<void> fetchChefRecipes({required String chefId}) async {
     if (isLoading || !hasMore) return;
     if (chefRecipes.isNotEmpty) {
@@ -56,10 +56,10 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
   }
 
   Future<void> startWithInitialRecipes({
-    required List<ProfileChefRecipeModel> chefRecipes,
+    required List<ChefProfileRecipeModel> chefInitialRecipes,
     required int limit,
   }) async {
-    this.chefRecipes.addAll(chefRecipes);
+    this.chefRecipes.addAll(chefInitialRecipes);
     this.limit = limit;
     page + 1;
     emit(ChefRecipesSuccess());

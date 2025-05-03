@@ -1,8 +1,8 @@
 import 'package:chefio_app/core/models/category.dart';
 import 'package:equatable/equatable.dart';
 
-// ProfileLikedRecipeModel is used to represent a recipe that a chef has liked in their profile.
-class ProfileChefLikedRecipeModel extends Equatable {
+//chef's recipe model whch is used in the profile page
+class ChefProfileRecipeModel extends Equatable {
   final String id;
   final String foodName;
   final String recipePicture;
@@ -10,7 +10,7 @@ class ProfileChefLikedRecipeModel extends Equatable {
   final Category category;
   bool isLiked;
 
-  ProfileChefLikedRecipeModel({
+  ChefProfileRecipeModel({
     required this.id,
     required this.foodName,
     required this.recipePicture,
@@ -19,8 +19,8 @@ class ProfileChefLikedRecipeModel extends Equatable {
     required this.isLiked,
   });
 
-  factory ProfileChefLikedRecipeModel.fromJson(Map<String, dynamic> json) =>
-      ProfileChefLikedRecipeModel(
+  factory ChefProfileRecipeModel.fromJson(Map<String, dynamic> json) =>
+      ChefProfileRecipeModel(
         id: json['_id'] as String,
         foodName: json['foodName'] as String,
         recipePicture: json['recipePicture'] as String,

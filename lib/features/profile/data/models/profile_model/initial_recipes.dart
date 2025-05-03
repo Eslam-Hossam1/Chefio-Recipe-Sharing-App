@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-import 'profile_chef_recipe_model.dart';
+import 'chef_profile_recipe_model.dart';
 
 class InitialRecipes extends Equatable {
   final int totalRecipes;
   final int currentPage;
   final int totalPages;
-  final List<ProfileChefRecipeModel> recipes;
+  final List<ChefProfileRecipeModel> recipes;
 
   const InitialRecipes({
     required this.totalRecipes,
@@ -21,7 +21,7 @@ class InitialRecipes extends Equatable {
         totalPages: json['totalPages'] as int,
         recipes: (json['recipes'] as List<dynamic>)
             .map((e) =>
-                ProfileChefRecipeModel.fromJson(e as Map<String, dynamic>))
+                ChefProfileRecipeModel.fromJson(e as Map<String, dynamic>))
             .toList(),
       );
 

@@ -6,8 +6,8 @@ import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
 import 'package:chefio_app/features/profile/data/models/chef_follower_model.dart';
 import 'package:chefio_app/features/profile/data/models/chef_following_model.dart';
-import 'package:chefio_app/features/profile/data/models/profile_chef_liked_recipe_model.dart';
-import 'package:chefio_app/features/profile/data/models/profile_model/profile_chef_recipe_model.dart';
+import 'package:chefio_app/features/profile/data/models/chef_liked_recipe_model.dart';
+import 'package:chefio_app/features/profile/data/models/profile_model/chef_profile_recipe_model.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo.dart';
 import 'package:dartz/dartz.dart';
@@ -20,7 +20,7 @@ class ProfileRepoImpl implements ProfileRepo {
     required ApiConsumer apiConsumer,
   }) : _apiConsumer = apiConsumer;
   @override
-  Future<Either<DioApiFailure, List<ProfileChefLikedRecipeModel>>>
+  Future<Either<DioApiFailure, List<ChefLikedRecipeModel>>>
       fetchChefLikedRecipes({
     required String chefId,
     required int page,
@@ -34,7 +34,7 @@ class ProfileRepoImpl implements ProfileRepo {
           ApiKeys.profileLimit: limit,
         },
       );
-      List<ProfileChefLikedRecipeModel> chefRecipes =
+      List<ChefLikedRecipeModel> chefRecipes =
           getProfileChefLikedRecipesFromResponse(
         response,
       );
@@ -45,7 +45,7 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<Either<DioApiFailure, List<ProfileChefRecipeModel>>> fetchChefRecipes({
+  Future<Either<DioApiFailure, List<ChefProfileRecipeModel>>> fetchChefRecipes({
     required String chefId,
     required int page,
     required int limit,
@@ -58,7 +58,8 @@ class ProfileRepoImpl implements ProfileRepo {
           ApiKeys.profileLimit: limit,
         },
       );
-      List<ProfileChefRecipeModel> chefRecipes = getProfileChefRecipesFromResponse(
+      List<ChefProfileRecipeModel> chefRecipes =
+          getProfileChefRecipesFromResponse(
         response,
       );
       return Right(chefRecipes);
@@ -68,7 +69,8 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<Either<DioApiFailure, ProfileModel>> fetchProfileWithInitialChefRecipes({
+  Future<Either<DioApiFailure, ProfileModel>>
+      fetchProfileWithInitialChefRecipes({
     required String chefId,
     required int page,
     required int limit,
@@ -87,7 +89,6 @@ class ProfileRepoImpl implements ProfileRepo {
       return Left(handleException(e));
     }
   }
-
 
   @override
   Future<Either<DioApiFailure, List<ChefFollowingModel>>> fetchChefFollowings({
@@ -138,33 +139,35 @@ class ProfileRepoImpl implements ProfileRepo {
     }
   }
 
-  
-  List<ProfileChefRecipeModel> getProfileChefRecipesFromResponse(response) {
-    List<ProfileChefRecipeModel> profileChefRecipesList =
+  List<ChefProfileRecipeModel> getProfileChefRecipesFromResponse(response) {
+    List<ChefProfileRecipeModel> profileChefRecipesList =
         (response[ApiKeys.recipes][ApiKeys.recipes] as List)
-            .map((e) => ProfileChefRecipeModel.fromJson(e))
+            .map((e) => ChefProfileRecipeModel.fromJson(e))
             .toList();
     return profileChefRecipesList;
   }
 
-
-  List<ProfileChefLikedRecipeModel> getProfileChefLikedRecipesFromResponse(response) {
-    List<ProfileChefLikedRecipeModel> profileChefLikedRecipesList =
+  List<ChefLikedRecipeModel> getProfileChefLikedRecipesFromResponse(response) {
+    List<ChefLikedRecipeModel> profileChefLikedRecipesList =
         (response[ApiKeys.recipes][ApiKeys.recipes] as List)
-            .map((e) => ProfileChefLikedRecipeModel.fromJson(e))
+            .map((e) => ChefLikedRecipeModel.fromJson(e))
             .toList();
     return profileChefLikedRecipesList;
   }
 
   List<ChefFollowingModel> getFollowingsFromResponse(response) {
     List<ChefFollowingModel> chefFollowings =
-        (response[ApiKeys.following] as List).map((e) => ChefFollowingModel.fromJson(e)).toList();
+        (response[ApiKeys.following] as List)
+            .map((e) => ChefFollowingModel.fromJson(e))
+            .toList();
     return chefFollowings;
   }
 
   List<ChefFollowerModel> getFollowersFromResponse(response) {
     List<ChefFollowerModel> chefFollowers =
-        (response[ApiKeys.followers] as List).map((e) => ChefFollowerModel.fromJson(e)).toList();
+        (response[ApiKeys.followers] as List)
+            .map((e) => ChefFollowerModel.fromJson(e))
+            .toList();
     return chefFollowers;
   }
 }
