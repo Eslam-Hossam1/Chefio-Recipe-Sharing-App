@@ -10,9 +10,9 @@ import 'package:flutter/material.dart';
 class RecipeItemHeader extends StatelessWidget {
   const RecipeItemHeader({
     super.key,
-    required this.recipeEntity,
+    required this.recipeModel,
   });
-  final RecipeEntity recipeEntity;
+  final RecipeEntity recipeModel;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,7 +24,7 @@ class RecipeItemHeader extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: CustomCachedNetworkImage(
-                url: recipeEntity.chefImageUrl ??
+                url: recipeModel.chefImageUrl ??
                     "https://cdn.dummyjson.com/products/images/furniture/Annibale%20Colombo%20Bed/thumbnail.png",
               ),
             ),
@@ -37,7 +37,7 @@ class RecipeItemHeader extends StatelessWidget {
           child: Text(
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
-            recipeEntity.chefUsername,
+            recipeModel.chefUsername,
             style: Styles.textStyleMedium12(context)
                 .copyWith(color: context.mainTextColor),
           ),

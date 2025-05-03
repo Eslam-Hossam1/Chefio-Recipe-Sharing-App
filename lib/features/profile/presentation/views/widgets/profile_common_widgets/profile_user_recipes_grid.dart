@@ -67,7 +67,7 @@ class ProfileChefRecipesGrid extends StatelessWidget {
         mainAxisSpacing: width < 550 ? 8 : 16,
       ),
       itemBuilder: (context, index) {
-        return RecipeItemBody(recipeModel: recipes[index]);
+        return RecipeItemBody(recipeBodyEntity: recipes[index]);
       },
       itemCount: recipes.length,
     );

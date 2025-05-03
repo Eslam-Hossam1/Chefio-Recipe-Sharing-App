@@ -66,7 +66,7 @@ class ProfileLikedRecipesGrid extends StatelessWidget {
         mainAxisSpacing: width < 550 ? 8 : 16,
       ),
       itemBuilder: (context, index) {
-        return RecipeItem(recipeModel: recipes[index]);
+        return RecipeItem(recipeEntity: recipes[index]);
       },
       itemCount: recipes.length,
     );

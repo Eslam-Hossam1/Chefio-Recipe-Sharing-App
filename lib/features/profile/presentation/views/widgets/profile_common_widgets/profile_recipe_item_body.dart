@@ -26,7 +26,7 @@ class ProfileRecipeItemBody extends StatelessWidget {
         children: [
           Flexible(
               child: RecipeItemImageWithIcon(
-            recipeModel: recipeModel,
+            recipeBodyEntity: recipeModel,
           )),
           SizedBox(
             height: 16,

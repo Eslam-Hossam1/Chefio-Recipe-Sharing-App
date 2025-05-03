@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_recipes_grid.dart';
@@ -9,12 +10,17 @@ class SliverSkeletonizerRecipesGrid extends StatelessWidget {
     super.key,
   });
 
-  static List<RecipeModel> recipes = List.generate(
+  static List<RecipeEntity> recipes = List.generate(
     12,
-    (index) => RecipeModel(
-      foodName: "Eslam Hossam",
-      category: Category(name: 'test category',id: ''),
-      isLiked: false,
+    (index) => RecipeEntity(
+      recipeName: "Pasta Pasta",
+      recipeCategory: Category(name: 'test category', id: ''),
+      recipeIsLiked: false,
+      chefId: '',
+      chefUsername: 'Eslam Hossam',
+      recipeId: '',
+      recipeImageUrl: '',
+      recipeCookingDuration: 45,
     ),
   );
 

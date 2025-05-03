@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
 import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
@@ -9,15 +10,15 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class RecipeItemBody extends StatelessWidget {
-  const RecipeItemBody({super.key, required this.recipeModel});
-  final RecipeModel recipeModel;
+  const RecipeItemBody({super.key, required this.recipeBodyEntity});
+  final RecipeBodyEntity recipeBodyEntity;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         context.push(
           RoutingHelper.getRecipeDetailsPath(
-            recipeId: recipeModel.id!,
+            recipeId: recipeBodyEntity.recipeId,
           ),
         );
       },
@@ -26,7 +27,7 @@ class RecipeItemBody extends StatelessWidget {
         children: [
           Flexible(
               child: RecipeItemImageWithIcon(
-            recipeModel: recipeModel,
+            recipeBodyEntity: recipeBodyEntity,
           )),
           SizedBox(
             height: 16,
@@ -34,7 +35,7 @@ class RecipeItemBody extends StatelessWidget {
           Text(
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            recipeModel.foodName ?? "null",
+            recipeBodyEntity.recipeName,
             style: Styles.textStyleBold17(context)
                 .copyWith(color: context.mainTextColor),
           ),
@@ -42,9 +43,10 @@ class RecipeItemBody extends StatelessWidget {
             height: 8,
           ),
           RecipeCategoryWithCookingDurationText(
-            categoryName: recipeModel.category.categoryLocalizationKey?.tr() ??
-                recipeModel.category.name,
-            cookingDuration: recipeModel.cookingDuration.toString(),
+            categoryName:
+                recipeBodyEntity.recipeCategory.categoryLocalizationKey?.tr() ??
+                    recipeBodyEntity.recipeCategory.name,
+            cookingDuration: recipeBodyEntity.recipeCookingDuration.toString(),
           ),
         ],
       ),
