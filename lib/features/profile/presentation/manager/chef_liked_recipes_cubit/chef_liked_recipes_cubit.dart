@@ -52,7 +52,7 @@ class ChefLikedRecipesCubit extends Cubit<ChefLikedRecipesState> {
       if (chefLikedRecipes.length <= limit) {
         hasMore = false;
       }
-      chefLikedRecipes.addAll(chefLikedRecipes);
+      this.chefLikedRecipes.addAll(chefLikedRecipes);
       page += 1;
       isLoading = false;
       emit(ChefLikedRecipesSuccess());
