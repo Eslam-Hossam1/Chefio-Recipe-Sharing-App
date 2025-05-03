@@ -23,12 +23,7 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
   int foodCookDuration = 1;
   String categoryName = '';
   File? foodImage;
-  List<Category> categories = [
-    Category(name: "meal"),
-    Category(name: "meal"),
-    Category(name: "meal"),
-    Category(name: "meal"),
-  ];
+  List<Category> categories = [];
 
   UploadRecipeCubit(
     this._uploadRepo,
