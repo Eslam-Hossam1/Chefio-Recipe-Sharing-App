@@ -1,7 +1,11 @@
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
+import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
+import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileUserAvatarWithTitle extends StatelessWidget {
@@ -11,6 +15,7 @@ class ProfileUserAvatarWithTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ProfileModel profileModel = context.read<ProfileCubit>().profileModel!;
     return SliverList(
       delegate: SliverChildListDelegate(
         [
@@ -19,7 +24,9 @@ class ProfileUserAvatarWithTitle extends StatelessWidget {
               showDialog(
                   context: context,
                   builder: (context) {
-                    return Image.asset(Assets.imagesBigUserAvatarImageTest);
+                    return CustomCachedNetworkImage(
+                      url: profileModel.profile.profilePicture,
+                    );
                   });
             },
             child: Center(
@@ -37,7 +44,7 @@ class ProfileUserAvatarWithTitle extends StatelessWidget {
           Center(
             child: Text(
               textAlign: TextAlign.center,
-              'Choirul Syafril',
+              profileModel.profile.username,
               style: Styles.textStyleBold17(context).copyWith(
                 color: context.mainTextColor,
               ),

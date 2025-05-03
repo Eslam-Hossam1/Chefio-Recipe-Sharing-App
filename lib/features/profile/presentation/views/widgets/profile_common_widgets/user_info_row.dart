@@ -1,5 +1,8 @@
+import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
+import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/user_follower_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserInfoRow extends StatelessWidget {
   const UserInfoRow({
@@ -8,19 +11,21 @@ class UserInfoRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ProfileModel profileModel = context.read<ProfileCubit>().profileModel!;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         UserFollowersItem(
-          number: '32',
+          number: '${profileModel.profile.recipes.totalRecipes}',
           text: 'Recipes',
         ),
         UserFollowersItem(
-          number: '782',
+          number: '${profileModel.profile.followingCount}',
           text: 'Following',
         ),
         UserFollowersItem(
-          number: '1.287',
+          number: '${profileModel.profile.followersCount}',
           text: 'Followers',
         ),
       ],

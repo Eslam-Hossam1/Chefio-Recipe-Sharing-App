@@ -5,8 +5,8 @@ import 'package:chefio_app/features/home/data/models/home_success_model/recipe.d
 import 'package:chefio_app/features/home/presentation/view/widgets/recipe_item_body.dart';
 import 'package:flutter/material.dart';
 
-class ProfileUserRecipesGrid extends StatelessWidget {
-  const ProfileUserRecipesGrid({
+class ProfileChefRecipesGrid extends StatelessWidget {
+  const ProfileChefRecipesGrid({
     super.key,
     required this.recipes,
   });
