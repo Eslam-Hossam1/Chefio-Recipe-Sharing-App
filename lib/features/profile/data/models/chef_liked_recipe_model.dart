@@ -1,8 +1,9 @@
+import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/profile/domain/profile_recipe_entity.dart';
 
 // ProfileLikedRecipeModel is used to represent a recipe that a chef has liked in their profile.
-class ChefLikedRecipeModel extends ProfileRecipeEntity {
+class ChefLikedRecipeModel extends RecipeEntity {
   final String id;
   final String foodName;
   final String recipePicture;
