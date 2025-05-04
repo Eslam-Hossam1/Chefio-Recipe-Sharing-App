@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipe_item_body.dart';
@@ -11,7 +12,7 @@ class ProfileChefRecipesGrid extends StatelessWidget {
     required this.recipes,
   });
 
-  final List<RecipeModel> recipes;
+  final List<RecipeBodyEntity> recipes;
 
   @override
   Widget build(BuildContext context) {

@@ -22,7 +22,7 @@ class RecipesGridHomeBuilder extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        if (state is HomeRecipesFirstFetchFailure) {
+      if (state is HomeRecipesFirstFetchFailure) {
           return SliverFillRemaining(
             hasScrollBody: false,
             child: CustomTextErrorMessage(
