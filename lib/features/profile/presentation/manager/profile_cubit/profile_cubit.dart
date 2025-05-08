@@ -11,13 +11,15 @@ class ProfileCubit extends Cubit<ProfileState> {
       : _profileRepo = profileRepo,
         super(ProfileInitial());
   ProfileModel? profileModel;
+  late String chefId;
   Future<void> fetchChefProfileWithInitialRecipes({
     required String chefId,
     required int limit,
   }) async {
+    this.chefId = chefId;
     var result = await _profileRepo.fetchProfileWithInitialChefRecipes(
       chefId: chefId,
-      page: 1,
+      page: 2,
       limit: limit,
     );
     result.fold(
