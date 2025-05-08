@@ -67,7 +67,7 @@ class DioApiFailure extends ApiFailure {
     }
   }
   factory DioApiFailure.frombadResponse(int status, dynamic responseBody) {
-    if (responseBody != null) {
+    if (responseBody != null && responseBody is Map<String,dynamic>) {
       ApiErrorModel apiErrorModel = ApiErrorModel.fromJson(responseBody);
       return DioApiFailure(
         apiErrorModel.message,
