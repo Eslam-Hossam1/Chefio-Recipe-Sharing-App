@@ -52,6 +52,11 @@ class ChefLikedRecipesCubit extends Cubit<ChefLikedRecipesState> {
       if (chefLikedRecipes.length <= limit) {
         hasMore = false;
       }
+      if (chefLikedRecipes.isEmpty && this.chefLikedRecipes.isEmpty) {
+        isLoading = false;
+        emit(EmptyChefLikedRecipes());
+        return;
+      }
       this.chefLikedRecipes.addAll(chefLikedRecipes);
       page += 1;
       isLoading = false;

@@ -33,7 +33,7 @@ class ProfileViewBodyConsumer extends StatelessWidget {
         if (state is ProfileSuccess) {
           return onSuccessProfileViewBody(context);
         } else if (state is ProfileFailure) {
-          return CustomTextErrorMessage(
+          return CustomTextInfoMessage(
             text: state.errLocalizationError.tr(),
           );
         } else {

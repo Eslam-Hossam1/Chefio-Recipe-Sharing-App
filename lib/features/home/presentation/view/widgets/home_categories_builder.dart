@@ -16,7 +16,7 @@ class HomeCategoriesBuilder extends StatelessWidget {
     return BlocBuilder<HomeCategoriesCubit, HomeCategoriesState>(
       builder: (context, state) {
         if (state is HomeCategoriesFailure) {
-          return CustomTextErrorMessage(text: state.errorLocalizationKey.tr());
+          return CustomTextInfoMessage(text: state.errorLocalizationKey.tr());
         } else if (state is HomeCategoriesLoading) {
           return SkeletonizerCategoriesListView();
         } else {

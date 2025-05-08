@@ -3,6 +3,7 @@ import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
+import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_chef_recipes_section.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/skeletonizer_profile_chef_recipes_grid.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -28,8 +29,14 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
       },
       builder: (context, state) {
         if (state is RecipesInitialFetchFailure) {
-          return CustomTextErrorMessage(
-            text: state.errLocalizationKey.tr(),
+          return CustomInfoMessageWithButton(
+            message: state.errLocalizationKey.tr(),
+            btnText: "Try Again",
+            onPressed: () {
+              context.read<ChefProfileRecipesCubit>().fetchChefRecipes(
+                    chefId: context.read<ProfileCubit>().chefId,
+                  );
+            },
           );
         } else if (state is ChefProfileRecipesInitial) {
           return SkeletonizerProfileChefRecipesGrid();

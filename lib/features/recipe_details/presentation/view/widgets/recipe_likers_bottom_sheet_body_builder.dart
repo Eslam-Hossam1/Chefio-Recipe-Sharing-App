@@ -18,7 +18,7 @@ class RecipeLikersBottomSheetBodyBuilder extends StatelessWidget {
     return BlocBuilder<RecipeLikersCubit, RecipeLikersState>(
       builder: (context, state) {
         if (state is RecipeLikersFailure) {
-          return CustomTextErrorMessage(
+          return CustomTextInfoMessage(
             text: state.errorLocalizationKey.tr(),
           );
         } else if (state is RecipeLikersSuccess) {
@@ -27,7 +27,7 @@ class RecipeLikersBottomSheetBodyBuilder extends StatelessWidget {
             recipeLikers: state.recipeLikers,
           );
         } else if (state is EmptyRecipeLikers) {
-          return CustomTextErrorMessage(
+          return CustomTextInfoMessage(
             text: AppLocalizationKeys.recipeDetails.recipeNoLikesMessage.tr(),
           );
         } else {

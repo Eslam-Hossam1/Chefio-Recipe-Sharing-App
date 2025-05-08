@@ -71,7 +71,7 @@ class _UploadViewState extends State<UploadView> {
             return Padding(
               padding: const EdgeInsets.all(32.0),
               child:
-                  CustomTextErrorMessage(text: state.errorLocalizationKey.tr()),
+                  CustomTextInfoMessage(text: state.errorLocalizationKey.tr()),
             );
           } else if (state is LoadingCategories) {
             return Center(

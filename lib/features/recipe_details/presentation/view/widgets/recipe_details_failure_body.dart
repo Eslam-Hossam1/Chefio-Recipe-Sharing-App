@@ -13,7 +13,7 @@ class RecipeDetailsFailureBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CustomTextErrorMessage(
+        CustomTextInfoMessage(
           text: text,
         ),
         SizedBox(
