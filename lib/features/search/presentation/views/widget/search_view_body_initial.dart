@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_app_bar.dart';
 import 'package:flutter/material.dart';
 

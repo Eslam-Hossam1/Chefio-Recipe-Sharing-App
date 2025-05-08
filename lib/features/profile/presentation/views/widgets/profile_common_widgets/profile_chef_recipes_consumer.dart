@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_chef_recipes_section.dart';

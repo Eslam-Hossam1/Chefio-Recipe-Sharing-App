@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_recipes_grid.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_skeletonizer_recipes_grid.dart';
 import 'package:easy_localization/easy_localization.dart';

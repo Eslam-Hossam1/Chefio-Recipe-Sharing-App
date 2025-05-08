@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:flutter/material.dart';
 
 class RecipeDetailsFailureBody extends StatelessWidget {

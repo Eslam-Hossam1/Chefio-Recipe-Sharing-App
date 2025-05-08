@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_error_message.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/chef_profile_recipe_model.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
