@@ -23,6 +23,7 @@ import 'package:chefio_app/features/auth/presentation/view/verification_code_vie
 import 'package:chefio_app/features/main/presentation/view/main_view.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:chefio_app/features/profile/presentation/manager/chef_liked_recipes_cubit/chef_liked_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/profile_view.dart';
@@ -67,7 +68,7 @@ class AppRouter {
 
       return null; // معناها كمل طبيعي
     },
-    initialLocation: RoutePaths.profile,
+    initialLocation: RoutePaths.splash,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
@@ -83,23 +84,33 @@ class AppRouter {
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
-        path: RoutePaths.profile,
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => ProfileCubit(
-                profileRepo: getIt<ProfileRepoImpl>(),
+          path: RoutePaths.profile,
+          builder: (context, state) {
+            final String chefId = state.pathParameters['id']!;
+
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => ProfileCubit(
+                    profileRepo: getIt<ProfileRepoImpl>(),
+                  ),
+                ),
+                BlocProvider(
+                  create: (context) => ChefProfileRecipesCubit(
+                    profileRepo: getIt<ProfileRepoImpl>(),
+                  ),
+                ),
+                BlocProvider(
+                  create: (context) => ChefLikedRecipesCubit(
+                    profileRepo: getIt<ProfileRepoImpl>(),
+                  ),
+                ),
+              ],
+              child: ProfileView(
+                chefId: chefId,
               ),
-            ),
-            BlocProvider(
-              create: (context) => ChefProfileRecipesCubit(
-                profileRepo: getIt<ProfileRepoImpl>(),
-              ),
-            ),
-          ],
-          child: const ProfileView(),
-        ),
-      ),
+            );
+          }),
       GoRoute(
           path: RoutePaths.recipeDetails,
           builder: (context, state) {
