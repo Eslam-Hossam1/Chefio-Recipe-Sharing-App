@@ -3,6 +3,7 @@ import 'package:chefio_app/features/profile/presentation/views/widgets/profile_c
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_liked_recipes_consumer.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_tab_bar.dart';
 import 'package:flutter/material.dart';
+
 class ProfileTabBarAndTabViewSection extends StatelessWidget {
   const ProfileTabBarAndTabViewSection({
     super.key,
@@ -13,9 +14,6 @@ class ProfileTabBarAndTabViewSection extends StatelessWidget {
     return Column(
       children: [
         ProfileTabBar(),
-        SizedBox(
-          height: 4,
-        ),
         Expanded(
           child: AdaptivePadding(
             child: TabBarView(
