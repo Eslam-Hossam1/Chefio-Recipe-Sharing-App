@@ -18,7 +18,8 @@ abstract class RoutePaths {
   static const upload = "/upload";
   static const notifications = "/notification";
   static const myProfile = "/my-profile";
-  static const profile = "/profile";
+  static const profileWithoutId = "/profile";
+  static const profile = "$profileWithoutId/:id";
 
   // 🍽 Recipe Details
   static const recipeDetailsWithoutId = "/recipe-detail";
