@@ -35,7 +35,8 @@ class ProfileUserAvatarWithTitle extends StatelessWidget {
                   decoration: BoxDecoration(shape: BoxShape.circle),
                   height: (100.w).clamp(80, 140),
                   width: (100.w).clamp(80, 140),
-                  child: Image.asset(Assets.imagesBigUserAvatarImageTest)),
+                  child: CustomCachedNetworkImage(
+                      url: profileModel.profile.profilePicture)),
             ),
           ),
           SizedBox(
