@@ -49,6 +49,12 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
       if (chefRecipes.length <= limit) {
         hasMore = false;
       }
+      if (chefRecipes.isEmpty && this.chefRecipes.isEmpty) {
+        isLoading = false;
+        emit(EmptyChefRecipes());
+        return;
+      }
+
       this.chefRecipes.addAll(chefRecipes);
       page += 1;
       isLoading = false;
@@ -60,7 +66,12 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
     required List<ChefProfileRecipeModel> chefInitialRecipes,
     required int limit,
   }) async {
-    this.chefRecipes.addAll(chefInitialRecipes);
+    if (chefInitialRecipes.isEmpty && chefRecipes.isEmpty) {
+      isLoading = false;
+      emit(EmptyChefRecipes());
+      return;
+    }
+    chefRecipes.addAll(chefInitialRecipes);
     this.limit = limit;
     page + 1;
     emit(ChefRecipesSuccess());
