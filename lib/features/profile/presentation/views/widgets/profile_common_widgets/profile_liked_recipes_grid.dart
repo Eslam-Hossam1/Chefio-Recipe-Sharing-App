@@ -47,7 +47,7 @@ class ProfileLikedRecipesGrid extends StatelessWidget {
       maxCrossAxisExtent = 300;
     }
 
-    return GridView.builder(
+    return SliverGrid.builder(
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: maxCrossAxisExtent,
         childAspectRatio: isMobile
