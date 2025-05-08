@@ -12,7 +12,7 @@ class RecipeItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         RecipeItemHeader(
-          recipeModel: recipeEntity,
+          recipeEntity: recipeEntity,
         ),
         SizedBox(
           height: 16,
