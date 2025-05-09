@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/utils/assets.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
@@ -24,8 +25,10 @@ class ProfileUserAvatarWithTitle extends StatelessWidget {
               showDialog(
                   context: context,
                   builder: (context) {
-                    return CustomCachedNetworkImage(
-                      url: profileModel.profile.profilePicture,
+                    return Center(
+                      child: CustomCachedNetworkImage(
+                        url: profileModel.profile.profilePicture??Constants.nullProfileUserImageUrl,
+                      ),
                     );
                   });
             },
@@ -36,7 +39,7 @@ class ProfileUserAvatarWithTitle extends StatelessWidget {
                   height: (100.w).clamp(80, 140),
                   width: (100.w).clamp(80, 140),
                   child: CustomCachedNetworkImage(
-                      url: profileModel.profile.profilePicture)),
+                      url: profileModel.profile.profilePicture??Constants.nullProfileUserImageUrl)),
             ),
           ),
           SizedBox(
