@@ -5,7 +5,7 @@ import 'initial_recipes.dart';
 class Profile extends Equatable {
   final String username;
   final String email;
-  final String profilePicture;
+  final String? profilePicture;
   final int followersCount;
   final int followingCount;
   final String isFollowing;
@@ -24,7 +24,7 @@ class Profile extends Equatable {
   factory Profile.fromJson(Map<String, dynamic> json) => Profile(
         username: json['username'] as String,
         email: json['email'] as String,
-        profilePicture: json['profilePicture'] as String,
+        profilePicture: json['profilePicture'] as String?,
         followersCount: json['followersCount'] as int,
         followingCount: json['followingCount'] as int,
         isFollowing: json['isFollowing'] as String,
