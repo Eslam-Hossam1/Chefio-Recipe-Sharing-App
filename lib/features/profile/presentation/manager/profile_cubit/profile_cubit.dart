@@ -19,7 +19,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     this.chefId = chefId;
     var result = await _profileRepo.fetchProfileWithInitialChefRecipes(
       chefId: chefId,
-      page: 2,
+      page: 1,
       limit: limit,
     );
     result.fold(
