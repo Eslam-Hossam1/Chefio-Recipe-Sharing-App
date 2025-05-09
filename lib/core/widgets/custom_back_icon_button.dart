@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/utils/assets.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -11,7 +12,11 @@ class CustomBackIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        context.pop();
+        if (context.canPop()) {
+          context.pop();
+        } else {
+          context.go(RoutePaths.home);
+        }
       },
       icon: SvgPicture.asset(
         Assets.imagesIosBackOutline,
