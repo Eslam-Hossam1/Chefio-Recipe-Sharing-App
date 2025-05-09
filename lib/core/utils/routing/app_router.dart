@@ -26,6 +26,7 @@ import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_liked_recipes_cubit/chef_liked_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
+import 'package:chefio_app/features/profile/presentation/manager/profile_follow_button_cubit/profile_follow_button_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/profile_view.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
@@ -65,6 +66,15 @@ class AppRouter {
         final recipeId = state.uri.pathSegments.last;
         return RoutingHelper.getRecipeDetailsPath(recipeId: recipeId);
       }
+      if (state.uri.pathSegments.contains('profile')) {
+        // لو مش مسجل دخول
+        if (!isLoggedIn) {
+          return RoutePaths.login;
+        }
+
+        final chefId = state.uri.pathSegments.last;
+        return RoutingHelper.getProfilePath(chefId: chefId);
+      }
 
       return null; // معناها كمل طبيعي
     },
@@ -103,6 +113,11 @@ class AppRouter {
                 BlocProvider(
                   create: (context) => ChefLikedRecipesCubit(
                     profileRepo: getIt<ProfileRepoImpl>(),
+                  ),
+                ),
+                BlocProvider(
+                  create: (context) => ProfileFollowButtonCubit(
+                    authCreadentialsHelper: getIt<AuthCredentialsHelper>(),
                   ),
                 ),
               ],
