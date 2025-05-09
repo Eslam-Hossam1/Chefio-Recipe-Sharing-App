@@ -9,10 +9,25 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProfileLikedRecipesConsumer extends StatelessWidget {
+class ProfileLikedRecipesConsumer extends StatefulWidget {
   const ProfileLikedRecipesConsumer({
     super.key,
   });
+
+  @override
+  State<ProfileLikedRecipesConsumer> createState() =>
+      _ProfileLikedRecipesConsumerState();
+}
+
+class _ProfileLikedRecipesConsumerState
+    extends State<ProfileLikedRecipesConsumer> {
+  @override
+  void initState() {
+    context.read<ChefLikedRecipesCubit>().fetchChefLikedRecipes(
+          chefId: context.read<ProfileCubit>().chefId,
+        );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
