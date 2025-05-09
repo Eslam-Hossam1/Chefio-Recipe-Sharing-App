@@ -22,4 +22,14 @@ class ShareHelper {
       log("Error sharing: $e");
     }
   }
+
+  Future<void> shareProfile({required String chefId}) async {
+    final String link = "${_baseUrl}profile/$chefId";
+    final String message = "Check out this Chef Profile! 🍽️\n$link";
+    try {
+      await Share.share(message);
+    } catch (e) {
+      log("Error Message");
+    }
+  }
 }
