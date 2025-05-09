@@ -57,6 +57,8 @@ class AuthCredentialsHelper {
 
   Future<void> clearTokens() async {
     await secureStorageHelper.clear();
+    _authCredentialsModel?.accessToken = null;
+    _authCredentialsModel?.refreshToken = null;
     _authCredentialsModel = null;
   }
 
