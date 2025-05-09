@@ -1,5 +1,6 @@
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/models/category.dart';
+import 'package:chefio_app/features/home/data/models/home_success_model/created_by.dart';
 
 // ProfileLikedRecipeModel is used to represent a recipe that a chef has liked in their profile.
 class ChefLikedRecipeModel extends RecipeEntity {
@@ -8,6 +9,7 @@ class ChefLikedRecipeModel extends RecipeEntity {
   final String recipePicture;
   final int cookingDuration;
   final Category category;
+  final CreatedBy createdBy;
   bool isLiked;
 
   ChefLikedRecipeModel({
@@ -16,14 +18,15 @@ class ChefLikedRecipeModel extends RecipeEntity {
     required this.recipePicture,
     required this.cookingDuration,
     required this.category,
+    required this.createdBy,
     required this.isLiked,
   }) : super(
           recipeId: id,
           recipeName: foodName,
           recipeImageUrl: recipePicture,
-          chefUsername: '',
-          chefId: '',
-          chefImageUrl: '',
+          chefUsername: createdBy.username,
+          chefId: createdBy.id,
+          chefImageUrl: createdBy.profilePicture,
           recipeCookingDuration: cookingDuration,
           recipeCategory: category,
           recipeIsLiked: isLiked,
@@ -37,6 +40,8 @@ class ChefLikedRecipeModel extends RecipeEntity {
         cookingDuration: json['cookingDuration'] as int,
         category: Category.fromJson(json['category'] as Map<String, dynamic>),
         isLiked: json['isLiked'] as bool,
+        createdBy:
+            CreatedBy.fromJson(json['createdBy'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {
@@ -46,6 +51,6 @@ class ChefLikedRecipeModel extends RecipeEntity {
         'cookingDuration': cookingDuration,
         'category': category.toJson(),
         'isLiked': isLiked,
+        'createdBy': createdBy.toJson(),
       };
-
 }

@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/models/category.dart';
 
 class RecipeBodyEntity {

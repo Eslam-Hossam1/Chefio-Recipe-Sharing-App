@@ -1,8 +1,10 @@
 import 'dart:developer';
 
+import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/helpers/share_helper.dart';
+import 'package:chefio_app/core/services/follow_chef_service.dart';
 import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
@@ -118,6 +120,11 @@ class AppRouter {
                 BlocProvider(
                   create: (context) => ProfileFollowButtonCubit(
                     authCreadentialsHelper: getIt<AuthCredentialsHelper>(),
+                  ),
+                ),
+                BlocProvider(
+                  create: (context) => FollowChefCubit(
+                    followChefService: getIt<FollowChefService>(),
                   ),
                 ),
               ],

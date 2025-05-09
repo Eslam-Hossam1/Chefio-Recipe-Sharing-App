@@ -6,12 +6,12 @@ class Profile extends Equatable {
   final String username;
   final String email;
   final String? profilePicture;
-  final int followersCount;
+  int followersCount;
   final int followingCount;
-  final String isFollowing;
+  String isFollowing;
   final InitialRecipes recipes;
 
-  const Profile({
+  Profile({
     required this.username,
     required this.email,
     required this.profilePicture,
@@ -28,7 +28,8 @@ class Profile extends Equatable {
         followersCount: json['followersCount'] as int,
         followingCount: json['followingCount'] as int,
         isFollowing: json['isFollowing'] as String,
-        recipes: InitialRecipes.fromJson(json['recipes'] as Map<String, dynamic>),
+        recipes:
+            InitialRecipes.fromJson(json['recipes'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {

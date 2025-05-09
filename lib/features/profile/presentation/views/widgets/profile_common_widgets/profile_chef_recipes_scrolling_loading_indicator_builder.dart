@@ -3,7 +3,8 @@ import 'package:chefio_app/features/profile/presentation/manager/chef_profile_re
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProfileChefRecipesScrollingLoadingIndicatorbuilder extends StatelessWidget {
+class ProfileChefRecipesScrollingLoadingIndicatorbuilder
+    extends StatelessWidget {
   const ProfileChefRecipesScrollingLoadingIndicatorbuilder({
     super.key,
   });

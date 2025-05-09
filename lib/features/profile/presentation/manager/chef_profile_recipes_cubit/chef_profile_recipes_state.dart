@@ -19,7 +19,6 @@ final class RecipesInitialFetchFailure extends ChefProfileRecipesState {
   });
 }
 
-
 final class ChefProfileRecipesInitial extends ChefProfileRecipesState {}
 
 final class FetchMoreChefRecipes extends ChefProfileRecipesState {}
@@ -35,4 +34,5 @@ final class FetchMoreRecipesFailure extends ChefProfileRecipesState {
 }
 
 final class ChefRecipesSuccess extends ChefProfileRecipesState {}
+
 final class EmptyChefRecipes extends ChefProfileRecipesState {}

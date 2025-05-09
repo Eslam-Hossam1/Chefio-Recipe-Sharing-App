@@ -7,13 +7,14 @@ class ProfileModel extends Equatable {
   final String message;
   final Profile profile;
 
-  const ProfileModel({required this.success, required this.message, required this.profile});
+  const ProfileModel(
+      {required this.success, required this.message, required this.profile});
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) {
     return ProfileModel(
       success: json['success'] as bool,
       message: json['message'] as String,
-      profile:Profile.fromJson(json['profile'] as Map<String, dynamic>),
+      profile: Profile.fromJson(json['profile'] as Map<String, dynamic>),
     );
   }
 

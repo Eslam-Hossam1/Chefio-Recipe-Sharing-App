@@ -40,7 +40,7 @@ class _ProfileLikedRecipesSectionState
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        ProfileSeparatorSizedBox(),
+        SliverToBoxAdapter(child: ProfileSeparatorSizedBox()),
         ProfileLikedRecipesGrid(
           recipes: context.read<ChefLikedRecipesCubit>().chefLikedRecipes,
         ),

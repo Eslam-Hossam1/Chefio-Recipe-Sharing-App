@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
 import 'package:chefio_app/features/profile/data/models/chef_follower_model.dart';
 import 'package:chefio_app/features/profile/data/models/chef_following_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo.dart';

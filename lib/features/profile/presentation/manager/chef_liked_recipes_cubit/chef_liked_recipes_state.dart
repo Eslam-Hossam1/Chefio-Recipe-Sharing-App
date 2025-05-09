@@ -23,7 +23,6 @@ final class LikedRecipesInitialFetchFailure extends ChefLikedRecipesState {
 
 final class FetchMoreLikedRecipes extends ChefLikedRecipesState {}
 
-
 final class FetchMoreLikedRecipesFailure extends ChefLikedRecipesState {
   final String errMsg;
   final String errLocalizationKey;
@@ -35,4 +34,5 @@ final class FetchMoreLikedRecipesFailure extends ChefLikedRecipesState {
 }
 
 final class ChefLikedRecipesSuccess extends ChefLikedRecipesState {}
+
 final class EmptyChefLikedRecipes extends ChefLikedRecipesState {}

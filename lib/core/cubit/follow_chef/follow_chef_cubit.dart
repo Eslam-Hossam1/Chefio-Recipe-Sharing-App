@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/services/follow_chef_service.dart';
+import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:equatable/equatable.dart';
 
 part 'follow_chef_state.dart';
@@ -13,8 +14,10 @@ class FollowChefCubit extends Cubit<FollowChefState> {
           FollowChefInitial(),
         );
 
-  Future<void> toggleFollowChef({required String chefId}) async {
-    emit(FollowChefLoading());
+  Future<void> toggleFollowChef({
+    required String chefId,
+  }) async {
+    emit(FollowChefProcessing(chefId: chefId));
     var result = await _followChefService.toggleFollowChef(chefId: chefId);
     result.fold(
       (failure) {

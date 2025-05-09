@@ -38,5 +38,6 @@ abstract class ApiKeys {
   static const String profileLimit = 'limitRecipes';
   static const String recipes = 'recipes';
   static const String following = 'following';
+  static const String notFollowing = 'not_following';
   static const String followers = 'followers';
 }

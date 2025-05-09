@@ -22,8 +22,7 @@ class ProfileRepoImpl implements ProfileRepo {
     required ApiConsumer apiConsumer,
   }) : _apiConsumer = apiConsumer;
   @override
-  Future<Either<DioApiFailure, List<RecipeEntity>>>
-      fetchChefLikedRecipes({
+  Future<Either<DioApiFailure, List<RecipeEntity>>> fetchChefLikedRecipes({
     required String chefId,
     required int page,
     required int limit,
@@ -36,8 +35,7 @@ class ProfileRepoImpl implements ProfileRepo {
           ApiKeys.profileLimit: limit,
         },
       );
-      List<RecipeEntity> chefRecipes =
-          getProfileChefLikedRecipesFromResponse(
+      List<RecipeEntity> chefRecipes = getProfileChefLikedRecipesFromResponse(
         response,
       );
       return Right(chefRecipes);
@@ -60,8 +58,7 @@ class ProfileRepoImpl implements ProfileRepo {
           ApiKeys.profileLimit: limit,
         },
       );
-      List<RecipeBodyEntity> chefRecipes =
-          getProfileChefRecipesFromResponse(
+      List<RecipeBodyEntity> chefRecipes = getProfileChefRecipesFromResponse(
         response,
       );
       return Right(chefRecipes);

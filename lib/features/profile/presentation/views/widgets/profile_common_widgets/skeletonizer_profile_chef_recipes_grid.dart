@@ -18,7 +18,8 @@ class SkeletonizerProfileChefRecipesGrid extends StatelessWidget {
       chefId: '',
       chefUsername: 'Eslam Hossam',
       recipeId: '',
-      recipeImageUrl: 'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg',
+      recipeImageUrl:
+          'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg',
       recipeCookingDuration: 45,
     ),
   );

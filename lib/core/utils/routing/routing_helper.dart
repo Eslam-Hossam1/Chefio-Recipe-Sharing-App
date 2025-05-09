@@ -4,6 +4,7 @@ abstract class RoutingHelper {
   static String getRecipeDetailsPath({required String recipeId}) {
     return '${RoutePaths.recipeDetailsWithoutId}/$recipeId';
   }
+
   static String getProfilePath({required String chefId}) {
     return '${RoutePaths.profileWithoutId}/$chefId';
   }
