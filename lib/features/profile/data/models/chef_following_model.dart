@@ -1,17 +1,18 @@
+import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
 import 'package:equatable/equatable.dart';
 
-class ChefFollowingModel extends Equatable {
+class ChefFollowingModel extends ChefConnectionEntity {
   final String id;
   final String username;
   final String profilePicture;
   final bool isFollowed;
 
-  const ChefFollowingModel({
+   ChefFollowingModel({
     required this.id,
     required this.username,
     required this.profilePicture,
     required this.isFollowed,
-  });
+  }) : super(chefId: id, chefUsername: username, chefProfilePicture: profilePicture, isFollowing: isFollowed);
 
   factory ChefFollowingModel.fromJson(Map<String, dynamic> json) {
     return ChefFollowingModel(
