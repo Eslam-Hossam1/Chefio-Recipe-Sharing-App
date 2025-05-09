@@ -67,23 +67,25 @@ class ApiInterceptor extends Interceptor {
   }
 
   Future<bool> _refreshToken() async {
-    final response = await client.post(EndPoints.refreshToken, data: {
-      ApiKeys.refreshToken: authCredentialsHelper.refreshToken,
-    });
-    log(response.toString());
-
-    if (response.statusCode == 200) {
+    try {
+      final response = await client.post(EndPoints.refreshToken, data: {
+        ApiKeys.refreshToken: authCredentialsHelper.refreshToken,
+      });
+      log(response.toString());
       log('refresh success');
       final json = response.data;
       String accessToken = json[ApiKeys.newAccessToken];
       authCredentialsHelper.storeAccessToken(accessToken);
       return true;
-    } else {
-      log('refresh failed');
-      if (response.statusCode == 401) {
-        authCredentialsHelper
-            .clearTokens(); // ⬅️ احذف بيانات المستخدم لو التوكن فشل
-        log('refresh token expired');
+    } on Exception catch (e) {
+      if (e is DioException) {
+        if (e.response?.statusCode != null) {
+          if (e.response?.statusCode == 401 || e.response?.statusCode == 403) {
+            authCredentialsHelper
+                .clearTokens(); // ⬅️ احذف بيانات المستخدم لو التوكن فشل
+            log('refresh token expired');
+          }
+        }
       }
 
       return false;
