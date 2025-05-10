@@ -101,6 +101,11 @@
           
     },
 
+    "profile":{
+        "chef_has_no_followers":"Chef has no followers",
+        "chef_didn't_follow_any_chef_yet":"Chef didn't follow any other chef yet"
+    },
+
     "upload":{
         "add_cover_photo":"Add Cover Photo",
         "up_to":"(up to 12 Mb)",

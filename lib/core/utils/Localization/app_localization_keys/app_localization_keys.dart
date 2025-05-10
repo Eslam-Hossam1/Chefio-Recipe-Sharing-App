@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/features_localization_singletones/auth.dart';
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/features_localization_singletones/profile_localization.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/global_localization_singletones/categories.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/global_localization_singletones/app_localization_errors.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/global_localization_singletones/global.dart';
@@ -16,4 +17,5 @@ abstract class AppLocalizationKeys {
   static const Upload upload = Upload.instance;
   static const LocalizationCategory category = LocalizationCategory.instance;
   static const RecipeDetails recipeDetails = RecipeDetails.instance;
+  static const ProfileLocalization profile = ProfileLocalization.instance;
 }
