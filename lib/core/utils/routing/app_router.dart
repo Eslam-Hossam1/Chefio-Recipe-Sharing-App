@@ -119,11 +119,7 @@ class AppRouter {
                     authCreadentialsHelper: getIt<AuthCredentialsHelper>(),
                   ),
                 ),
-                BlocProvider(
-                  create: (context) => FollowChefCubit(
-                    followChefService: getIt<FollowChefService>(),
-                  ),
-                ),
+
                
               ],
               child: ProfileView(
