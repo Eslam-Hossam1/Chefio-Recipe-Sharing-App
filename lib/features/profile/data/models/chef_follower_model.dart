@@ -5,7 +5,7 @@ class ChefFollowerModel extends ChefConnectionEntity {
   final String id;
   final String username;
   final bool isFollowed;
-  final String profilePicture;
+  final String? profilePicture;
 
    ChefFollowerModel({
     required this.id,
@@ -18,7 +18,7 @@ class ChefFollowerModel extends ChefConnectionEntity {
     return ChefFollowerModel(
       id: json['_id'] as String,
       username: json['username'] as String,
-      profilePicture: json['profilePicture'] as String,
+      profilePicture: json['profilePicture'] as String?,
       isFollowed: json['isFollowed'] as bool,
     );
   }

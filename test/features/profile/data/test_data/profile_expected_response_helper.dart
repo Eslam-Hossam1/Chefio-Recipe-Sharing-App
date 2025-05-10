@@ -58,23 +58,29 @@ abstract class ProfileExpectedResponseHelper {
 
   static const Map<String, dynamic> fetchChefLikedRecipes = {
     "success": true,
-    "message": "User recipes fetched successfully!",
+    "message": "User liked recipes fetched successfully!",
     "recipes": {
-      "totalRecipes": 9,
+      "totalLikedRecipes": 3,
       "currentPage": 2,
-      "totalPages": 9,
+      "totalPages": 3,
       "recipes": [
         {
-          "_id": "680907f1934e126d7f72c2f2",
+          "_id": "67d771a841da91e4f16a0658",
           "foodName": "مكرونه بالسجق",
           "recipePicture":
-              "https://res.cloudinary.com/dj3wmknwu/image/upload/v1745422311/chefio/jxvrjti1qj9yhaohaogc.jpg",
+              "https://res.cloudinary.com/dj3wmknwu/image/upload/v1742172583/chefio/dpcrnkgegihbwvicjnh0.jpg",
           "cookingDuration": 30,
           "category": {
             "_id": "67bf9f6786ed186f039bc3c2",
             "name": "General Dishes"
           },
-          "isLiked": false
+          "createdBy": {
+            "_id": "67d2ebbe5b67e148c1d7cb4f",
+            "username": "Abdelrhman hegazy",
+            "profilePicture":
+                "https://res.cloudinary.com/dj3wmknwu/image/upload/v1746017577/chefio/mvh2sucdu4qm8gnzuikp.jpg"
+          },
+          "isLiked": true
         }
       ]
     }

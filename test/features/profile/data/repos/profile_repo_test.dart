@@ -2,6 +2,7 @@ import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
+import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
 import 'package:chefio_app/features/profile/data/models/chef_follower_model.dart';
 import 'package:chefio_app/features/profile/data/models/chef_following_model.dart';
 import 'package:chefio_app/features/profile/data/models/chef_liked_recipe_model.dart';
@@ -241,7 +242,7 @@ void main() {
         'fetch Chef Following Method',
         () {
           test(
-            'Given profile repository when call  fetchChefFollowing  request   then it should return a List of ChefFollowingModel  ',
+            'Given profile repository when call  fetchChefFollowing  request   then it should return a List of ChefConnectionEntity  ',
             () async {
               final Map<String, dynamic> expectedResponse =
                   ProfileExpectedResponseHelper.fetchChefFollowing;
@@ -265,7 +266,7 @@ void main() {
                   'Expected a List of ChefFollowingModel but got api failure',
                 ),
                 (likedRecipes) =>
-                    expect(likedRecipes, isA<List<ChefFollowingModel>>()),
+                    expect(likedRecipes, isA<List<ChefConnectionEntity>>()),
               );
             },
           );
@@ -303,7 +304,7 @@ void main() {
         'fetch Chef Follwers Method',
         () {
           test(
-            'Given profile repository when call  fetchChefFollowers  request   then it should return a List of ChefFollowersModel  ',
+            'Given profile repository when call  fetchChefFollowers  request   then it should return a List of ChefConnectionEntity  ',
             () async {
               final Map<String, dynamic> expectedResponse =
                   ProfileExpectedResponseHelper.fetchChefFollowers;
@@ -327,7 +328,7 @@ void main() {
                   'Expected a List of ChefFollowerModel but got api failure',
                 ),
                 (likedRecipes) =>
-                    expect(likedRecipes, isA<List<ChefFollowerModel>>()),
+                    expect(likedRecipes, isA<List<ChefConnectionEntity>>()),
               );
             },
           );

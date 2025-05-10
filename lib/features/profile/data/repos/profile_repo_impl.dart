@@ -6,6 +6,7 @@ import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
+import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
 import 'package:chefio_app/features/profile/data/models/chef_follower_model.dart';
 import 'package:chefio_app/features/profile/data/models/chef_following_model.dart';
 import 'package:chefio_app/features/profile/data/models/chef_liked_recipe_model.dart';
@@ -90,7 +91,7 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<Either<DioApiFailure, List<ChefFollowingModel>>> fetchChefFollowings({
+  Future<Either<DioApiFailure, List<ChefConnectionEntity>>> fetchChefFollowings({
     required String chefId,
   }) async {
     try {
@@ -99,7 +100,7 @@ class ProfileRepoImpl implements ProfileRepo {
           chefId,
         ),
       );
-      List<ChefFollowingModel> chefFollowings =
+      List<ChefConnectionEntity> chefFollowings =
           getFollowingsFromResponse(response);
       return Right(chefFollowings);
     } catch (e) {
@@ -108,7 +109,7 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<Either<DioApiFailure, List<ChefFollowerModel>>> fetchChefFollowers({
+  Future<Either<DioApiFailure, List<ChefConnectionEntity>>> fetchChefFollowers({
     required String chefId,
   }) async {
     try {
@@ -117,7 +118,7 @@ class ProfileRepoImpl implements ProfileRepo {
           chefId,
         ),
       );
-      List<ChefFollowerModel> chefFollowers =
+      List<ChefConnectionEntity> chefFollowers =
           getFollowersFromResponse(response);
       return Right(chefFollowers);
     } catch (e) {
@@ -140,7 +141,7 @@ class ProfileRepoImpl implements ProfileRepo {
 
   List<RecipeBodyEntity> getProfileChefRecipesFromResponse(response) {
     List<RecipeBodyEntity> profileChefRecipesList =
-        (response[ApiKeys.recipes][ApiKeys.recipes] as List)
+        (response[ApiKeys.recipes][ApiKeys.data] as List)
             .map((e) => ChefProfileRecipeModel.fromJson(e))
             .toList();
     return profileChefRecipesList;
@@ -148,22 +149,22 @@ class ProfileRepoImpl implements ProfileRepo {
 
   List<RecipeEntity> getProfileChefLikedRecipesFromResponse(response) {
     List<RecipeEntity> profileChefLikedRecipesList =
-        (response[ApiKeys.recipes][ApiKeys.recipes] as List)
+        (response[ApiKeys.recipes][ApiKeys.data] as List)
             .map((e) => ChefLikedRecipeModel.fromJson(e))
             .toList();
     return profileChefLikedRecipesList;
   }
 
-  List<ChefFollowingModel> getFollowingsFromResponse(response) {
-    List<ChefFollowingModel> chefFollowings =
+  List<ChefConnectionEntity> getFollowingsFromResponse(response) {
+    List<ChefConnectionEntity> chefFollowings =
         (response[ApiKeys.following] as List)
             .map((e) => ChefFollowingModel.fromJson(e))
             .toList();
     return chefFollowings;
   }
 
-  List<ChefFollowerModel> getFollowersFromResponse(response) {
-    List<ChefFollowerModel> chefFollowers =
+  List<ChefConnectionEntity> getFollowersFromResponse(response) {
+    List<ChefConnectionEntity> chefFollowers =
         (response[ApiKeys.followers] as List)
             .map((e) => ChefFollowerModel.fromJson(e))
             .toList();

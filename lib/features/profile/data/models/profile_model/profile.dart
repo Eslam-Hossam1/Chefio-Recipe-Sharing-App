@@ -7,7 +7,7 @@ class Profile extends Equatable {
   final String email;
   final String? profilePicture;
   int followersCount;
-  final int followingCount;
+  int followingCount;
   String isFollowing;
   final InitialRecipes recipes;
 

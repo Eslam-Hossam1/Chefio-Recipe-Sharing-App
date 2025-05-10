@@ -20,18 +20,6 @@ final class ChefConnectionsFailure extends ChefConnectionsState {
     required this.errorLocalizationKey,
   });
 }
-
-final class ChefFollowersSuccess extends ChefConnectionsState {
-  final List<ChefFollowerModel> followerModelsList;
-
-  const ChefFollowersSuccess({
-    required this.followerModelsList,
-  });
-}
-
-final class ChefFollowingSuccess extends ChefConnectionsState {
-  final List<ChefFollowingModel> followingModelsList;
-  const ChefFollowingSuccess({
-    required this.followingModelsList,
-  });
-}
+final class ChefHasNoFollowers extends ChefConnectionsState{}
+final class ChefHasNoFollowings extends ChefConnectionsState{}
+final class ChefConnectionsSuccess extends ChefConnectionsState {}

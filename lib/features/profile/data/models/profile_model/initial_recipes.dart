@@ -19,7 +19,7 @@ class InitialRecipes extends Equatable {
         totalRecipes: json['totalRecipes'] as int,
         currentPage: json['currentPage'] as int,
         totalPages: json['totalPages'] as int,
-        recipes: (json['recipes'] as List<dynamic>)
+        recipes: (json['data'] as List<dynamic>)
             .map((e) =>
                 ChefProfileRecipeModel.fromJson(e as Map<String, dynamic>))
             .toList(),

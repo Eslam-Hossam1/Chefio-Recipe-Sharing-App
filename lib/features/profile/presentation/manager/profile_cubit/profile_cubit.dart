@@ -16,6 +16,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     required String chefId,
     required int limit,
   }) async {
+    emit(ProfileLoading());
     this.chefId = chefId;
     var result = await _profileRepo.fetchProfileWithInitialChefRecipes(
       chefId: chefId,

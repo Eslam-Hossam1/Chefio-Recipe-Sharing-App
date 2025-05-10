@@ -2,7 +2,7 @@ import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
-import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/follow_button.dart';
+import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/big_follow_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +45,7 @@ class _ProfileFollowButtonState extends State<ProfileFollowButton> {
           );
         }
       },
-      child: FollowButton(
+      child: BigFollowButton(
         isFollowing: isFollowing,
         onPressed: _toggleFollow,
       ),
