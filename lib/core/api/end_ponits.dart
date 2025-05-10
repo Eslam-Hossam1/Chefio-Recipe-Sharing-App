@@ -57,6 +57,6 @@ abstract class EndPoints {
   }
 
   static String getChefFollowersEndpoint(String chefId) {
-    return "chef/follow/$chefId";
+    return "chef/follow/get-followers/$chefId";
   }
 }
