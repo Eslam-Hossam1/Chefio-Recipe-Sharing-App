@@ -20,7 +20,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
       placeholder: (context, url) =>
           placeHolder ??
           Container(
-            color: Colors.grey[300],
+            color: Color(0xffEBEBF4),
           ),
       errorWidget: (context, url, error) => Center(
         child: Icon(
