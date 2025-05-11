@@ -104,7 +104,7 @@ abstract class ShellBranches {
                 ),
               ),
               BlocProvider(
-                create: (context) => ChefProfileRecipesCubit(
+                create: (context) => ChefLikedRecipesCubit(
                   profileRepo: getIt<ProfileRepoImpl>(),
                 ),
               ),

@@ -17,8 +17,11 @@ class ProfileLikedRecipesSection extends StatefulWidget {
 }
 
 class _ProfileLikedRecipesSectionState
-    extends State<ProfileLikedRecipesSection> {
+    extends State<ProfileLikedRecipesSection>   with AutomaticKeepAliveClientMixin {
   late ScrollController _scrollController;
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -38,6 +41,7 @@ class _ProfileLikedRecipesSectionState
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(child: ProfileSeparatorSizedBox()),

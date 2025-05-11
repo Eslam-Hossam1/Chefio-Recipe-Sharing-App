@@ -14,7 +14,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   late String chefId;
   Future<void> fetchChefProfileWithInitialRecipes({
     required String chefId,
-    required int limit,
+     int limit=30,
   }) async {
     emit(ProfileLoading());
     this.chefId = chefId;

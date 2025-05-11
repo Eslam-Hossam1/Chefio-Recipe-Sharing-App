@@ -17,8 +17,11 @@ class ProfileChefRecipesSection extends StatefulWidget {
       _ProfileChefRecipesSectionState();
 }
 
-class _ProfileChefRecipesSectionState extends State<ProfileChefRecipesSection> {
+class _ProfileChefRecipesSectionState extends State<ProfileChefRecipesSection>  with AutomaticKeepAliveClientMixin  {
   late ScrollController _scrollController;
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -44,6 +47,7 @@ class _ProfileChefRecipesSectionState extends State<ProfileChefRecipesSection> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(child: ProfileSeparatorSizedBox()),

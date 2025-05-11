@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/Functions/get_text_theme.dart';
+import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
 import 'package:chefio_app/core/cubit/like_recipe_cubit/like_recipe_cubit.dart';
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
 import 'package:chefio_app/core/services/follow_chef_service.dart';
@@ -38,6 +39,10 @@ class Chefio extends StatelessWidget {
               BlocProvider(
                 create: (context) =>
                     ChefConnectionsCubit(profileRepo: getIt<ProfileRepoImpl>()),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    FollowChefCubit(followChefService: getIt<FollowChefService>()),
               ),
               BlocProvider(
                 create: (context) =>
