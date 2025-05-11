@@ -22,6 +22,7 @@ import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/verification_code_view.dart';
+import 'package:chefio_app/features/edit_profile/presentation/views/edit_profile_view.dart';
 import 'package:chefio_app/features/main/presentation/view/main_view.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
@@ -81,7 +82,7 @@ class AppRouter {
 
       return null; // معناها كمل طبيعي
     },
-    initialLocation: RoutePaths.splash,
+    initialLocation: RoutePaths.editProfile,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
@@ -177,6 +178,10 @@ class AppRouter {
               LogInCubit(getIt<AuthRepoImpl>(), getIt<AuthCredentialsHelper>()),
           child: const LoginView(),
         ),
+      ),
+      GoRoute(
+        path: RoutePaths.editProfile,
+        builder: (context, state) => const EditProfileView(),
       ),
       GoRoute(
         path: RoutePaths.signup,
