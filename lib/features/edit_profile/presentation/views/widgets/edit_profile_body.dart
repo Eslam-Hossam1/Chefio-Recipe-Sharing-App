@@ -66,8 +66,9 @@ class _EditProfileBodyState extends State<EditProfileBody> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                  padding: EdgeInsets.only(bottom: 32.h),
-                  child: EditSubmitButton(),),
+                padding: EdgeInsets.only(bottom: 32.h),
+                child: EditSubmitButton(),
+              ),
             ),
           )
         ],

@@ -20,6 +20,9 @@ final class ChefConnectionsFailure extends ChefConnectionsState {
     required this.errorLocalizationKey,
   });
 }
-final class ChefHasNoFollowers extends ChefConnectionsState{}
-final class ChefHasNoFollowings extends ChefConnectionsState{}
+
+final class ChefHasNoFollowers extends ChefConnectionsState {}
+
+final class ChefHasNoFollowings extends ChefConnectionsState {}
+
 final class ChefConnectionsSuccess extends ChefConnectionsState {}

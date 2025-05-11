@@ -104,7 +104,6 @@ class AppRouter {
 
             return MultiBlocProvider(
               providers: [
-                
                 BlocProvider(
                   create: (context) => ChefProfileRecipesCubit(
                     profileRepo: getIt<ProfileRepoImpl>(),
@@ -120,8 +119,6 @@ class AppRouter {
                     authCreadentialsHelper: getIt<AuthCredentialsHelper>(),
                   ),
                 ),
-
-               
               ],
               child: ProfileView(
                 chefId: chefId,

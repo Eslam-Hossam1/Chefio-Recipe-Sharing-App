@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 part 'follow_chef_in_my_profile_state.dart';
 
 class FollowChefInMyProfileCubit extends Cubit<FollowChefInMyProfileState> {
-    final FollowChefService _followChefService;
+  final FollowChefService _followChefService;
   FollowChefInMyProfileCubit({required FollowChefService followChefService})
       : _followChefService = followChefService,
         super(
@@ -16,13 +16,17 @@ class FollowChefInMyProfileCubit extends Cubit<FollowChefInMyProfileState> {
   Future<void> toggleFollowChefInMyProfile({
     required ChefConnectionEntity chefConnection,
   }) async {
-    emit(FollowChefInMyProfileProcessing(chefFollowing: chefConnection,));
-    var result = await _followChefService.toggleFollowChef(chefId: chefConnection.chefId);
+    emit(FollowChefInMyProfileProcessing(
+      chefFollowing: chefConnection,
+    ));
+    var result = await _followChefService.toggleFollowChef(
+        chefId: chefConnection.chefId);
     result.fold(
       (failure) {
-        emit(
-          FollowChefInMyProfileFailure(chefFollowing: chefConnection,errLocalization: failure.localizaitonKey,)
-        );
+        emit(FollowChefInMyProfileFailure(
+          chefFollowing: chefConnection,
+          errLocalization: failure.localizaitonKey,
+        ));
       },
       (success) {
         emit(

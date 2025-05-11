@@ -40,7 +40,7 @@ class ChefFollowingItemConsumer extends StatelessWidget {
                     .chefFollowing;
             if (chefFollowing.isFollowing) {
               profileModel!.profile.followingCount--;
-              chefFollowing.isFollowing =false;
+              chefFollowing.isFollowing = false;
             } else {
               profileModel!.profile.followingCount++;
               chefFollowing.isFollowing = true;

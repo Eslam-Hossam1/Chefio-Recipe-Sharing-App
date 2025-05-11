@@ -4,5 +4,9 @@ class ChefConnectionEntity {
   final String? chefProfilePicture;
   bool isFollowing;
 
-  ChefConnectionEntity({required this.chefId, required this.chefUsername, required this.chefProfilePicture, required this.isFollowing});
+  ChefConnectionEntity(
+      {required this.chefId,
+      required this.chefUsername,
+      required this.chefProfilePicture,
+      required this.isFollowing});
 }

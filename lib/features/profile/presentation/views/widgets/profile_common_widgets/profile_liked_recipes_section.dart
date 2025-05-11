@@ -16,8 +16,8 @@ class ProfileLikedRecipesSection extends StatefulWidget {
       _ProfileLikedRecipesSectionState();
 }
 
-class _ProfileLikedRecipesSectionState
-    extends State<ProfileLikedRecipesSection>   with AutomaticKeepAliveClientMixin {
+class _ProfileLikedRecipesSectionState extends State<ProfileLikedRecipesSection>
+    with AutomaticKeepAliveClientMixin {
   late ScrollController _scrollController;
 
   @override

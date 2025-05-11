@@ -41,8 +41,8 @@ class Chefio extends StatelessWidget {
                     ChefConnectionsCubit(profileRepo: getIt<ProfileRepoImpl>()),
               ),
               BlocProvider(
-                create: (context) =>
-                    FollowChefCubit(followChefService: getIt<FollowChefService>()),
+                create: (context) => FollowChefCubit(
+                    followChefService: getIt<FollowChefService>()),
               ),
               BlocProvider(
                 create: (context) =>

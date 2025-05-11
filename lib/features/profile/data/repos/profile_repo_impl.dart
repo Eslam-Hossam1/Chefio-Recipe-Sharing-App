@@ -91,7 +91,8 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<Either<DioApiFailure, List<ChefConnectionEntity>>> fetchChefFollowings({
+  Future<Either<DioApiFailure, List<ChefConnectionEntity>>>
+      fetchChefFollowings({
     required String chefId,
   }) async {
     try {

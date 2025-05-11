@@ -15,6 +15,7 @@ abstract class EndPoints {
   static const String googleSignIn = "auth/google-signin";
   static const String recipes = "recipe/get-recipes";
   static const String uploadRecipe = "recipe/create-recipe";
+  static const String editProfile = "user/edit-profile";
 
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";

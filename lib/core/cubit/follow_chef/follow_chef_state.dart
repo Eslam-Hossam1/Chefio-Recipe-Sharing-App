@@ -19,7 +19,6 @@ final class FollowChefProcessing extends FollowChefState
   const FollowChefProcessing({required this.chefId});
 }
 
-
 final class FollowChefFaiure extends FollowChefState
     implements FollowChefStateWithId {
   final String errorMessage;

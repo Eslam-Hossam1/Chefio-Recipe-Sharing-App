@@ -14,7 +14,7 @@ abstract class ProfileExpectedResponseHelper {
         "totalRecipes": 9,
         "currentPage": 2,
         "totalPages": 9,
-        "recipes": [
+        "data": [
           {
             "_id": "680907f1934e126d7f72c2f2",
             "foodName": "مكرونه بالسجق",
@@ -39,7 +39,7 @@ abstract class ProfileExpectedResponseHelper {
       "totalRecipes": 9,
       "currentPage": 2,
       "totalPages": 9,
-      "recipes": [
+      "data": [
         {
           "_id": "680907f1934e126d7f72c2f2",
           "foodName": "مكرونه بالسجق",
@@ -63,7 +63,7 @@ abstract class ProfileExpectedResponseHelper {
       "totalLikedRecipes": 3,
       "currentPage": 2,
       "totalPages": 3,
-      "recipes": [
+      "data": [
         {
           "_id": "67d771a841da91e4f16a0658",
           "foodName": "مكرونه بالسجق",

@@ -35,11 +35,14 @@ class FollowChefCubit extends Cubit<FollowChefState> {
       },
     );
   }
+
   Future<void> toggleFollowChefInMyProfile({
     required String chefId,
     required int changeInFollowingCount,
   }) async {
-    emit(FollowChefProcessing(chefId: chefId,));
+    emit(FollowChefProcessing(
+      chefId: chefId,
+    ));
     var result = await _followChefService.toggleFollowChef(chefId: chefId);
     result.fold(
       (failure) {

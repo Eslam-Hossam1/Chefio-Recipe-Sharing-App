@@ -7,12 +7,16 @@ class ChefFollowingModel extends ChefConnectionEntity {
   final String profilePicture;
   final bool isFollowed;
 
-   ChefFollowingModel({
+  ChefFollowingModel({
     required this.id,
     required this.username,
     required this.profilePicture,
     required this.isFollowed,
-  }) : super(chefId: id, chefUsername: username, chefProfilePicture: profilePicture, isFollowing: isFollowed);
+  }) : super(
+            chefId: id,
+            chefUsername: username,
+            chefProfilePicture: profilePicture,
+            isFollowing: isFollowed);
 
   factory ChefFollowingModel.fromJson(Map<String, dynamic> json) {
     return ChefFollowingModel(
