@@ -29,7 +29,7 @@ class UserTileItem extends StatelessWidget {
           height: (baseSize.w).clamp(baseSize, baseSize + (baseSize / 4)),
           width: (baseSize.w).clamp(baseSize, baseSize + (baseSize / 4)),
           child: CustomCachedNetworkImage(
-              url: userImageUrl ?? Constants.nullProfileUserImageUrl),
+              url: userImageUrl ?? Constants.nullUserImageUrl),
         ),
         SizedBox(
           width: intermediateSpace.w,

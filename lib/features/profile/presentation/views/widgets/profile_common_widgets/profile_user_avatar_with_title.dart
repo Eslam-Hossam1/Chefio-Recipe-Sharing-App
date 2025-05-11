@@ -28,7 +28,7 @@ class ProfileUserAvatarWithTitle extends StatelessWidget {
                     return Center(
                       child: CustomCachedNetworkImage(
                         url: profileModel.profile.profilePicture ??
-                            Constants.nullProfileUserImageUrl,
+                            Constants.nullUserImageUrl,
                       ),
                     );
                   });
@@ -41,7 +41,7 @@ class ProfileUserAvatarWithTitle extends StatelessWidget {
                   width: (100.w).clamp(80, 140),
                   child: CustomCachedNetworkImage(
                       url: profileModel.profile.profilePicture ??
-                          Constants.nullProfileUserImageUrl)),
+                          Constants.nullUserImageUrl)),
             ),
           ),
           SizedBox(

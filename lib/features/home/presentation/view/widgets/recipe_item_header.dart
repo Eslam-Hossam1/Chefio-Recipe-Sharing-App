@@ -32,8 +32,7 @@ class RecipeItemHeader extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: CustomCachedNetworkImage(
-                  url: recipeEntity.chefImageUrl ??
-                      Constants.nullProfileUserImageUrl,
+                  url: recipeEntity.chefImageUrl ?? Constants.nullUserImageUrl,
                 ),
               ),
             ),
