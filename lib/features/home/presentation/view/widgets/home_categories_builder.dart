@@ -24,9 +24,9 @@ class HomeCategoriesBuilder extends StatelessWidget {
             key: ValueKey(
                 context.read<HomeCategoriesCubit>().categories.hashCode),
             categories: context.read<HomeCategoriesCubit>().categories,
-            onCategoryPressed: (categoryName) {
+            onCategoryPressed: (category) {
               context.read<HomeRecipesCubit>().fetchRecipesWithChangeCategory(
-                    categoryName: categoryName,
+                    categoryName: category.name,
                   );
             },
           );

@@ -22,9 +22,12 @@ import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/verification_code_view.dart';
+import 'package:chefio_app/features/edit_profile/data/repos/edit_profile_repo_impl.dart';
+import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profile/edit_profile_cubit.dart';
 import 'package:chefio_app/features/edit_profile/presentation/views/edit_profile_view.dart';
 import 'package:chefio_app/features/main/presentation/view/main_view.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
+import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_connections_cubit/chef_connections_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_liked_recipes_cubit/chef_liked_recipes_cubit.dart';
@@ -82,7 +85,7 @@ class AppRouter {
 
       return null; // معناها كمل طبيعي
     },
-    initialLocation: RoutePaths.editProfile,
+    initialLocation: RoutePaths.splash,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
@@ -178,7 +181,18 @@ class AppRouter {
       ),
       GoRoute(
         path: RoutePaths.editProfile,
-        builder: (context, state) => const EditProfileView(),
+        builder: (context, state) {
+          final ProfileModel profileModel = state.extra as ProfileModel;
+          return BlocProvider(
+            create: (context) => EditProfileCubit(
+              croppedImagePickerHelper: getIt<CroppedImagePickerHelper>(),
+              editProfileRepo: getIt<EditProfileRepoImpl>(),
+            ),
+            child: EditProfileView(
+              profileModel: profileModel,
+            ),
+          );
+        },
       ),
       GoRoute(
         path: RoutePaths.signup,

@@ -29,8 +29,8 @@ class UploadChooseCategorySection extends StatelessWidget {
           CategoriesListView(
             applyPadding: false,
             categories: context.read<UploadRecipeCubit>().categories,
-            onCategoryPressed: (categoryName) {
-              context.read<UploadRecipeCubit>().categoryName = categoryName;
+            onCategoryPressed: (category) {
+              context.read<UploadRecipeCubit>().categoryId = category.id;
             },
           )
         ],

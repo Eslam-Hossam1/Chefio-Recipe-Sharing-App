@@ -2,7 +2,7 @@ import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:dio/dio.dart';
 
 class EditProfileModel {
-  final MultipartFile chefProfilePicture;
+  final MultipartFile? chefProfilePicture;
   final String chefUsername;
 
   const EditProfileModel(

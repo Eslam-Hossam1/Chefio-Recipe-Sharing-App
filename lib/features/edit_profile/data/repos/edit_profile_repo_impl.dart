@@ -23,6 +23,7 @@ class EditProfileRepoImpl implements EditProfileRepo {
       final response = await _apiConsumer.patch(
         EndPoints.editProfile,
         data: editProfileModel.toJson(),
+        isFromData: true
       );
       SuccessEditProfileModel successEditProfileModel =
           SuccessEditProfileModel.fromJson(response);

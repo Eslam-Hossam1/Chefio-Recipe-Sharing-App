@@ -21,7 +21,7 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
   String foodName = '';
   String foodDescription = '';
   int foodCookDuration = 1;
-  String categoryName = '';
+  String categoryId = '';
   File? foodImage;
   List<Category> categories = [];
 
@@ -72,7 +72,7 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
 
     foodDescription = recipeDetailModel.description;
     foodCookDuration = recipeDetailModel.cookingDuration;
-    categoryName = recipeDetailModel.category.name!;
+    categoryId = recipeDetailModel.category.id!;
     log(foodName);
 
     ingredients = recipeDetailModel.ingredients;
@@ -94,12 +94,10 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
     }, (returnedCategories) {
       this.categories = returnedCategories;
       if (!isEdit) {
-        categoryName = categories[0].name;
+        categoryId = categories[0].id;
       } else {
         for (int i = 0; i < categories.length; i++) {
-          if (categories[i].name == categoryName) {
-            log(categories[i].name);
-            log(categoryName);
+          if (categories[i].id == categoryId) {
             Category temp = categories[i];
             categories[i] = categories[0];
             categories[0] = temp;
@@ -170,7 +168,7 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
       foodName: foodName,
       foodDescription: foodDescription,
       foodCookDuration: foodCookDuration,
-      categoryName: categoryName,
+      categoryId: categoryId,
       foodImage: convertToMultipart(foodImage)!,
     );
   }
@@ -183,7 +181,7 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
       foodName: foodName,
       foodDescription: foodDescription,
       foodCookDuration: foodCookDuration,
-      categoryName: categoryName,
+      categoryId: categoryId,
       foodImage: convertToMultipart(foodImage),
     );
   }

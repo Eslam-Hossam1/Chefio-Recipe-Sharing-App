@@ -1,8 +1,10 @@
 import 'package:chefio_app/core/utils/assets.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SetRecipeSuccessDialog extends StatelessWidget {
   const SetRecipeSuccessDialog({
@@ -26,7 +28,7 @@ class SetRecipeSuccessDialog extends StatelessWidget {
             ),
             Text(
               textAlign: TextAlign.center,
-              "klajklfjdakljfklasjfjadjfaklfkasjdklfjklasjfkljskldjfklj",
+              "Upload Success",
               style: Styles.textStyleMedium17(context)
                   .copyWith(color: context.mainTextColor),
             ),
@@ -35,7 +37,7 @@ class SetRecipeSuccessDialog extends StatelessWidget {
             ),
             Text(
               textAlign: TextAlign.center,
-              "klajklfjdakljfklasjfjadjfaklfkasjdklfjklasjfkljskldjfklj",
+              "Your recipe has been uploaded,you can see it on your profile",
               style: Styles.textStyleMedium15(context)
                   .copyWith(color: context.mainTextColor),
             ),
@@ -43,6 +45,9 @@ class SetRecipeSuccessDialog extends StatelessWidget {
               height: 24,
             ),
             CustomTextButton(
+              onPressed: () {
+                context.go(RoutePaths.home);
+              },
               child: Text(
                 "go to home",
                 style: Styles.textStyleMedium15(context)

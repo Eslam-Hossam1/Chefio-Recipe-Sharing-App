@@ -7,7 +7,7 @@ class UploadRecipeModel {
   final MultipartFile foodImage;
   final String foodName;
   final String foodDescription;
-  final String categoryName;
+  final String categoryId;
   final int foodCookDuration;
   final List<String> ingredients;
   final List<String> steps;
@@ -18,7 +18,7 @@ class UploadRecipeModel {
     required this.foodName,
     required this.foodDescription,
     required this.foodCookDuration,
-    required this.categoryName,
+    required this.categoryId,
     required this.foodImage,
   });
 
@@ -27,7 +27,7 @@ class UploadRecipeModel {
         ApiKeys.foodName: foodName,
         ApiKeys.description: foodDescription,
         ApiKeys.cookingDuration: foodCookDuration,
-        // ApiKeys.category: categoryName,
+         ApiKeys.categoryId: categoryId,
         ApiKeys.ingredients: jsonEncode(ingredients),
         ApiKeys.steps: jsonEncode(steps)
       };

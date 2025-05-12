@@ -9,14 +9,24 @@ sealed class EditProfileState extends Equatable {
 
 final class EditProfileInitial extends EditProfileState {}
 
+final class EditProfilePickedImage extends EditProfileState {}
+
+class EditProfileUserNameChange extends EditProfileState {
+  final String username;
+  const EditProfileUserNameChange(this.username);
+
+  @override
+  List<Object> get props => [username];
+}
+
 final class EditProfileLoading extends EditProfileState {}
 
 final class EditProfileFailure extends EditProfileState {
   final String errMsg;
   final String errorLocalization;
 
-  const EditProfileFailure({required this.errMsg, required this.errorLocalization});
-  
+  const EditProfileFailure(
+      {required this.errMsg, required this.errorLocalization});
 }
 
 final class EditProfileSuccess extends EditProfileState {}

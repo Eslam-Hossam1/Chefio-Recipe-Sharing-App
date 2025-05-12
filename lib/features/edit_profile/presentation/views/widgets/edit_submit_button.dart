@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 
 class EditSubmitButton extends StatelessWidget {
   const EditSubmitButton({
-    super.key,
+    super.key,required this.onPressed,
   });
-
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return CustomTextButton(
+      onPressed: onPressed,
       width: double.infinity,
       child: Text(
         "Submit",

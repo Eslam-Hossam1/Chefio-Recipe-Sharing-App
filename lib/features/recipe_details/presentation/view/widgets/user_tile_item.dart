@@ -24,7 +24,8 @@ class UserTileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CustomCircleImage(baseSize: baseSize, userImageUrl: userImageUrl),
+        CustomNetworkCircleImage(
+            baseSize: baseSize, userImageUrl: userImageUrl),
         SizedBox(
           width: intermediateSpace.w,
         ),

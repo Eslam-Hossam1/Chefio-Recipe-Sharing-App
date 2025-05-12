@@ -12,7 +12,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
   final HomeRepo _homeRepo;
   List<RecipeEntity> recipes = [];
   int page = 0;
-  int limit = 12;
+  int limit = 30;
   bool isLoading = false;
   bool hasMoreData = true;
   String categoryName = '';

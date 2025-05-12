@@ -18,7 +18,7 @@ class CategoriesListView extends StatefulWidget {
       required this.onCategoryPressed,
       this.applyPadding = true});
   final List<Category> categories;
-  final Function(String categoryName) onCategoryPressed;
+  final Function(Category category) onCategoryPressed;
   final bool applyPadding;
   @override
   State<CategoriesListView> createState() => _CategoriesListViewState();
@@ -65,7 +65,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
                 setState(() {
                   selectedCategoryIndex = index;
                 });
-                widget.onCategoryPressed(widget.categories[index].name);
+                widget.onCategoryPressed(widget.categories[index]);
               },
             ),
           );

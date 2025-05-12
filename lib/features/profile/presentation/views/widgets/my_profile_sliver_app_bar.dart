@@ -1,8 +1,6 @@
-import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
+import 'package:chefio_app/features/profile/presentation/views/widgets/my_profile_pop_up_menu_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class MyProfileSliverAppBar extends StatelessWidget {
   const MyProfileSliverAppBar({
@@ -21,16 +19,7 @@ class MyProfileSliverAppBar extends StatelessWidget {
           child: Row(
             children: [
               Spacer(),
-              IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset(
-                  Assets.imagesShare,
-                  colorFilter: ColorFilter.mode(
-                    context.mainTextColor,
-                    BlendMode.srcIn,
-                  ),
-                ),
-              ),
+             MyProfilePopUpMenuButton(),
             ],
           ),
         ));

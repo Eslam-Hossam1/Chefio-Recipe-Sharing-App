@@ -1,6 +1,9 @@
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profile/edit_profile_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
 class Username extends StatelessWidget {
   const Username({
@@ -10,14 +13,19 @@ class Username extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Center(
-        child: Text(
-          textAlign: TextAlign.center,
-          'Doja Cat',
-          style: Styles.textStyleBold22(context).copyWith(
-            color: context.mainTextColor,
-          ),
-        ),
+      child: BlocBuilder<EditProfileCubit, EditProfileState>(
+        builder: (context, state) {
+
+          return Center(
+            child: Text(
+              textAlign: TextAlign.center,
+              context.read<EditProfileCubit>().chefName,
+              style: Styles.textStyleBold22(context).copyWith(
+                color: context.mainTextColor,
+              ),
+            ),
+          );
+        },
       ),
     );
   }

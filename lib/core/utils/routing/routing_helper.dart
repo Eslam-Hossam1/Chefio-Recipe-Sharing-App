@@ -11,4 +11,5 @@ abstract class RoutingHelper {
 
   static const String getSearchNestedRoutePath =
       '${RoutePaths.home}/${RoutePaths.search}';
+
 }
