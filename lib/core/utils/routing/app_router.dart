@@ -85,7 +85,7 @@ class AppRouter {
 
       return null; // معناها كمل طبيعي
     },
-    initialLocation: RoutePaths.splash,
+    initialLocation: RoutePaths.notifications,
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
