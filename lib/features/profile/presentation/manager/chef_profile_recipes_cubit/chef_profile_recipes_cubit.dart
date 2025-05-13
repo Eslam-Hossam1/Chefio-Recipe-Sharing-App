@@ -71,6 +71,7 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
       emit(EmptyChefRecipes());
       return;
     }
+    chefRecipes.clear();
     chefRecipes.addAll(chefInitialRecipes);
     this.limit = limit;
     page += 1;
