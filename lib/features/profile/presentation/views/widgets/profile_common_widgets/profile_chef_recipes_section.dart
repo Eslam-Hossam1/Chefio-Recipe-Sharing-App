@@ -49,14 +49,8 @@ class _ProfileChefRecipesSectionState extends State<ProfileChefRecipesSection>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(child: ProfileSeparatorSizedBox()),
-        ProfileChefRecipesGrid(
-          recipes: context.read<ChefProfileRecipesCubit>().chefRecipes,
-        ),
-        ProfileChefRecipesScrollingLoadingIndicatorbuilder()
-      ],
+    return ProfileChefRecipesGrid(
+      recipes: context.read<ChefProfileRecipesCubit>().chefRecipes,
     );
   }
 }

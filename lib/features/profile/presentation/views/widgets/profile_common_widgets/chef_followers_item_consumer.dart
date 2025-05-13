@@ -6,10 +6,25 @@ import 'package:chefio_app/features/profile/presentation/views/widgets/profile_c
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ChefFollowersItemConsumer extends StatelessWidget {
+class ChefFollowersItemConsumer extends StatefulWidget {
   const ChefFollowersItemConsumer({
     super.key,
   });
+
+  @override
+  State<ChefFollowersItemConsumer> createState() =>
+      _ChefFollowersItemConsumerState();
+}
+
+class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
+  late int followersCount;
+
+  @override
+  void initState() {
+    super.initState();
+    followersCount =
+        context.read<ProfileCubit>().profileModel!.profile.followersCount;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,16 +50,20 @@ class ChefFollowersItemConsumer extends StatelessWidget {
               (state as FollowChefStateWithId).chefId == profileChefId) {
             if (profileModel!.profile.isFollowing == ApiKeys.following) {
               profileModel.profile.followersCount--;
-              profileModel.profile.isFollowing == ApiKeys.notFollowing;
+              followersCount--;
+              profileModel.profile.isFollowing = ApiKeys.notFollowing;
             } else {
               profileModel.profile.followersCount++;
+              followersCount++;
               profileModel.profile.isFollowing = ApiKeys.following;
             }
+
           }
         },
         builder: (context, state) {
+
           return ProfileChefInfoItem(
-            number: '${profileModel!.profile.followersCount}',
+            number: '$followersCount',
             text: 'Followers',
           );
         },

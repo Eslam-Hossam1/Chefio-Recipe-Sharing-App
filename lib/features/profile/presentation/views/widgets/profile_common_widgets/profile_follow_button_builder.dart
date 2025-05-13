@@ -1,4 +1,3 @@
-import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_follow_button_cubit/profile_follow_button_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_follow_button.dart';
@@ -32,9 +31,7 @@ class _ProfileFollowButtonBuilderState
         if (state is NotMyProfile) {
           return ProfileFollowButton();
         } else {
-          return SizedBox(
-            height: 24,
-          );
+          return SizedBox.shrink();
         }
       },
     );

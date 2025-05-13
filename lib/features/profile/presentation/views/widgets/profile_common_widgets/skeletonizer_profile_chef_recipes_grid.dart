@@ -26,7 +26,7 @@ class SkeletonizerProfileChefRecipesGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Skeletonizer(
+    return Skeletonizer.sliver(
       enabled: true,
       child: SkeletonizerProfileRecipesGridView(recipes: recipes),
     );

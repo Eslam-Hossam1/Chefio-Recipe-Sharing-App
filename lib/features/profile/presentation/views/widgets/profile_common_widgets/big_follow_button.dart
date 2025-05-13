@@ -16,7 +16,7 @@ class BigFollowButton extends StatelessWidget {
     final textColor = isFollowing ? context.mainTextColor : Colors.white;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 56.w, vertical: 24),
+      padding: EdgeInsets.only(right: 56.w,left: 56.w, bottom: 24),
       child: CustomTextButton(
         onPressed: onPressed,
         backgroundColor: buttonColor,

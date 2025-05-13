@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 
 class ProfileTabBar extends StatelessWidget {
   const ProfileTabBar({
-    super.key,
+    super.key, required this.tabController,
   });
+  final TabController tabController;
 
   @override
   Widget build(BuildContext context) {
     return TabBar(
+      controller: tabController,
       isScrollable: false,
       dividerColor: context.outlineColor,
       indicatorSize: TabBarIndicatorSize.tab,

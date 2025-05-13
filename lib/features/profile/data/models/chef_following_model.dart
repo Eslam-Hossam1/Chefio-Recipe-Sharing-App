@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 class ChefFollowingModel extends ChefConnectionEntity {
   final String id;
   final String username;
-  final String profilePicture;
+  final String? profilePicture;
   final bool isFollowed;
 
   ChefFollowingModel({
@@ -22,7 +22,7 @@ class ChefFollowingModel extends ChefConnectionEntity {
     return ChefFollowingModel(
       id: json['_id'] as String,
       username: json['username'] as String,
-      profilePicture: json['profilePicture'] as String,
+      profilePicture: json['profilePicture'] as String?,
       isFollowed: json['isFollowed'] as bool,
     );
   }
