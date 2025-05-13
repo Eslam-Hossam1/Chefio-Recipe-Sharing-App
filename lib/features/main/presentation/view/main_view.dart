@@ -1,9 +1,13 @@
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/main/presentation/view/utils/bottom_nav_bar_item_builder.dart';
+import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:chefio_app/features/main/data/models/bottom_nav_bar_model.dart';
 
@@ -75,7 +79,7 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
         showUnselectedLabels: true,
         showSelectedLabels: true,
         onTap: (index) {
-          _onNavBarItemTap(context, callBackIndex: index, uploadItemIndex: 1);
+          _onNavBarItemTap(context, callBackIndex: index, uploadItemIndex: 1,myProfileItemIndex: 3);
         },
       ),
     );
@@ -85,10 +89,18 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
     BuildContext context, {
     required int callBackIndex,
     required int uploadItemIndex,
+    required int myProfileItemIndex,
   }) {
     if (callBackIndex == uploadItemIndex) {
       context.push(RoutePaths.upload);
       return;
+    }
+    if(callBackIndex==myProfileItemIndex){
+          context.read<ProfileCubit>().fetchChefProfileWithInitialRecipes(
+          chefId: getIt<AuthCredentialsHelper>().userId!,
+          limit: 30,
+        );
+        
     }
 
     selectedNavBarItemIndex = callBackIndex;
