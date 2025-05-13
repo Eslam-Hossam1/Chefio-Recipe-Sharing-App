@@ -5,7 +5,7 @@ import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_categories_cubit/home_categories_cubit.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/home_view.dart';
-import 'package:chefio_app/features/notifiactions/presentation/view/notifications_view_test.dart';
+import 'package:chefio_app/features/notifiactions/presentation/view/notifications_view.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_liked_recipes_cubit/chef_liked_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
@@ -84,7 +84,7 @@ abstract class ShellBranches {
       routes: [
         GoRoute(
           path: RoutePaths.notifications,
-          builder: (context, state) => const NotificationPage(),
+          builder: (context, state) => const NotificationsView(),
         ),
       ],
     );
