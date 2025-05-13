@@ -1,7 +1,5 @@
-import 'package:chefio_app/core/Functions/convert_to_multipart.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/custom_cancel.dart';
-import 'package:chefio_app/features/edit_profile/data/models/edit_profile_model.dart';
 import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profile/edit_profile_cubit.dart';
 import 'package:chefio_app/features/edit_profile/presentation/views/widgets/edit_submit_button.dart';
 import 'package:chefio_app/features/edit_profile/presentation/views/widgets/edit_user_avatar.dart';
@@ -36,6 +34,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
   Widget build(BuildContext context) {
     return AdaptivePadding(
         child: Form(
+      autovalidateMode: _autovalidateMode,
       key: _formKey,
       child: CustomScrollView(
         slivers: [
