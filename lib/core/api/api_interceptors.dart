@@ -75,7 +75,7 @@ class ApiInterceptor extends Interceptor {
       log('refresh success');
       final json = response.data;
       String accessToken = json[ApiKeys.newAccessToken];
-      authCredentialsHelper.storeAccessToken(accessToken);
+      await authCredentialsHelper.storeAccessToken(accessToken);
       return true;
     } on Exception catch (e) {
       if (e is DioException) {
