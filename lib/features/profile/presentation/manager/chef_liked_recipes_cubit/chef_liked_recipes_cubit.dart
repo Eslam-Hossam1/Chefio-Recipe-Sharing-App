@@ -16,8 +16,9 @@ class ChefLikedRecipesCubit extends Cubit<ChefLikedRecipesState> {
   bool hasMore = true;
   bool isLoading = false;
   List<RecipeEntity> chefLikedRecipes = [];
-
+  String? chefId;
   Future<void> fetchChefLikedRecipes({required String chefId}) async {
+    this.chefId = chefId;
     if (isLoading || !hasMore) return;
     isLoading = true;
     if (chefLikedRecipes.isNotEmpty) {
@@ -62,5 +63,14 @@ class ChefLikedRecipesCubit extends Cubit<ChefLikedRecipesState> {
       isLoading = false;
       emit(ChefLikedRecipesSuccess());
     });
+  }
+
+  Future<void> refersh({required String chefId}) async {
+  page = 1;
+  hasMore = true;
+  isLoading = false;
+  chefLikedRecipes.clear();
+  emit(ChefLikedRecipesInitial()); // نرجع للحالة المبدئية مثلاً
+  await  fetchChefLikedRecipes(chefId: chefId!);
   }
 }
