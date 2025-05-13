@@ -38,4 +38,28 @@ class ProfileCubit extends Cubit<ProfileState> {
       },
     );
   }
+  Future<void> refresh({
+    int limit = 30,
+  }) async {
+    emit(ProfileLoading());
+    var result = await _profileRepo.fetchProfileWithInitialChefRecipes(
+      chefId: chefId,
+      page: 1,
+      limit: limit,
+    );
+    result.fold(
+      (failure) => emit(
+        ProfileFailure(
+          errMsg: failure.errMsg,
+          errLocalizationError: failure.localizaitonKey,
+        ),
+      ),
+      (profileModel) {
+        this.profileModel = profileModel;
+        emit(
+          ProfileSuccess(),
+        );
+      },
+    );
+  }
 }
