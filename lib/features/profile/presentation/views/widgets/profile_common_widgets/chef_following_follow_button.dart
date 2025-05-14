@@ -35,7 +35,7 @@ class _ChefFollowingFollowButtonState extends State<ChefFollowingFollowButton> {
     setState(() {
       widget.chefConnectionEntity.isFollowing =
           !widget.chefConnectionEntity.isFollowing;
-      isFollowing = widget.chefConnectionEntity.isFollowing;
+      isFollowing = !isFollowing;
       if (isMyProfile) {
         context.read<FollowChefInMyProfileCubit>().toggleFollowChefInMyProfile(
               chefConnection: widget.chefConnectionEntity,
@@ -51,7 +51,7 @@ class _ChefFollowingFollowButtonState extends State<ChefFollowingFollowButton> {
   @override
   Widget build(BuildContext context) {
     return FollowButton(
-      isFollowing: widget.chefConnectionEntity.isFollowing,
+      isFollowing: isFollowing,
       onPressed: _toggleFollow,
     );
   }

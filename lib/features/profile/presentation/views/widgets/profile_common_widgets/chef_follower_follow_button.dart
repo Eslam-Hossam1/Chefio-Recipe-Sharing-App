@@ -36,7 +36,7 @@ class _ChefFollowerFollowButtonState extends State<ChefFollowerFollowButton> {
   @override
   Widget build(BuildContext context) {
     return FollowButton(
-      isFollowing: widget.chefConnectionEntity.isFollowing,
+      isFollowing:isFollowing,
       onPressed: _toggleFollow,
     );
   }
