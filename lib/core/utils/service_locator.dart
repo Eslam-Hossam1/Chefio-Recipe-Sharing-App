@@ -5,6 +5,7 @@ import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/services/follow_chef_service.dart';
+import 'package:chefio_app/core/services/notifications_service.dart';
 import 'package:chefio_app/core/utils/jwt_decoder/jwt_decoder_impl.dart';
 import 'package:chefio_app/core/utils/deep_link_handler.dart';
 import 'package:chefio_app/core/services/google_auth_service.dart';
@@ -25,6 +26,8 @@ import 'package:chefio_app/features/search/data/repos/search_recipe_rebo_impl.da
 import 'package:chefio_app/features/splash/presentation/view_model/splash_view_model.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -49,6 +52,12 @@ Future<void> setupServiceLocator() async {
 
   getIt.registerSingleton<SecureStorageHelper>(
     SecureStorageHelper(secureStorage),
+  );
+
+  getIt.registerSingleton<NotificationsService>(
+    NotificationsService(
+      firebaseMessaging: FirebaseMessaging.instance,
+    ),
   );
 
   getIt.registerLazySingleton<OnboardingViewModel>(
