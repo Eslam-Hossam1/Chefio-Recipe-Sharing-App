@@ -1,12 +1,16 @@
 import 'dart:developer';
+import 'package:chefio_app/core/services/local_notifications_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 class PushNotificationsService {
   final FirebaseMessaging _firebaseMessaging;
-
-  PushNotificationsService({required FirebaseMessaging firebaseMessaging})
-      : _firebaseMessaging = firebaseMessaging;
+  final LocalNotificationsService _localNotificationsService;
+  PushNotificationsService({
+    required FirebaseMessaging firebaseMessaging,
+    required LocalNotificationsService localNotificationsService,
+  })  : _firebaseMessaging = firebaseMessaging,
+        _localNotificationsService = localNotificationsService;
 
   Future<void> init() async {
     await _firebaseMessaging.requestPermission();

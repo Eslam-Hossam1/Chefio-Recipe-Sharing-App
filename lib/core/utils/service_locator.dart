@@ -5,6 +5,7 @@ import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/services/follow_chef_service.dart';
+import 'package:chefio_app/core/services/local_notifications_service.dart';
 import 'package:chefio_app/core/services/push_notifications_service.dart';
 import 'package:chefio_app/core/utils/jwt_decoder/jwt_decoder_impl.dart';
 import 'package:chefio_app/core/utils/deep_link_handler.dart';
@@ -28,6 +29,7 @@ import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_cropper/image_cropper.dart';
@@ -54,9 +56,15 @@ Future<void> setupServiceLocator() async {
     SecureStorageHelper(secureStorage),
   );
 
+  getIt.registerSingleton<LocalNotificationsService>(
+    LocalNotificationsService(
+      flutterLocalNotificationsPlugin:FlutterLocalNotificationsPlugin() ,
+    ),
+  );
   getIt.registerSingleton<PushNotificationsService>(
     PushNotificationsService(
       firebaseMessaging: FirebaseMessaging.instance,
+      localNotificationsService: getIt<LocalNotificationsService>(),
     ),
   );
 
