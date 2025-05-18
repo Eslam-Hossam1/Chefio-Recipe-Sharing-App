@@ -1,3 +1,4 @@
+import 'dart:ui';
 
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
@@ -12,19 +13,31 @@ class ProfileUserAvatar extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
-        ProfileModel profileModel = context.read<ProfileCubit>().profileModel!;
+    ProfileModel profileModel = context.read<ProfileCubit>().profileModel!;
     return GestureDetector(
       onTap: () {
         showDialog(
             context: context,
             builder: (context) {
-              return Center(
-                child: CustomCachedNetworkImage(
-                  url: profileModel.profile.profilePicture ??
-                      Constants.nullUserImageUrl,
+              return BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 44.w),
+                  child: Center(
+                    child: Container(
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.transparent,
+                      ),
+                      child: CustomCachedNetworkImage(
+                        url: profileModel.profile.profilePicture ??
+                            Constants.nullUserImageUrl,
+                      ),
+                    ),
+                  ),
                 ),
               );
             });
