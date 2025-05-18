@@ -2,10 +2,10 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-class NotificationsService {
+class PushNotificationsService {
   final FirebaseMessaging _firebaseMessaging;
 
-  NotificationsService({required FirebaseMessaging firebaseMessaging})
+  PushNotificationsService({required FirebaseMessaging firebaseMessaging})
       : _firebaseMessaging = firebaseMessaging;
 
   Future<void> init() async {
@@ -17,7 +17,8 @@ class NotificationsService {
   }
 
   @pragma('vm:entry-point')
-  static Future<void> handleBackgroundMessage(RemoteMessage remoteMessage) async {
+  static Future<void> handleBackgroundMessage(
+      RemoteMessage remoteMessage) async {
     await Firebase.initializeApp();
     log('🔔 Background message title: ${remoteMessage.notification?.title}');
   }

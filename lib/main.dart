@@ -1,6 +1,6 @@
 import 'package:chefio_app/chefio_app.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/services/notifications_service.dart';
+import 'package:chefio_app/core/services/push_notifications_service.dart';
 import 'package:chefio_app/core/utils/app_bloc_observer.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/firebase_options.dart';
@@ -17,7 +17,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
+  );
   Bloc.observer = AppBlocObserver();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
@@ -26,7 +26,7 @@ void main() async {
   );
   await dotenv.load(fileName: ".env");
   await setupServiceLocator();
-  await getIt<NotificationsService>().init();
+  await getIt<PushNotificationsService>().init();
   await EasyLocalization.ensureInitialized();
   await getIt<AuthCredentialsHelper>().init();
   runApp(
