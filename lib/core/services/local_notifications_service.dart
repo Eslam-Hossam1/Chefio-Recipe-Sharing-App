@@ -1,9 +1,9 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-class LocalNotificationService {
+class LocalNotificationsService {
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin;
 
-  LocalNotificationService({
+  LocalNotificationsService({
     required FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin,
   }) : _flutterLocalNotificationsPlugin = flutterLocalNotificationsPlugin;
 
@@ -12,8 +12,15 @@ class LocalNotificationService {
       android: AndroidInitializationSettings("@mipmap/ic_launcher"),
       iOS: DarwinInitializationSettings(),
     );
-    await _flutterLocalNotificationsPlugin.initialize(initializationSettings);
+    await _flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse: (details) {},
+      onDidReceiveBackgroundNotificationResponse: handleBackgroundNotificationTap
+    );
   }
+
+  @pragma('vm:entry-point')
+  static handleBackgroundNotificationTap(NotificationResponse notificationResponse){}
 
   Future<void> showBasicNotification() async {
     NotificationDetails notificationDetails = NotificationDetails(
@@ -24,7 +31,7 @@ class LocalNotificationService {
         priority: Priority.max,
       ),
     );
-  await  _flutterLocalNotificationsPlugin.show(
+    await _flutterLocalNotificationsPlugin.show(
       0,
       'eslam title',
       'eslam body',
