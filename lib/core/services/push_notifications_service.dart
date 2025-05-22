@@ -14,10 +14,20 @@ class PushNotificationsService {
 
   Future<void> init() async {
     await _firebaseMessaging.requestPermission();
+    await _localNotificationsService.init();
     String? token = await _firebaseMessaging.getToken();
     log('FCM Token: ${token ?? 'null token'}');
 
     FirebaseMessaging.onBackgroundMessage(handleBackgroundMessage);
+    handleForgoundMessage();
+  }
+
+   handleForgoundMessage() {
+    FirebaseMessaging.onMessage.listen((RemoteMessage remoteMessage) async {
+      await _localNotificationsService.showBasicNotification(
+        remoteMessage: remoteMessage,
+      );
+    });
   }
 
   @pragma('vm:entry-point')
