@@ -56,17 +56,9 @@ Future<void> setupServiceLocator() async {
     SecureStorageHelper(secureStorage),
   );
 
-  getIt.registerSingleton<LocalNotificationsService>(
-    LocalNotificationsService(
-      flutterLocalNotificationsPlugin:FlutterLocalNotificationsPlugin() ,
-    ),
-  );
-  getIt.registerSingleton<PushNotificationsService>(
-    PushNotificationsService(
-      firebaseMessaging: FirebaseMessaging.instance,
-      localNotificationsService: getIt<LocalNotificationsService>(),
-    ),
-  );
+  
+
+
 
   getIt.registerLazySingleton<OnboardingViewModel>(
     () => OnboardingViewModel(),
@@ -77,10 +69,27 @@ Future<void> setupServiceLocator() async {
         secureStorageHelper: getIt<SecureStorageHelper>(),
         jwtDecoder: JwtDecoderImpl()),
   );
+  getIt.registerSingleton<Dio>(
+    Dio(
+    ),
+  );
 
   getIt.registerSingleton<DioConsumer>(
     DioConsumer(
-      dio: Dio(),
+      dio: getIt<Dio>(),
+    ),
+  );
+
+  getIt.registerSingleton<LocalNotificationsService>(
+    LocalNotificationsService(
+      flutterLocalNotificationsPlugin:FlutterLocalNotificationsPlugin() ,
+      dio:Dio(),
+    ),
+  );
+    getIt.registerSingleton<PushNotificationsService>(
+    PushNotificationsService(
+      firebaseMessaging: FirebaseMessaging.instance,
+      localNotificationsService: getIt<LocalNotificationsService>(),
     ),
   );
 
