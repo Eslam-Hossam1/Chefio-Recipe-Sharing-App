@@ -90,6 +90,8 @@ Future<void> setupServiceLocator() async {
     PushNotificationsService(
       firebaseMessaging: FirebaseMessaging.instance,
       localNotificationsService: getIt<LocalNotificationsService>(),
+      apiConsumer: getIt<DioConsumer>(),
+      authCredentialsHelper: getIt<AuthCredentialsHelper>(),
     ),
   );
 
@@ -105,6 +107,7 @@ Future<void> setupServiceLocator() async {
     AuthRepoImpl(
       getIt<DioConsumer>(),
       getIt<GoogleAuthService>(),
+      getIt<PushNotificationsService>(),
     ),
   );
   getIt.registerSingleton<CategoriesService>(

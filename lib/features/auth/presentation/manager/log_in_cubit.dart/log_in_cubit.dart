@@ -1,17 +1,15 @@
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/errors/error_codes.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/utils/cache/secure_storage_helper.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
-import 'package:chefio_app/features/auth/data/models/log_in_success_model.dart';
+import 'package:chefio_app/core/services/push_notifications_service.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo.dart';
 import 'package:equatable/equatable.dart';
 
 part 'log_in_state.dart';
 
 class LogInCubit extends Cubit<LogInState> {
-  LogInCubit(this._authRepo, this._authCredentialsHelper)
+  LogInCubit(this._authRepo, this._authCredentialsHelper,
+)
       : super(LogInInitial());
   final AuthRepo _authRepo;
   final AuthCredentialsHelper _authCredentialsHelper;
@@ -38,9 +36,27 @@ class LogInCubit extends Cubit<LogInState> {
           accessToken: logInSuccessModel.accessToken,
           refreshToken: logInSuccessModel.refreshToken,
         );
-        emit(LogInSuccess());
+        await sendFcmToken();
       },
     );
+  }
+
+  Future<void> sendFcmToken() async {
+      var result = await _authRepo.sendFcmToken();
+      result.fold(
+        (failure) {
+          emit(
+            LogInFailure( 
+              errorMessage: failure.errMsg,
+              errorLocalizationKey: failure.localizaitonKey,
+            ),
+          );
+        },
+        (success) {
+          emit(LogInSuccess());
+        },
+      );
+    
   }
 
   Future<void> logInWithGoogle() async {

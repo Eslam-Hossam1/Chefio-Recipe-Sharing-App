@@ -14,14 +14,17 @@ class LocalNotificationsService {
   })  : _flutterLocalNotificationsPlugin = flutterLocalNotificationsPlugin,
         _dio = dio;
 
-  Future<void> init() async {
+  Future<void> init(
+      {required Function(String payload) onNotificationClick}) async {
     InitializationSettings initializationSettings = InitializationSettings(
       android: AndroidInitializationSettings("@mipmap/ic_launcher"),
       iOS: DarwinInitializationSettings(),
     );
     await _flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
-      onDidReceiveNotificationResponse: (details) {},
+      onDidReceiveNotificationResponse: (details) {
+        onNotificationClick(details.payload ?? '');
+      },
       onDidReceiveBackgroundNotificationResponse:
           handleBackgroundNotificationTap,
     );
@@ -29,10 +32,10 @@ class LocalNotificationsService {
       'high_importance_channel', // id
       'High Importance Notifications', // title
       description:
-          'This channel is used for important notifications.', // description
+          'This channel is used for important notifications.',
       importance: Importance.max,
     );
-    
+
     await _flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
             AndroidFlutterLocalNotificationsPlugin>()
@@ -63,6 +66,7 @@ class LocalNotificationsService {
       remoteMessage.notification?.title,
       remoteMessage.notification?.body,
       notificationDetails,
+      payload: '67d771a841da91e4f16a0658'
     );
   }
 
