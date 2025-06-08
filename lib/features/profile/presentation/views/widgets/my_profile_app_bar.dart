@@ -1,6 +1,8 @@
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/my_profile_pop_up_menu_button.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyProfileAppBar extends StatelessWidget {
   const MyProfileAppBar({
@@ -13,6 +15,15 @@ class MyProfileAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(
+              FontAwesomeIcons.gear,
+              color: context.mainTextColor,
+            ),
+          ),
           MyProfilePopUpMenuButton(),
         ],
       ),
