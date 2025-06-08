@@ -20,6 +20,7 @@ import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/edit_profile/data/repos/edit_profile_repo.dart';
 import 'package:chefio_app/features/edit_profile/data/repos/edit_profile_repo_impl.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:chefio_app/features/notifiactions/data/repos/notifications_repo_impl.dart';
 import 'package:chefio_app/features/onboarding/presentation/view_model/onboarding_view_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
@@ -166,6 +167,11 @@ Future<void> setupServiceLocator() async {
   );
   getIt.registerSingleton<EditProfileRepoImpl>(
     EditProfileRepoImpl(
+      apiConsumer: getIt<DioConsumer>(),
+    ),
+  );
+  getIt.registerSingleton<NotificationsRepoImpl>(
+    NotificationsRepoImpl(
       apiConsumer: getIt<DioConsumer>(),
     ),
   );
