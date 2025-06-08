@@ -1,15 +1,15 @@
-import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_categories_cubit/home_categories_cubit.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/home_view.dart';
+import 'package:chefio_app/features/notifiactions/data/repos/notifications_repo_impl.dart';
+import 'package:chefio_app/features/notifiactions/presentation/manager/notifications_cubit/notifications_cubit.dart';
 import 'package:chefio_app/features/notifiactions/presentation/view/notifications_view.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_liked_recipes_cubit/chef_liked_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
-import 'package:chefio_app/features/profile/presentation/manager/profile_follow_button_cubit/profile_follow_button_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/my_profile_view.dart';
 import 'package:chefio_app/features/search/data/repos/search_recipe_rebo_impl.dart';
 import 'package:chefio_app/features/search/presentation/manager/search_recipe_cubit/search_recipe_cubit.dart';
@@ -84,7 +84,18 @@ abstract class ShellBranches {
       routes: [
         GoRoute(
           path: RoutePaths.notifications,
-          builder: (context, state) => const NotificationsView(),
+          builder: (context, state) {
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => NotificationsCubit(
+                    notificationsRepo: getIt<NotificationsRepoImpl>(),
+                  ),
+                ),
+              ],
+              child: const NotificationsView(),
+            );
+          },
         ),
       ],
     );
