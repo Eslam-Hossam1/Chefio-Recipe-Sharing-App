@@ -14,6 +14,7 @@ class RecipeDetailsIngredientItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SvgPicture.asset(Theme.of(context).brightness == Brightness.light
             ? Assets.imagesGreenDoneIcon
@@ -21,10 +22,12 @@ class RecipeDetailsIngredientItem extends StatelessWidget {
         SizedBox(
           width: 8.w,
         ),
-        Text(
-          ingredientText,
-          style: Styles.textStyleMedium15(context).copyWith(
-            color: context.mainTextColor,
+        Expanded(
+          child: Text(
+            ingredientText,
+            style: Styles.textStyleMedium15(context).copyWith(
+              color: context.mainTextColor,
+            ),
           ),
         ),
       ],
