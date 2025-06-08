@@ -16,7 +16,8 @@ abstract class EndPoints {
   static const String recipes = "recipe/get-recipes";
   static const String uploadRecipe = "recipe/create-recipe";
   static const String editProfile = "user/edit-profile";
-  static const String setFcmToken = "notifications/set-fcm";
+  static const String setFcmToken = "device-tokens/register";
+  static const String notifications = "notifications/get-notifications";
 
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
