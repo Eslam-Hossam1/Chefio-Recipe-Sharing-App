@@ -76,7 +76,7 @@ class _ChefioState extends State<Chefio> {
                   builder: DevicePreview.appBuilder,
                   //getting textTheme bassed on context cuz of using easy localization
                   // for localization to access current locale and get the textTheme bassed on it
-                  themeMode: ThemeMode.light,
+                  themeMode: mode,
                   theme: AppThemes.lightTheme
                       .copyWith(textTheme: getTextTheme(context)),
                   darkTheme: AppThemes.darkTheme
