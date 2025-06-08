@@ -27,6 +27,21 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
     super.initState();
   }
 
+  @override
+  void didUpdateWidget(MainScaffoldView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    //to update the selectedNavBarItemIndex when nav from outside the bottom nav bar
+    if (widget.navigationShell!.currentIndex != selectedNavBarItemIndex) {
+      setState(() {
+        if (widget.navigationShell!.currentIndex >= 1) {
+          selectedNavBarItemIndex = widget.navigationShell!.currentIndex + 1;
+        } else {
+          selectedNavBarItemIndex = widget.navigationShell!.currentIndex;
+        }
+      });
+    }
+  }
+
   void _goBranch(int index) {
     widget.navigationShell!.goBranch(
       index,
@@ -79,7 +94,8 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
         showUnselectedLabels: true,
         showSelectedLabels: true,
         onTap: (index) {
-          _onNavBarItemTap(context, callBackIndex: index, uploadItemIndex: 1,myProfileItemIndex: 3);
+          _onNavBarItemTap(context,
+              callBackIndex: index, uploadItemIndex: 1, myProfileItemIndex: 3);
         },
       ),
     );
@@ -95,12 +111,11 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
       context.push(RoutePaths.upload);
       return;
     }
-    if(callBackIndex==myProfileItemIndex){
-          context.read<ProfileCubit>().fetchChefProfileWithInitialRecipes(
-          chefId: getIt<AuthCredentialsHelper>().userId!,
-          limit: 30,
-        );
-        
+    if (callBackIndex == myProfileItemIndex) {
+      context.read<ProfileCubit>().fetchChefProfileWithInitialRecipes(
+            chefId: getIt<AuthCredentialsHelper>().userId!,
+            limit: 30,
+          );
     }
 
     selectedNavBarItemIndex = callBackIndex;
