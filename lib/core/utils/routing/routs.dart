@@ -22,6 +22,8 @@ abstract class RoutePaths {
   static const profile = "$profileWithoutId/:id";
   static const editProfile = "/edit-profile";
   static const settings = "/settings";
+  static const themeSelection = "/theme-selection";
+  static const languageSelection = "/language-selection";
 
   // 🍽 Recipe Details
   static const recipeDetailsWithoutId = "/recipe-detail";

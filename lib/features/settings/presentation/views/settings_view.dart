@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/settings/presentation/views/language_selection_view.dart';
 import 'package:chefio_app/features/settings/presentation/views/theme_selection_view.dart';
@@ -6,6 +7,8 @@ import 'package:chefio_app/features/settings/presentation/views/widgets/setting_
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
 
@@ -28,7 +31,8 @@ class SettingsView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('settings'.tr(), style: TextStyle(color: context.mainTextColor)),
+        title: Text('settings'.tr(),
+            style: TextStyle(color: context.mainTextColor)),
         backgroundColor: context.scaffoldBackgroundColor,
         elevation: 0,
         iconTheme: IconThemeData(color: context.mainTextColor),
@@ -43,10 +47,7 @@ class SettingsView extends StatelessWidget {
           SettingTile(
             title: 'theme'.tr(),
             value: getThemeName(theme),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const ThemeSelectionView()),
-            ),
+            onTap: () => context.go(RoutePaths.themeSelection),
           ),
 
           const Divider(),
@@ -55,10 +56,7 @@ class SettingsView extends StatelessWidget {
           SettingTile(
             title: 'language'.tr(),
             value: currentLocale.languageCode == 'ar' ? 'العربية' : 'English',
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const LanguageSelectionView()),
-            ),
+            onTap: () => context.go(RoutePaths.languageSelection),
           ),
 
           const Divider(),

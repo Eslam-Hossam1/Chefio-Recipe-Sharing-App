@@ -35,12 +35,14 @@ import 'package:chefio_app/features/profile/presentation/manager/chef_profile_re
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_follow_button_cubit/profile_follow_button_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/profile_view.dart';
-import 'package:chefio_app/features/profile/presentation/views/settings_view.dart';
+import 'package:chefio_app/features/settings/presentation/views/language_selection_view.dart';
+import 'package:chefio_app/features/settings/presentation/views/settings_view.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view.dart';
+import 'package:chefio_app/features/settings/presentation/views/theme_selection_view.dart';
 import 'package:chefio_app/features/splash/presentation/view/splash_view.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:chefio_app/features/upload/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
@@ -183,6 +185,14 @@ class AppRouter {
       GoRoute(
         path: RoutePaths.settings,
         builder: (context, state) => const SettingsView(),
+      ),
+      GoRoute(
+        path: RoutePaths.themeSelection,
+        builder: (context, state) => const ThemeSelectionView(),
+      ),
+      GoRoute(
+        path: RoutePaths.languageSelection,
+        builder: (context, state) => const LanguageSelectionView(),
       ),
       GoRoute(
         path: RoutePaths.editProfile,
