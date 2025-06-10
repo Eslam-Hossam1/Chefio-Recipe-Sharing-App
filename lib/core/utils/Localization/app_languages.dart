@@ -8,7 +8,7 @@ abstract class AppLanguages {
     languageLocale: Locale('ar'),
     languageName: 'Arabic',
     languageLocalizationKey: AppLocalizationKeys.languages.arabic,
-    countryFlagCode: '🇪🇬',
+    countryFlagCode: 'sa',
   );
 
   static final LanguageModel english = LanguageModel(
