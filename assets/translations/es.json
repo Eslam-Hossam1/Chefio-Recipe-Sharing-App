@@ -1,0 +1,201 @@
+{
+  "onboarding": {
+    "title": "Comienza a cocinar",
+    "body": "¡Únete a nuestra comunidad\npara cocinar mejor comida!",
+    "button_text": "Empecemos"
+  },
+  "auth": {
+    "shared": {
+      "enter_account": "Por favor ingresa tu cuenta aquí",
+      "username_text_field_hint": "Usuario",
+      "email_text_field_hint": "Correo electrónico",
+      "password_text_field_hint": "Contraseña",
+      "forget_password_question": "¿Olvidaste tu contraseña?",
+      "log_in": "Iniciar sesión",
+      "sign_up": "Registrarse",
+      "or_continue_with": "O continúa con",
+      "confirm": "confirmar",
+      "this_field_required": "Este campo es obligatorio",
+      "invalid_email": "La dirección de correo no es válida. Por favor ingresa un correo válido.",
+      "unknown_error": "Ocurrió un error desconocido. Por favor intenta más tarde.",
+      "user_not_found": "No se encontró ningún usuario con este correo.",
+      "invalid_recipient_email": "La dirección de correo no es válida.",
+      "too_many_requests": "Demasiadas solicitudes, por favor intenta más tarde.",
+      "network_request_failed": "Error de red, verifica tu conexión."
+    },
+    "log_in": {
+      "welcome_back": "¡Bienvenido de nuevo!",
+      "do_not_have_account": "¿No tienes cuenta?",
+      "wrong_password": "La contraseña es incorrecta. Por favor intenta de nuevo.",
+      "user_disabled": "Esta cuenta ha sido deshabilitada. Contacta al soporte.",
+      "your_email_need_to_verified": "Tu correo no está verificado. Te enviamos un enlace de verificación. Verifícalo para continuar."
+    },
+    "sign_up": {
+      "welcome": "¡Bienvenido!",
+      "already_have_an_account": "¿Ya tienes cuenta?",
+      "your_password_must_contain": "Tu contraseña debe contener:",
+      "at_least_characters": "Al menos 8 caracteres",
+      "must_contains_a_number": "Contener un número",
+      "must_contains_a_uppercase_letter": "Contener una letra mayúscula",
+      "must_contains_a_lowercase_letter": "Contener una letra minúscula",
+      "must_contains_a_special_letter": "Contener un carácter especial",
+      "email_already_in_use": "El correo ya está en uso.",
+      "operation_not_allowed": "Inicio con correo/contraseña no está habilitado.",
+      "weak_password": "La contraseña es débil. Elige una más fuerte.",
+      "we_sent_email_verification": "¡Te enviamos un correo de verificación! Verifícalo para continuar.",
+      "username_cant_contain_spaces": "El usuario no puede contener espacios",
+      "username_must_be_between": "El usuario debe tener entre 2 y 20 caracteres",
+      "username_can_only_contain": "El usuario sólo puede contener letras, números y guiones bajos"
+    },
+    "forget_password": {
+      "password_recovery": "Recuperar contraseña",
+      "enter_email_recover_password": "Ingresa tu correo para recuperar la contraseña",
+      "password_reset_link_sent": "Se ha enviado un enlace para resetear la contraseña. Revisa tu correo."
+    },
+    "verification_code": {
+      "verification_code": "Código de verificación",
+      "check_your_email": "Revisa tu correo",
+      "we_have_sent_verification_code": "Hemos enviado el código a tu correo",
+      "code_expires_in": "el código expira en",
+      "verifiy": "Verificar",
+      "send_again": "Enviar de nuevo",
+      "verification_success_message": "¡Cuenta creada con éxito! Tu correo ha sido verificado y ya puedes iniciar sesión.",
+      "pls_enter_complete_pin": "Por favor ingresa el código completo.",
+      "verification_exit_warning": "Te registraste pero aún no has verificado. Si sales ahora, tendrás que verificar al iniciar sesión."
+    },
+    "reset_password": {
+      "reset_your_password": "Restablece tu contraseña",
+      "please_enter_new_password": "Por favor ingresa tu nueva contraseña",
+      "done": "Listo",
+      "reset_password_success": "¡Contraseña restablecida con éxito! Ya puedes iniciar sesión.",
+      "reset_password_exit_warning": "La contraseña aún no se ha restablecido, ¿seguro quieres salir?"
+    }
+  },
+  "profile_setup": {
+    "complete_profile": "Completa tu perfil",
+    "upload_profile_picture": "Sube foto de perfil",
+    "choose_username": "Elige un nombre de usuario",
+    "username_placeholder": "Tu nombre de usuario",
+    "username_empty_error": "El nombre de usuario no puede estar vacío",
+    "complete_profile_button": "Completar perfil",
+    "profile_picture_optional": "Puedes agregar foto más tarde.",
+    "saving_profile_error": "Error al guardar el perfil. Intenta de nuevo.",
+    "saving_profile_success": "Perfil guardado exitosamente."
+  },
+  "profile": {
+    "chef_has_no_followers": "El chef no tiene seguidores",
+    "chef_didn't_follow_any_chef_yet": "El chef aún no sigue a otros chefs"
+  },
+  "upload": {
+    "add_cover_photo": "Agregar foto de portada",
+    "up_to": "(hasta 12 Mb)",
+    "food_name": "Nombre del platillo",
+    "enter_food_Name": "Ingresa nombre del platillo",
+    "description": "Descripción",
+    "tell_a_little_about_your_food": "Cuéntanos un poco sobre tu platillo",
+    "cooking_duration": "Duración de cocción",
+    "in_minutes": "(en minutos)",
+    "enter_ingredient": "Ingresa ingrediente",
+    "add_ingredient": "Ingrediente",
+    "add_step": "paso",
+    "step_hint": "Ingresa el paso"
+  },
+  "category": {
+    "general_dishes": "Platos generales",
+    "main_dishes": "Platillos principales",
+    "fast_food": "Comida rápida",
+    "healthy_meals": "Comidas saludables",
+    "desserts_and_bakery": "Postres y panadería"
+  },
+  "recipe_details": {
+    "share_recipe": "Compartir receta",
+    "edit_recipe": "Editar receta",
+    "recipe_no_likes_message": "Nadie ha dado 'me gusta' a esta receta aún."
+  },
+  "global": {
+    "warning": "Advertencia",
+    "error": "Error",
+    "info": "Info",
+    "success": "Éxito",
+    "exit": "Salir",
+    "stay": "Permanecer",
+    "search": "buscar",
+    "all": "Todo",
+    "food": "Comida",
+    "drink": "Bebida",
+    "home": "Inicio",
+    "upload": "Subir",
+    "notification": "Notificación",
+    "profile": "Perfil",
+    "category": "Categoría",
+    "cancel": "Cancelar",
+    "next": "Siguiente",
+    "ingredients": "Ingredientes",
+    "steps": "Pasos",
+    "back": "Atrás",
+    "mins": "min",
+    "likes": "Me gusta",
+    "settings": "Ajustes"
+  },
+  "errors": {
+    "bad_request": "Solicitud inválida. Verifica tu entrada.",
+    "unauthorized": "Acceso no autorizado. Inicia sesión de nuevo.",
+    "forbidden": "Acceso denegado. No tienes permiso.",
+    "not_found": "Recurso no encontrado.",
+    "conflict": "Hay un conflicto con datos existentes.",
+    "unprocessable_entity": "Entrada inválida. Verifica tus datos.",
+    "internal_server_error": "Hubo un error en el servidor.",
+    "unknown_error": "Ocurrió un error desconocido. Intenta de nuevo.",
+    "expired_token": "Tu sesión expiró. Inicia sesión de nuevo.",
+    "invalid_credentials": "Correo o contraseña incorrectos.",
+    "account_locked": "Demasiados intentos fallidos. Tu cuenta está bloqueada temporalmente.",
+    "email_not_verified": "Por favor verifica tu correo antes de iniciar sesión.",
+    "insufficient_funds": "Saldo insuficiente para completar la transacción.",
+    "payment_declined": "Pago rechazado. Verifica con tu banco.",
+    "invalid_card_details": "Detalles de la tarjeta inválidos. Verifica e intenta de nuevo.",
+    "duplicate_entry": "Este dato ya existe.",
+    "data_conflict": "Hay un conflicto con datos existentes.",
+    "record_not_found": "Registro no encontrado.",
+    "invalid_input": "Algunos campos son incorrectos o faltan.",
+    "file_too_large": "El archivo subido es demasiado grande.",
+    "unsupported_file_format": "Formato de archivo no soportado.",
+    "storage_full": "Espacio de almacenamiento insuficiente.",
+    "permission_denied": "Permiso denegado. Por favor concede acceso en ajustes.",
+    "device_not_supported": "Esta función no es compatible con tu dispositivo.",
+    "connection_timeout": "La solicitud tardó demasiado. Verifica tu conexión e intenta de nuevo.",
+    "send_timeout": "Enviar tardó demasiado. Verifica tu conexión e intenta de nuevo.",
+    "receive_timeout": "El servidor está tardando mucho. Intenta más tarde.",
+    "bad_certificate": "Problema de seguridad detectado. Contacta al soporte.",
+    "bad_response": "Algo salió mal al procesar tu solicitud. Intenta de nuevo.",
+    "request_cancelled": "Solicitud cancelada. Por favor intenta de nuevo.",
+    "no_internet_connection": "Sin conexión a Internet. Verifica tu red.",
+    "validation_error": "Algunos campos son incorrectos. Verifica e intenta de nuevo.",
+    "invalid_code": "Código inválido",
+    "bad_gateway": "Error de comunicación con el servidor. Intenta más tarde.",
+    "service_unavailable": "El servicio no está disponible. Intenta más tarde.",
+    "gateway_timeout": "El servidor tardó demasiado. Intenta más tarde."
+  },
+  "languages": {
+    "english": "Inglés",
+    "spanish": "Español",
+    "arabic": "Árabe",
+    "language": "Idiomas"
+  },
+  "themes": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema",
+    "theme": "Tema"
+  },
+  "time_units": {
+    "s": "s",
+    "m": "min",
+    "h": "h",
+    "d": "d"
+  },
+  "notifications": {
+    "now_following_you": "ahora te sigue",
+    "liked_your_recipe": "le gustó tu receta",
+    "uploaded_new_recipe": "subió una nueva receta"
+  }
+}
