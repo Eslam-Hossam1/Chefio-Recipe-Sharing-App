@@ -5,8 +5,8 @@ import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/services/follow_chef_service.dart';
-import 'package:chefio_app/core/services/local_notifications_service.dart';
-import 'package:chefio_app/core/services/push_notifications_service.dart';
+import 'package:chefio_app/core/services/notifications/local_notifications_service.dart';
+import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
 import 'package:chefio_app/core/utils/jwt_decoder/jwt_decoder_impl.dart';
 import 'package:chefio_app/core/utils/deep_link_handler.dart';
 import 'package:chefio_app/core/services/google_auth_service.dart';
@@ -57,10 +57,6 @@ Future<void> setupServiceLocator() async {
     SecureStorageHelper(secureStorage),
   );
 
-  
-
-
-
   getIt.registerLazySingleton<OnboardingViewModel>(
     () => OnboardingViewModel(),
   );
@@ -71,8 +67,7 @@ Future<void> setupServiceLocator() async {
         jwtDecoder: JwtDecoderImpl()),
   );
   getIt.registerSingleton<Dio>(
-    Dio(
-    ),
+    Dio(),
   );
 
   getIt.registerSingleton<DioConsumer>(
@@ -83,11 +78,11 @@ Future<void> setupServiceLocator() async {
 
   getIt.registerSingleton<LocalNotificationsService>(
     LocalNotificationsService(
-      flutterLocalNotificationsPlugin:FlutterLocalNotificationsPlugin() ,
-      dio:Dio(),
+      flutterLocalNotificationsPlugin: FlutterLocalNotificationsPlugin(),
+      dio: Dio(),
     ),
   );
-    getIt.registerSingleton<PushNotificationsService>(
+  getIt.registerSingleton<PushNotificationsService>(
     PushNotificationsService(
       firebaseMessaging: FirebaseMessaging.instance,
       localNotificationsService: getIt<LocalNotificationsService>(),

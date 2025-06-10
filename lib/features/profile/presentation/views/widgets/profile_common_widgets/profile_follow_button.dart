@@ -24,31 +24,31 @@ class _ProfileFollowButtonState extends State<ProfileFollowButton> {
     super.initState();
   }
 
-  _toggleFollow() {
-    context.read<FollowChefCubit>().toggleFollowChef(
+  _toggleFollow() async {
+    isFollowing = !isFollowing;
+    await context.read<FollowChefCubit>().toggleFollowChef(
           chefId: context.read<ProfileCubit>().chefId,
         );
-    setState(() {
-      isFollowing = !isFollowing;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<FollowChefCubit, FollowChefState>(
-      listener: (context, state) {
-        if (state is FollowChefFaiure) {
-          showCustomToast(
-            context,
-            message: state.errorLocalizationKey.tr(),
-            seconds: 2,
-          );
-        }
-      },
-      child: BigFollowButton(
+    return BlocConsumer<FollowChefCubit, FollowChefState>(
+        listener: (context, state) {
+      if (state is FollowChefFaiure) {
+        isFollowing = !isFollowing;
+        showCustomToast(
+          context,
+          message: state.errorLocalizationKey.tr(),
+          seconds: 2,
+        );
+      }
+    }, builder: (context, state) {
+      return BigFollowButton(
         isFollowing: isFollowing,
+        isLoading: state is FollowChefLoading,
         onPressed: _toggleFollow,
-      ),
-    );
+      );
+    });
   }
 }

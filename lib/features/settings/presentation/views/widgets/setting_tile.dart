@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +16,8 @@ class SettingTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(title, style: TextStyle(color: context.mainTextColor, fontSize: 16)),
+      title: Text(title,
+          style: TextStyle(color: context.mainTextColor, fontSize: 16)),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

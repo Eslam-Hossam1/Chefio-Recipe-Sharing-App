@@ -30,8 +30,7 @@ class _EditUserAvatarState extends State<EditUserAvatar> {
 
     return BlocBuilder<EditProfileCubit, EditProfileState>(
       builder: (context, state) {
-        final isImagePicked =
-            editProfileCubit.chefProfilePicture != null;
+        final isImagePicked = editProfileCubit.chefProfilePicture != null;
         return SliverToBoxAdapter(
           child: Center(
             child: Stack(

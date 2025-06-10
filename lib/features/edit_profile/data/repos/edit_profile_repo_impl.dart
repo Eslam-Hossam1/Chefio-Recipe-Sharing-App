@@ -20,11 +20,8 @@ class EditProfileRepoImpl implements EditProfileRepo {
   Future<Either<ApiFailure, SuccessEditProfileModel>> editProfile(
       {required EditProfileModel editProfileModel}) async {
     try {
-      final response = await _apiConsumer.patch(
-        EndPoints.editProfile,
-        data: editProfileModel.toJson(),
-        isFromData: true
-      );
+      final response = await _apiConsumer.patch(EndPoints.editProfile,
+          data: editProfileModel.toJson(), isFromData: true);
       SuccessEditProfileModel successEditProfileModel =
           SuccessEditProfileModel.fromJson(response);
       return Right(successEditProfileModel);

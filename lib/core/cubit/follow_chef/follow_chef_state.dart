@@ -9,14 +9,20 @@ sealed class FollowChefState extends Equatable {
 
 final class FollowChefInitial extends FollowChefState {}
 
-final class FollowChefSuccess extends FollowChefState {}
-
-final class FollowChefProcessing extends FollowChefState
+final class FollowChefSuccess extends FollowChefState
     implements FollowChefStateWithId {
   @override
   final String chefId;
 
-  const FollowChefProcessing({required this.chefId});
+  const FollowChefSuccess({required this.chefId});
+}
+
+final class FollowChefLoading extends FollowChefState
+    implements FollowChefStateWithId {
+  @override
+  final String chefId;
+
+  const FollowChefLoading({required this.chefId});
 }
 
 final class FollowChefFaiure extends FollowChefState

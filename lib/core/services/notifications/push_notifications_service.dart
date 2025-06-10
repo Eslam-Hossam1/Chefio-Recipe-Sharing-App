@@ -4,7 +4,9 @@ import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/services/local_notifications_service.dart';
+import 'package:chefio_app/core/helpers/notification_log_helper.dart';
+import 'package:chefio_app/core/services/notifications/local_notifications_service.dart';
+import 'package:chefio_app/core/services/notifications/models/my_notification_data_model.dart';
 import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
@@ -45,15 +47,14 @@ class PushNotificationsService {
     return token;
   }
 
-  handleForegroundMessageTap(payload) {
-    log('Notification payload: $payload');
-    AppRouter.router.go(RoutingHelper.getRecipeDetailsPath(recipeId: payload));
+  handleForegroundMessageTap(MyNotificationDataModel notificationData) {
+    navigateBasedOnNotification(myNotificationDataModel: notificationData);
   }
 
   //when message arrive and the application opened
   showForgoundMessage() {
     FirebaseMessaging.onMessage.listen((RemoteMessage remoteMessage) async {
-      log('foreground message arrived ');
+      NotificationLogHelper.logRemoteNotification(remoteMessage: remoteMessage);
       await _localNotificationsService.showBasicNotification(
         remoteMessage: remoteMessage,
       );
@@ -95,27 +96,35 @@ class PushNotificationsService {
 
   handleInteractedMessage(RemoteMessage remoteMessage) {
     if (getIt<AuthCredentialsHelper>().userIsAuthenticated()) {
-      if (remoteMessage.data['type'] == 'like') {
-        AppRouter.router.go(RoutingHelper.getRecipeDetailsPath(
-            recipeId: remoteMessage.notification?.title ?? "null"));
-      } else {
-        //لسة هنشوف لما ال api يجهز
-      }
+      MyNotificationDataModel myNotificationDataModel =
+          MyNotificationDataModel.fromJson(
+        remoteMessage.data,
+      );
+      navigateBasedOnNotification(
+        myNotificationDataModel: myNotificationDataModel,
+      );
     } else {
-      log('from notification recipe id :${remoteMessage.notification?.title}');
       AppRouter.router.go(RoutePaths.login);
     }
   }
 
-  // void handleInteractedMessage(RemoteMessage message) {
-  //   //   if (message.data['type'] == 'chat') {}
-  //   log('my handle notification , the notification : ${message.notification}');
-  // }
-
+  // This function is called when a background message is received.
   @pragma('vm:entry-point')
   static Future<void> handleBackgroundMessage(
       RemoteMessage remoteMessage) async {
     await Firebase.initializeApp();
-    log('🔔 Background message title: ${remoteMessage.notification?.title}');
+    log('🔔 Background Message arrived: ${remoteMessage.notification}');
+  }
+
+  navigateBasedOnNotification(
+      {required MyNotificationDataModel myNotificationDataModel}) {
+    if (myNotificationDataModel.type == 'like' ||
+        myNotificationDataModel.type == 'new_recipe') {
+      AppRouter.router.go(
+        RoutingHelper.getRecipeDetailsPath(
+          recipeId: myNotificationDataModel.recipeId!,
+        ),
+      );
+    }
   }
 }

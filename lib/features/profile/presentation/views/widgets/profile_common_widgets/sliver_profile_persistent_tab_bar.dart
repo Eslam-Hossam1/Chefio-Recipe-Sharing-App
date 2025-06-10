@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/sliver_tab_bar_delegate.dart';

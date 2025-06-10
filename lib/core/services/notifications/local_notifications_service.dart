@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:developer';
 
+import 'package:chefio_app/core/services/notifications/models/my_notification_data_model.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -14,8 +16,10 @@ class LocalNotificationsService {
   })  : _flutterLocalNotificationsPlugin = flutterLocalNotificationsPlugin,
         _dio = dio;
 
-  Future<void> init(
-      {required Function(String payload) onNotificationClick}) async {
+  Future<void> init({
+    required Function(MyNotificationDataModel notificationData)
+        onNotificationClick,
+  }) async {
     InitializationSettings initializationSettings = InitializationSettings(
       android: AndroidInitializationSettings("@mipmap/ic_launcher"),
       iOS: DarwinInitializationSettings(),
@@ -23,7 +27,13 @@ class LocalNotificationsService {
     await _flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
       onDidReceiveNotificationResponse: (details) {
-        onNotificationClick(details.payload ?? '');
+        MyNotificationDataModel notificationData =
+            MyNotificationDataModel.fromJson(
+          jsonDecode(
+            details.payload!,
+          ),
+        );
+        onNotificationClick(notificationData);
       },
       onDidReceiveBackgroundNotificationResponse:
           handleBackgroundNotificationTap,
@@ -31,8 +41,7 @@ class LocalNotificationsService {
     const AndroidNotificationChannel channel = AndroidNotificationChannel(
       'high_importance_channel', // id
       'High Importance Notifications', // title
-      description:
-          'This channel is used for important notifications.',
+      description: 'This channel is used for important notifications.',
       importance: Importance.max,
     );
 
@@ -61,12 +70,13 @@ class LocalNotificationsService {
         styleInformation: bigPictureStyleInformation,
       ),
     );
+
     await _flutterLocalNotificationsPlugin.show(
       0,
       remoteMessage.notification?.title,
       remoteMessage.notification?.body,
       notificationDetails,
-      payload: '67d771a841da91e4f16a0658'
+      payload: jsonEncode(remoteMessage.data),
     );
   }
 

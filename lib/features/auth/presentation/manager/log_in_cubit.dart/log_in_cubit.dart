@@ -1,16 +1,19 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/errors/error_codes.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/services/push_notifications_service.dart';
+import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo.dart';
 import 'package:equatable/equatable.dart';
 
 part 'log_in_state.dart';
 
 class LogInCubit extends Cubit<LogInState> {
-  LogInCubit(this._authRepo, this._authCredentialsHelper,
-)
-      : super(LogInInitial());
+  LogInCubit(
+    this._authRepo,
+    this._authCredentialsHelper,
+  ) : super(LogInInitial());
   final AuthRepo _authRepo;
   final AuthCredentialsHelper _authCredentialsHelper;
   Future<void> logIn({
@@ -42,21 +45,23 @@ class LogInCubit extends Cubit<LogInState> {
   }
 
   Future<void> sendFcmToken() async {
-      var result = await _authRepo.sendFcmToken();
-      result.fold(
-        (failure) {
-          emit(
-            LogInFailure( 
-              errorMessage: failure.errMsg,
-              errorLocalizationKey: failure.localizaitonKey,
-            ),
-          );
-        },
-        (success) {
-          emit(LogInSuccess());
-        },
-      );
-    
+    log('Sending FCM token');
+    var result = await _authRepo.sendFcmToken();
+    result.fold(
+      (failure) {
+        log('Failed to send FCM token: ${failure.errMsg}');
+        emit(
+          LogInFailure(
+            errorMessage: failure.errMsg,
+            errorLocalizationKey: failure.localizaitonKey,
+          ),
+        );
+      },
+      (success) {
+        log('FCM token sent successfully');
+        emit(LogInSuccess());
+      },
+    );
   }
 
   Future<void> logInWithGoogle() async {
@@ -76,7 +81,7 @@ class LogInCubit extends Cubit<LogInState> {
             accessToken: nullableLogInSuccessModel.accessToken,
             refreshToken: nullableLogInSuccessModel.refreshToken,
           );
-          emit(LogInSuccess());
+        await sendFcmToken();
         } else {
           emit(LogInInitial());
         }

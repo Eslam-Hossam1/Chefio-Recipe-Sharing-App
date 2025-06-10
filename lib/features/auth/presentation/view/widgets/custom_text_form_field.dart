@@ -36,7 +36,7 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       onChanged: onChanged,
       initialValue: initialValue,
-      maxLines: maxLines,
+      maxLines: maxLines ?? 1,
       onSaved: onSaved,
       validator: validator ?? FormValidators.customTextFormFieldValidator,
       cursorColor: context.primaryColor,

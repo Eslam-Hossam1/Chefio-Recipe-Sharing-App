@@ -4,5 +4,6 @@ import 'package:chefio_app/features/edit_profile/data/models/success_edit_model/
 import 'package:dartz/dartz.dart';
 
 abstract class EditProfileRepo {
-  Future<Either<ApiFailure, SuccessEditProfileModel>> editProfile({required EditProfileModel editProfileModel});
+  Future<Either<ApiFailure, SuccessEditProfileModel>> editProfile(
+      {required EditProfileModel editProfileModel});
 }

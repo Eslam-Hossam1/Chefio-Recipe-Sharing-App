@@ -15,7 +15,6 @@ class Username extends StatelessWidget {
     return SliverToBoxAdapter(
       child: BlocBuilder<EditProfileCubit, EditProfileState>(
         builder: (context, state) {
-
           return Center(
             child: Text(
               textAlign: TextAlign.center,

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chefio_app/core/utils/assets.dart';
+import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 
 class CustomCachedNetworkImage extends StatelessWidget {
@@ -20,7 +21,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
       placeholder: (context, url) =>
           placeHolder ??
           Container(
-            color: Color(0xffEBEBF4),
+            color: context.cachedNetworkImagePlaceholderColor,
           ),
       errorWidget: (context, url, error) => Center(
         child: Icon(

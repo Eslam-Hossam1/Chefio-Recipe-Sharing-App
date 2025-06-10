@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class EditSubmitButton extends StatelessWidget {
   const EditSubmitButton({
-    super.key,required this.onPressed,
+    super.key,
+    required this.onPressed,
   });
   final VoidCallback onPressed;
   @override

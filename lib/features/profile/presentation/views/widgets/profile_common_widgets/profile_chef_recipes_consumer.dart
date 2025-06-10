@@ -44,18 +44,21 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
         } else if (state is ChefProfileRecipesInitial) {
           return SkeletonizerProfileChefRecipesGrid();
         } else if (state is EmptyChefRecipes) {
-          return SliverToBoxAdapter(
-            child: CustomInfoMessageWithButton(
-              message: "You didn't add any recipe yet , Add one",
-              btnText: "Add Recipe",
-              onPressed: () {
-                context.push(RoutePaths.upload);
-              },
+          return SliverFillRemaining(
+            hasScrollBody: false,
+            child: Center(
+              child: CustomInfoMessageWithButton(
+                message: "You didn't add any recipe yet , Add one",
+                btnText: "Add Recipe",
+                onPressed: () {
+                  context.push(RoutePaths.upload);
+                },
+              ),
             ),
           );
         } else {
           return ProfileChefRecipesGrid(
-                  recipes: context.read<ChefProfileRecipesCubit>().chefRecipes,
+            recipes: context.read<ChefProfileRecipesCubit>().chefRecipes,
           );
         }
       },

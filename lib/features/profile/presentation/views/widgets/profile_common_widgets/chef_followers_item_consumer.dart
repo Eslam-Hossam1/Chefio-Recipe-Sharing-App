@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
@@ -18,7 +20,6 @@ class ChefFollowersItemConsumer extends StatefulWidget {
 
 class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
   late int followersCount;
-
   @override
   void initState() {
     super.initState();
@@ -46,7 +47,7 @@ class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
       },
       child: BlocConsumer<FollowChefCubit, FollowChefState>(
         listener: (context, state) {
-          if ((state is FollowChefProcessing || state is FollowChefFaiure) &&
+          if ((state is FollowChefSuccess || state is FollowChefFaiure) &&
               (state as FollowChefStateWithId).chefId == profileChefId) {
             if (profileModel!.profile.isFollowing == ApiKeys.following) {
               profileModel.profile.followersCount--;
@@ -57,11 +58,9 @@ class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
               followersCount++;
               profileModel.profile.isFollowing = ApiKeys.following;
             }
-
           }
         },
         builder: (context, state) {
-
           return ProfileChefInfoItem(
             number: '$followersCount',
             text: 'Followers',

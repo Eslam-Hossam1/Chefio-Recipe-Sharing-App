@@ -1,8 +1,8 @@
-
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/notifiactions/presentation/manager/notifications_cubit/notifications_cubit.dart';
+import 'package:chefio_app/features/notifiactions/presentation/view/widgets/skeletonizer_notification_sliver_list.dart';
 import 'package:chefio_app/features/notifiactions/presentation/view/widgets/sliver_notifications_list.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -20,26 +20,27 @@ class NotificationsListBuilder extends StatelessWidget {
         if (state is NotificationsEmpty) {
           return SliverFillRemaining(
             hasScrollBody: false,
-            child: CustomTextInfoMessage(
-              text: 'there is no notifications',
+            child: Center(
+              child: CustomTextInfoMessage(
+                text: 'there is no notifications',
+              ),
             ),
           );
-        } else if (state is NotificationsFailure) {
+        } else if (state is NotificationsInitialFetchFailure) {
           return SliverFillRemaining(
             hasScrollBody: false,
-            child: CustomInfoMessageWithButton(
-              message: state.errorLocalizationKey.tr(),
-              btnText: 'try again',
-              onPressed: context.read<NotificationsCubit>().fetchNotifications,
+            child: Center(
+              child: CustomInfoMessageWithButton(
+                message: state.errLocalizationKey.tr(),
+                btnText: 'try again',
+                onPressed: context.read<NotificationsCubit>().refersh,
+              ),
             ),
           );
         } else if (state is NotificationsSuccess) {
           return SliverNotificationsList();
         } else {
-          return SliverFillRemaining(
-            hasScrollBody: false,
-            child: CustomCircularProgressIndicator(),
-          );
+          return SkeletonizerNotificationSliverList();
         }
       },
     );

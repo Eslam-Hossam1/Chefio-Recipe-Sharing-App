@@ -23,4 +23,5 @@ class Global {
   final String back = 'global.back';
   final String mins = 'global.mins';
   final String likes = 'global.likes';
+  final String settings = 'global.settings';
 }

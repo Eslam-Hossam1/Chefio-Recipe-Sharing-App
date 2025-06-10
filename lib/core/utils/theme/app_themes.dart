@@ -20,6 +20,8 @@ abstract class AppThemes {
         secondaryTextColor: AppColors.lightSecondaryTextColor,
         formColor: AppColors.lightFormColor,
         toastColor: AppColors.lightToastBackground,
+        cachedNetworkImagePlaceholderColor:
+            AppColors.lightCachedNetworkImagePlacholderColor,
       ),
     ],
   );
@@ -41,6 +43,8 @@ abstract class AppThemes {
         secondaryTextColor: AppColors.darkSecondaryTextColor,
         formColor: AppColors.darkFormColor,
         toastColor: AppColors.darkToastBackground,
+        cachedNetworkImagePlaceholderColor:
+            AppColors.darkCachedNetworkImagePlacholderColor,
       ),
     ],
   );

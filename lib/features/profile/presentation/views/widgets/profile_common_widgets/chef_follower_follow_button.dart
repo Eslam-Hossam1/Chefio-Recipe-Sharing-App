@@ -22,11 +22,11 @@ class ChefFollowerFollowButton extends StatefulWidget {
 
 class _ChefFollowerFollowButtonState extends State<ChefFollowerFollowButton> {
   late bool isFollowing;
-    late bool isMyProfile;
+  late bool isMyProfile;
 
   @override
   void initState() {
-        isMyProfile = getIt<AuthCredentialsHelper>().userId ==
+    isMyProfile = getIt<AuthCredentialsHelper>().userId ==
         context.read<ProfileCubit>().chefId;
 
     isFollowing = widget.chefConnectionEntity.isFollowing;
@@ -53,7 +53,7 @@ class _ChefFollowerFollowButtonState extends State<ChefFollowerFollowButton> {
   @override
   Widget build(BuildContext context) {
     return FollowButton(
-      isFollowing:isFollowing,
+      isFollowing: isFollowing,
       onPressed: _toggleFollow,
     );
   }

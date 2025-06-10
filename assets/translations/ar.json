@@ -198,6 +198,33 @@
         "bad_gateway": "حدث خطأ في الاتصال بالخادم. يرجى المحاولة لاحقًا.",
         "service_unavailable": "الخدمة غير متوفرة حاليًا. يرجى المحاولة بعد قليل.",
         "gateway_timeout": "الخادم يستغرق وقتًا طويلاً للرد. يرجى المحاولة لاحقًا."
+    },
+
+    "languages": {
+        "english": "الانجليزية",
+        "arabic": "العربية",
+        "spanish": "الاسبانية",
+        "language":"اللغات"
+    },
+    "themes":{
+        "light":"فاتح",
+        "dark":"داكن",
+        "system":"النظام",
+        "theme":"المظهر"
+    },
+    "time_units": {
+    "s": "ث",
+    "m": "د",
+    "h": "س",
+    "d": "ي"
+    },
+
+    "notifications": {
+    "now_following_you": "بدأ يتابعك",
+    "liked_your_recipe": "أعجبته وصفتك",
+    "uploaded_new_recipe": "نشر وصفة جديدة"
     }
-        
+
+
+
 }

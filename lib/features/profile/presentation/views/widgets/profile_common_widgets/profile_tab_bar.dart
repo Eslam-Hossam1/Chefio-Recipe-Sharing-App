@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class ProfileTabBar extends StatelessWidget {
   const ProfileTabBar({
-    super.key, required this.tabController,
+    super.key,
+    required this.tabController,
   });
   final TabController tabController;
 

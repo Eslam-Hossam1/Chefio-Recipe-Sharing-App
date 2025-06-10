@@ -6,11 +6,13 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color secondaryTextColor;
   final Color formColor;
   final Color toastColor;
+  final Color cachedNetworkImagePlaceholderColor;
   const CustomColors({
     required this.mainTextColor,
     required this.secondaryTextColor,
     required this.formColor,
     required this.toastColor,
+    required this.cachedNetworkImagePlaceholderColor,
   });
 
   @override
@@ -19,12 +21,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? secondaryTextColor,
     Color? formColor,
     Color? toastColor,
+    Color? cachedNetworkImagePlaceholderColor,
   }) {
     return CustomColors(
       mainTextColor: mainTextColor ?? this.mainTextColor,
       secondaryTextColor: secondaryTextColor ?? this.secondaryTextColor,
       formColor: formColor ?? this.formColor,
       toastColor: toastColor ?? this.toastColor,
+      cachedNetworkImagePlaceholderColor: cachedNetworkImagePlaceholderColor ??
+          this.cachedNetworkImagePlaceholderColor,
     );
   }
 
@@ -37,6 +42,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
           Color.lerp(secondaryTextColor, other.secondaryTextColor, t)!,
       formColor: Color.lerp(formColor, other.formColor, t)!,
       toastColor: Color.lerp(toastColor, other.toastColor, t)!,
+      cachedNetworkImagePlaceholderColor: Color.lerp(
+          cachedNetworkImagePlaceholderColor,
+          other.cachedNetworkImagePlaceholderColor,
+          t)!,
     );
   }
 }

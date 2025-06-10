@@ -66,11 +66,11 @@ class ChefLikedRecipesCubit extends Cubit<ChefLikedRecipesState> {
   }
 
   Future<void> refersh({required String chefId}) async {
-  page = 1;
-  hasMore = true;
-  isLoading = false;
-  chefLikedRecipes.clear();
-  emit(ChefLikedRecipesInitial()); // نرجع للحالة المبدئية مثلاً
-  await  fetchChefLikedRecipes(chefId: chefId!);
+    page = 1;
+    hasMore = true;
+    isLoading = false;
+    chefLikedRecipes.clear();
+    emit(ChefLikedRecipesInitial()); // نرجع للحالة المبدئية مثلاً
+    await fetchChefLikedRecipes(chefId: chefId!);
   }
 }

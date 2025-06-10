@@ -7,7 +7,7 @@ import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
 import 'package:chefio_app/core/errors/failures.dart';
 import 'package:chefio_app/core/services/google_auth_service.dart';
-import 'package:chefio_app/core/services/push_notifications_service.dart';
+import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
 import 'package:chefio_app/features/auth/data/models/log_in_success_model.dart';
 import 'package:chefio_app/features/auth/data/models/sign_up_success_model/sign_up_success_model.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo.dart';
@@ -152,7 +152,7 @@ class AuthRepoImpl implements AuthRepo {
       final response = await _apiConsumer.post(
         EndPoints.googleSignIn,
         data: {
-          ApiKeys.token: idToken,
+          ApiKeys.idToken: idToken,
         },
       );
       final logInSuccessModel = LogInSuccessModel.fromJson(response);
@@ -161,6 +161,7 @@ class AuthRepoImpl implements AuthRepo {
       if (e is DioException) {
         return Left(DioApiFailure.fromDioException(e));
       } else {
+        log("Error in logInWithGoogle: $e");
         return Left(DioApiFailure.unknown(
           e.toString(),
         ));
@@ -211,8 +212,7 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<ApiFailure, void>> sendFcmToken(
-     ) async {
+  Future<Either<ApiFailure, void>> sendFcmToken() async {
     try {
       await _pushNotificationsService.sendFcmToken();
       return Right(null);

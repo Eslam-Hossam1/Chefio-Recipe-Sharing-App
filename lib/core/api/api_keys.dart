@@ -44,4 +44,8 @@ abstract class ApiKeys {
   static const String profilePicture = 'profilePicture';
   static const String categoryId = 'categoryId';
   static const String fcmToken = 'token';
+  static const String notifications = 'notifications';
+  static const String notificationLikeType = 'like';
+  static const String notificationNewRecipeType = 'new_recipe';
+  static const String notificationFollowType = 'follow';
 }

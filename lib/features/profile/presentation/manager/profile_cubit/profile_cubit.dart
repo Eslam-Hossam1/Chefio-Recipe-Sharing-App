@@ -38,6 +38,7 @@ class ProfileCubit extends Cubit<ProfileState> {
       },
     );
   }
+
   Future<void> refresh({
     int limit = 30,
   }) async {

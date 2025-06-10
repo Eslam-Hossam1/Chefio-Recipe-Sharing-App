@@ -38,7 +38,7 @@ class MyProfilePopUpMenuButton extends StatelessWidget {
               ],
             ),
             onTap: () async {
-            await  getIt<ShareHelper>().shareProfile(
+              await getIt<ShareHelper>().shareProfile(
                 chefId: context.read<ProfileCubit>().chefId,
               );
             },
@@ -49,7 +49,7 @@ class MyProfilePopUpMenuButton extends StatelessWidget {
                 children: [
                   Icon(Icons.edit, color: context.mainTextColor),
                   Text(
-                  'Edit Profile',
+                    'Edit Profile',
                     style: Styles.textStyleMedium15(context).copyWith(
                       color: context.mainTextColor,
                     ),
