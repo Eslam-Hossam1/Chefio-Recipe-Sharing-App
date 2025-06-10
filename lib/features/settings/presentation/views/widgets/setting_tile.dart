@@ -5,17 +5,21 @@ class SettingTile extends StatelessWidget {
   final String title;
   final String value;
   final VoidCallback onTap;
-
+  final IconData icon;
   const SettingTile({
     super.key,
     required this.title,
     required this.value,
-    required this.onTap,
+    required this.onTap, required this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      leading: Icon(
+        icon,
+        color: context.mainTextColor,
+      ),
       title: Text(title,
           style: TextStyle(color: context.mainTextColor, fontSize: 16)),
       trailing: Row(

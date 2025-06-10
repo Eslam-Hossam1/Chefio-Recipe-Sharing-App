@@ -30,28 +30,30 @@ class SettingsView extends StatelessWidget {
       body: ListView(
         children: [
           const SizedBox(height: 12),
-
-          // Theme setting
           SettingTile(
+            icon: Icons.palette,
             title: AppLocalizationKeys.themes.theme.tr(),
             value: AppThemeOptions.getThemeModeOptionFromThemeMode(theme)
                 .localizationKey
                 .tr(),
             onTap: () => context.push(RoutePaths.themeSelection),
           ),
-
-          const Divider(),
-
-          // Language setting
           SettingTile(
+            icon: Icons.translate,
             title: AppLocalizationKeys.languages.language.tr(),
             value: AppLanguages.getLanguageFromCurrentLocale(context)
                 .languageLocalizationKey
                 .tr(),
             onTap: () => context.push(RoutePaths.languageSelection),
           ),
-
-          const Divider(),
+          SettingTile(
+            icon: Icons.translate,
+            title: AppLocalizationKeys.languages.language.tr(),
+            value: AppLanguages.getLanguageFromCurrentLocale(context)
+                .languageLocalizationKey
+                .tr(),
+            onTap: () => context.push(RoutePaths.languageSelection),
+          ),
         ],
       ),
     );
