@@ -8,20 +8,20 @@ abstract class AppLanguages {
     languageLocale: Locale('ar'),
     languageName: 'Arabic',
     languageLocalizationKey: AppLocalizationKeys.languages.arabic,
-    languageFlagEmojy: '🇪🇬',
+    countryFlagCode: '🇪🇬',
   );
 
   static final LanguageModel english = LanguageModel(
     languageLocale: Locale('en'),
     languageName: 'English',
     languageLocalizationKey: AppLocalizationKeys.languages.english,
-    languageFlagEmojy: 'us',
+    countryFlagCode: 'us',
   );
   static final LanguageModel spanish = LanguageModel(
     languageLocale: Locale('es'),
     languageName: 'Spanish',
     languageLocalizationKey: AppLocalizationKeys.languages.spanish,
-    languageFlagEmojy: 'es',
+    countryFlagCode: 'es',
   );
 
   static final List<LanguageModel> supportedLanguages = [
