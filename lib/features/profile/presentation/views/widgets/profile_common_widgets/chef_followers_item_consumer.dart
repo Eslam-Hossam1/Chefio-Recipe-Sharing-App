@@ -47,8 +47,8 @@ class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
       },
       child: BlocConsumer<FollowChefCubit, FollowChefState>(
         listener: (context, state) {
-          if ((state is FollowChefSuccess || state is FollowChefFaiure) &&
-              (state as FollowChefStateWithId).chefId == profileChefId) {
+          if ((state is FollowChefSuccess ) &&
+              state.chefId == profileChefId) {
             if (profileModel!.profile.isFollowing == ApiKeys.following) {
               profileModel.profile.followersCount--;
               followersCount--;
