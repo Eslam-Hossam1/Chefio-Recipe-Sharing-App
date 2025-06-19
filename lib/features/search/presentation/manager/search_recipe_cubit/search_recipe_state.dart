@@ -34,3 +34,4 @@ final class FirstApiFetchFailure extends SearchRecipeState {
 }
 
 final class SearchSuccess extends SearchRecipeState {}
+final class SearchEmpty extends SearchRecipeState {}

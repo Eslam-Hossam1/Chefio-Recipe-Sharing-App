@@ -1,5 +1,6 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/features/search/presentation/manager/search_recipe_cubit/search_recipe_cubit.dart';
+import 'package:chefio_app/features/search/presentation/views/widget/search_view_body_empty.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_view_body_error.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_view_body_first_loading.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_view_body_initial.dart';
@@ -21,6 +22,8 @@ class SearchViewBody extends StatelessWidget {
         return SearchViewBodyError(errText: state.errorLocalizationKey.tr());
       } else if (state is FirstLoading) {
         return SearchViewBodyFirstLoading();
+      }else if (state is SearchEmpty){
+                return SearchViewBodyEmpty();
       } else {
         return SearchViewBodyResult();
       }

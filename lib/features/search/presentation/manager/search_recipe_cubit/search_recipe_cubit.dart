@@ -68,6 +68,10 @@ class SearchRecipeCubit extends Cubit<SearchRecipeState> {
         }
       },
       (newRecipes) {
+        if (newRecipes.isEmpty && recipes.isEmpty) {
+          emit(SearchEmpty());
+          return;
+        }
         if (newRecipes.length < limit) {
           hasMoreData = false;
         }
