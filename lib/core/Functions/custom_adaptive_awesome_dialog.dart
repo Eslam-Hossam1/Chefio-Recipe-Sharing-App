@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme/app_colors.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -29,8 +30,8 @@ AwesomeDialog customAdaptiveAwesomeDialog(BuildContext context,
     dialogBackgroundColor: context.dialogBackgroundColor,
     titleTextStyle: Styles.textStyleAwesomeDialogTitle(context),
     descTextStyle: Styles.textStyleAwesomeDialogDesc(context),
-    btnOkColor: btnOkColor ?? context.primaryColor,
-    btnCancelColor: btnCancelColor ?? context.secondaryColor,
+    btnOkColor: btnOkColor ?? AppColors.lightPrimary,
+    btnCancelColor: btnCancelColor ?? Colors.red,
     btnCancelText: btnCancelText,
     btnCancelOnPress: btnCancelOnPress,
     btnOkOnPress: btnOkOnPress,
