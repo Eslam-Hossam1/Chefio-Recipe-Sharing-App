@@ -27,11 +27,14 @@ class SearchViewBodyInitial extends StatelessWidget {
         SliverFillRemaining(
             hasScrollBody: false,
             child: Center(
-              child: Text(
-                textAlign: TextAlign.center,
-                'write some recipe name to search about',
-                style: Styles.textStyleMedium17(context)
-                    .copyWith(color: context.mainTextColor),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Text(
+                  textAlign: TextAlign.center,
+                  'Write some recipe name to search about',
+                  style: Styles.textStyleMedium17(context)
+                      .copyWith(color: context.mainTextColor),
+                ),
               ),
             )),
       ],
