@@ -1,5 +1,6 @@
 import 'package:chefio_app/core/utils/Localization/app_languages.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:country_flags/country_flags.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -38,9 +39,7 @@ class LanguageSelectionView extends StatelessWidget {
                 Text(
                   AppLanguages.supportedLanguages[index].languageLocalizationKey
                       .tr(),
-                  style: TextStyle(
-                    color: context.mainTextColor,
-                  ),
+                  style: Styles.textStyleMedium15(context).copyWith(color: context.mainTextColor,)
                 ),
               ],
             ),
