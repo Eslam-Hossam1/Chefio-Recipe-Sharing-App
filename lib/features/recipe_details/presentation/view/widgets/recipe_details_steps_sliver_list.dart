@@ -20,9 +20,14 @@ class RecipeDetailsStepsSliverList extends StatelessWidget {
           stepIndex: index,
         );
       },
+      // separatorBuilder: (context, index) {
+      //   return RecipeDetailsCustomDivider(
+      //     height: 48.h,
+      //   );
+      // },
       separatorBuilder: (context, index) {
-        return RecipeDetailsCustomDivider(
-          height: 48.h,
+        return SizedBox(
+          height: 24.h,
         );
       },
     );
