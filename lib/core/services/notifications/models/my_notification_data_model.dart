@@ -1,7 +1,7 @@
 class MyNotificationDataModel {
   String senderName;
   String senderId;
-  String senderProfilePicture;
+  String? senderProfilePicture;
   String type;
   String? clickAction;
   String? recipeId;
@@ -19,7 +19,7 @@ class MyNotificationDataModel {
     return MyNotificationDataModel(
       senderName: json['senderName'] as String,
       senderId: json['senderId'] as String,
-      senderProfilePicture: json['senderProfilePicture'] as String,
+      senderProfilePicture: json['senderProfilePicture'] as String?,
       type: json['type'] as String,
       clickAction: json['click_action'] as String?,
       recipeId: json['recipeId'] as String?,
