@@ -2,6 +2,7 @@ class Auth {
   const Auth._();
   static const Auth instance = Auth._();
   //shared keys
+  final String logout = 'auth.logout.logout_text';
   final String enterAccount = 'auth.shared.enter_account';
   final String usernameTextFeildHint = 'auth.shared.username_text_field_hint';
   final String emailTextFeildHint = 'auth.shared.email_text_field_hint';

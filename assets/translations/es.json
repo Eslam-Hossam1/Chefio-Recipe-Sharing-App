@@ -69,6 +69,9 @@
       "done": "Listo",
       "reset_password_success": "¡Contraseña restablecida con éxito! Ya puedes iniciar sesión.",
       "reset_password_exit_warning": "La contraseña aún no se ha restablecido, ¿seguro quieres salir?"
+    },
+    "logout": {
+      "logout_text": "Cerrar sesión"
     }
   },
   "profile_setup": {
@@ -189,7 +192,7 @@
   },
   "time_units": {
     "s": "s",
-    "m": "min",
+    "m": "m",
     "h": "h",
     "d": "d"
   },

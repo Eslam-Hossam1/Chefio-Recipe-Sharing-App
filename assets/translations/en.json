@@ -69,6 +69,9 @@
             "done": "Done",
             "reset_password_success": "Your password has been reset successfully! You can now log in with your new password.",
             "reset_password_exit_warning": " The password didn't reset yet, are you sure you want to exit"
+        },
+        "logout":{
+            "logout_text":"Logout"
         }
     },
     "profile_setup": {
@@ -189,7 +192,7 @@
     },
     "time_units": {
         "s": "s",
-        "m": "min",
+        "m": "m",
         "h": "h",
         "d": "d"
     },
