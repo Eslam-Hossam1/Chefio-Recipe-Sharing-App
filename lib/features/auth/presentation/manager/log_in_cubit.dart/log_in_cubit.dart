@@ -81,7 +81,7 @@ class LogInCubit extends Cubit<LogInState> {
             accessToken: nullableLogInSuccessModel.accessToken,
             refreshToken: nullableLogInSuccessModel.refreshToken,
           );
-        await sendFcmToken();
+          await sendFcmToken();
         } else {
           emit(LogInInitial());
         }
