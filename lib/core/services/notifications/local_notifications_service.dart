@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:chefio_app/core/services/notifications/models/my_notification_data_model.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -63,7 +64,7 @@ class LocalNotificationsService {
 
     NotificationDetails notificationDetails = NotificationDetails(
       android: AndroidNotificationDetails(
-        'channelId',
+        remoteMessage.messageId ?? 'default_id',
         'channelName',
         importance: Importance.max,
         priority: Priority.max,
@@ -71,8 +72,11 @@ class LocalNotificationsService {
       ),
     );
 
+    int notificationId = remoteMessage.messageId?.hashCode
+    ?? DateTime.now().millisecondsSinceEpoch;
+
     await _flutterLocalNotificationsPlugin.show(
-      0,
+      notificationId,
       remoteMessage.notification?.title,
       remoteMessage.notification?.body,
       notificationDetails,
@@ -83,16 +87,18 @@ class LocalNotificationsService {
   Future<BigPictureStyleInformation?> getNotificationImage(
       RemoteMessage remoteMessage,
       BigPictureStyleInformation? bigPictureStyleInformation) async {
-    if (remoteMessage.notification?.android?.imageUrl != null) {
+    String imageUrl;
+
+      imageUrl = remoteMessage.notification?.android?.imageUrl??Constants.nullUserImageUrl;
       _dio.options.responseType = ResponseType.bytes;
       final response =
-          await _dio.get(remoteMessage.notification?.android?.imageUrl ?? '');
+          await _dio.get(imageUrl);
       bigPictureStyleInformation = BigPictureStyleInformation(
         ByteArrayAndroidBitmap.fromBase64String(base64Encode(response.data)),
         largeIcon: ByteArrayAndroidBitmap.fromBase64String(
             base64Encode(response.data)),
       );
-    }
+
     return bigPictureStyleInformation;
   }
 }
