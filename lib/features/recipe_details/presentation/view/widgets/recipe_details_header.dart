@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/widgets/recipe_category_with_cooking_duration_text.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
@@ -8,6 +9,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class RecipeDetailsHeader extends StatelessWidget {
   const RecipeDetailsHeader({
@@ -35,9 +37,18 @@ class RecipeDetailsHeader extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: UserTileItem(
-                userName: recipeDetailsModel.createdBy.username,
-                userImageUrl: recipeDetailsModel.createdBy.profilePicture,
+              child: GestureDetector(
+                onTap: () {
+                  context.push(
+                    RoutingHelper.getProfilePath(
+                      chefId: recipeDetailsModel.createdBy.id,
+                    ),
+                  );
+                },
+                child: UserTileItem(
+                  userName: recipeDetailsModel.createdBy.username,
+                  userImageUrl: recipeDetailsModel.createdBy.profilePicture,
+                ),
               ),
             ),
             SizedBox(
