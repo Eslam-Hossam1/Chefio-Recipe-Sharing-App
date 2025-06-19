@@ -16,8 +16,8 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
   final UploadRepo _uploadRepo;
   bool isEdit = false;
   String? id;
-  List<String> ingredients = [""];
-  List<String> steps = [""];
+  List<String> ingredients = ["",""];
+  List<String> steps = ["",""];
   String foodName = '';
   String foodDescription = '';
   int foodCookDuration = 1;

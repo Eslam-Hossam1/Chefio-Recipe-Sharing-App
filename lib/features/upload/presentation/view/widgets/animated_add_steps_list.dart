@@ -42,7 +42,7 @@ class AnimatedAddStepsList extends StatelessWidget {
                   ),
                 ),
               ),
-              direction: uploadRecipeCubit.steps.length < 2
+              direction: uploadRecipeCubit.steps.length < 3
                   ? DismissDirection.none
                   : DismissDirection.startToEnd,
               child: EnterStepItem(

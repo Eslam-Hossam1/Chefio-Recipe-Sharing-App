@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/Functions/form_validators.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
@@ -28,6 +29,8 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
             height: 10,
           ),
           CustomTextFormField(
+            validator: (value) =>
+                FormValidators.requiredNumberOfCharacters(value, 2),
             initialValue: context.read<UploadRecipeCubit>().foodName,
             onSaved: (foodName) {
               context.read<UploadRecipeCubit>().foodName = foodName!;
@@ -47,6 +50,8 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
             height: 10,
           ),
           CustomTextFormField(
+            validator: (value) =>
+                FormValidators.requiredNumberOfCharacters(value, 3),
             initialValue: context.read<UploadRecipeCubit>().foodDescription,
             onSaved: (foodDescription) {
               context.read<UploadRecipeCubit>().foodDescription =

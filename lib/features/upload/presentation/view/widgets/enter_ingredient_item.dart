@@ -29,6 +29,9 @@ class EnterIngredientItem extends StatelessWidget {
         ),
         Expanded(
           child: CustomTextFormField(
+           validator: (value) =>
+              FormValidators.requiredNumberOfCharacters(value, 2)
+            ,
             initialValue:
                 context.read<UploadRecipeCubit>().ingredients[ingredientIndex],
             onSaved: (ingredient) {

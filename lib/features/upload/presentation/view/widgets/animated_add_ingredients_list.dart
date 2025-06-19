@@ -42,7 +42,7 @@ class AnimatedAddIngredientsList extends StatelessWidget {
                     ),
                   ),
                 ),
-                direction: uploadRecipeCubit.ingredients.length < 2
+                direction: uploadRecipeCubit.ingredients.length < 3
                     ? DismissDirection.none
                     : DismissDirection.startToEnd,
                 child: EnterIngredientItem(
