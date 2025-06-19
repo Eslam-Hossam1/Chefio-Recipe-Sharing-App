@@ -39,4 +39,5 @@ abstract class AuthRepo {
 
   Future<Either<ApiFailure, LogInSuccessModel?>> logInWithGoogle();
   Future<Either<ApiFailure, void>> sendFcmToken();
+  Future<Either<ApiFailure, void>> logout();
 }

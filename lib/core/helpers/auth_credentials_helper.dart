@@ -53,6 +53,7 @@ class AuthCredentialsHelper {
       storeAccessToken(accessToken),
       storeRefreshToken(refreshToken),
     ]);
+    await init();
   }
 
   Future<void> clearTokens() async {
