@@ -29,7 +29,7 @@ class SetRecipeSuccessDialog extends StatelessWidget {
             Text(
               textAlign: TextAlign.center,
               "Upload Success",
-              style: Styles.textStyleMedium17(context)
+              style: Styles.textStyleBold22(context)
                   .copyWith(color: context.mainTextColor),
             ),
             SizedBox(
@@ -37,7 +37,7 @@ class SetRecipeSuccessDialog extends StatelessWidget {
             ),
             Text(
               textAlign: TextAlign.center,
-              "Your recipe has been uploaded,you can see it on your profile",
+              "Your recipe has been uploaded,\nyou can see it on your profile",
               style: Styles.textStyleMedium15(context)
                   .copyWith(color: context.mainTextColor),
             ),
@@ -45,12 +45,13 @@ class SetRecipeSuccessDialog extends StatelessWidget {
               height: 24,
             ),
             CustomTextButton(
+              width: double.infinity,
               onPressed: () {
                 context.go(RoutePaths.home);
               },
               child: Text(
-                "go to home",
-                style: Styles.textStyleMedium15(context)
+                "Back to Home",
+                style: Styles.textStyleBold15(context)
                     .copyWith(color: Colors.white),
               ),
             )
