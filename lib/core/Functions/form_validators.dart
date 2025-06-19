@@ -11,6 +11,13 @@ abstract class FormValidators {
       return null;
     }
   }
+  static String? requiredNumberOfCharacters(String? value,int number) {
+     if (value == null || value.length<number) {
+      return 'This field require at least $number of characters';
+    } else {
+      return null;
+    }
+  }
 
   static String? usernameTextFormFieldValidator(String? value) {
     final RegExp usernameRegex = RegExp(r'^[a-zA-Z0-9_]+$');
