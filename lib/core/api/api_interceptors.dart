@@ -4,9 +4,13 @@ import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/cache/secure_storage_helper.dart';
+import 'package:chefio_app/core/utils/dialog_helper.dart';
+import 'package:chefio_app/core/utils/routing/app_router.dart';
+import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:go_router/go_router.dart';
 
 class ApiInterceptor extends Interceptor {
   final Dio client;
@@ -84,6 +88,16 @@ class ApiInterceptor extends Interceptor {
             authCredentialsHelper
                 .clearTokens(); // ⬅️ احذف بيانات المستخدم لو التوكن فشل
             log('refresh token expired');
+            final context = AppRouter.rootNavigatorKey.currentState!.context;
+            DialogHelper.showEndSessionDialog(
+              context,
+              onDismissCallback: (p0) {
+                context.go(RoutePaths.login);
+              },
+              btnOkOnPress: () {
+                context.go(RoutePaths.login);
+              },
+            );
           }
         }
       }
