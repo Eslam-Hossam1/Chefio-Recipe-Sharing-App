@@ -21,6 +21,9 @@ class NotificationLikeItem extends StatelessWidget {
             notificationEntity: notificationEntity,
           ),
         ),
+        SizedBox(
+          width: 6,
+        ),
         NotificationRecipeImage(
           notitficationEntity: notificationEntity,
         ),
