@@ -11,12 +11,17 @@ class FollowButton extends StatelessWidget {
     required this.isFollowing,
     required this.onPressed,
     this.isLoading,
+    this.width,
+    this.height,
+    this.internalPadding,
   });
 
   final bool isFollowing;
   final VoidCallback onPressed;
   final bool? isLoading;
-
+  final double? width;
+  final double? height;
+  final EdgeInsetsGeometry? internalPadding;
   @override
   Widget build(BuildContext context) {
     final buttonText = isFollowing ? 'Followed' : 'Follow';
@@ -28,29 +33,23 @@ class FollowButton extends StatelessWidget {
     return AbsorbPointer(
       absorbing: isLoading ?? false,
       child: CustomTextButton(
-          width: 100.w,
+          width: width ?? 95.w,
           onPressed: () {
             onPressed();
           },
           backgroundColor: buttonColor,
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 12,
-              vertical: 6,
-            ),
-            child: (isLoading != null && isLoading!)
-                ? Center(
-                    child: CustomCircularProgressIndicator(
-                      color: cicularProgressIndicatorColor,
-                    ),
-                  )
-                : Text(
-                    buttonText,
-                    style: Styles.textStyleBold12(context).copyWith(
-                      color: textColor,
-                    ),
+          child: (isLoading != null && isLoading!)
+              ? Center(
+                  child: CustomCircularProgressIndicator(
+                    color: cicularProgressIndicatorColor,
                   ),
-          )),
+                )
+              : Text(
+                  buttonText,
+                  style: Styles.textStyleBold12(context).copyWith(
+                    color: textColor,
+                  ),
+                )),
     );
   }
 }
