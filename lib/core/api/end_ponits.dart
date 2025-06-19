@@ -18,6 +18,7 @@ abstract class EndPoints {
   static const String editProfile = "user/edit-profile";
   static const String setFcmToken = "device-tokens/register";
   static const String notifications = "notification";
+  static const String logout = "auth/signout";
 
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
@@ -29,6 +30,9 @@ abstract class EndPoints {
 
   static String getRecipeDetailsEndPoint(String recipeId) {
     return "recipe/get-recipe/$recipeId";
+  }
+  static String getDeleteRecipeEndPoint(String recipeId) {
+    return "recipe/delete-recipe/$recipeId";
   }
 
   static String getToggleLikeRecipeEndPoint(String recipeId) {

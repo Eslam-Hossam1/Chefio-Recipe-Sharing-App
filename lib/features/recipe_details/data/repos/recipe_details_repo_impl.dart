@@ -56,4 +56,20 @@ class RecipeDetailsRepoImpl implements RecipeDetailsRepo {
       }
     }
   }
+
+  @override
+  Future<Either<ApiFailure, void>> deleteRecipe(
+      {required String recipeId}) async {
+    try {
+      await _apiConsumer.delete(EndPoints.getDeleteRecipeEndPoint(recipeId));
+      return Right(null);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(DioApiFailure.fromDioException(e));
+      } else {
+        log(e.toString());
+        return Left(DioApiFailure.unknown(e.toString()));
+      }
+    }
+  }
 }

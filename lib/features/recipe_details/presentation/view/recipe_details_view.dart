@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
@@ -7,6 +8,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class RecipeDetailsView extends StatefulWidget {
   const RecipeDetailsView({super.key, required this.id});
@@ -35,14 +37,28 @@ class _RecipeDetailsViewState extends State<RecipeDetailsView> {
         }
       },
       child: Scaffold(
-        body: BlocBuilder<RecipeDetailsCubit, RecipeDetailsState>(
+        body: BlocConsumer<RecipeDetailsCubit, RecipeDetailsState>(
+          listener: (context, state) {
+            if (state is RecipeDetailsDeleteRecipeFailure) {
+              DialogHelper.showErrorDialog(
+                context,
+                errorMessage: state.errorLocalizationKey.tr(),
+                btnOkOnPress: () {},
+              );
+            } else if (state is RecipeDetailsDeleteRecipeSuccess) {
+              context.pop(RoutePaths.home);
+            }
+          },
           builder: (context, state) {
             if (state is RecipeDetailsFailure) {
               return RecipeDetailsFailureBody(
                 text: state.errorLocalizationKey.tr(),
               );
-            } else if (state is RecipeDetailsSuccess) {
-              return RecipeDetailsViewBody();
+            } else if (state is RecipeDetailsSuccess || state is DeleteRecipe) {
+              return ModalProgressHUD(
+                inAsyncCall: state is RecipeDetailsDeleteRecipeLoading,
+                child: RecipeDetailsViewBody(),
+              );
             } else {
               return Center(
                 child: CustomCircularProgressIndicator(),

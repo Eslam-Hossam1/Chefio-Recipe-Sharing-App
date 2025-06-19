@@ -27,4 +27,8 @@ abstract class AppColors {
   static const Color darkFormColor = Color(0xFF2E2E2E);
   static const Color darkToastBackground = Color(0xFF2E2E2E);
   static const Color darkCachedNetworkImagePlacholderColor = Color(0xFF3A3A3A);
+
+  // general colors
+  static const Color logoutText = Color(0xFFC42C48);
+  static const Color logoutIcon = Color(0xFFD64864);
 }

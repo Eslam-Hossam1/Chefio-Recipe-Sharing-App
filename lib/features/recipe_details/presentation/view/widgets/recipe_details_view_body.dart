@@ -61,7 +61,7 @@ class RecipeDetailsViewBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 32.h,
+            height: 60.h,
           ),
         ),
       ],

@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/utils/theme/app_colors.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
@@ -32,9 +34,11 @@ class EditAndSharePopUpMenuButton extends StatelessWidget {
         return [
           PopupMenuItem(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Icon(Icons.share, color: context.mainTextColor),
+                SizedBox(
+                  width: 8,
+                ),
                 Text(
                   AppLocalizationKeys.recipeDetails.shareRecipe.tr(),
                   style: Styles.textStyleMedium15(context).copyWith(
@@ -54,9 +58,11 @@ class EditAndSharePopUpMenuButton extends StatelessWidget {
           ),
           PopupMenuItem(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Icon(Icons.edit, color: context.mainTextColor),
+                  SizedBox(
+                    width: 8,
+                  ),
                   Text(
                     AppLocalizationKeys.recipeDetails.editRecipe.tr(),
                     style: Styles.textStyleMedium15(context).copyWith(
@@ -69,6 +75,38 @@ class EditAndSharePopUpMenuButton extends StatelessWidget {
                 context.push(
                   RoutePaths.upload,
                   extra: context.read<RecipeDetailsCubit>().recipeDetailModel,
+                );
+              }),
+          PopupMenuItem(
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.delete,
+                    color: AppColors.logoutText,
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    "Delete Recipe",
+                    style: Styles.textStyleMedium15(context).copyWith(
+                      color: AppColors.logoutText,
+                    ),
+                  ),
+                ],
+              ),
+              onTap: () {
+                DialogHelper.showWarningDialog(
+                  context,
+                  errorMessage: 'Are you sure you want to delete this recipe?',
+                  btnOkOnPress: () {
+                    context.read<RecipeDetailsCubit>().deleteRecipe(
+                          recipeId: context
+                              .read<RecipeDetailsCubit>()
+                              .recipeDetailModel!
+                              .id,
+                        );
+                  },
                 );
               }),
         ];

@@ -14,13 +14,31 @@ class RecipeDetailsCubit extends Cubit<RecipeDetailsState> {
     final result =
         await _recipeDetailsRepo.fetchRecipeDetails(recipeId: recipeId);
     result.fold(
-        (failure) => emit(RecipeDetailsFailure(
-            errorMessage: failure.errMsg,
-            errorLocalizationKey: failure.localizaitonKey)),
-        (recipeDetailModel) {
+        (failure) => emit(
+              RecipeDetailsFailure(
+                errorMessage: failure.errMsg,
+                errorLocalizationKey: failure.localizaitonKey,
+              ),
+            ), (recipeDetailModel) {
       this.recipeDetailModel = recipeDetailModel;
       emit(
         RecipeDetailsSuccess(),
+      );
+    });
+  }
+
+  Future<void> deleteRecipe({required String recipeId}) async {
+    emit(RecipeDetailsDeleteRecipeLoading());
+    final result = await _recipeDetailsRepo.deleteRecipe(recipeId: recipeId);
+    result.fold(
+        (failure) => emit(
+              RecipeDetailsDeleteRecipeFailure(
+                errorMessage: failure.errMsg,
+                errorLocalizationKey: failure.localizaitonKey,
+              ),
+            ), (recipeDetailModel) {
+      emit(
+        RecipeDetailsDeleteRecipeSuccess(),
       );
     });
   }
