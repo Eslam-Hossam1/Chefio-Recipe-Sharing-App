@@ -1,6 +1,7 @@
-import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
+import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
+import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
-import 'package:chefio_app/features/profile/presentation/manager/follow_chef_in_my_profile/follow_chef_in_my_profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/chef_followings_bottom_sheet.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_chef_info_item.dart';
@@ -19,50 +20,50 @@ class ChefFollowingItemConsumer extends StatefulWidget {
 
 class _ChefFollowingItemConsumerState extends State<ChefFollowingItemConsumer> {
   late int followingCount;
+  late String appUserId;
+  late ProfileCubit profileCubit;
+  late ProfileModel profileModel;
+  late String profileChefId;
 
   @override
   void initState() {
     super.initState();
     followingCount =
         context.read<ProfileCubit>().profileModel!.profile.followingCount;
+    profileCubit = context.read<ProfileCubit>();
+    profileModel = profileCubit.profileModel!;
+    profileChefId = profileCubit.chefId;
+    appUserId = getIt<AuthCredentialsHelper>().userId!;
   }
 
   @override
   Widget build(BuildContext context) {
-    final profileCubit = context.read<ProfileCubit>();
-    final profileModel = profileCubit.profileModel;
-
     return GestureDetector(
       onTap: () {
-        final String chefId = profileCubit.chefId;
         showModalBottomSheet(
             context: context,
             backgroundColor: Colors.transparent,
             isScrollControlled: true,
             builder: (context) {
               return ChefFollowingsBottomSheet(
-                chefId: chefId,
+                chefId: profileChefId,
               );
             });
       },
-      child:
-          BlocConsumer<FollowChefInMyProfileCubit, FollowChefInMyProfileState>(
+      child: BlocConsumer<FollowChefCubit, FollowChefState>(
         listener: (context, state) {
-          if ((state is FollowChefInMyProfileFailure ||
-              state is FollowChefInMyProfileProcessing)) {
-            final ChefConnectionEntity chefFollowing =
-                (state as FollowChefInMyProfileStateWithConnectionEntity)
-                    .chefFollowing;
-            if (chefFollowing.isFollowing) {
-              profileModel!.profile.followingCount--;
-              followingCount--;
+          if ((state is FollowChefSuccess) && profileChefId == appUserId) {
+            if (state.chefConnectionEntity != null) {
+              if (state.chefConnectionEntity!.isFollowing) {
+                profileModel.profile.followersCount--;
+                followingCount--;
+                state.chefConnectionEntity!.isFollowing = false;
+              } else {
 
-              chefFollowing.isFollowing = false;
-            } else {
-              profileModel!.profile.followingCount++;
-              followingCount--;
-
-              chefFollowing.isFollowing = true;
+                profileModel.profile.followersCount++;
+                followingCount++;
+                state.chefConnectionEntity!.isFollowing = true;
+              }
             }
           }
         },

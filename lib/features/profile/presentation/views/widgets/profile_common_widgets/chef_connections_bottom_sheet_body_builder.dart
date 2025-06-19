@@ -1,14 +1,14 @@
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_connections_cubit/chef_connections_cubit.dart';
-import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/chef_followers_list_view.dart';
+import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/chef_connections_list_view.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/skeletonizer_chef_connections_list_view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ChefFollowersBottomSheetBodyBuilder extends StatelessWidget {
-  const ChefFollowersBottomSheetBodyBuilder({
+class ChefConnectionsBottomSheetBodyBuilder extends StatelessWidget {
+  const ChefConnectionsBottomSheetBodyBuilder({
     super.key,
     required this.scrollController,
   });
@@ -22,7 +22,7 @@ class ChefFollowersBottomSheetBodyBuilder extends StatelessWidget {
             text: state.errorLocalizationKey.tr(),
           );
         } else if (state is ChefConnectionsSuccess) {
-          return ChefFollowersListView(
+          return ChefConnectionsListView(
             scrollController: scrollController,
             chefConnections:
                 context.read<ChefConnectionsCubit>().chefConnections!,

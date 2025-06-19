@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_connections_cubit/chef_connections_cubit.dart';
-import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/chef_followers_bottom_sheet_body_builder.dart';
+import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/chef_connections_bottom_sheet_body_builder.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_likers_cubit/recipe_likers_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_likers_bottom_sheet_body_builder.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/scrollable_sheet_dragger_icon.dart';
@@ -58,7 +58,7 @@ class _ChefFollowersBottomSheetState extends State<ChefFollowersBottomSheet> {
                           child: ScrollableSheetDraggerIcon(),
                         ),
                         Expanded(
-                          child: ChefFollowersBottomSheetBodyBuilder(
+                          child: ChefConnectionsBottomSheetBodyBuilder(
                             scrollController: scrollController,
                           ),
                         ),

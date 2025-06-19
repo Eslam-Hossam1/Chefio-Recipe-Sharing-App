@@ -31,7 +31,7 @@ class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
   Widget build(BuildContext context) {
     final profileCubit = context.read<ProfileCubit>();
     final profileModel = profileCubit.profileModel;
-    final String profileChefId = context.read<ProfileCubit>().chefId;
+    final String profileChefId = profileCubit.chefId;
 
     return GestureDetector(
       onTap: () {
@@ -47,8 +47,7 @@ class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
       },
       child: BlocConsumer<FollowChefCubit, FollowChefState>(
         listener: (context, state) {
-          if ((state is FollowChefSuccess ) &&
-              state.chefId == profileChefId) {
+          if ((state is FollowChefSuccess) && state.chefId == profileChefId) {
             if (profileModel!.profile.isFollowing == ApiKeys.following) {
               profileModel.profile.followersCount--;
               followersCount--;

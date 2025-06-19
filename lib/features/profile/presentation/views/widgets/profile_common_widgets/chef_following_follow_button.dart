@@ -2,7 +2,6 @@ import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
-import 'package:chefio_app/features/profile/presentation/manager/follow_chef_in_my_profile/follow_chef_in_my_profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/follow_button.dart';
 import 'package:flutter/material.dart';
@@ -36,15 +35,10 @@ class _ChefFollowingFollowButtonState extends State<ChefFollowingFollowButton> {
       widget.chefConnectionEntity.isFollowing =
           !widget.chefConnectionEntity.isFollowing;
       isFollowing = !isFollowing;
-      if (isMyProfile) {
-        context.read<FollowChefInMyProfileCubit>().toggleFollowChefInMyProfile(
-              chefConnection: widget.chefConnectionEntity,
-            );
-      } else {
-        context.read<FollowChefCubit>().toggleFollowChef(
-              chefId: widget.chefConnectionEntity.chefId,
-            );
-      }
+
+      context.read<FollowChefCubit>().toggleFollowChef(
+            chefId: widget.chefConnectionEntity.chefId,
+          );
     });
   }
 

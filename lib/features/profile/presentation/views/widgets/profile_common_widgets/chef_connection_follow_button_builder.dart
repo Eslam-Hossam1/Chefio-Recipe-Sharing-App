@@ -1,22 +1,23 @@
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
+import 'package:chefio_app/core/widgets/follow_button_consumer.dart';
 import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/chef_follower_follow_button.dart';
 import 'package:flutter/material.dart';
 
-class ChefFollowerFollowButtonBuilder extends StatefulWidget {
-  const ChefFollowerFollowButtonBuilder(
+class ChefConnectionFollowButtonBuilder extends StatefulWidget {
+  const ChefConnectionFollowButtonBuilder(
       {super.key,
       required this.chefConnection,
       required this.authCredentialsHelper});
   final ChefConnectionEntity chefConnection;
   final AuthCredentialsHelper authCredentialsHelper;
   @override
-  State<ChefFollowerFollowButtonBuilder> createState() =>
-      _ChefFollowerFollowButtonBuilderState();
+  State<ChefConnectionFollowButtonBuilder> createState() =>
+      _ChefConnectionFollowButtonBuilderState();
 }
 
-class _ChefFollowerFollowButtonBuilderState
-    extends State<ChefFollowerFollowButtonBuilder> {
+class _ChefConnectionFollowButtonBuilderState
+    extends State<ChefConnectionFollowButtonBuilder> {
   late bool isMe;
   @override
   void initState() {
@@ -28,7 +29,9 @@ class _ChefFollowerFollowButtonBuilderState
   Widget build(BuildContext context) {
     return isMe
         ? SizedBox.shrink()
-        : ChefFollowerFollowButton(
+        : FollowButtonConsumer(
+            chefId: widget.chefConnection.chefId,
+            isFollowing: widget.chefConnection.isFollowing,
             chefConnectionEntity: widget.chefConnection,
           );
   }
