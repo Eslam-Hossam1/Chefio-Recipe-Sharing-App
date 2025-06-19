@@ -35,6 +35,7 @@ import 'package:chefio_app/features/profile/presentation/manager/chef_profile_re
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_follow_button_cubit/profile_follow_button_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/profile_view.dart';
+import 'package:chefio_app/features/settings/presentation/manager/settings_cubit/settings_cubit.dart';
 import 'package:chefio_app/features/settings/presentation/views/language_selection_view.dart';
 import 'package:chefio_app/features/settings/presentation/views/settings_view.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
@@ -55,7 +56,7 @@ import 'package:go_router/go_router.dart';
 import 'shell_branches.dart';
 
 class AppRouter {
-  static final _rootNavigatorKey = GlobalKey<NavigatorState>();
+  static final rootNavigatorKey = GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
     redirect: (context, state) {
@@ -66,9 +67,7 @@ class AppRouter {
 
       final isLoggedIn = getIt<AuthCredentialsHelper>().userIsAuthenticated();
 
-      // لو جالك deep link وانت مسجل دخول
-      if (state.uri.pathSegments.contains('recipe-details')) {
-        // لو مش مسجل دخول
+      if (state.uri.pathSegments.contains('recipes')) {
         if (!isLoggedIn) {
           return RoutePaths.login;
         }
@@ -77,7 +76,6 @@ class AppRouter {
         return RoutingHelper.getRecipeDetailsPath(recipeId: recipeId);
       }
       if (state.uri.pathSegments.contains('profile')) {
-        // لو مش مسجل دخول
         if (!isLoggedIn) {
           return RoutePaths.login;
         }
@@ -86,14 +84,14 @@ class AppRouter {
         return RoutingHelper.getProfilePath(chefId: chefId);
       }
 
-      return null; // معناها كمل طبيعي
+      return null;
     },
     initialLocation: RoutePaths.splash,
-    navigatorKey: _rootNavigatorKey,
+    navigatorKey: rootNavigatorKey,
     debugLogDiagnostics: true,
     routes: [
       StatefulShellRoute.indexedStack(
-        parentNavigatorKey: _rootNavigatorKey,
+        parentNavigatorKey: rootNavigatorKey,
         builder: (context, state, navigationShell) {
           return MainScaffoldView(navigationShell: navigationShell);
         },
@@ -184,7 +182,15 @@ class AppRouter {
       ),
       GoRoute(
         path: RoutePaths.settings,
-        builder: (context, state) => const SettingsView(),
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => SettingsCubit(
+              authCredentialsHelper: getIt<AuthCredentialsHelper>(),
+              authRepo: getIt<AuthRepoImpl>(),
+            ),
+            child: const SettingsView(),
+          );
+        },
       ),
       GoRoute(
         path: RoutePaths.themeSelection,

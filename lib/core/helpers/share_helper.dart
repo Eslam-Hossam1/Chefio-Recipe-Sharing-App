@@ -7,13 +7,13 @@ import 'package:share_plus/share_plus.dart';
 class ShareHelper {
   //      "https://chefio-beta.vercel.app/recipe-detail/";
 
-  static const String _baseUrl = 'https://chefio-beta.vercel.app/';
+  static const String _baseUrl = 'https://chefio-ten.vercel.app/';
 
   /// Share recipe using HTTPS App Link
   Future<void> shareRecipe({
     required String recipeId,
   }) async {
-    final String link = "${_baseUrl}recipe-details/$recipeId";
+    final String link = "${_baseUrl}recipes/$recipeId";
     final String message = "Check out this delicious recipe! 🍽️\n$link";
 
     try {
