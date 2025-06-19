@@ -11,7 +11,6 @@ import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/utils/theme/app_themes.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_connections_cubit/chef_connections_cubit.dart';
-import 'package:chefio_app/features/profile/presentation/manager/follow_chef_in_my_profile/follow_chef_in_my_profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -60,10 +59,6 @@ class _ChefioState extends State<Chefio> {
               BlocProvider(
                 create: (context) =>
                     ProfileCubit(profileRepo: getIt<ProfileRepoImpl>()),
-              ),
-              BlocProvider(
-                create: (context) => FollowChefInMyProfileCubit(
-                    followChefService: getIt<FollowChefService>()),
               ),
             ],
             child: BlocBuilder<ThemeCubit, ThemeMode>(

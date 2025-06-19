@@ -1,24 +1,25 @@
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/utils/Localization/app_locals.dart';
 import 'package:chefio_app/core/utils/Localization/models/language_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppLanguages {
   static final LanguageModel arabic = LanguageModel(
-    languageLocale: Locale('ar'),
+    languageLocale: AppLocals.arabic,
     languageName: 'Arabic',
     languageLocalizationKey: AppLocalizationKeys.languages.arabic,
     countryFlagCode: 'sa',
   );
 
   static final LanguageModel english = LanguageModel(
-    languageLocale: Locale('en'),
+    languageLocale:AppLocals.english,
     languageName: 'English',
     languageLocalizationKey: AppLocalizationKeys.languages.english,
     countryFlagCode: 'us',
   );
   static final LanguageModel spanish = LanguageModel(
-    languageLocale: Locale('es'),
+    languageLocale: AppLocals.spanish,
     languageName: 'Spanish',
     languageLocalizationKey: AppLocalizationKeys.languages.spanish,
     countryFlagCode: 'es',
