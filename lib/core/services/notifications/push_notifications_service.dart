@@ -118,11 +118,17 @@ class PushNotificationsService {
 
   navigateBasedOnNotification(
       {required MyNotificationDataModel myNotificationDataModel}) {
-    if (myNotificationDataModel.type == 'like' ||
-        myNotificationDataModel.type == 'new_recipe') {
+    if (myNotificationDataModel.type == ApiKeys.notificationLikeType ||
+        myNotificationDataModel.type == ApiKeys.notificationNewRecipeType) {
       AppRouter.router.go(
         RoutingHelper.getRecipeDetailsPath(
           recipeId: myNotificationDataModel.recipeId!,
+        ),
+      );
+    }else{
+      AppRouter.router.go(
+        RoutingHelper.getProfilePath(
+          chefId: myNotificationDataModel.senderId,
         ),
       );
     }
