@@ -32,7 +32,7 @@ class _ChefFollowingItemConsumerState extends State<ChefFollowingItemConsumer> {
         context.read<ProfileCubit>().profileModel!.profile.followingCount;
     profileCubit = context.read<ProfileCubit>();
     profileModel = profileCubit.profileModel!;
-    profileChefId = profileCubit.chefId;
+    profileChefId = profileModel.id;
     appUserId = getIt<AuthCredentialsHelper>().userId!;
   }
 

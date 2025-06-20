@@ -39,7 +39,7 @@ class MyProfilePopUpMenuButton extends StatelessWidget {
             ),
             onTap: () async {
               await getIt<ShareHelper>().shareProfile(
-                chefId: context.read<ProfileCubit>().chefId,
+                chefId: context.read<ProfileCubit>().profileModel!.id,
               );
             },
           ),

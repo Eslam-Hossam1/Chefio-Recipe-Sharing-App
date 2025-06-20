@@ -19,7 +19,7 @@ class _ProfileFollowButtonBuilderState
   @override
   void initState() {
     context.read<ProfileFollowButtonCubit>().checkIsMyProfile(
-          chefId: context.read<ProfileCubit>().chefId,
+          chefId: context.read<ProfileCubit>().profileModel!.id,
         );
     super.initState();
   }

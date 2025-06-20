@@ -36,7 +36,7 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
               btnText: "Try Again",
               onPressed: () {
                 context.read<ChefProfileRecipesCubit>().fetchChefRecipes(
-                      chefId: context.read<ProfileCubit>().chefId,
+                      chefId: context.read<ProfileCubit>().profileModel!.id,
                     );
               },
             ),

@@ -31,7 +31,7 @@ class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
   Widget build(BuildContext context) {
     final profileCubit = context.read<ProfileCubit>();
     final profileModel = profileCubit.profileModel;
-    final String profileChefId = profileCubit.chefId;
+    final String profileChefId = profileModel!.id;
 
     return GestureDetector(
       onTap: () {

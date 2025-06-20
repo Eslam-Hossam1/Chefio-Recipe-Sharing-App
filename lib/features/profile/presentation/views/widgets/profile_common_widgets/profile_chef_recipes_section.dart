@@ -35,7 +35,7 @@ class _ProfileChefRecipesSectionState extends State<ProfileChefRecipesSection>
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent) {
       context.read<ChefProfileRecipesCubit>().fetchChefRecipes(
-            chefId: context.read<ProfileCubit>().chefId,
+            chefId: context.read<ProfileCubit>().profileModel!.id,
           );
     }
   }

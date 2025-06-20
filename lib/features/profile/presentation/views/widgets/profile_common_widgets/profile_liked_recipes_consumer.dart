@@ -27,7 +27,7 @@ class _ProfileLikedRecipesConsumerState
   @override
   void initState() {
     context.read<ChefLikedRecipesCubit>().fetchChefLikedRecipes(
-          chefId: context.read<ProfileCubit>().chefId,
+          chefId: context.read<ProfileCubit>().profileModel!.id,
         );
     super.initState();
   }
@@ -51,7 +51,7 @@ class _ProfileLikedRecipesConsumerState
               btnText: "Try Again",
               onPressed: () {
                 context.read<ChefLikedRecipesCubit>().fetchChefLikedRecipes(
-                      chefId: context.read<ProfileCubit>().chefId,
+                      chefId: context.read<ProfileCubit>().profileModel!.id,
                     );
               },
             ),

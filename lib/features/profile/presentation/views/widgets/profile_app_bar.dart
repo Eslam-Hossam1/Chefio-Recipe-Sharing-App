@@ -22,7 +22,7 @@ class ProfileAppBar extends StatelessWidget {
           CustomBackIconButton(),
           IconButton(
             onPressed: () async => getIt<ShareHelper>().shareProfile(
-              chefId: context.read<ProfileCubit>().chefId,
+              chefId: context.read<ProfileCubit>().profileModel!.id,
             ),
             icon: SvgPicture.asset(
               Assets.imagesShare,

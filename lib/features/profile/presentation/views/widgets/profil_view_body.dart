@@ -47,7 +47,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody>
   Future<void> _onRefresh() async {
     await Future.wait([
       context.read<ChefLikedRecipesCubit>().refersh(
-            chefId: context.read<ProfileCubit>().chefId,
+            chefId: context.read<ProfileCubit>().profileModel!.id,
           ),
       context.read<ProfileCubit>().refresh(),
     ]);
@@ -59,11 +59,11 @@ class _ProfileViewBodyState extends State<ProfileViewBody>
         _scrollController.position.maxScrollExtent) {
       if (_tabController.index == 0) {
         context.read<ChefProfileRecipesCubit>().fetchChefRecipes(
-              chefId: context.read<ProfileCubit>().chefId,
+              chefId: context.read<ProfileCubit>().profileModel!.id,
             );
       } else {
         context.read<ChefLikedRecipesCubit>().fetchChefLikedRecipes(
-              chefId: context.read<ProfileCubit>().chefId,
+              chefId: context.read<ProfileCubit>().profileModel!.id,
             );
       }
     }
