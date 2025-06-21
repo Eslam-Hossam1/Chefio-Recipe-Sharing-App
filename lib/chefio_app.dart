@@ -2,6 +2,7 @@ import 'package:chefio_app/core/Functions/get_text_theme.dart';
 import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
 import 'package:chefio_app/core/cubit/like_recipe_cubit/like_recipe_cubit.dart';
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/services/follow_chef_service.dart';
 import 'package:chefio_app/core/services/like_recipe_service.dart';
 import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
@@ -11,6 +12,7 @@ import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/utils/theme/app_themes.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_connections_cubit/chef_connections_cubit.dart';
+import 'package:chefio_app/features/profile/presentation/manager/my_profile_cubit/my_profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -57,8 +59,10 @@ class _ChefioState extends State<Chefio> {
                     followChefService: getIt<FollowChefService>()),
               ),
               BlocProvider(
-                create: (context) =>
-                    ProfileCubit(profileRepo: getIt<ProfileRepoImpl>()),
+                create: (context) => MyProfileCubit(
+                  profileRepo: getIt<ProfileRepoImpl>(),
+                  authCredentialsHelper: getIt<AuthCredentialsHelper>(),
+                ),
               ),
             ],
             child: BlocBuilder<ThemeCubit, ThemeMode>(

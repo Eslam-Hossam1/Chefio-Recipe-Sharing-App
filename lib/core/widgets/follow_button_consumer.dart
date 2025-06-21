@@ -11,11 +11,9 @@ class FollowButtonConsumer extends StatefulWidget {
     super.key,
     required this.isFollowing,
     required this.chefId,
-    this.chefConnectionEntity,
   });
   final bool isFollowing;
   final String chefId;
-  final ChefConnectionEntity? chefConnectionEntity;
 
   @override
   State<FollowButtonConsumer> createState() => _FollowButtonConsumerState();
@@ -54,7 +52,7 @@ class _FollowButtonConsumerState extends State<FollowButtonConsumer> {
           onPressed: () {
             context.read<FollowChefCubit>().toggleFollowChef(
                   chefId: chefId,
-                  chefConnectionEntity:widget.chefConnectionEntity,
+                  isFollowing: isFollowing,
                 );
           },
         );

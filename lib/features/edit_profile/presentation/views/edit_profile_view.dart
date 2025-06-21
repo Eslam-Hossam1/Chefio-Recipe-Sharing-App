@@ -1,12 +1,9 @@
-import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
-import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profile/edit_profile_cubit.dart';
 import 'package:chefio_app/features/edit_profile/presentation/views/widgets/edit_profile_body.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
-import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
+import 'package:chefio_app/features/profile/presentation/manager/my_profile_cubit/my_profile_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,13 +29,11 @@ class EditProfileView extends StatelessWidget {
               successMessage:
                   'Your profile edited successfully, go to your profile to see changes',
               context, btnOkOnPress: () {
-            context.read<ProfileCubit>().fetchChefProfileWithInitialRecipes(
-                chefId: getIt<AuthCredentialsHelper>().userId!);
+            context.read<MyProfileCubit>().fetchChefProfileWithInitialRecipes();
 
             context.go(RoutePaths.myProfile);
           }, onDismissCallback: (_) {
-            context.read<ProfileCubit>().fetchChefProfileWithInitialRecipes(
-                chefId: getIt<AuthCredentialsHelper>().userId!);
+            context.read<MyProfileCubit>().fetchChefProfileWithInitialRecipes();
 
             context.go(RoutePaths.myProfile);
           });

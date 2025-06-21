@@ -4,22 +4,23 @@ import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/chef_profile_recipe_model.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
-import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
-import 'package:chefio_app/features/profile/presentation/views/widgets/profil_view_body.dart';
+import 'package:chefio_app/features/profile/presentation/manager/my_profile_cubit/my_profile_cubit.dart';
+import 'package:chefio_app/features/profile/presentation/views/widgets/my_profile_view_body.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProfileViewBodyConsumer extends StatelessWidget {
-  const ProfileViewBodyConsumer({
+class MyProfileViewBodyConsumer extends StatelessWidget {
+  const MyProfileViewBodyConsumer({
     super.key,
   });
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ProfileCubit, ProfileState>(
+    return BlocConsumer<MyProfileCubit, MyProfileState>(
       listener: (context, state) {
-        if (state is ProfileSuccess) {
-          ProfileModel profileModel = context.read<ProfileCubit>().profileModel!;
+        if (state is MyProfileSuccess) {
+          ProfileModel profileModel =
+              context.read<MyProfileCubit>().profileModel!;
           List<ChefProfileRecipeModel> chefInitialRecipes =
               profileModel.profile.recipes.recipes;
           context.read<ChefProfileRecipesCubit>().startWithInitialRecipes(
@@ -29,16 +30,16 @@ class ProfileViewBodyConsumer extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        if (state is ProfileSuccess) {
-          return ProfileViewBody(
-            profileModel: context.read<ProfileCubit>().profileModel!,
+        if (state is MyProfileSuccess) {
+          return MyProfileViewBody(
+            profileModel: context.read<MyProfileCubit>().profileModel!,
           );
-        } else if (state is ProfileFailure) {
+        } else if (state is MyProfileFailure) {
           return AdaptivePadding(
             child: CustomInfoMessageWithButton(
               message: state.errLocalizationError.tr(),
               btnText: 'Try Again',
-              onPressed: context.read<ProfileCubit>().refresh,
+              onPressed: context.read<MyProfileCubit>().refresh,
             ),
           );
         } else {

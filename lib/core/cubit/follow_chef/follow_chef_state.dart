@@ -13,9 +13,11 @@ final class FollowChefSuccess extends FollowChefState
     implements FollowChefStateWithId {
   @override
   final String chefId;
-  final ChefConnectionEntity? chefConnectionEntity;
-
-  const FollowChefSuccess({required this.chefId, this.chefConnectionEntity});
+  final int myProfileFollowingChange;
+  const FollowChefSuccess({
+    required this.chefId,
+    required this.myProfileFollowingChange,
+  });
 }
 
 final class FollowChefLoading extends FollowChefState

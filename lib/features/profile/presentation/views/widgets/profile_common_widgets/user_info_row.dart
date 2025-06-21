@@ -8,13 +8,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserInfoRow extends StatelessWidget {
   const UserInfoRow({
-    super.key,
+    super.key, required this.profileModel,
   });
-
+  final ProfileModel profileModel;
   @override
   Widget build(BuildContext context) {
-    ProfileModel profileModel = context.read<ProfileCubit>().profileModel!;
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -22,8 +20,8 @@ class UserInfoRow extends StatelessWidget {
           number: '${profileModel.profile.recipes.totalRecipes}',
           text: 'Recipes',
         ),
-        ChefFollowingItemConsumer(),
-        ChefFollowersItemConsumer(),
+        ChefFollowingItemConsumer(profileModel: profileModel,),
+        ChefFollowersItemConsumer(profileModel: profileModel,),
       ],
     );
   }

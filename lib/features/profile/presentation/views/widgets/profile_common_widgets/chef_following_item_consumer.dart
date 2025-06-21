@@ -11,8 +11,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ChefFollowingItemConsumer extends StatefulWidget {
   const ChefFollowingItemConsumer({
     super.key,
+    required this.profileModel,
   });
-
+  final ProfileModel profileModel;
   @override
   State<ChefFollowingItemConsumer> createState() =>
       _ChefFollowingItemConsumerState();
@@ -21,18 +22,15 @@ class ChefFollowingItemConsumer extends StatefulWidget {
 class _ChefFollowingItemConsumerState extends State<ChefFollowingItemConsumer> {
   late int followingCount;
   late String appUserId;
-  late ProfileCubit profileCubit;
   late ProfileModel profileModel;
   late String profileChefId;
 
   @override
   void initState() {
     super.initState();
-    followingCount =
-        context.read<ProfileCubit>().profileModel!.profile.followingCount;
-    profileCubit = context.read<ProfileCubit>();
-    profileModel = profileCubit.profileModel!;
+    profileModel = widget.profileModel;
     profileChefId = profileModel.id;
+    followingCount = profileModel.profile.followingCount;
     appUserId = getIt<AuthCredentialsHelper>().userId!;
   }
 
@@ -53,18 +51,7 @@ class _ChefFollowingItemConsumerState extends State<ChefFollowingItemConsumer> {
       child: BlocConsumer<FollowChefCubit, FollowChefState>(
         listener: (context, state) {
           if ((state is FollowChefSuccess) && profileChefId == appUserId) {
-            if (state.chefConnectionEntity != null) {
-              if (state.chefConnectionEntity!.isFollowing) {
-                profileModel.profile.followersCount--;
-                followingCount--;
-                state.chefConnectionEntity!.isFollowing = false;
-              } else {
-
-                profileModel.profile.followersCount++;
-                followingCount++;
-                state.chefConnectionEntity!.isFollowing = true;
-              }
-            }
+            followingCount += state.myProfileFollowingChange;
           }
         },
         builder: (context, state) {

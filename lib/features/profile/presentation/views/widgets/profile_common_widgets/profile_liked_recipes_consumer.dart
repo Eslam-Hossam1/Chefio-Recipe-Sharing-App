@@ -5,9 +5,6 @@ import 'package:chefio_app/features/home/presentation/view/widgets/sliver_skelet
 import 'package:chefio_app/features/profile/presentation/manager/chef_liked_recipes_cubit/chef_liked_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_liked_recipes_grid.dart';
-import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_liked_recipes_section.dart';
-import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_separator_sized_box.dart';
-import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/skeletonizer_profile_liked_recipes_grid.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,8 +12,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ProfileLikedRecipesConsumer extends StatefulWidget {
   const ProfileLikedRecipesConsumer({
     super.key,
+    required this.chefId,
   });
-
+  final String chefId;
   @override
   State<ProfileLikedRecipesConsumer> createState() =>
       _ProfileLikedRecipesConsumerState();
@@ -27,7 +25,7 @@ class _ProfileLikedRecipesConsumerState
   @override
   void initState() {
     context.read<ChefLikedRecipesCubit>().fetchChefLikedRecipes(
-          chefId: context.read<ProfileCubit>().profileModel!.id,
+          chefId: widget.chefId,
         );
     super.initState();
   }

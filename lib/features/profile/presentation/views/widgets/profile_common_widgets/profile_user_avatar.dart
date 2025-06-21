@@ -10,12 +10,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileUserAvatar extends StatelessWidget {
   const ProfileUserAvatar({
-    super.key,
+    super.key, required this.profileModel,
   });
-
+  final ProfileModel profileModel;
   @override
   Widget build(BuildContext context) {
-    ProfileModel profileModel = context.read<ProfileCubit>().profileModel!;
     return GestureDetector(
       onTap: () {
         showDialog(

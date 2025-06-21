@@ -3,6 +3,7 @@ import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/features/profile/presentation/manager/my_profile_cubit/my_profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -59,7 +60,7 @@ class MyProfilePopUpMenuButton extends StatelessWidget {
               onTap: () {
                 context.push(
                   RoutePaths.editProfile,
-                  extra: context.read<ProfileCubit>().profileModel,
+                  extra: context.read<MyProfileCubit>().profileModel,
                 );
               }),
         ];

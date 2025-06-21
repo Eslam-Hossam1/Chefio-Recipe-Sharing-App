@@ -1,5 +1,6 @@
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
+import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_liked_recipes_cubit/chef_liked_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
@@ -19,8 +20,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class ProfileViewBody extends StatefulWidget {
-  const ProfileViewBody({super.key});
-
+  const ProfileViewBody({super.key,required this.profileModel});
+  final ProfileModel profileModel;
   @override
   State<ProfileViewBody> createState() => _ProfileViewBodyState();
 }
@@ -47,7 +48,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody>
   Future<void> _onRefresh() async {
     await Future.wait([
       context.read<ChefLikedRecipesCubit>().refersh(
-            chefId: context.read<ProfileCubit>().profileModel!.id,
+            chefId: widget.profileModel.id,
           ),
       context.read<ProfileCubit>().refresh(),
     ]);
@@ -59,11 +60,11 @@ class _ProfileViewBodyState extends State<ProfileViewBody>
         _scrollController.position.maxScrollExtent) {
       if (_tabController.index == 0) {
         context.read<ChefProfileRecipesCubit>().fetchChefRecipes(
-              chefId: context.read<ProfileCubit>().profileModel!.id,
+              chefId: widget.profileModel.id,
             );
       } else {
         context.read<ChefLikedRecipesCubit>().fetchChefLikedRecipes(
-              chefId: context.read<ProfileCubit>().profileModel!.id,
+             chefId: widget.profileModel.id,
             );
       }
     }
@@ -97,9 +98,9 @@ class _ProfileViewBodyState extends State<ProfileViewBody>
           SliverProfilePersistentTabBar(tabController: _tabController),
           SliverToBoxAdapter(child: ProfileSeparatorSizedBox()),
           if (_tabController.index == 0)
-            SliverAdaptivePadding(sliver: ProfileChefRecipesConsumer())
+            SliverAdaptivePadding(sliver: ProfileChefRecipesConsumer(chefId: widget.profileModel.id,),)
           else
-            SliverAdaptivePadding(sliver: ProfileLikedRecipesConsumer()),
+            SliverAdaptivePadding(sliver: ProfileLikedRecipesConsumer(chefId: widget.profileModel.id,),),
           ProfileRecipesScrollingLoadingIndicatorBuilder(),
           ProfileLikedRecipesScrollingLoadingIndicatorbuilder()
         ],
@@ -109,19 +110,19 @@ class _ProfileViewBodyState extends State<ProfileViewBody>
 
   Widget _buildProfileHeaderSection() {
     return SliverList(
-      delegate: SliverChildListDelegate(const [
-        SizedBox(height: 16),
-        ProfileAppBar(),
-        SizedBox(height: 20),
-        ProfileUserAvatar(),
-        SizedBox(
+      delegate: SliverChildListDelegate( [
+        const SizedBox(height: 16),
+        const ProfileAppBar(),
+        const SizedBox(height: 20),
+        ProfileUserAvatar(profileModel: widget.profileModel,),
+       const SizedBox(
           height: 24,
         ),
-        ProfileUsername(),
-        SizedBox(height: 24),
-        UserInfoRow(),
-        SizedBox(height: 24),
-        ProfileFollowButtonBuilder()
+        ProfileUsername(profileModel: widget.profileModel,),
+       const SizedBox(height: 24),
+        UserInfoRow(profileModel: widget.profileModel,),
+       const SizedBox(height: 24),
+       const ProfileFollowButtonBuilder()
       ]),
     );
   }

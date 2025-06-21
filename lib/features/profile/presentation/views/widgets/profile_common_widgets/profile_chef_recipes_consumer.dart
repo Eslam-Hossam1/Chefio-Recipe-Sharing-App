@@ -1,11 +1,8 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
-import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_chef_recipes_grid.dart';
-import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_chef_recipes_section.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/skeletonizer_profile_chef_recipes_grid.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +11,9 @@ import 'package:go_router/go_router.dart';
 
 class ProfileChefRecipesConsumer extends StatelessWidget {
   const ProfileChefRecipesConsumer({
-    super.key,
+    super.key, required this.chefId,
   });
-
+  final String chefId;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ChefProfileRecipesCubit, ChefProfileRecipesState>(
@@ -36,7 +33,7 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
               btnText: "Try Again",
               onPressed: () {
                 context.read<ChefProfileRecipesCubit>().fetchChefRecipes(
-                      chefId: context.read<ProfileCubit>().profileModel!.id,
+                      chefId: chefId,
                     );
               },
             ),

@@ -16,7 +16,7 @@ class FollowChefCubit extends Cubit<FollowChefState> {
 
   Future<void> toggleFollowChef({
     required String chefId,
-    ChefConnectionEntity? chefConnectionEntity,
+    required bool isFollowing,
   }) async {
     emit(FollowChefLoading(chefId: chefId));
     var result = await _followChefService.toggleFollowChef(chefId: chefId);
@@ -31,34 +31,12 @@ class FollowChefCubit extends Cubit<FollowChefState> {
         );
       },
       (success) {
+        int myProfileFollowingChange;
+          myProfileFollowingChange = isFollowing ? -1 : 1;
         emit(
-          FollowChefSuccess(chefId: chefId,chefConnectionEntity: chefConnectionEntity),
-        );
-      },
-    );
-  }
-
-  Future<void> toggleFollowChefInMyProfile({
-    required String chefId,
-    required int changeInFollowingCount,
-  }) async {
-    emit(FollowChefLoading(
-      chefId: chefId,
-    ));
-    var result = await _followChefService.toggleFollowChef(chefId: chefId);
-    result.fold(
-      (failure) {
-        emit(
-          FollowChefFaiure(
-            chefId: chefId,
-            errorMessage: failure.errMsg,
-            errorLocalizationKey: failure.localizaitonKey,
-          ),
-        );
-      },
-      (success) {
-        emit(
-          FollowChefSuccess(chefId: chefId),
+          FollowChefSuccess(
+              chefId: chefId,
+              myProfileFollowingChange: myProfileFollowingChange,),
         );
       },
     );

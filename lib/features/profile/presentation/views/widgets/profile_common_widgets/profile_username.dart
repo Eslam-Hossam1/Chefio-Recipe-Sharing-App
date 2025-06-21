@@ -7,12 +7,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileUsername extends StatelessWidget {
   const ProfileUsername({
-    super.key,
+    super.key, required this.profileModel,
   });
-
+  final ProfileModel profileModel;
   @override
   Widget build(BuildContext context) {
-    ProfileModel profileModel = context.read<ProfileCubit>().profileModel!;
     return Center(
       child: Text(
         textAlign: TextAlign.center,

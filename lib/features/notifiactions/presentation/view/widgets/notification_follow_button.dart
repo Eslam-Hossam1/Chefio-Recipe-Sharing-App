@@ -39,6 +39,7 @@ class NotificationFollowButton extends StatelessWidget {
           onPressed: () {
             context.read<FollowChefCubit>().toggleFollowChef(
                   chefId: notificationEntity.chefId,
+                  isFollowing: notificationEntity.isFollowing!
                 );
           },
         );

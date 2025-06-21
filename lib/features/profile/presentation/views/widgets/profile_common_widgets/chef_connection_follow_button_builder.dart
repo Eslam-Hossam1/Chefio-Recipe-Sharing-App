@@ -31,7 +31,6 @@ class _ChefConnectionFollowButtonBuilderState
         : FollowButtonConsumer(
             chefId: widget.chefConnection.chefId,
             isFollowing: widget.chefConnection.isFollowing,
-            chefConnectionEntity: widget.chefConnection,
           );
   }
 }

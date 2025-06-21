@@ -12,7 +12,6 @@ import 'package:go_router/go_router.dart';
 
 class ProfileAppBar extends StatelessWidget {
   const ProfileAppBar({super.key});
-
   @override
   Widget build(BuildContext context) {
     return AdaptivePadding(

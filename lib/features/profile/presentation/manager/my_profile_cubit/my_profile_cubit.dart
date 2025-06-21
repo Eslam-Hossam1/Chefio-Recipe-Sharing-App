@@ -1,29 +1,33 @@
 import 'package:bloc/bloc.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo.dart';
 import 'package:equatable/equatable.dart';
 
-part 'profile_state.dart';
+part 'my_profile_state.dart';
 
-class ProfileCubit extends Cubit<ProfileState> {
+class MyProfileCubit extends Cubit<MyProfileState> {
   final ProfileRepo _profileRepo;
-  ProfileCubit({required ProfileRepo profileRepo})
-      : _profileRepo = profileRepo,
-        super(ProfileInitial());
+  final AuthCredentialsHelper _authCredentialsHelper;
+  MyProfileCubit({
+    required ProfileRepo profileRepo,
+    required AuthCredentialsHelper authCredentialsHelper,
+  })  : _profileRepo = profileRepo,
+        _authCredentialsHelper = authCredentialsHelper,
+        super(MyProfileInitial());
   ProfileModel? profileModel;
   Future<void> fetchChefProfileWithInitialRecipes({
-    required String chefId,
     int limit = 30,
   }) async {
-    emit(ProfileLoading());
+    emit(MyProfileLoading());
     var result = await _profileRepo.fetchProfileWithInitialChefRecipes(
-      chefId: chefId,
+      chefId: _authCredentialsHelper.userId!,
       page: 1,
       limit: limit,
     );
     result.fold(
       (failure) => emit(
-        ProfileFailure(
+        MyProfileFailure(
           errMsg: failure.errMsg,
           errLocalizationError: failure.localizaitonKey,
         ),
@@ -31,7 +35,7 @@ class ProfileCubit extends Cubit<ProfileState> {
       (profileModel) {
         this.profileModel = profileModel;
         emit(
-          ProfileSuccess(),
+          MyProfileSuccess(),
         );
       },
     );
@@ -40,7 +44,5 @@ class ProfileCubit extends Cubit<ProfileState> {
   Future<void> refresh({
     int limit = 30,
   }) async =>
-   await   fetchChefProfileWithInitialRecipes(
-        chefId: profileModel!.id,
-      );
+      await fetchChefProfileWithInitialRecipes();
 }

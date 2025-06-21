@@ -123,6 +123,11 @@ class AppRouter {
                     authCreadentialsHelper: getIt<AuthCredentialsHelper>(),
                   ),
                 ),
+                BlocProvider(
+                  create: (context) => ProfileCubit(
+                    profileRepo: getIt<ProfileRepoImpl>(),
+                  ),
+                ),
               ],
               child: ProfileView(
                 chefId: chefId,
