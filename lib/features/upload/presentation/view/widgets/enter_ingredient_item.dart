@@ -7,13 +7,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class EnterIngredientItem extends StatelessWidget {
   const EnterIngredientItem({
     super.key,
     required this.ingredientIndex,
+    required this.focusNode,
   });
+
   final int ingredientIndex;
+  final FocusNode focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +26,12 @@ class EnterIngredientItem extends StatelessWidget {
           color: context.secondaryTextColor,
           size: 24,
         ),
-        SizedBox(
-          width: 8.w,
-        ),
+        SizedBox(width: 8.w),
         Expanded(
           child: CustomTextFormField(
-           validator: (value) =>
-              FormValidators.requiredNumberOfCharacters(value, 2)
-            ,
+            focusNode: focusNode,
+            validator: (value) =>
+                FormValidators.requiredNumberOfCharacters(value, 2),
             initialValue:
                 context.read<UploadRecipeCubit>().ingredients[ingredientIndex],
             onSaved: (ingredient) {

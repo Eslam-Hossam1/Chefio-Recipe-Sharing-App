@@ -29,18 +29,94 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
     with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey =
-      GlobalKey<SliverAnimatedListState>();
 
-  GlobalKey<SliverAnimatedListState> stepsAnimatedListKey =
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey =
       GlobalKey<SliverAnimatedListState>();
+  final GlobalKey<SliverAnimatedListState> stepsAnimatedListKey =
+      GlobalKey<SliverAnimatedListState>();
+  final List<GlobalKey> ingredientsItemKeys = [GlobalKey(), GlobalKey()];
+  final List<GlobalKey> stepsItemKeys = [GlobalKey(), GlobalKey()];
+
+  final ScrollController scrollController = ScrollController();
+  final List<FocusNode> ingredientsFocusNodes = [FocusNode(), FocusNode()];
+  final List<FocusNode> stepsFocusNodes = [FocusNode(), FocusNode()];
+
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   void enableAutoValidation() {
     setState(() {
       autovalidateMode = AutovalidateMode.always;
     });
+  }
+
+  void _addIngredientAndFocus() {
+    final cubit = context.read<UploadRecipeCubit>();
+    cubit.addIngerdient(ingredientsAnimatedListKey: ingredientsAnimatedListKey);
+    ingredientsFocusNodes.add(FocusNode());
+    ingredientsItemKeys.add(GlobalKey());
+
+    Future.delayed(const Duration(milliseconds: 300), () {
+      final contextToScroll = ingredientsItemKeys.last.currentContext;
+      if (contextToScroll != null) {
+        Scrollable.ensureVisible(
+          contextToScroll,
+          duration: const Duration(milliseconds: 500),
+          alignment: .4, // closer to top
+          curve: Curves.easeInOut,
+        );
+      }
+      ingredientsFocusNodes.last.requestFocus();
+    });
+  }
+
+  void _addStepAndFocus() async {
+    final cubit = context.read<UploadRecipeCubit>();
+    cubit.addStep(stepsAnimatedListKey: stepsAnimatedListKey);
+    stepsFocusNodes.add(FocusNode());
+    stepsItemKeys.add(GlobalKey());
+
+    Future.delayed(const Duration(milliseconds: 300), () async {
+      final contextToScroll = stepsItemKeys.last.currentContext;
+      if (contextToScroll != null) {
+        Scrollable.ensureVisible(
+          contextToScroll,
+          duration: const Duration(milliseconds: 500),
+          alignment: 0.4,
+          curve: Curves.easeInOut,
+        );
+        // Step 2: Wait for rendering to settle
+        await Future.delayed(const Duration(milliseconds: 100));
+
+        // Step 3: Check if the item is fully visible
+        final renderBox = contextToScroll.findRenderObject() as RenderBox;
+        final offset = renderBox.localToGlobal(Offset.zero);
+        final bottomOfItem = offset.dy + renderBox.size.height;
+        final screenHeight = MediaQuery.of(contextToScroll).size.height;
+
+        // If the bottom of the item is still outside the screen, scroll to bottom
+        if (bottomOfItem > screenHeight) {
+          await scrollController.animateTo(
+            scrollController.position.maxScrollExtent,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        }
+      }
+      stepsFocusNodes.last.requestFocus();
+    });
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    for (final node in ingredientsFocusNodes) {
+      node.dispose();
+    }
+    for (final node in stepsFocusNodes) {
+      node.dispose();
+    }
+    super.dispose();
   }
 
   @override
@@ -56,16 +132,13 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
               key: formKey,
               autovalidateMode: autovalidateMode,
               child: CustomScrollView(
+                controller: scrollController,
                 slivers: [
-                  SliverUploadHeader(
+                  const SliverUploadHeader(
                     currentStep: '2',
                     steps: '2',
                   ),
-                  SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 47.h,
-                    ),
-                  ),
+                  SliverToBoxAdapter(child: SizedBox(height: 47.h)),
                   SliverToBoxAdapter(
                     child: Row(
                       children: [
@@ -78,26 +151,16 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
                       ],
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 36.h,
-                    ),
-                  ),
+                  SliverToBoxAdapter(child: SizedBox(height: 36.h)),
                   AnimatedAddIngredientsList(
+                    ingredientItemsKeys: ingredientsItemKeys,
                     animatedListKey: ingredientsAnimatedListKey,
+                    focusNodes: ingredientsFocusNodes,
                   ),
-                  SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 20.h,
-                    ),
-                  ),
+                  SliverToBoxAdapter(child: SizedBox(height: 20.h)),
                   SliverToBoxAdapter(
                     child: AddIngredintButton(
-                      onPressed: () {
-                        context.read<UploadRecipeCubit>().addIngerdient(
-                            ingredientsAnimatedListKey:
-                                ingredientsAnimatedListKey);
-                      },
+                      onPressed: _addIngredientAndFocus,
                     ),
                   ),
                   SliverToBoxAdapter(
@@ -119,25 +182,16 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
                       ],
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 24.h,
-                    ),
-                  ),
+                  SliverToBoxAdapter(child: SizedBox(height: 24.h)),
                   AnimatedAddStepsList(
+                    stepItemsKeys: stepsItemKeys,
                     animatedListKey: stepsAnimatedListKey,
+                    focusNodes: stepsFocusNodes,
                   ),
-                  SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 24.h,
-                    ),
-                  ),
+                  SliverToBoxAdapter(child: SizedBox(height: 24.h)),
                   SliverToBoxAdapter(
                     child: AddStepButton(
-                      onPressed: () {
-                        context.read<UploadRecipeCubit>().addStep(
-                            stepsAnimatedListKey: stepsAnimatedListKey);
-                      },
+                      onPressed: _addStepAndFocus,
                     ),
                   ),
                   SliverFillRemaining(

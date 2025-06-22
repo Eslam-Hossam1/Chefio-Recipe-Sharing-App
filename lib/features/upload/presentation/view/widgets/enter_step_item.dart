@@ -9,13 +9,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class EnterStepItem extends StatelessWidget {
   const EnterStepItem({
     super.key,
     required this.stepIndex,
+    required this.focusNode,
   });
+
   final int stepIndex;
+  final FocusNode focusNode;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -33,9 +36,7 @@ class EnterStepItem extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             Icon(
               Icons.drag_indicator,
               color: context.secondaryTextColor,
@@ -43,20 +44,17 @@ class EnterStepItem extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
-          width: 8.w,
-        ),
+        SizedBox(width: 8.w),
         Expanded(
           child: Column(
             children: [
               CustomTextFormField(
+                focusNode: focusNode,
                 validator: (value) =>
                     FormValidators.requiredNumberOfCharacters(value, 2),
                 initialValue:
                     context.read<UploadRecipeCubit>().steps[stepIndex],
                 onSaved: (step) {
-                  // cubit.ingredints[stepIndex].stepText=value;
-                  // cubit.ingredints[stepIndex].image=selectedImage;
                   context.read<UploadRecipeCubit>().steps[stepIndex] = step!;
                 },
                 onChanged: (stepChange) {
@@ -67,10 +65,7 @@ class EnterStepItem extends StatelessWidget {
                 borderRadius: 8,
                 maxLines: 4,
               ),
-              SizedBox(
-                height: 8.h,
-              ),
-              // AddStepPhotoButton(selectedImage),
+              SizedBox(height: 8.h),
               // AddStepPhotoButton(),
             ],
           ),

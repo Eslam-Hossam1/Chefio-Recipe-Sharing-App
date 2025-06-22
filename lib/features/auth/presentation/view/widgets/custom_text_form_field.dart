@@ -21,6 +21,7 @@ class CustomTextFormField extends StatelessWidget {
     this.borderRadius,
     this.initialValue,
     this.onChanged,
+    this.focusNode,
   });
   final String hint;
   final void Function(String?)? onSaved;
@@ -31,9 +32,11 @@ class CustomTextFormField extends StatelessWidget {
   final double? borderRadius;
   final String? initialValue;
   final void Function(String)? onChanged;
+  final FocusNode? focusNode;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: focusNode,
       onChanged: onChanged,
       initialValue: initialValue,
       maxLines: maxLines ?? 1,

@@ -7,8 +7,11 @@ class AnimatedAddStepsList extends StatelessWidget {
   const AnimatedAddStepsList({
     super.key,
     required this.animatedListKey,
+    required this.focusNodes,
+    required this.stepItemsKeys,
   });
-
+  final List<FocusNode> focusNodes;
+  final List<Key> stepItemsKeys;
   final GlobalKey<SliverAnimatedListState> animatedListKey;
 
   @override
@@ -28,7 +31,7 @@ class AnimatedAddStepsList extends StatelessWidget {
               ),
             ),
             child: Dismissible(
-              key: Key('${uploadRecipeCubit.steps[index].hashCode}'),
+              key: stepItemsKeys[index],
               onDismissed: (direction) => uploadRecipeCubit.removeStep(
                 stepsAnimatedListKey: animatedListKey,
                 index: index,
@@ -47,6 +50,7 @@ class AnimatedAddStepsList extends StatelessWidget {
                   : DismissDirection.startToEnd,
               child: EnterStepItem(
                 stepIndex: index,
+                focusNode: focusNodes[index],
               ),
             ),
           ),

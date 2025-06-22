@@ -47,21 +47,23 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
     required GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey,
     required int index,
   }) {
+        ingredients.removeAt(index);
+
     ingredientsAnimatedListKey.currentState!.removeItem(index,
         (context, animation) {
       return SizedBox(width: 0, height: 0);
     });
-    ingredients.removeAt(index);
   }
 
   void removeStep({
     required GlobalKey<SliverAnimatedListState> stepsAnimatedListKey,
     required int index,
   }) {
+        steps.removeAt(index);
+
     stepsAnimatedListKey.currentState!.removeItem(index, (context, animation) {
       return SizedBox(width: 0, height: 0);
     });
-    steps.removeAt(index);
   }
 
   void checkAndInitForEditing(

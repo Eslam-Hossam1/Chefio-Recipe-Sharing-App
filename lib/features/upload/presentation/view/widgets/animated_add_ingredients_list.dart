@@ -7,10 +7,12 @@ class AnimatedAddIngredientsList extends StatelessWidget {
   const AnimatedAddIngredientsList({
     super.key,
     required this.animatedListKey,
+    required this.focusNodes,
+    required this.ingredientItemsKeys,
   });
-
+  final List<FocusNode> focusNodes;
   final GlobalKey<SliverAnimatedListState> animatedListKey;
-
+  final List<Key> ingredientItemsKeys;
   @override
   Widget build(BuildContext context) {
     var uploadRecipeCubit = context.read<UploadRecipeCubit>();
@@ -28,7 +30,7 @@ class AnimatedAddIngredientsList extends StatelessWidget {
               ),
             ),
             child: Dismissible(
-                key: Key('${uploadRecipeCubit.ingredients[index].hashCode}'),
+                key: ingredientItemsKeys[index],
                 onDismissed: (direction) => uploadRecipeCubit.removeIngredient(
                       ingredientsAnimatedListKey: animatedListKey,
                       index: index,
@@ -47,6 +49,7 @@ class AnimatedAddIngredientsList extends StatelessWidget {
                     : DismissDirection.startToEnd,
                 child: EnterIngredientItem(
                   ingredientIndex: index,
+                  focusNode: focusNodes[index],
                 )),
           ),
         );

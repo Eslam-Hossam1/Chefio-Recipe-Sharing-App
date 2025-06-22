@@ -82,10 +82,10 @@ class _UploadViewState extends State<UploadView> {
               controller: _pageController,
               physics: NeverScrollableScrollPhysics(),
               children: [
-                UploadFirstStepPage(
-                  onNext: _nextPage,
-                  recipeDetailModel: widget.recipeDetailModel,
-                ),
+                // UploadFirstStepPage(
+                //   onNext: _nextPage,
+                //   recipeDetailModel: widget.recipeDetailModel,
+                // ),
                 UploadSecondStepPage(onBack: _previousPage),
               ],
             );
