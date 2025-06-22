@@ -70,8 +70,8 @@
             "reset_password_success": "Your password has been reset successfully! You can now log in with your new password.",
             "reset_password_exit_warning": " The password didn't reset yet, are you sure you want to exit"
         },
-        "logout":{
-            "logout_text":"Logout"
+        "logout": {
+            "logout_text": "Logout"
         }
     },
     "profile_setup": {
@@ -114,6 +114,10 @@
         "share_recipe": "Share Recipe",
         "edit_recipe": "Edit Recipe",
         "recipe_no_likes_message": "No one liked this recipe yet."
+    },
+    "search": {
+        "wrtie_recipe_name_to_search": "Write a recipe name to search about",
+        "no_results_found": "We couldn’t find any recipes matching your search"
     },
     "global": {
         "warning": "Warning",

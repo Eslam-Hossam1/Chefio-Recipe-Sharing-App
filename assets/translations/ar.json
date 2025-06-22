@@ -110,6 +110,10 @@
             "healthy_meals": "وجبات صحية",
             "desserts_and_bakery": "الحلويات والمخبوزات"
         },
+        "search": {
+            "wrtie_recipe_name_to_search": "اكتب اسم وصفة للبحث عنها",
+            "no_results_found": "لم نعثر على أي وصفات تطابق بحثك"
+        },
         "global": {
             "warning": "تحذير",
             "error": "خطأ",

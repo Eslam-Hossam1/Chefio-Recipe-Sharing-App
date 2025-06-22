@@ -1,6 +1,7 @@
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/features_localization_singletones/auth.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/features_localization_singletones/notifications_localization.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/features_localization_singletones/profile_localization.dart';
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/features_localization_singletones/search_loclaization.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/global_localization_singletones/categories.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/global_localization_singletones/app_localization_errors.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/global_localization_singletones/global.dart';
@@ -26,4 +27,5 @@ abstract class AppLocalizationKeys {
   static const LanguagesLocalization languages = LanguagesLocalization.instance;
   static const TimeUnitsLocalization timeUnits = TimeUnitsLocalization.instance;
   static const NotificationsLocalization notifications = NotificationsLocalization.instance;
+  static const SearchLoclaization search = SearchLoclaization.instance;
 }

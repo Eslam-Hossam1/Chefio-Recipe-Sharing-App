@@ -115,6 +115,10 @@
     "edit_recipe": "Editar receta",
     "recipe_no_likes_message": "Nadie ha dado 'me gusta' a esta receta aún."
   },
+  "search": {
+    "wrtie_recipe_name_to_search": "Escribe el nombre de una receta para buscar",
+    "no_results_found": "No encontramos recetas que coincidan con tu búsqueda"
+  },
   "global": {
     "warning": "Advertencia",
     "error": "Error",
