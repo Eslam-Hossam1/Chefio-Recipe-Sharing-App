@@ -24,4 +24,5 @@ class Global {
   final String mins = 'global.mins';
   final String likes = 'global.likes';
   final String settings = 'global.settings';
+  final String submit = 'global.submit';
 }

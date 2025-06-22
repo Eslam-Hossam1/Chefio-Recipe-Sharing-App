@@ -8,7 +8,7 @@ import 'package:chefio_app/features/upload/presentation/view/widgets/add_ingredi
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_step_button.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/animated_add_ingredients_list.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/animated_add_steps_list.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/back_and_next_buttons.dart';
+import 'package:chefio_app/features/upload/presentation/view/widgets/upload_recipe_back_and_buttons_buttons.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/sliver_uplaod_header.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/upload_success_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -43,21 +43,21 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
   Widget build(BuildContext context) {
     super.build(context);
     return BlocConsumer<UploadSubmitCubit, UploadSubmitState>(
-      listener: (context,state){
+      listener: (context, state) {
         if (state is UploadSubmitFailure) {
-            DialogHelper.showErrorDialog(
-              context,
-              errorMessage: state.errorLocalizationKey.tr(),
-            );
-          } else if (state is UploadSubmitSuccess) {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return SetRecipeSuccessDialog();
-              },
-            );
-          }
-        },
+          DialogHelper.showErrorDialog(
+            context,
+            errorMessage: state.errorLocalizationKey.tr(),
+          );
+        } else if (state is UploadSubmitSuccess) {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return SetRecipeSuccessDialog();
+            },
+          );
+        }
+      },
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is UploadSubmitLoading,
@@ -137,7 +137,7 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
                   ),
                   SliverFillRemaining(
                     hasScrollBody: false,
-                    child: BackAndNextButtons(
+                    child: UploadRecipeBackAndSubmitButtons(
                       onBack: widget.onBack,
                       formKey: formData.formKey,
                       enableAutoValidation: formData.enableAutoValidation,

@@ -138,7 +138,8 @@
         "back": "Back",
         "mins": "mins",
         "likes": "Likes",
-        "settings": "Settings"
+        "settings": "Settings",
+        "submit": "Submit"
     },
     "errors": {
         "bad_request": "Invalid request. Please check your input.",

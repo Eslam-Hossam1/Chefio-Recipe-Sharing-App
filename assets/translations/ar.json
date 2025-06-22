@@ -1,204 +1,205 @@
-{
-    "onboarding": {
-        "title": "ابدأ الطهي",
-        "body": "أنضم إلى مجتمعنا لنطبخ طعاماً أفضل",
-        "button_text": "ابدأ الآن"
-    },
-    "auth": {
-        "shared": {
-            "enter_account": "الرجاء إدخال حسابك هنا",
-            "username_text_field_hint": "اسم المستخدم",
-            "email_text_field_hint": "البريد الالكتروني",
-            "password_text_field_hint": "كلمة السر",
-            "forget_password_question": "هل نسيت كلمة السر؟",
-            "log_in": "تسجيل الدخول",
-            "sign_up": "قم بالتسجيل",
-            "or_continue_with": "أو الاستمرار مع",
-            "confirm": "التاكيد",
-            "this_field_required": "هذا الحقل مطلوب",
-            "invalid_email": "عنوان البريد الإلكتروني غير صالح. يرجى إدخال بريد إلكتروني صالح.",
-            "unknown_error": "حدث خطأ غير معروف. حاول مرة أخرى لاحقًا.",
-            "user_not_found": "لم يتم العثور على مستخدم بهذا البريد الإلكتروني.",
-            "invalid_recipient_email": "عنوان البريد الإلكتروني غير صالح.",
-            "too_many_requests": "عدد الطلبات كبير جدًا، يرجى المحاولة لاحقًا.",
-            "network_request_failed": "حدث خطأ في الشبكة، يرجى التحقق من اتصالك.",
-            "we_sent_email_verification": "لقد أرسلنا إليك رسالة التحقق بالبريد الإلكتروني! يرجى التحقق من صندوق الوارد الخاص بك والتحقق من حسابك للمتابعة",
-            "your_email_need_to_verified": "لم يتم تفعيل بريدك الإلكتروني بعد. لقد أرسلنا لك رسالة تأكيد جديدة. يرجى مراجعة بريدك الإلكتروني وتفعيل الحساب للمتابعة"
+    {
+        "onboarding": {
+            "title": "ابدأ الطهي",
+            "body": "أنضم إلى مجتمعنا لنطبخ طعاماً أفضل",
+            "button_text": "ابدأ الآن"
         },
-        "log_in": {
-            "welcome_back": "مرحبًا بعودتك!",
-            "do_not_have_account": "هل ليس لديك حساب؟",
-            "wrong_password": "كلمة المرور غير صحيحة. حاول مرة اخرى.",
-            "user_disabled": "تم تعطيل حساب المستخدم هذا. يرجى الاتصال بالدعم."
+        "auth": {
+            "shared": {
+                "enter_account": "الرجاء إدخال حسابك هنا",
+                "username_text_field_hint": "اسم المستخدم",
+                "email_text_field_hint": "البريد الالكتروني",
+                "password_text_field_hint": "كلمة السر",
+                "forget_password_question": "هل نسيت كلمة السر؟",
+                "log_in": "تسجيل الدخول",
+                "sign_up": "قم بالتسجيل",
+                "or_continue_with": "أو الاستمرار مع",
+                "confirm": "التاكيد",
+                "this_field_required": "هذا الحقل مطلوب",
+                "invalid_email": "عنوان البريد الإلكتروني غير صالح. يرجى إدخال بريد إلكتروني صالح.",
+                "unknown_error": "حدث خطأ غير معروف. حاول مرة أخرى لاحقًا.",
+                "user_not_found": "لم يتم العثور على مستخدم بهذا البريد الإلكتروني.",
+                "invalid_recipient_email": "عنوان البريد الإلكتروني غير صالح.",
+                "too_many_requests": "عدد الطلبات كبير جدًا، يرجى المحاولة لاحقًا.",
+                "network_request_failed": "حدث خطأ في الشبكة، يرجى التحقق من اتصالك.",
+                "we_sent_email_verification": "لقد أرسلنا إليك رسالة التحقق بالبريد الإلكتروني! يرجى التحقق من صندوق الوارد الخاص بك والتحقق من حسابك للمتابعة",
+                "your_email_need_to_verified": "لم يتم تفعيل بريدك الإلكتروني بعد. لقد أرسلنا لك رسالة تأكيد جديدة. يرجى مراجعة بريدك الإلكتروني وتفعيل الحساب للمتابعة"
+            },
+            "log_in": {
+                "welcome_back": "مرحبًا بعودتك!",
+                "do_not_have_account": "هل ليس لديك حساب؟",
+                "wrong_password": "كلمة المرور غير صحيحة. حاول مرة اخرى.",
+                "user_disabled": "تم تعطيل حساب المستخدم هذا. يرجى الاتصال بالدعم."
+            },
+            "sign_up": {
+                "welcome": "مرحباً!",
+                "already_have_an_account": "لديك حساب بالفعل!",
+                "your_password_must_contain": "يجب أن تحتوي كلمة المرور الخاصة بك على:",
+                "at_least_characters": "8 أحرف على الأقل",
+                "must_contains_a_number": "يحتوي على رقم",
+                "must_contains_a_uppercase_letter": "يحتوي على حرف كبير",
+                "must_contains_a_lowercase_letter": "يحتوي على حرف صغير",
+                "must_contains_a_special_letter": "يحتوي علي حرف مميز",
+                "email_already_in_use": "البريد الإلكتروني مستخدم بالفعل من قبل حساب آخر.",
+                "operation_not_allowed": "لم يتم تمكين تسجيل الدخول باستخدام البريد الإلكتروني / كلمة المرور. يرجى الاتصال بالدعم.",
+                "weak_password": "كلمة المرور ضعيفة جدًا. يرجى اختيار كلمة مرور أقوى.",
+                "username_cant_contain_spaces": "اسم المستخدم لا يمكن أن يحتوي على مسافات",
+                "username_must_be_between": "يجب أن يكون اسم المستخدم بين 2 و 20 حرفًا",
+                "username_can_only_contain": "يمكن أن يحتوي اسم المستخدم فقط على الحروف والأرقام والشرطة السفلية"
+            },
+            "forget_password": {
+                "password_recovery": "استعادة كلمة المرور",
+                "enter_email_recover_password": "أدخل بريدك الإلكتروني لاستعادة كلمة المرور الخاصة بك",
+                "password_reset_link_sent": "تم إرسال رابط لإعادة تعيين كلمة المرور إلى بريدك الإلكتروني. يرجى مراجعة بريدك الإلكتروني لإعادة تعيين كلمة المرور."
+            },
+            "verification_code": {
+                "verification_code": "رمز التحقق",
+                "check_your_email": "تحقق من بريدك الإلكتروني",
+                "we_have_sent_verification_code": "لقد أرسلنا الرمز إلى بريدك الإلكتروني",
+                "code_expires_in": "تنتهي صلاحية الرمز خلال",
+                "verifiy": "تحقق",
+                "send_again": "ارسل مرة اخرى",
+                "verification_success_message": "تم إنشاء الحساب بنجاح! لقد قمنا بالتحقق من بريدك الإلكتروني، يمكنك الآن تسجيل الدخول.",
+                "pls_enter_complete_pin": "من فضلك أدخل رمز PIN بالكامل.",
+                "verification_exit_warning": "لقد سجلت حسابك، لكن التحقق لم يكتمل. إذا خرجت الآن، ستحتاج لإعادة التحقق عند تسجيل الدخول."
+            },
+            "reset_password": {
+                "reset_your_password": "إعادة تعيين كلمة المرور",
+                "please_enter_new_password": "يرجى إدخال كلمة المرور الجديدة",
+                "done": "تم",
+                "reset_password_success": "تمت إعادة تعيين كلمة المرور بنجاح! يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة.",
+                "reset_password_exit_warning": "لم يتم تعيين كلمة المرور بعد، هل انت متأكد انك تود الخروج"
+            },
+            "logout": {
+                "logout_text": "تسجيل الخروج"
+            }
         },
-        "sign_up": {
-            "welcome": "مرحباً!",
-            "already_have_an_account": "لديك حساب بالفعل!",
-            "your_password_must_contain": "يجب أن تحتوي كلمة المرور الخاصة بك على:",
-            "at_least_characters": "8 أحرف على الأقل",
-            "must_contains_a_number": "يحتوي على رقم",
-            "must_contains_a_uppercase_letter": "يحتوي على حرف كبير",
-            "must_contains_a_lowercase_letter": "يحتوي على حرف صغير",
-            "must_contains_a_special_letter": "يحتوي علي حرف مميز",
-            "email_already_in_use": "البريد الإلكتروني مستخدم بالفعل من قبل حساب آخر.",
-            "operation_not_allowed": "لم يتم تمكين تسجيل الدخول باستخدام البريد الإلكتروني / كلمة المرور. يرجى الاتصال بالدعم.",
-            "weak_password": "كلمة المرور ضعيفة جدًا. يرجى اختيار كلمة مرور أقوى.",
-            "username_cant_contain_spaces": "اسم المستخدم لا يمكن أن يحتوي على مسافات",
-            "username_must_be_between": "يجب أن يكون اسم المستخدم بين 2 و 20 حرفًا",
-            "username_can_only_contain": "يمكن أن يحتوي اسم المستخدم فقط على الحروف والأرقام والشرطة السفلية"
+        "profile_setup": {
+            "complete_profile": "أكمل ملفك الشخصي",
+            "upload_profile_picture": "حمّل صورة الملف الشخصي",
+            "choose_username": "اختر اسم المستخدم",
+            "username_placeholder": "اسم المستخدم",
+            "username_empty_error": "لا يمكن أن يكون اسم المستخدم فارغًا",
+            "complete_profile_button": "إكمال الملف الشخصي",
+            "profile_picture_optional": "يمكنك إضافة صورة الملف الشخصي لاحقًا.",
+            "saving_profile_error": "حدث خطأ أثناء حفظ ملفك الشخصي. الرجاء المحاولة مرة أخرى.",
+            "saving_profile_success": "تم حفظ الملف الشخصي بنجاح."
         },
-        "forget_password": {
-            "password_recovery": "استعادة كلمة المرور",
-            "enter_email_recover_password": "أدخل بريدك الإلكتروني لاستعادة كلمة المرور الخاصة بك",
-            "password_reset_link_sent": "تم إرسال رابط لإعادة تعيين كلمة المرور إلى بريدك الإلكتروني. يرجى مراجعة بريدك الإلكتروني لإعادة تعيين كلمة المرور."
+        "profile": {
+            "chef_has_no_followers": "هذا الشيف لم يتابعه احد بعد",
+            "chef_didn't_follow_any_chef_yet": "هذا الشيف لم يتابع شيف اخر بعد"
         },
-        "verification_code": {
-            "verification_code": "رمز التحقق",
-            "check_your_email": "تحقق من بريدك الإلكتروني",
-            "we_have_sent_verification_code": "لقد أرسلنا الرمز إلى بريدك الإلكتروني",
-            "code_expires_in": "تنتهي صلاحية الرمز خلال",
-            "verifiy": "تحقق",
-            "send_again": "ارسل مرة اخرى",
-            "verification_success_message": "تم إنشاء الحساب بنجاح! لقد قمنا بالتحقق من بريدك الإلكتروني، يمكنك الآن تسجيل الدخول.",
-            "pls_enter_complete_pin": "من فضلك أدخل رمز PIN بالكامل.",
-            "verification_exit_warning": "لقد سجلت حسابك، لكن التحقق لم يكتمل. إذا خرجت الآن، ستحتاج لإعادة التحقق عند تسجيل الدخول."
+        "upload": {
+            "add_cover_photo": "إضافة صورة الغلاف",
+            "up_to": "(تصل الي 12  Mb)",
+            "food_name": "اسم الطبق",
+            "enter_food_Name": "أدخل اسم الطبق",
+            "description": "الوصف",
+            "tell_a_little_about_your_food": "أخبرنا قليلاً عن طبقك",
+            "cooking_duration": "مدة الطهي",
+            "in_minutes": "(بالدقائق)",
+            "enter_ingredient": "أدخل المكون",
+            "add_ingredient": "اضف مكون",
+            "add_step": "اضف خطوة",
+            "step_hint": "أدخل الخطوة"
         },
-        "reset_password": {
-            "reset_your_password": "إعادة تعيين كلمة المرور",
-            "please_enter_new_password": "يرجى إدخال كلمة المرور الجديدة",
-            "done": "تم",
-            "reset_password_success": "تمت إعادة تعيين كلمة المرور بنجاح! يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة.",
-            "reset_password_exit_warning": "لم يتم تعيين كلمة المرور بعد، هل انت متأكد انك تود الخروج"
+        "category": {
+            "general_dishes": "أطباق عامة",
+            "main_dishes": "الأطباق الرئيسية",
+            "fast_food": "الوجبات السريعة",
+            "healthy_meals": "وجبات صحية",
+            "desserts_and_bakery": "الحلويات والمخبوزات"
         },
-        "logout": {
-            "logout_text": "تسجيل الخروج"
+        "global": {
+            "warning": "تحذير",
+            "error": "خطأ",
+            "info": "معلومة",
+            "success": "تم بنجاح",
+            "confirm_exit": "الخروج",
+            "stay": "البقاء",
+            "search": "بحث",
+            "all": "الكل",
+            "food": "طعام",
+            "drink": "شراب",
+            "home": "الرئيسية",
+            "upload": "رفع",
+            "notification": "الإشعارات",
+            "profile": "الملف الشخصي",
+            "category": "الفئة",
+            "cancel": "الغاء",
+            "next": "التالي",
+            "ingredients": "المقادير",
+            "steps": "الخطوات",
+            "back": "الرجوع",
+            "mins": "دقيقة",
+            "likes": "الإعجابات",
+            "settings": "الإعدادات",
+            "submit": "ارسل"
+        },
+        "recipe_details": {
+            "share_recipe": "مشاركة الوصفة",
+            "edit_recipe": "تعديل الوصفة",
+            "recipe_no_likes_message": "لا يوجد أي إعجابات على هذه الوصفة بعد."
+        },
+        "errors": {
+            "bad_request": "طلب غير صالح. يرجى التحقق من المدخلات.",
+            "unauthorized": "الوصول غير مصرح به. يرجى تسجيل الدخول مجددًا.",
+            "forbidden": "تم رفض الوصول. ليس لديك الصلاحية.",
+            "not_found": "المورد المطلوب غير موجود.",
+            "conflict": "يوجد تعارض مع البيانات الحالية.",
+            "unprocessable_entity": "مدخلات غير صحيحة. يرجى التحقق من البيانات.",
+            "internal_server_error": "حدث خطأ في الخادم.",
+            "unknown_error": "حدث خطأ غير معروف. يرجى المحاولة لاحقًا.",
+            "expired_token": "انتهت صلاحية الجلسة. يرجى تسجيل الدخول مرة أخرى.",
+            "invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+            "account_locked": "عدد كبير من المحاولات الفاشلة. الحساب مغلق مؤقتًا.",
+            "email_not_verified": "يرجى تفعيل البريد الإلكتروني قبل تسجيل الدخول.",
+            "insufficient_funds": "الرصيد غير كافٍ لإتمام العملية.",
+            "payment_declined": "تم رفض الدفع. يرجى مراجعة البنك.",
+            "invalid_card_details": "بيانات البطاقة غير صحيحة. يرجى التحقق والمحاولة مرة أخرى.",
+            "duplicate_entry": "هذه البيانات موجودة بالفعل.",
+            "data_conflict": "هناك تعارض مع البيانات الحالية.",
+            "record_not_found": "العنصر المطلوب غير موجود.",
+            "invalid_input": "بعض البيانات المدخلة غير صحيحة أو مفقودة.",
+            "file_too_large": "الملف المرفوع كبير جدًا.",
+            "unsupported_file_format": "تنسيق الملف غير مدعوم.",
+            "storage_full": "لا توجد مساحة تخزين كافية.",
+            "permission_denied": "تم رفض الإذن. يرجى منحه من الإعدادات.",
+            "device_not_supported": "هذه الميزة غير مدعومة على جهازك.",
+            "connection_timeout": "استغرقت العملية وقتًا طويلاً. يرجى التحقق من الاتصال والمحاولة مرة أخرى.",
+            "send_timeout": "استغرق إرسال الطلب وقتًا طويلاً. يرجى التحقق من الإنترنت وإعادة المحاولة.",
+            "receive_timeout": "الخادم يستغرق وقتًا طويلاً للرد. يرجى المحاولة لاحقًا.",
+            "bad_certificate": "تم اكتشاف مشكلة أمان. يرجى التواصل مع الدعم.",
+            "bad_response": "حدث خطأ أثناء معالجة الطلب. يرجى المحاولة مرة أخرى.",
+            "request_cancelled": "تم إلغاء الطلب. يرجى المحاولة مجددًا.",
+            "no_internet_connection": "لا يوجد اتصال بالإنترنت. يرجى التحقق من الشبكة.",
+            "validation_error": "بعض الحقول غير صحيحة. يرجى التحقق والمحاولة مرة أخرى.",
+            "invalid_code": "الكود غير صحيح",
+            "bad_gateway": "حدث خطأ في الاتصال بالخادم. يرجى المحاولة لاحقًا.",
+            "service_unavailable": "الخدمة غير متوفرة حاليًا. يرجى المحاولة بعد قليل.",
+            "gateway_timeout": "الخادم يستغرق وقتًا طويلاً للرد. يرجى المحاولة لاحقًا."
+        },
+        "languages": {
+            "english": "الانجليزية",
+            "arabic": "العربية",
+            "spanish": "الاسبانية",
+            "language": "اللغات"
+        },
+        "themes": {
+            "light": "فاتح",
+            "dark": "داكن",
+            "system": "النظام",
+            "theme": "المظهر"
+        },
+        "time_units": {
+            "s": "ث",
+            "m": "د",
+            "h": "س",
+            "d": "ي"
+        },
+        "notifications": {
+            "now_following_you": "بدأ يتابعك",
+            "liked_your_recipe": "أعجبته وصفتك",
+            "uploaded_new_recipe": "نشر وصفة جديدة"
         }
-    },
-    "profile_setup": {
-        "complete_profile": "أكمل ملفك الشخصي",
-        "upload_profile_picture": "حمّل صورة الملف الشخصي",
-        "choose_username": "اختر اسم المستخدم",
-        "username_placeholder": "اسم المستخدم",
-        "username_empty_error": "لا يمكن أن يكون اسم المستخدم فارغًا",
-        "complete_profile_button": "إكمال الملف الشخصي",
-        "profile_picture_optional": "يمكنك إضافة صورة الملف الشخصي لاحقًا.",
-        "saving_profile_error": "حدث خطأ أثناء حفظ ملفك الشخصي. الرجاء المحاولة مرة أخرى.",
-        "saving_profile_success": "تم حفظ الملف الشخصي بنجاح."
-    },
-    "profile": {
-        "chef_has_no_followers": "هذا الشيف لم يتابعه احد بعد",
-        "chef_didn't_follow_any_chef_yet": "هذا الشيف لم يتابع شيف اخر بعد"
-    },
-    "upload": {
-        "add_cover_photo": "إضافة صورة الغلاف",
-        "up_to": "(تصل الي 12  Mb)",
-        "food_name": "اسم الطبق",
-        "enter_food_Name": "أدخل اسم الطبق",
-        "description": "الوصف",
-        "tell_a_little_about_your_food": "أخبرنا قليلاً عن طبقك",
-        "cooking_duration": "مدة الطهي",
-        "in_minutes": "(بالدقائق)",
-        "enter_ingredient": "أدخل المكون",
-        "add_ingredient": "اضف مكون",
-        "add_step": "اضف خطوة",
-        "step_hint": "أدخل الخطوة"
-    },
-    "category": {
-        "general_dishes": "أطباق عامة",
-        "main_dishes": "الأطباق الرئيسية",
-        "fast_food": "الوجبات السريعة",
-        "healthy_meals": "وجبات صحية",
-        "desserts_and_bakery": "الحلويات والمخبوزات"
-    },
-    "global": {
-        "warning": "تحذير",
-        "error": "خطأ",
-        "info": "معلومة",
-        "success": "تم بنجاح",
-        "confirm_exit": "الخروج",
-        "stay": "البقاء",
-        "search": "بحث",
-        "all": "الكل",
-        "food": "طعام",
-        "drink": "شراب",
-        "home": "الرئيسية",
-        "upload": "رفع",
-        "notification": "الإشعارات",
-        "profile": "الملف الشخصي",
-        "category": "الفئة",
-        "cancel": "الغاء",
-        "next": "التالي",
-        "ingredients": "المقادير",
-        "steps": "الخطوات",
-        "back": "الرجوع",
-        "mins": "دقيقة",
-        "likes": "الإعجابات",
-        "settings": "الإعدادات"
-    },
-    "recipe_details": {
-        "share_recipe": "مشاركة الوصفة",
-        "edit_recipe": "تعديل الوصفة",
-        "recipe_no_likes_message": "لا يوجد أي إعجابات على هذه الوصفة بعد."
-    },
-    "errors": {
-        "bad_request": "طلب غير صالح. يرجى التحقق من المدخلات.",
-        "unauthorized": "الوصول غير مصرح به. يرجى تسجيل الدخول مجددًا.",
-        "forbidden": "تم رفض الوصول. ليس لديك الصلاحية.",
-        "not_found": "المورد المطلوب غير موجود.",
-        "conflict": "يوجد تعارض مع البيانات الحالية.",
-        "unprocessable_entity": "مدخلات غير صحيحة. يرجى التحقق من البيانات.",
-        "internal_server_error": "حدث خطأ في الخادم.",
-        "unknown_error": "حدث خطأ غير معروف. يرجى المحاولة لاحقًا.",
-        "expired_token": "انتهت صلاحية الجلسة. يرجى تسجيل الدخول مرة أخرى.",
-        "invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
-        "account_locked": "عدد كبير من المحاولات الفاشلة. الحساب مغلق مؤقتًا.",
-        "email_not_verified": "يرجى تفعيل البريد الإلكتروني قبل تسجيل الدخول.",
-        "insufficient_funds": "الرصيد غير كافٍ لإتمام العملية.",
-        "payment_declined": "تم رفض الدفع. يرجى مراجعة البنك.",
-        "invalid_card_details": "بيانات البطاقة غير صحيحة. يرجى التحقق والمحاولة مرة أخرى.",
-        "duplicate_entry": "هذه البيانات موجودة بالفعل.",
-        "data_conflict": "هناك تعارض مع البيانات الحالية.",
-        "record_not_found": "العنصر المطلوب غير موجود.",
-        "invalid_input": "بعض البيانات المدخلة غير صحيحة أو مفقودة.",
-        "file_too_large": "الملف المرفوع كبير جدًا.",
-        "unsupported_file_format": "تنسيق الملف غير مدعوم.",
-        "storage_full": "لا توجد مساحة تخزين كافية.",
-        "permission_denied": "تم رفض الإذن. يرجى منحه من الإعدادات.",
-        "device_not_supported": "هذه الميزة غير مدعومة على جهازك.",
-        "connection_timeout": "استغرقت العملية وقتًا طويلاً. يرجى التحقق من الاتصال والمحاولة مرة أخرى.",
-        "send_timeout": "استغرق إرسال الطلب وقتًا طويلاً. يرجى التحقق من الإنترنت وإعادة المحاولة.",
-        "receive_timeout": "الخادم يستغرق وقتًا طويلاً للرد. يرجى المحاولة لاحقًا.",
-        "bad_certificate": "تم اكتشاف مشكلة أمان. يرجى التواصل مع الدعم.",
-        "bad_response": "حدث خطأ أثناء معالجة الطلب. يرجى المحاولة مرة أخرى.",
-        "request_cancelled": "تم إلغاء الطلب. يرجى المحاولة مجددًا.",
-        "no_internet_connection": "لا يوجد اتصال بالإنترنت. يرجى التحقق من الشبكة.",
-        "validation_error": "بعض الحقول غير صحيحة. يرجى التحقق والمحاولة مرة أخرى.",
-        "invalid_code": "الكود غير صحيح",
-        "bad_gateway": "حدث خطأ في الاتصال بالخادم. يرجى المحاولة لاحقًا.",
-        "service_unavailable": "الخدمة غير متوفرة حاليًا. يرجى المحاولة بعد قليل.",
-        "gateway_timeout": "الخادم يستغرق وقتًا طويلاً للرد. يرجى المحاولة لاحقًا."
-    },
-    "languages": {
-        "english": "الانجليزية",
-        "arabic": "العربية",
-        "spanish": "الاسبانية",
-        "language": "اللغات"
-    },
-    "themes": {
-        "light": "فاتح",
-        "dark": "داكن",
-        "system": "النظام",
-        "theme": "المظهر"
-    },
-    "time_units": {
-        "s": "ث",
-        "m": "د",
-        "h": "س",
-        "d": "ي"
-    },
-    "notifications": {
-        "now_following_you": "بدأ يتابعك",
-        "liked_your_recipe": "أعجبته وصفتك",
-        "uploaded_new_recipe": "نشر وصفة جديدة"
     }
-}

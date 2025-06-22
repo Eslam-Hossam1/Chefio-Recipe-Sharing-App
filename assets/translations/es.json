@@ -138,7 +138,8 @@
     "back": "Atrás",
     "mins": "min",
     "likes": "Me gusta",
-    "settings": "Ajustes"
+    "settings": "Ajustes",
+    "submit": "Enviar"
   },
   "errors": {
     "bad_request": "Solicitud inválida. Verifica tu entrada.",
