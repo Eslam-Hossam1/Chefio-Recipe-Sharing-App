@@ -1,22 +1,61 @@
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
-import 'package:chefio_app/core/widgets/custom_text_button.dart';
+import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddIngredintButton extends StatelessWidget {
   const AddIngredintButton({
     super.key,
-    this.onPressed,
+    required this.ingredientsFocusNodes,
+    required this.ingredientsItemKeys,
+    required this.ingredientsAnimatedListKey,
   });
-  final void Function()? onPressed;
+
+  final List<FocusNode> ingredientsFocusNodes;
+  final List<GlobalKey> ingredientsItemKeys;
+  final GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey;
+
   @override
   Widget build(BuildContext context) {
     return AddButton(
-      onPressed: onPressed,
+      onPressed: () => _handleAddIngredient(context),
       text: AppLocalizationKeys.upload.addIngredient.tr(),
     );
+  }
+
+  Future<void> _handleAddIngredient(BuildContext context) async {
+    _addIngredientToCubitAndHelpers(context);
+
+    await Future.delayed(const Duration(milliseconds: 300));
+
+    final newItemContext = ingredientsItemKeys.last.currentContext;
+    if (newItemContext == null) return;
+
+    await _scrollToNewIngredient(newItemContext);
+    _requestFocusOnNewIngredient();
+  }
+
+  void _addIngredientToCubitAndHelpers(BuildContext context) {
+    final cubit = context.read<UploadRecipeCubit>();
+    cubit.addIngerdient(
+      ingredientsAnimatedListKey: ingredientsAnimatedListKey,
+    );
+    ingredientsFocusNodes.add(FocusNode());
+    ingredientsItemKeys.add(GlobalKey());
+  }
+
+  Future<void> _scrollToNewIngredient(BuildContext itemContext) async {
+    await Scrollable.ensureVisible(
+      itemContext,
+      duration: const Duration(milliseconds: 500),
+      alignment: 0.4,
+      curve: Curves.easeInOut,
+    );
+  }
+
+  void _requestFocusOnNewIngredient() {
+    ingredientsFocusNodes.last.requestFocus();
   }
 }

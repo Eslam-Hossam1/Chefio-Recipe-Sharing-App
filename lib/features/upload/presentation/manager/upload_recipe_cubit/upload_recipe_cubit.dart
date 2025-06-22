@@ -16,8 +16,8 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
   final UploadRepo _uploadRepo;
   bool isEdit = false;
   String? id;
-  List<String> ingredients = ["",""];
-  List<String> steps = ["",""];
+  List<String> ingredients = ["", ""];
+  List<String> steps = ["", ""];
   String foodName = '';
   String foodDescription = '';
   int foodCookDuration = 1;
@@ -43,28 +43,8 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
     stepsAnimatedListKey.currentState!.insertItem(steps.length - 1);
   }
 
-  void removeIngredient({
-    required GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey,
-    required int index,
-  }) {
-        ingredients.removeAt(index);
-
-    ingredientsAnimatedListKey.currentState!.removeItem(index,
-        (context, animation) {
-      return SizedBox(width: 0, height: 0);
-    });
-  }
-
-  void removeStep({
-    required GlobalKey<SliverAnimatedListState> stepsAnimatedListKey,
-    required int index,
-  }) {
-        steps.removeAt(index);
-
-    stepsAnimatedListKey.currentState!.removeItem(index, (context, animation) {
-      return SizedBox(width: 0, height: 0);
-    });
-  }
+  void removeIngredient({required int index}) => ingredients.removeAt(index);
+  void removeStep({required int index}) => steps.removeAt(index);
 
   void checkAndInitForEditing(
       {required RecipeDetailsModel? recipeDetailModel}) {

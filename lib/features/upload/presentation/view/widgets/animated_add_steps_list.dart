@@ -32,10 +32,17 @@ class AnimatedAddStepsList extends StatelessWidget {
             ),
             child: Dismissible(
               key: stepItemsKeys[index],
-              onDismissed: (direction) => uploadRecipeCubit.removeStep(
-                stepsAnimatedListKey: animatedListKey,
-                index: index,
-              ),
+              onDismissed: (direction) {
+                uploadRecipeCubit.removeStep(
+                  index: index,
+                );
+                animatedListKey.currentState!.removeItem(index,
+                    (context, animation) {
+                  return SizedBox(width: 0, height: 0);
+                });
+                focusNodes.removeAt(index);
+                stepItemsKeys.removeAt(index);
+              },
               background: Container(
                 color: Colors.red,
                 child: Center(

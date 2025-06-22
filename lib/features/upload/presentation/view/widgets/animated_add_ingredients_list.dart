@@ -31,10 +31,17 @@ class AnimatedAddIngredientsList extends StatelessWidget {
             ),
             child: Dismissible(
                 key: ingredientItemsKeys[index],
-                onDismissed: (direction) => uploadRecipeCubit.removeIngredient(
-                      ingredientsAnimatedListKey: animatedListKey,
-                      index: index,
-                    ),
+                onDismissed: (direction) {
+                  uploadRecipeCubit.removeIngredient(
+                    index: index,
+                  );
+                  animatedListKey.currentState!.removeItem(index,
+                      (context, animation) {
+                    return SizedBox(width: 0, height: 0);
+                  });
+                  focusNodes.removeAt(index);
+                  ingredientItemsKeys.removeAt(index);
+                },
                 background: Container(
                   color: Colors.red,
                   child: Center(
