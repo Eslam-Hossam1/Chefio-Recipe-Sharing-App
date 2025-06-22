@@ -10,9 +10,9 @@ import 'package:chefio_app/features/upload/data/repos/upload_repo.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-part 'upload_recipe_state.dart';
+part 'upload_form_state.dart';
 
-class UploadRecipeCubit extends Cubit<UploadRecipeState> {
+class UploadFormCubit extends Cubit<UploadFormState> {
   final UploadRepo _uploadRepo;
   bool isEdit = false;
   String? id;
@@ -25,9 +25,9 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
   File? foodImage;
   List<Category> categories = [];
 
-  UploadRecipeCubit(
+  UploadFormCubit(
     this._uploadRepo,
-  ) : super(UploadRecipeInitial());
+  ) : super(UploadFormInitial());
 
   void addIngerdient({
     required GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey,
@@ -101,49 +101,7 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
     }
   }
 
-  Future<void> setRecipe() async {
-    if (isEdit) {
-      await editRecipe();
-    } else {
-      await uploadRecipe();
-    }
-  }
-
-  Future<void> editRecipe() async {
-    emit(UploadRecipeLoading());
-
-    EditRecipeModel editRecipeModel = _getEditRecipeModel();
-    //place edit request here
-
-    var result = await _uploadRepo.editRecipe(editRecipeModel: editRecipeModel);
-    result.fold((failure) {
-      emit(
-        UploadRecipeFailed(
-            errorMessage: failure.errMsg,
-            errorLocalizationKey: failure.localizaitonKey),
-      );
-    }, (_) {
-      emit(UploadRecipeSuccess());
-    });
-  }
-
-  Future<void> uploadRecipe() async {
-    emit(UploadRecipeLoading());
-    UploadRecipeModel uploadRecipeModel = _getUploadRecipeModel();
-    var result =
-        await _uploadRepo.uploadRecipe(uploadRecipeModel: uploadRecipeModel);
-    result.fold((failure) {
-      emit(
-        UploadRecipeFailed(
-            errorMessage: failure.errMsg,
-            errorLocalizationKey: failure.localizaitonKey),
-      );
-    }, (_) {
-      emit(UploadRecipeSuccess());
-    });
-  }
-
-  UploadRecipeModel _getUploadRecipeModel() {
+  UploadRecipeModel getUploadRecipeModel() {
     return UploadRecipeModel(
       ingredients: ingredients,
       steps: steps,
@@ -155,7 +113,7 @@ class UploadRecipeCubit extends Cubit<UploadRecipeState> {
     );
   }
 
-  EditRecipeModel _getEditRecipeModel() {
+  EditRecipeModel getEditRecipeModel() {
     return EditRecipeModel(
       id: id!,
       ingredients: ingredients,

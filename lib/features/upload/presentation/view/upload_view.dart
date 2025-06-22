@@ -1,11 +1,9 @@
-import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
-import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/upload_success_dialog.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/upload_second_step_page.dart';
+import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/upload_first_step_page.dart';
+import 'package:chefio_app/features/upload/presentation/view/widgets/upload_second_step_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,32 +38,16 @@ class _UploadViewState extends State<UploadView> {
   @override
   void initState() {
     super.initState();
-    context.read<UploadRecipeCubit>().checkAndInitForEditing(
+    context.read<UploadFormCubit>().checkAndInitForEditing(
           recipeDetailModel: widget.recipeDetailModel,
         );
-    context.read<UploadRecipeCubit>().fetchCategories();
+    context.read<UploadFormCubit>().fetchCategories();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-      child: BlocConsumer<UploadRecipeCubit, UploadRecipeState>(
-        listener: (context, state) {
-          if (state is UploadRecipeFailed) {
-            DialogHelper.showErrorDialog(
-              context,
-              errorMessage: state.errorLocalizationKey.tr(),
-            );
-          } else if (state is UploadRecipeSuccess) {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return SetRecipeSuccessDialog();
-              },
-            );
-          }
-        },
+    return Scaffold(body: SafeArea(
+      child: BlocBuilder<UploadFormCubit, UploadFormState>(
         builder: (context, state) {
           if (state is CategoriesFailed) {
             return Padding(

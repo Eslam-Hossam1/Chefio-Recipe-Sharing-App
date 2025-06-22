@@ -1,10 +1,8 @@
 import 'dart:developer';
 
-import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/helpers/share_helper.dart';
-import 'package:chefio_app/core/services/follow_chef_service.dart';
 import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
@@ -29,25 +27,25 @@ import 'package:chefio_app/features/main/presentation/view/main_view.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
-import 'package:chefio_app/features/profile/presentation/manager/chef_connections_cubit/chef_connections_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_liked_recipes_cubit/chef_liked_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_follow_button_cubit/profile_follow_button_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/profile_view.dart';
-import 'package:chefio_app/features/settings/presentation/manager/settings_cubit/settings_cubit.dart';
-import 'package:chefio_app/features/settings/presentation/views/language_selection_view.dart';
-import 'package:chefio_app/features/settings/presentation/views/settings_view.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view.dart';
+import 'package:chefio_app/features/settings/presentation/manager/settings_cubit/settings_cubit.dart';
+import 'package:chefio_app/features/settings/presentation/views/language_selection_view.dart';
+import 'package:chefio_app/features/settings/presentation/views/settings_view.dart';
 import 'package:chefio_app/features/settings/presentation/views/theme_selection_view.dart';
 import 'package:chefio_app/features/splash/presentation/view/splash_view.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:chefio_app/features/upload/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/manager/upload_recipe_cubit/upload_recipe_cubit.dart';
+import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/upload/presentation/manager/upload_submit_cubit/upload_submit_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/upload_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -162,7 +160,14 @@ class AppRouter {
         builder: (context, state) => MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => UploadRecipeCubit(getIt<UploadRepoImpl>()),
+              create: (context) => UploadFormCubit(
+                getIt<UploadRepoImpl>(),
+              ),
+            ),
+            BlocProvider(
+              create: (context) => UploadSubmitCubit(
+                uploadRepo: getIt<UploadRepoImpl>(),
+              ),
             ),
             BlocProvider(
               create: (context) =>
