@@ -87,7 +87,16 @@
         },
         "profile": {
             "chef_has_no_followers": "هذا الشيف لم يتابعه احد بعد",
-            "chef_didn't_follow_any_chef_yet": "هذا الشيف لم يتابع شيف اخر بعد"
+            "chef_didn't_follow_any_chef_yet": "هذا الشيف لم يتابع شيف اخر بعد",
+            "recipes": "الوصفات",
+            "liked": "المعجبون",
+            "followers": "المتابعون",
+            "following": "المتابَعون",
+            "follow": "متابعة",
+            "followed": "متابَع",
+            "share_profile": "مشاركة الملف الشخصي",
+            "edit_profile": "تعديل الملف الشخصي",
+            "try_again": "حاول مرة أخرى"
         },
         "upload": {
             "add_cover_photo": "إضافة صورة الغلاف",

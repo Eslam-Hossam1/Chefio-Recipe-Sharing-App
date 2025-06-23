@@ -87,7 +87,16 @@
   },
   "profile": {
     "chef_has_no_followers": "El chef no tiene seguidores",
-    "chef_didn't_follow_any_chef_yet": "El chef aún no sigue a otros chefs"
+    "chef_didn't_follow_any_chef_yet": "El chef aún no sigue a otros chefs",
+    "recipes": "Recetas",
+    "liked": "Me gusta",
+    "followers": "Seguidores",
+    "following": "Siguiendo",
+    "follow": "Seguir",
+    "followed": "Siguiendo",
+    "share_profile": "Compartir Perfil",
+    "edit_profile": "Editar Perfil",
+    "try_again": "Intentar de Nuevo"
   },
   "upload": {
     "add_cover_photo": "Agregar foto de portada",

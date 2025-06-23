@@ -1,7 +1,7 @@
 {
     "onboarding": {
         "title": "Start Cooking",
-        "body": "Let’s join our community\nto cook better food!",
+        "body": "Let's join our community\nto cook better food!",
         "button_text": "Get Started"
     },
     "auth": {
@@ -25,7 +25,7 @@
         },
         "log_in": {
             "welcome_back": "Welcome Back!",
-            "do_not_have_account": "Don’t have any account?",
+            "do_not_have_account": "Don't have any account?",
             "wrong_password": "The password is incorrect. Please try again.",
             "user_disabled": "This user account has been disabled. Please contact support.",
             "your_email_need_to_verified": "Your email is not verified yet. We have sent you a new verification email. Please check your inbox and verify your email to continue."
@@ -87,7 +87,16 @@
     },
     "profile": {
         "chef_has_no_followers": "Chef has no followers",
-        "chef_didn't_follow_any_chef_yet": "Chef didn't follow any other chef yet"
+        "chef_didn't_follow_any_chef_yet": "Chef didn't follow any other chef yet",
+        "recipes": "Recipes",
+        "liked": "Liked",
+        "followers": "Followers",
+        "following": "Following",
+        "follow": "Follow",
+        "followed": "Followed",
+        "share_profile": "Share Profile",
+        "edit_profile": "Edit Profile",
+        "try_again": "Try Again"
     },
     "upload": {
         "add_cover_photo": "Add Cover Photo",
@@ -117,7 +126,7 @@
     },
     "search": {
         "wrtie_recipe_name_to_search": "Write a recipe name to search about",
-        "no_results_found": "We couldn’t find any recipes matching your search"
+        "no_results_found": "We couldn't find any recipes matching your search"
     },
     "global": {
         "warning": "Warning",

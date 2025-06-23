@@ -1,10 +1,12 @@
 import 'package:chefio_app/core/helpers/share_helper.dart';
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/profile/presentation/manager/my_profile_cubit/my_profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -31,7 +33,7 @@ class MyProfilePopUpMenuButton extends StatelessWidget {
               children: [
                 Icon(Icons.share, color: context.mainTextColor),
                 Text(
-                  'share Profile',
+                  AppLocalizationKeys.profile.shareProfile.tr(),
                   style: Styles.textStyleMedium15(context).copyWith(
                     color: context.mainTextColor,
                   ),
@@ -50,7 +52,7 @@ class MyProfilePopUpMenuButton extends StatelessWidget {
                 children: [
                   Icon(Icons.edit, color: context.mainTextColor),
                   Text(
-                    'Edit Profile',
+                    AppLocalizationKeys.profile.editProfile.tr(),
                     style: Styles.textStyleMedium15(context).copyWith(
                       color: context.mainTextColor,
                     ),
