@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
@@ -46,8 +47,8 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
             hasScrollBody: false,
             child: Center(
               child: CustomInfoMessageWithButton(
-                message: "You didn't add any recipe yet , Add one",
-                btnText: "Add Recipe",
+                message:AppLocalizationKeys.profile.myProfileNoRecipesMessage.tr(),
+                btnText: AppLocalizationKeys.profile.addRecipe.tr(),
                 onPressed: () {
                   context.push(RoutePaths.upload);
                 },
@@ -57,7 +58,7 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
         } else if (state is EmptyChefRecipes) {
           return SliverToBoxAdapter(
             child: CustomTextInfoMessage(
-              text: "This chef didn't like any recipe yet",
+              text: AppLocalizationKeys.profile.chefNoRecipes.tr(),
             ),
           );
         } else {

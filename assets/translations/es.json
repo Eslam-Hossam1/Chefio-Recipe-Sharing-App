@@ -97,7 +97,12 @@
     "followed": "Siguiendo",
     "share_profile": "Compartir Perfil",
     "edit_profile": "Editar Perfil",
-    "profile_edit_success_message": "Tu perfil se ha editado correctamente, ve a tu perfil para ver los cambios"
+    "profile_edit_success_message": "Tu perfil se ha editado correctamente, ve a tu perfil para ver los cambios",
+    "chef_no_recipes": "Este chef aún no ha añadido ninguna receta",
+    "chef_no_likes": "Este chef aún no ha dado like a ninguna receta",
+    "my_profile_no_recipes_message": "Aún no has añadido ninguna receta, añade una",
+    "add_recipe": "Añadir receta",
+    "my_profile_no_likes": "Aún no has dado like a ninguna receta"
   },
   "upload": {
     "add_cover_photo": "Agregar foto de portada",
@@ -159,7 +164,9 @@
     "submit": "Enviar",
     "try_again": "Intentar de Nuevo",
     "take_from_gallery": "Elegir de la galería",
-    "take_from_camera": "Tomar desde la cámara"
+    "take_from_camera": "Tomar desde la cámara",
+    "delete_recipe": "Eliminar receta",
+    "delete_recipe_confirmation": "¿Estás seguro de que deseas eliminar esta receta?"
   },
   "errors": {
     "bad_request": "Solicitud inválida. Verifica tu entrada.",

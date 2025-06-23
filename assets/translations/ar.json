@@ -97,7 +97,12 @@
             "followed": "تتابعه",
             "share_profile": "مشاركة الملف الشخصي",
             "edit_profile": "تعديل الملف الشخصي",
-            "profile_edit_success_message": "تم تعديل ملفك الشخصي بنجاح، اذهب إلى ملفك لرؤية التغييرات"
+            "profile_edit_success_message": "تم تعديل ملفك الشخصي بنجاح، اذهب إلى ملفك لرؤية التغييرات",
+            "chef_no_recipes": "هذا الشيف لم يضف أي وصفة بعد",
+            "chef_no_likes": "هذا الشيف لم يعجب بأي وصفة بعد",
+            "my_profile_no_recipes_message": "لم تقم بإضافة أي وصفة بعد، أضف واحدة الآن",
+            "add_recipe": "أضف وصفة",
+            "my_profile_no_likes": "لم تعجب بأي وصفة بعد"
         },
         "upload": {
             "add_cover_photo": "إضافة صورة الغلاف",
@@ -154,7 +159,9 @@
             "submit": "ارسل",
             "try_again": "حاول مرة أخرى",
             "take_from_gallery": "اختر من المعرض",
-            "take_from_camera": "التقط من الكاميرا"
+            "take_from_camera": "التقط من الكاميرا",
+            "delete_recipe": "حذف الوصفة",
+            "delete_recipe_confirmation": "هل أنت متأكد أنك تريد حذف هذه الوصفة؟"
         },
         "recipe_details": {
             "share_recipe": "مشاركة الوصفة",

@@ -88,7 +88,7 @@ class EditAndSharePopUpMenuButton extends StatelessWidget {
                     width: 8,
                   ),
                   Text(
-                    "Delete Recipe",
+                    AppLocalizationKeys.global.deleteRecipe.tr(),
                     style: Styles.textStyleMedium15(context).copyWith(
                       color: AppColors.logoutText,
                     ),
@@ -98,7 +98,8 @@ class EditAndSharePopUpMenuButton extends StatelessWidget {
               onTap: () {
                 DialogHelper.showWarningDialog(
                   context,
-                  errorMessage: 'Are you sure you want to delete this recipe?',
+                  errorMessage:
+                      AppLocalizationKeys.global.deleteRecipeConfirmation.tr(),
                   btnOkOnPress: () {
                     context.read<RecipeDetailsCubit>().deleteRecipe(
                           recipeId: context

@@ -97,7 +97,12 @@
         "followed": "Followed",
         "share_profile": "Share Profile",
         "edit_profile": "Edit Profile",
-        "profile_edit_success_message": "Your profile edited successfully, go to your profile to see changes"
+        "profile_edit_success_message": "Your profile edited successfully, go to your profile to see changes",
+        "chef_no_recipes": "This chef didn't add any recipe yet",
+        "chef_no_likes": "This chef didn't like any recipe yet",
+        "my_profile_no_recipes_message": "You didn't add any recipe yet, add one",
+        "add_recipe": "Add Recipe",
+        "my_profile_no_likes": "You didn't like any recipe yet"
     },
     "upload": {
         "add_cover_photo": "Add Cover Photo",
@@ -159,7 +164,9 @@
         "submit": "Submit",
         "try_again": "Try Again",
         "take_from_gallery": "Take From Gallery",
-        "take_from_camera": "Take From Camera"
+        "take_from_camera": "Take From Camera",
+        "delete_recipe": "Eliminar receta",
+        "delete_recipe_confirmation": "¿Estás seguro de que deseas eliminar esta receta?"
     },
     "errors": {
         "bad_request": "Invalid request. Please check your input.",

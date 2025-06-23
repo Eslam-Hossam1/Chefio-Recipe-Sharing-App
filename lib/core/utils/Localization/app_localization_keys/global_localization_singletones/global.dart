@@ -28,4 +28,6 @@ class Global {
   final String tryAgain = 'global.try_again';
   final String takeFromGallery = 'global.take_from_gallery';
   final String takeFromCamera = 'global.take_from_camera';
+  final String deleteRecipe = 'global.delete_recipe';
+  final String deleteRecipeConfirmation = 'global.delete_recipe_confirmation';
 }

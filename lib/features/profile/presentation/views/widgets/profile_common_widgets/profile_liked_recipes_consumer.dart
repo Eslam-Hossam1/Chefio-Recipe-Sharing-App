@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_skeletonizer_recipes_grid.dart';
@@ -57,12 +58,17 @@ class _ProfileLikedRecipesConsumerState
           return SliverSkeletonizerRecipesGrid();
         } else if (state is MyProfileEmptyLikedRecipes) {
           return SliverToBoxAdapter(
-              child: CustomTextInfoMessage(
-                  text: "You didn't like any recipe yet"));
+            child: CustomTextInfoMessage(
+              text: AppLocalizationKeys.profile.myProfileNoLikedRecipesMessage
+                  .tr(),
+            ),
+          );
         } else if (state is EmptyChefLikedRecipes) {
           return SliverToBoxAdapter(
-              child:
-                  CustomTextInfoMessage(text: "This chef didn't like any recipe yet"));
+            child: CustomTextInfoMessage(
+              text: AppLocalizationKeys.profile.chefNoLikedRecipes.tr(),
+            ),
+          );
         } else {
           return ProfileLikedRecipesGrid(
             recipes: context.read<ChefLikedRecipesCubit>().chefLikedRecipes,
