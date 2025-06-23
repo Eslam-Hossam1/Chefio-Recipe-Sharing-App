@@ -46,7 +46,6 @@ class _ProfileLikedRecipesConsumerState
           return SliverToBoxAdapter(
             child: CustomInfoMessageWithButton(
               message: state.errLocalizationKey.tr(),
-              btnText: "Try Again",
               onPressed: () {
                 context.read<ChefLikedRecipesCubit>().fetchChefLikedRecipes(
                       chefId: context.read<ProfileCubit>().profileModel!.id,
@@ -59,7 +58,7 @@ class _ProfileLikedRecipesConsumerState
         } else if (state is EmptyChefLikedRecipes) {
           return SliverToBoxAdapter(
               child:
-                  CustomTextInfoMessage(text: "You didn't add any recipe yet"));
+                  CustomTextInfoMessage(text: "You didn't like any recipe yet"));
         } else {
           return ProfileLikedRecipesGrid(
             recipes: context.read<ChefLikedRecipesCubit>().chefLikedRecipes,

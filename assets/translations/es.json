@@ -28,7 +28,8 @@
       "do_not_have_account": "¿No tienes cuenta?",
       "wrong_password": "La contraseña es incorrecta. Por favor intenta de nuevo.",
       "user_disabled": "Esta cuenta ha sido deshabilitada. Contacta al soporte.",
-      "your_email_need_to_verified": "Tu correo no está verificado. Te enviamos un enlace de verificación. Verifícalo para continuar."
+      "your_email_need_to_verified": "Tu correo no está verificado. Te enviamos un enlace de verificación. Verifícalo para continuar.",
+      "session_expired": "Tu sesión ha expirado, por favor inicia sesión de nuevo"
     },
     "sign_up": {
       "welcome": "¡Bienvenido!",
@@ -96,7 +97,7 @@
     "followed": "Siguiendo",
     "share_profile": "Compartir Perfil",
     "edit_profile": "Editar Perfil",
-    "try_again": "Intentar de Nuevo"
+    "profile_edit_success_message": "Tu perfil se ha editado correctamente, ve a tu perfil para ver los cambios"
   },
   "upload": {
     "add_cover_photo": "Agregar foto de portada",
@@ -110,7 +111,10 @@
     "enter_ingredient": "Ingresa ingrediente",
     "add_ingredient": "Ingrediente",
     "add_step": "paso",
-    "step_hint": "Ingresa el paso"
+    "step_hint": "Ingresa el paso",
+    "go_to_home": "Ir a inicio",
+    "upload_success": "Subida exitosa",
+    "upload_success_message": "Tu receta ha sido subida,\npuedes verla en tu perfil"
   },
   "category": {
     "general_dishes": "Platos generales",
@@ -152,7 +156,10 @@
     "mins": "min",
     "likes": "Me gusta",
     "settings": "Ajustes",
-    "submit": "Enviar"
+    "submit": "Enviar",
+    "try_again": "Intentar de Nuevo",
+    "take_from_gallery": "Elegir de la galería",
+    "take_from_camera": "Tomar desde la cámara"
   },
   "errors": {
     "bad_request": "Solicitud inválida. Verifica tu entrada.",

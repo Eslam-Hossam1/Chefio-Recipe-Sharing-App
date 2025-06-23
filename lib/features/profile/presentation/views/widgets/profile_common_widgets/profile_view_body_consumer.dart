@@ -37,7 +37,6 @@ class ProfileViewBodyConsumer extends StatelessWidget {
           return AdaptivePadding(
             child: CustomInfoMessageWithButton(
               message: state.errLocalizationError.tr(),
-              btnText: 'Try Again',
               onPressed: context.read<ProfileCubit>().refresh,
             ),
           );

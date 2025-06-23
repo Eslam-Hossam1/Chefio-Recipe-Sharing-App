@@ -1,5 +1,7 @@
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
@@ -28,7 +30,7 @@ class ChooseImageSourceBottomSheet extends StatelessWidget {
               },
               child: ListTile(
                 title: Text(
-                  'Take from Gallery',
+                  AppLocalizationKeys.global.takeFromGallery.tr(),
                   style: Styles.textStyleMedium17(context)
                       .copyWith(color: context.mainTextColor),
                 ),
@@ -44,7 +46,7 @@ class ChooseImageSourceBottomSheet extends StatelessWidget {
               },
               child: ListTile(
                 title: Text(
-                  'Take from Camera',
+                  AppLocalizationKeys.global.takeFromCamera.tr(),
                   style: Styles.textStyleMedium17(context)
                       .copyWith(color: context.mainTextColor),
                 ),

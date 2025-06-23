@@ -25,4 +25,7 @@ class Global {
   final String likes = 'global.likes';
   final String settings = 'global.settings';
   final String submit = 'global.submit';
+  final String tryAgain = 'global.try_again';
+  final String takeFromGallery = 'global.take_from_gallery';
+  final String takeFromCamera = 'global.take_from_camera';
 }

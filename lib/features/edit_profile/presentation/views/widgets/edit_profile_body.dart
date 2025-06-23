@@ -7,8 +7,8 @@ import 'package:chefio_app/features/edit_profile/presentation/views/widgets/edit
 import 'package:chefio_app/features/edit_profile/presentation/views/widgets/username.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 
 class EditProfileBody extends StatefulWidget {
   const EditProfileBody({super.key, required this.profileModel});

@@ -18,7 +18,6 @@ class ProfileLocalization {
   // Profile actions
   final String shareProfile = "profile.share_profile";
   final String editProfile = "profile.edit_profile";
+  final String editProfileSuccessMessage = "profile.profile_edit_success_message";
 
-  // Error messages
-  final String tryAgain = "profile.try_again";
 }

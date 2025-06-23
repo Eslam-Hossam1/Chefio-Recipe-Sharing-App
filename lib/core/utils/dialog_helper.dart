@@ -64,7 +64,7 @@ abstract class DialogHelper {
     customAdaptiveAwesomeDialog(context,
             dialogType: DialogType.warning,
             title: AppLocalizationKeys.global.warning.tr(),
-            desc: 'your session has expired, please login again',
+            desc: AppLocalizationKeys.auth.sessionExpired.tr(),
             btnOkOnPress: btnOkOnPress,
             btnOkText: btnOkText,
             btnOk: btnOk,

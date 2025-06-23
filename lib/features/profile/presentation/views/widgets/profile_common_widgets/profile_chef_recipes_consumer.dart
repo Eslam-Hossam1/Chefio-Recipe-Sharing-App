@@ -30,7 +30,6 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
           return SliverToBoxAdapter(
             child: CustomInfoMessageWithButton(
               message: state.errLocalizationKey.tr(),
-              btnText: "Try Again",
               onPressed: () {
                 context.read<ChefProfileRecipesCubit>().fetchChefRecipes(
                       chefId: chefId,

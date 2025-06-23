@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/utils/Localization/localization_helper.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/custom_circle_glass_button.dart';
@@ -20,11 +21,14 @@ class RecipeDetailsBackButton extends StatelessWidget {
           context.go(RoutePaths.home);
         }
       },
-      child: SvgPicture.asset(
-        Assets.imagesIosBackOutline,
-        colorFilter: ColorFilter.mode(
-          Colors.white,
-          BlendMode.srcIn,
+      child: Transform.rotate(
+        angle: LocalizationHelper.checkArabicLocale(context) ? 3.14159 : 0,
+        child: SvgPicture.asset(
+          Assets.imagesIosBackOutline,
+          colorFilter: ColorFilter.mode(
+            Colors.white,
+            BlendMode.srcIn,
+          ),
         ),
       ),
     );

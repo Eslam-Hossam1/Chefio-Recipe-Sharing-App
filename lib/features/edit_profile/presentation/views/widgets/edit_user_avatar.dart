@@ -33,21 +33,21 @@ class _EditUserAvatarState extends State<EditUserAvatar> {
         final isImagePicked = editProfileCubit.chefProfilePicture != null;
         return SliverToBoxAdapter(
           child: Center(
-            child: Stack(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    showModalBottomSheet(
-                      backgroundColor: context.scaffoldBackgroundColor,
-                      context: context,
-                      builder: (context) {
-                        return ChooseImageSourceBottomSheet(
-                          pickImageMethod: editProfileCubit.pickRecipeImage,
-                        );
-                      },
+            child: GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                  backgroundColor: context.scaffoldBackgroundColor,
+                  context: context,
+                  builder: (context) {
+                    return ChooseImageSourceBottomSheet(
+                      pickImageMethod: editProfileCubit.pickRecipeImage,
                     );
                   },
-                  child: isImagePicked
+                );
+              },
+              child: Stack(
+                children: [
+                  isImagePicked
                       ? CustomFileCircleImage(
                           image: editProfileCubit.chefProfilePicture!,
                           baseSize: 150,
@@ -57,20 +57,20 @@ class _EditUserAvatarState extends State<EditUserAvatar> {
                           userImageUrl:
                               widget.imageUrl ?? Constants.nullUserImageUrl,
                         ),
-                ),
-                Positioned(
-                  bottom: 10,
-                  right: 10,
-                  child: CircleAvatar(
-                    backgroundColor: context.mainTextColor,
-                    child: Icon(
-                      Icons.camera_alt,
-                      size: 25,
-                      color: context.scaffoldBackgroundColor,
+                  Positioned(
+                    bottom: 10,
+                    right: 10,
+                    child: CircleAvatar(
+                      backgroundColor: context.mainTextColor,
+                      child: Icon(
+                        Icons.camera_alt,
+                        size: 25,
+                        color: context.scaffoldBackgroundColor,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );

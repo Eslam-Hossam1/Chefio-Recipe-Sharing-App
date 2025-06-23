@@ -24,6 +24,7 @@ class Auth {
   final String logInViewDontHaveAnAccount = 'auth.log_in.do_not_have_account';
   final String logInViewWrongPassword = 'auth.log_in.wrong_password';
   final String logInViewUserDisabled = 'auth.log_in.user_disabled';
+  final String sessionExpired = 'auth.log_in.session_expired';
   final String logInViewYourEmailNotVerifiedYet =
       'auth.log_in.your_email_need_to_verified';
   final String signUpViewWelcome = 'auth.sign_up.welcome';

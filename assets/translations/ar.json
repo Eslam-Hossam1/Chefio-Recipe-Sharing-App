@@ -29,7 +29,8 @@
                 "welcome_back": "مرحبًا بعودتك!",
                 "do_not_have_account": "هل ليس لديك حساب؟",
                 "wrong_password": "كلمة المرور غير صحيحة. حاول مرة اخرى.",
-                "user_disabled": "تم تعطيل حساب المستخدم هذا. يرجى الاتصال بالدعم."
+                "user_disabled": "تم تعطيل حساب المستخدم هذا. يرجى الاتصال بالدعم.",
+                "session_expired": "انتهت صلاحية الجلسة، يرجى تسجيل الدخول مرة أخرى"
             },
             "sign_up": {
                 "welcome": "مرحباً!",
@@ -93,10 +94,10 @@
             "followers": "المتابعون",
             "following": "المتابَعون",
             "follow": "متابعة",
-            "followed": "متابَع",
+            "followed": "تتابعه",
             "share_profile": "مشاركة الملف الشخصي",
             "edit_profile": "تعديل الملف الشخصي",
-            "try_again": "حاول مرة أخرى"
+            "profile_edit_success_message": "تم تعديل ملفك الشخصي بنجاح، اذهب إلى ملفك لرؤية التغييرات"
         },
         "upload": {
             "add_cover_photo": "إضافة صورة الغلاف",
@@ -110,7 +111,10 @@
             "enter_ingredient": "أدخل المكون",
             "add_ingredient": "اضف مكون",
             "add_step": "اضف خطوة",
-            "step_hint": "أدخل الخطوة"
+            "step_hint": "أدخل الخطوة",
+            "go_to_home": "اذهب إلى الصفحة الرئيسية",
+            "upload_success": "تم الاضافة بنجاح",
+            "upload_success_message": "تم رفع وصفتك، يمكنك رؤيتها في ملفك الشخصي"
         },
         "category": {
             "general_dishes": "أطباق عامة",
@@ -147,7 +151,10 @@
             "mins": "دقيقة",
             "likes": "الإعجابات",
             "settings": "الإعدادات",
-            "submit": "ارسل"
+            "submit": "ارسل",
+            "try_again": "حاول مرة أخرى",
+            "take_from_gallery": "اختر من المعرض",
+            "take_from_camera": "التقط من الكاميرا"
         },
         "recipe_details": {
             "share_recipe": "مشاركة الوصفة",

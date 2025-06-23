@@ -13,4 +13,7 @@ class Upload {
   final String addIngredient = 'upload.add_ingredient';
   final String addStep = 'upload.add_step';
   final String stepHint = 'upload.step_hint';
+  final String goToHome = 'upload.go_to_home';
+  final String uploadSuccess = 'upload.upload_success';
+  final String uploadSuccessMessage = 'upload.upload_success_message';
 }

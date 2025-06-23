@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
+import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
@@ -52,8 +53,10 @@ class _UploadViewState extends State<UploadView> {
           if (state is CategoriesFailed) {
             return Padding(
               padding: const EdgeInsets.all(32.0),
-              child:
-                  CustomTextInfoMessage(text: state.errorLocalizationKey.tr()),
+              child: CustomInfoMessageWithButton(
+                message: state.errorLocalizationKey.tr(),
+                onPressed: context.read<UploadFormCubit>().fetchCategories,
+              ),
             );
           } else if (state is LoadingCategories) {
             return Center(

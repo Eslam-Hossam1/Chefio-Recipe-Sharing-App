@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profile/edit_profile_cubit.dart';
@@ -27,7 +28,7 @@ class EditProfileView extends StatelessWidget {
         } else if (state is EditProfileSuccess) {
           DialogHelper.showSuccessDialog(
               successMessage:
-                  'Your profile edited successfully, go to your profile to see changes',
+                  AppLocalizationKeys.profile.editProfileSuccessMessage.tr(),
               context, btnOkOnPress: () {
             context.read<MyProfileCubit>().fetchChefProfileWithInitialRecipes();
 

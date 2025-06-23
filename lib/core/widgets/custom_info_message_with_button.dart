@@ -1,6 +1,8 @@
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,11 +10,11 @@ class CustomInfoMessageWithButton extends StatelessWidget {
   const CustomInfoMessageWithButton({
     super.key,
     required this.message,
-    required this.btnText,
+    this.btnText,
     required this.onPressed,
   });
   final String message;
-  final String btnText;
+  final String? btnText;
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class CustomInfoMessageWithButton extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                btnText,
+                btnText??AppLocalizationKeys.global.tryAgain.tr(),
                 style: Styles.textStyleSemiBold15(context).copyWith(
                   color: Colors.white,
                 ),
