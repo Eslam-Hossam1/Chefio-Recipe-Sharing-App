@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
@@ -112,11 +113,13 @@ abstract class ShellBranches {
               BlocProvider(
                 create: (context) => ChefProfileRecipesCubit(
                   profileRepo: getIt<ProfileRepoImpl>(),
+                  authCredentialsHelper: getIt<AuthCredentialsHelper>(),
                 ),
               ),
               BlocProvider(
                 create: (context) => ChefLikedRecipesCubit(
                   profileRepo: getIt<ProfileRepoImpl>(),
+                  authCredentialsHelper: getIt<AuthCredentialsHelper>(),
                 ),
               ),
             ],

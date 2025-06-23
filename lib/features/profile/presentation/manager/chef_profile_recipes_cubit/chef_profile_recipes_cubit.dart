@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/chef_profile_recipe_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -8,9 +9,10 @@ part 'chef_profile_recipes_state.dart';
 
 class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
   final ProfileRepo _profileRepo;
-
-  ChefProfileRecipesCubit({required ProfileRepo profileRepo})
+  final AuthCredentialsHelper _authCredentialsHelper;
+  ChefProfileRecipesCubit({required ProfileRepo profileRepo,required AuthCredentialsHelper authCredentialsHelper,})
       : _profileRepo = profileRepo,
+        _authCredentialsHelper = authCredentialsHelper,
         super(ChefProfileRecipesInitial());
   int page = 1;
   int limit = 30;
@@ -50,11 +52,14 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
         hasMore = false;
       }
       if (chefRecipes.isEmpty && this.chefRecipes.isEmpty) {
-        isLoading = false;
-        emit(EmptyChefRecipes());
+       isLoading = false;
+        if (chefId == _authCredentialsHelper.userId) {
+          emit(MyProfileEmptyRecipes());
+        } else {
+          emit(EmptyChefRecipes());
+        }
         return;
       }
-
       this.chefRecipes.addAll(chefRecipes);
       page += 1;
       isLoading = false;

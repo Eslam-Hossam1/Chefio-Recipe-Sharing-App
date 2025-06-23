@@ -1,6 +1,7 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_chef_recipes_grid.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/skeletonizer_profile_chef_recipes_grid.dart';
@@ -11,7 +12,8 @@ import 'package:go_router/go_router.dart';
 
 class ProfileChefRecipesConsumer extends StatelessWidget {
   const ProfileChefRecipesConsumer({
-    super.key, required this.chefId,
+    super.key,
+    required this.chefId,
   });
   final String chefId;
   @override
@@ -39,7 +41,7 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
           );
         } else if (state is ChefProfileRecipesInitial) {
           return SkeletonizerProfileChefRecipesGrid();
-        } else if (state is EmptyChefRecipes) {
+        } else if (state is MyProfileEmptyRecipes) {
           return SliverFillRemaining(
             hasScrollBody: false,
             child: Center(
@@ -50,6 +52,12 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
                   context.push(RoutePaths.upload);
                 },
               ),
+            ),
+          );
+        } else if (state is EmptyChefRecipes) {
+          return SliverToBoxAdapter(
+            child: CustomTextInfoMessage(
+              text: "This chef didn't like any recipe yet",
             ),
           );
         } else {

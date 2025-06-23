@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo.dart';
 import 'package:equatable/equatable.dart';
 
@@ -7,9 +8,12 @@ part 'chef_liked_recipes_state.dart';
 
 class ChefLikedRecipesCubit extends Cubit<ChefLikedRecipesState> {
   final ProfileRepo _profileRepo;
+  final AuthCredentialsHelper _authCredentialsHelper;
   ChefLikedRecipesCubit({
     required ProfileRepo profileRepo,
+    required AuthCredentialsHelper authCredentialsHelper,
   })  : _profileRepo = profileRepo,
+        _authCredentialsHelper = authCredentialsHelper,
         super(ChefLikedRecipesInitial());
   int page = 1;
   int limit = 30;
@@ -55,7 +59,11 @@ class ChefLikedRecipesCubit extends Cubit<ChefLikedRecipesState> {
       }
       if (chefLikedRecipes.isEmpty && this.chefLikedRecipes.isEmpty) {
         isLoading = false;
-        emit(EmptyChefLikedRecipes());
+        if (chefId == _authCredentialsHelper.userId) {
+          emit(MyProfileEmptyLikedRecipes());
+        } else {
+          emit(EmptyChefLikedRecipes());
+        }
         return;
       }
       this.chefLikedRecipes.addAll(chefLikedRecipes);

@@ -55,10 +55,14 @@ class _ProfileLikedRecipesConsumerState
           );
         } else if (state is LikedRecipesInitialFetch) {
           return SliverSkeletonizerRecipesGrid();
+        } else if (state is MyProfileEmptyLikedRecipes) {
+          return SliverToBoxAdapter(
+              child: CustomTextInfoMessage(
+                  text: "You didn't like any recipe yet"));
         } else if (state is EmptyChefLikedRecipes) {
           return SliverToBoxAdapter(
               child:
-                  CustomTextInfoMessage(text: "You didn't like any recipe yet"));
+                  CustomTextInfoMessage(text: "This chef didn't like any recipe yet"));
         } else {
           return ProfileLikedRecipesGrid(
             recipes: context.read<ChefLikedRecipesCubit>().chefLikedRecipes,

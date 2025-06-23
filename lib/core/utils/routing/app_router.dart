@@ -109,11 +109,13 @@ class AppRouter {
                 BlocProvider(
                   create: (context) => ChefProfileRecipesCubit(
                     profileRepo: getIt<ProfileRepoImpl>(),
+                    authCredentialsHelper: getIt<AuthCredentialsHelper>(),
                   ),
                 ),
                 BlocProvider(
                   create: (context) => ChefLikedRecipesCubit(
                     profileRepo: getIt<ProfileRepoImpl>(),
+                    authCredentialsHelper: getIt<AuthCredentialsHelper>(),
                   ),
                 ),
                 BlocProvider(
