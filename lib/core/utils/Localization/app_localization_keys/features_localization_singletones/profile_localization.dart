@@ -11,6 +11,7 @@ class ProfileLocalization {
   final String following = "profile.following";
 
   final String follow = "profile.follow";
+  final String followed = "profile.followed";
   final String chefNoRecipes = "profile.chef_no_recipes";
   final String chefNoLikedRecipes = "profile.chef_no_likes";
   final String myProfileNoRecipesMessage = "profile.my_profile_no_recipes_message";
