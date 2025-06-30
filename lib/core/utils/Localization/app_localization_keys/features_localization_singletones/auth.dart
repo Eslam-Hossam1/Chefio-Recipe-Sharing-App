@@ -74,8 +74,10 @@ class Auth {
   final String verificationCodeViewCodeExpiresIn =
       'auth.verification_code.code_expires_in';
   final String verificationCodeViewVerify = 'auth.verification_code.verifiy';
-  final String verificationCodeViewExitWarning =
+  final String signUpExitWarning =
       'auth.verification_code.verification_exit_warning';
+  final String forgotPasswordExitWarning =
+      'auth.verification_code.forgot_password_exit_warning';
   final String verificationCodeViewSendAgain =
       'auth.verification_code.send_again';
   final String verificationCodeViewSuccessMessage =

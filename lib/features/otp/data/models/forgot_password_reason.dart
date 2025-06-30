@@ -9,38 +9,31 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
-class SignUpReason implements OtpReason {
+class ForgotPasswordReason implements OtpReason {
   final ApiConsumer _apiConsumer;
   @override
   final String email;
 
-  SignUpReason({
+  ForgotPasswordReason({
     required ApiConsumer apiConsumer,
     required this.email,
   }) : _apiConsumer = apiConsumer;
 
   @override
   onSuccess(BuildContext context) {
-    DialogHelper.showSuccessDialog(
-      context,
-      successMessage:
-          AppLocalizationKeys.auth.verificationCodeViewSuccessMessage.tr(),
-      btnOkOnPress: () {
-        context.go(RoutePaths.login);
-      },
-      onDismissCallback: (_) {
-        context.go(RoutePaths.login);
-      },
+    context.go(
+      RoutePaths.resetPassword,
+      extra: email,
     );
   }
 
   @override
-  bool sendCodeOnOpen = true;
+  bool sendCodeOnOpen = false;
 
   @override
   Future sendCodeRequest() async {
     await _apiConsumer.patch(
-      EndPoints.sendVerificationCode,
+      EndPoints.sendForgotPasswordVerificationCode,
       data: {
         ApiKeys.email: email,
       },
@@ -50,7 +43,7 @@ class SignUpReason implements OtpReason {
   @override
   Future verifyCodeRequest({required int verificationCode}) async {
     await _apiConsumer.patch(
-      EndPoints.verifyVerificationCode,
+      EndPoints.verifyForgotPasswordVerificationCode,
       data: {
         ApiKeys.email: email,
         ApiKeys.providedCode: verificationCode,
@@ -60,5 +53,5 @@ class SignUpReason implements OtpReason {
 
   @override
   String localizationExitWarningConfirmation =
-      AppLocalizationKeys.auth.signUpExitWarning;
+      AppLocalizationKeys.auth.forgotPasswordExitWarning;
 }

@@ -1,11 +1,15 @@
+import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
+import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/features/auth/presentation/manager/forgot_password_cubit/forgot_password_cubit.dart';
+import 'package:chefio_app/features/otp/data/models/forgot_password_reason.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,8 +32,13 @@ class PasswordRecoveryButton extends StatelessWidget {
             btnOkOnPress: () {},
           );
         } else if (state is ForgotPasswordSuccess) {
-          context.push(RoutePaths.forgotPasswordVerificationCode,
-              extra: state.email);
+          RoutingHelper.pushOtp(
+            context,
+            otpReason: ForgotPasswordReason(
+              apiConsumer: getIt<DioConsumer>(),
+              email: state.email,
+            ),
+          );
         }
       },
       builder: (context, state) {

@@ -62,7 +62,8 @@
       "send_again": "Enviar de nuevo",
       "verification_success_message": "¡Cuenta creada con éxito! Tu correo ha sido verificado y ya puedes iniciar sesión.",
       "pls_enter_complete_pin": "Por favor ingresa el código completo.",
-      "verification_exit_warning": "Te registraste pero aún no has verificado. Si sales ahora, tendrás que verificar al iniciar sesión."
+      "verification_exit_warning": "Te registraste pero aún no has verificado. Si sales ahora, tendrás que verificar al iniciar sesión.",
+      "forgot_password_exit_warning": "Has solicitado restablecer tu contraseña, pero el proceso no se ha completado. Si sales ahora, tendrás que empezar de nuevo."
     },
     "reset_password": {
       "reset_your_password": "Restablece tu contraseña",

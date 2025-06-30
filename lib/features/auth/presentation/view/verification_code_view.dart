@@ -73,9 +73,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
               if (didPop) return;
               showCustomExitConfirmationDialog(
                 context,
-                errorMessage: AppLocalizationKeys
-                    .auth.verificationCodeViewExitWarning
-                    .tr(),
+                errorMessage: AppLocalizationKeys.auth.signUpExitWarning.tr(),
                 btnOkOnPress: () => context.go(RoutePaths.signup),
               );
             },
