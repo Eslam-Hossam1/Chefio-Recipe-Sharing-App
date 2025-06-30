@@ -25,6 +25,10 @@ import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profi
 import 'package:chefio_app/features/edit_profile/presentation/views/edit_profile_view.dart';
 import 'package:chefio_app/features/main/presentation/view/main_view.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
+import 'package:chefio_app/features/otp/data/models/otp_reason.dart';
+import 'package:chefio_app/features/otp/data/repos/otp_repo_impl.dart';
+import 'package:chefio_app/features/otp/presentation/manager/otp_cubit/otp_cubit.dart';
+import 'package:chefio_app/features/otp/presentation/view/otp_view.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_liked_recipes_cubit/chef_liked_recipes_cubit.dart';
@@ -272,6 +276,18 @@ class AppRouter {
           child: ResetPasswordView(email: state.extra as String),
         ),
       ),
+      GoRoute(
+          path: RoutePaths.otp,
+          builder: (context, state) {
+            final OtpReason otpReason = state.extra as OtpReason;
+            return BlocProvider(
+              create: (context) => OtpCubit(
+                otpRepo: getIt<OtpRepoImpl>(),
+                otpReason: otpReason,
+              ),
+              child: OtpView(),
+            );
+          }),
     ],
   );
 }

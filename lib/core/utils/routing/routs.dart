@@ -10,6 +10,7 @@ abstract class RoutePaths {
   static const verificationCode = "/verificationcode";
   static const forgetPassword = "/forgetpassword";
   static const resetPassword = "/resetpassword";
+  static const otp = "/otp";
   static const forgotPasswordVerificationCode =
       "/forgotpasswordverificationcode";
 

@@ -1,5 +1,5 @@
 import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/send_again_button.dart';
+import 'package:chefio_app/features/otp/presentation/view/widgets/send_again_button.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

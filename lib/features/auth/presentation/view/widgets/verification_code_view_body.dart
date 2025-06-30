@@ -6,7 +6,7 @@ import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/code_expires_in.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_pin_code_field.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/send_again_button.dart';
+import 'package:chefio_app/features/otp/presentation/view/widgets/send_again_button.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/verification_code_form.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/verifiy_button.dart';
 import 'package:easy_localization/easy_localization.dart';
