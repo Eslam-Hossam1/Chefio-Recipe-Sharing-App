@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:chefio_app/features/otp/data/models/otp_reason.dart';
 import 'package:chefio_app/features/otp/data/repos/otp_repo.dart';
 import 'package:equatable/equatable.dart';
+import 'dart:developer';
 
 part 'otp_state.dart';
 
@@ -10,12 +11,22 @@ class OtpCubit extends Cubit<OtpState> {
   final OtpReason otpReason;
   OtpCubit({
     required OtpRepo otpRepo,
-    required this. otpReason,
+    required this.otpReason,
   })  : _otpRepo = otpRepo,
         super(OtpInitial());
 
   Future<void> sendVerificationCode() async {
-    if (!otpReason.sendCodeOnOpen) return;
+    log('🟢 sendVerificationCode started');
+  log('🔹 otpReason is: $otpReason');
+  log('🔹 sendCodeOnOpen = ${otpReason.sendCodeOnOpen}');
+
+
+    if (!otpReason.sendCodeOnOpen) {
+      emit(
+        SendOtpSuccess(),
+      );
+      return;
+    }
     emit(OtpLoading());
     var otpResult = await _otpRepo.sendVerificationCode(otpReason: otpReason);
     otpResult.fold(
@@ -68,5 +79,4 @@ class OtpCubit extends Cubit<OtpState> {
       ),
     );
   }
-  
 }

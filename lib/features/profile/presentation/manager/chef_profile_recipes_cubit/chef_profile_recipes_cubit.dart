@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
@@ -10,8 +12,10 @@ part 'chef_profile_recipes_state.dart';
 class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
   final ProfileRepo _profileRepo;
   final AuthCredentialsHelper _authCredentialsHelper;
-  ChefProfileRecipesCubit({required ProfileRepo profileRepo,required AuthCredentialsHelper authCredentialsHelper,})
-      : _profileRepo = profileRepo,
+  ChefProfileRecipesCubit({
+    required ProfileRepo profileRepo,
+    required AuthCredentialsHelper authCredentialsHelper,
+  })  : _profileRepo = profileRepo,
         _authCredentialsHelper = authCredentialsHelper,
         super(ChefProfileRecipesInitial());
   int page = 1;
@@ -52,7 +56,7 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
         hasMore = false;
       }
       if (chefRecipes.isEmpty && this.chefRecipes.isEmpty) {
-       isLoading = false;
+        isLoading = false;
         if (chefId == _authCredentialsHelper.userId) {
           emit(MyProfileEmptyRecipes());
         } else {
@@ -70,10 +74,19 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
   Future<void> startWithInitialRecipes({
     required List<ChefProfileRecipeModel> chefInitialRecipes,
     required int limit,
+    required String chefId,
   }) async {
+          log('chefId:${chefId} , _authCredentialsHelper.userId:${_authCredentialsHelper.userId}');
+
     if (chefInitialRecipes.isEmpty && chefRecipes.isEmpty) {
       isLoading = false;
-      emit(EmptyChefRecipes());
+      log('chefId:${chefId} , _authCredentialsHelper.userId:${_authCredentialsHelper.userId}');
+
+      if (chefId == _authCredentialsHelper.userId) {
+        emit(MyProfileEmptyRecipes());
+      } else {
+        emit(EmptyChefRecipes());
+      }
       return;
     }
     chefRecipes.clear();

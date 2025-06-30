@@ -280,6 +280,7 @@ class AppRouter {
           path: RoutePaths.otp,
           builder: (context, state) {
             final OtpReason otpReason = state.extra as OtpReason;
+              log('📦 Received extra from GoRouter: ${state.extra}');
             return BlocProvider(
               create: (context) => OtpCubit(
                 otpRepo: getIt<OtpRepoImpl>(),

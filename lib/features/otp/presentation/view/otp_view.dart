@@ -39,6 +39,7 @@ class _OtpViewState extends State<OtpView> {
             errorMessage: state.errorLocalizationKey.tr(),
             btnOkOnPress: () {},
           );
+          context.read<OtpCubit>().showSendAgain();
         } else if (state is VerifyOtpFailure) {
           DialogHelper.showErrorDialog(
             context,

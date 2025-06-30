@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
@@ -26,6 +27,8 @@ class CountdownTimerState extends State<CountdownTimer> {
   }
 
   void _startTimer(int initialSeconds) {
+    _timer?.cancel();
+
     _remainingSeconds = initialSeconds;
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_remainingSeconds > 0) {
@@ -45,11 +48,6 @@ class CountdownTimerState extends State<CountdownTimer> {
     context.read<OtpCubit>().showSendAgain();
   }
 
-  void restartTimer() {
-    _timer?.cancel();
-    _startTimer(widget.seconds);
-  }
-
   String _formatTime(int seconds) {
     int minutes = seconds ~/ 60;
     int remainingSeconds = seconds % 60;
@@ -64,17 +62,18 @@ class CountdownTimerState extends State<CountdownTimer> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<OtpCubit, OtpState>(
-      listener: (context, state) {
-        if (state is SendOtpSuccess) {
+    return BlocBuilder<OtpCubit, OtpState>(
+      builder: (context, state) {
+        if (state is SendOtpSuccess && _timer == null) {
           _startTimer(widget.seconds);
         }
+
+        return Text(
+          _formatTime(_remainingSeconds),
+          style: Styles.textStyleMedium15(context)
+              .copyWith(color: context.secondaryColor),
+        );
       },
-      child: Text(
-        _formatTime(_remainingSeconds),
-        style: Styles.textStyleMedium15(context)
-            .copyWith(color: context.secondaryColor),
-      ),
     );
   }
 }

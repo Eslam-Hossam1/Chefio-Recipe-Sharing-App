@@ -32,7 +32,7 @@ class ForgotPasswordReason implements OtpReason {
 
   @override
   Future sendCodeRequest() async {
-    await _apiConsumer.patch(
+    await _apiConsumer.post(
       EndPoints.sendForgotPasswordVerificationCode,
       data: {
         ApiKeys.email: email,
@@ -42,7 +42,7 @@ class ForgotPasswordReason implements OtpReason {
 
   @override
   Future verifyCodeRequest({required int verificationCode}) async {
-    await _apiConsumer.patch(
+    await _apiConsumer.post(
       EndPoints.verifyForgotPasswordVerificationCode,
       data: {
         ApiKeys.email: email,

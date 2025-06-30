@@ -25,6 +25,7 @@ class ProfileViewBodyConsumer extends StatelessWidget {
           context.read<ChefProfileRecipesCubit>().startWithInitialRecipes(
                 chefInitialRecipes: chefInitialRecipes,
                 limit: chefInitialRecipes.length,
+                chefId: profileModel.id,
               );
         }
       },

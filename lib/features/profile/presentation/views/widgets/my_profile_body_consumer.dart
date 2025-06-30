@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
+import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
@@ -23,10 +27,14 @@ class MyProfileViewBodyConsumer extends StatelessWidget {
               context.read<MyProfileCubit>().profileModel!;
           List<ChefProfileRecipeModel> chefInitialRecipes =
               profileModel.profile.recipes.recipes;
+              
           context.read<ChefProfileRecipesCubit>().startWithInitialRecipes(
                 chefInitialRecipes: chefInitialRecipes,
                 limit: chefInitialRecipes.length,
+                chefId: profileModel.id,
               );
+                    log('from consumer   chefId:${profileModel.id} , _authCredentialsHelper.userId:${getIt<AuthCredentialsHelper>().userId}');
+
         }
       },
       builder: (context, state) {
