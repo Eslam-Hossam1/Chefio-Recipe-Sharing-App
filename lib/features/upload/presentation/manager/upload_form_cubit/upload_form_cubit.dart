@@ -71,17 +71,7 @@ class UploadFormCubit extends Cubit<UploadFormState> {
         ),
       );
     }, (returnedCategories) {
-      this.categories = returnedCategories;
-
-      for (int i = 0; i < categories.length; i++) {
-        if (categories[i].id == categoryId) {
-          Category temp = categories[i];
-          categories[i] = categories[0];
-          categories[0] = temp;
-          break;
-        }
-      }
-
+      categories = returnedCategories;
       emit(
         CategoriesLoaded(),
       );
