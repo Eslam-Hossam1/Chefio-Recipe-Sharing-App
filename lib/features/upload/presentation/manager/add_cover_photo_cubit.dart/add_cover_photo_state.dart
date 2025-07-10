@@ -11,11 +11,6 @@ final class AddCoverPhotoInitial extends AddCoverPhotoState {}
 
 final class EmptyCover extends AddCoverPhotoState {}
 
-final class UrlImage extends AddCoverPhotoState {
-  final String imageUrl;
-
-  const UrlImage({required this.imageUrl});
-}
 
 final class PickedRecipeImage extends AddCoverPhotoState {
   final File recipeImageFile;

@@ -11,14 +11,7 @@ class AddCoverPhotoCubit extends Cubit<AddCoverPhotoState> {
   final CroppedImagePickerHelper _croppedImagePickerHelper;
 
   AddCoverPhotoCubit(this._croppedImagePickerHelper)
-      : super(AddCoverPhotoInitial());
-  void init({required String? imageUrl}) {
-    if (imageUrl != null) {
-      emit(UrlImage(imageUrl: imageUrl));
-    } else {
-      emit(EmptyCover());
-    }
-  }
+      : super(EmptyCover());
 
   Future<void> pickRecipeImage({required ImageSource imageSource}) async {
     final returnedImage = await _croppedImagePickerHelper

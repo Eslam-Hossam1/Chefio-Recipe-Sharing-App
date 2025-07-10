@@ -11,9 +11,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UploadFirstStepPage extends StatefulWidget {
   const UploadFirstStepPage(
-      {super.key, required this.onNext, this.recipeDetailModel});
+      {super.key, required this.onNext,});
   final VoidCallback onNext;
-  final RecipeDetailsModel? recipeDetailModel;
   @override
   State<UploadFirstStepPage> createState() => _UploadFirstStepPageState();
 }
@@ -52,7 +51,6 @@ class _UploadFirstStepPageState extends State<UploadFirstStepPage>
             ),
             SliverToBoxAdapter(
               child: AddCoverPhoto(
-                recipeDetailModel: widget.recipeDetailModel,
               ),
             ),
             SliverToBoxAdapter(

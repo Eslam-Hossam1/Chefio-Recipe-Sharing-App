@@ -1,7 +1,6 @@
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
-import 'package:chefio_app/features/upload/data/models/edit_recipe_model.dart';
 import 'package:chefio_app/features/upload/data/models/upload_recipe_model.dart';
 import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/manager/upload_submit_cubit/upload_submit_cubit.dart';
@@ -25,17 +24,8 @@ class UploadRecipeSubmitButton extends StatelessWidget {
       onPressed: () {
         if (formKey.currentState!.validate()) {
           formKey.currentState!.save();
-          UploadFormCubit uploadFormCubit = context.read<UploadFormCubit>();
-          UploadSubmitCubit uploadSubmitCubit =
-              context.read<UploadSubmitCubit>();
 
-          bool isEdit = uploadFormCubit.isEdit;
-
-          if (isEdit) {
-            editRecipe(uploadFormCubit, uploadSubmitCubit);
-          } else {
-            uploadRecipe(uploadFormCubit, uploadSubmitCubit);
-          }
+          uploadRecipe(context);
         } else {
           enableAutoValidation();
         }
@@ -47,20 +37,14 @@ class UploadRecipeSubmitButton extends StatelessWidget {
     );
   }
 
-  void uploadRecipe(
-      UploadFormCubit uploadFormCubit, UploadSubmitCubit uploadSubmitCubit) {
+  void uploadRecipe(BuildContext context) {
+    UploadFormCubit uploadFormCubit = context.read<UploadFormCubit>();
+    UploadSubmitCubit uploadSubmitCubit = context.read<UploadSubmitCubit>();
+
     UploadRecipeModel uploadRecipeModel =
         uploadFormCubit.getUploadRecipeModel();
     uploadSubmitCubit.uploadRecipe(
       uploadRecipeModel: uploadRecipeModel,
-    );
-  }
-
-  void editRecipe(
-      UploadFormCubit uploadFormCubit, UploadSubmitCubit uploadSubmitCubit) {
-    EditRecipeModel editRecipeModel = uploadFormCubit.getEditRecipeModel();
-    uploadSubmitCubit.editRecipe(
-      editRecipeModel: editRecipeModel,
     );
   }
 }

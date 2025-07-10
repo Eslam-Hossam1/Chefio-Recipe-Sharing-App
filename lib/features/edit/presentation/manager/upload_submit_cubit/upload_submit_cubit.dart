@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/features/upload/data/models/edit_recipe_model.dart';
+import 'package:chefio_app/features/edit/data/models/edit_recipe_model.dart';
+import 'package:chefio_app/features/edit/data/repos/upload_repo.dart';
 import 'package:chefio_app/features/upload/data/models/upload_recipe_model.dart';
-import 'package:chefio_app/features/upload/data/repos/upload_repo.dart';
 import 'package:equatable/equatable.dart';
 
 part 'upload_submit_state.dart';

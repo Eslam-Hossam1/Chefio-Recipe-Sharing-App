@@ -10,8 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UploadView extends StatefulWidget {
-  const UploadView({super.key, this.recipeDetailModel});
-  final RecipeDetailsModel? recipeDetailModel;
+  const UploadView({super.key,});
   @override
   State<UploadView> createState() => _UploadViewState();
 }
@@ -39,9 +38,7 @@ class _UploadViewState extends State<UploadView> {
   @override
   void initState() {
     super.initState();
-    context.read<UploadFormCubit>().checkAndInitForEditing(
-          recipeDetailModel: widget.recipeDetailModel,
-        );
+
     context.read<UploadFormCubit>().fetchCategories();
   }
 
@@ -69,7 +66,6 @@ class _UploadViewState extends State<UploadView> {
               children: [
                 UploadFirstStepPage(
                   onNext: _nextPage,
-                  recipeDetailModel: widget.recipeDetailModel,
                 ),
                 UploadSecondStepPage(onBack: _previousPage),
               ],

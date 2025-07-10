@@ -11,11 +11,6 @@ final class StepInitial extends StepItemState {}
 
 final class NoImage extends StepItemState {}
 
-final class UrlImage extends StepItemState {
-  final String imageUrl;
-
-  const UrlImage({required this.imageUrl});
-}
 
 final class PickedAddStepImage extends PickedStepImageState {
  const PickedAddStepImage({required super.stepImageFile});

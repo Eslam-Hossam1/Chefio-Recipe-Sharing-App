@@ -9,7 +9,7 @@ import 'package:chefio_app/features/upload/presentation/view/widgets/step_url_im
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class StepImageManager extends StatefulWidget {
+class StepImageManager extends StatelessWidget {
   const StepImageManager({
     super.key,
     this.recipeDetailsModel,
@@ -18,46 +18,29 @@ class StepImageManager extends StatefulWidget {
   final RecipeDetailsModel? recipeDetailsModel;
   final int index;
   @override
-  State<StepImageManager> createState() => _StepImageBuilderState();
-}
-
-class _StepImageBuilderState extends State<StepImageManager> {
-  @override
-  void initState() {
-    context.read<StepItemCubit>().init(
-          imageUrl: widget.recipeDetailsModel?.steps[widget.index].stepImage,
-        );
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocConsumer<StepItemCubit, StepItemState>(
         listener: (context, state) {
       if (state is PickedAddStepImage) {
         context.read<UploadFormCubit>().stepsImageModels.add(
               MyStepImageModel(
-                stepIndex: widget.index,
+                stepIndex: index,
                 stepImageFile: state.stepImageFile,
               ),
             );
       }else if(state is PickedChangeStepImage){
         context.read<UploadFormCubit>().changeStepImage(
               MyStepImageModel(
-                stepIndex: widget.index,
+                stepIndex: index,
                 stepImageFile: state.stepImageFile,
               ),
             );
       }
     }, builder: (context, state) {
-      if (state is UrlImage) {
-        return StepUrlImage(
-          url: state.imageUrl,
-        );
-      } else if (state is PickedStepImageState) {
+       if (state is PickedStepImageState) {
         return StepFileImage(
           fileImage: state.stepImageFile,
-          stepImageIndex: widget.index,
+          stepImageIndex: index,
         );
       } else {
         return AddStepPhotoButton();

@@ -3,9 +3,8 @@ import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_loc
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
-import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/add_step_photo_button.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/step_image_manager.dart';
+import 'package:chefio_app/features/edit/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/edit/presentation/view/widgets/step_image_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

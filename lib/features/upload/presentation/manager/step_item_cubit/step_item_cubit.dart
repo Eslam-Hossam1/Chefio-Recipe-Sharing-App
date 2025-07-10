@@ -10,15 +10,7 @@ part 'step_item_state.dart';
 class StepItemCubit extends Cubit<StepItemState> {
   final CroppedImagePickerHelper _croppedImagePickerHelper;
 
-  StepItemCubit(this._croppedImagePickerHelper) : super(StepInitial());
-  void init({required String? imageUrl}) {
-    if (imageUrl != null) {
-      emit(UrlImage(imageUrl: imageUrl));
-    } else {
-      emit(NoImage());
-    }
-  }
-
+  StepItemCubit(this._croppedImagePickerHelper) : super(NoImage());
   Future<void> pickImageForChanging({required ImageSource imageSource}) async {
     final returnedImage = await _croppedImagePickerHelper
         .pickSquareCroppedImage(imageSource: imageSource);

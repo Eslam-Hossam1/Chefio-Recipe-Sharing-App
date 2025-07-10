@@ -2,11 +2,12 @@ import 'dart:developer';
 
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
+import 'package:chefio_app/features/edit/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
+import 'package:chefio_app/features/edit/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/edit/presentation/view/widgets/empty_cover_photo.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
-import 'package:chefio_app/features/upload/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/empty_cover_photo.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

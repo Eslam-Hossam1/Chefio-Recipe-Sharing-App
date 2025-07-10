@@ -66,7 +66,7 @@ class EnterStepItem extends StatelessWidget {
                 maxLines: 4,
               ),
               SizedBox(height: 8.h),
-              StepImageManager(index: stepIndex,recipeDetailsModel:  context.read<UploadFormCubit>().recipeDetailsModel,)
+              StepImageManager(index: stepIndex,)
             ],
           ),
         ),
