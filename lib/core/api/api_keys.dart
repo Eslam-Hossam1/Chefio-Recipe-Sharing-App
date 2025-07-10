@@ -29,6 +29,7 @@ abstract class ApiKeys {
   static const String foodName = 'foodName';
   static const String ingredients = 'ingredients';
   static const String steps = 'steps';
+  static const String step = 'step';
   static const String description = 'description';
   static const String cookingDuration = 'cookingDuration';
   static const String search = 'search';
