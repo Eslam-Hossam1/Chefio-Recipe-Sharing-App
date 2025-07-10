@@ -1,3 +1,6 @@
+import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
+import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/features/upload/presentation/manager/step_item_cubit/step_item_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/enter_step_item.dart';
 import 'package:flutter/material.dart';
@@ -55,9 +58,14 @@ class AnimatedAddStepsList extends StatelessWidget {
               direction: uploadRecipeCubit.steps.length < 3
                   ? DismissDirection.none
                   : DismissDirection.startToEnd,
-              child: EnterStepItem(
-                stepIndex: index,
-                focusNode: focusNodes[index],
+              child: BlocProvider(
+                create: (context) => StepItemCubit(
+                  getIt<CroppedImagePickerHelper>(),
+                ),
+                child: EnterStepItem(
+                  stepIndex: index,
+                  focusNode: focusNodes[index],
+                ),
               ),
             ),
           ),

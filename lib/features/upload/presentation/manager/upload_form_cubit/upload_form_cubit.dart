@@ -5,6 +5,7 @@ import 'package:chefio_app/core/Functions/convert_to_multipart.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/upload/data/models/edit_recipe_model.dart';
+import 'package:chefio_app/features/upload/data/models/my_step_image_model.dart';
 import 'package:chefio_app/features/upload/data/models/upload_recipe_model.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -24,7 +25,8 @@ class UploadFormCubit extends Cubit<UploadFormState> {
   String categoryId = '';
   File? foodImage;
   List<Category> categories = [];
-
+  List<MyStepImageModel> stepsImageModels = [];
+  RecipeDetailsModel? recipeDetailsModel;
   UploadFormCubit(
     this._uploadRepo,
   ) : super(UploadFormInitial());
@@ -44,12 +46,35 @@ class UploadFormCubit extends Cubit<UploadFormState> {
   }
 
   void removeIngredient({required int index}) => ingredients.removeAt(index);
-  void removeStep({required int index}) => steps.removeAt(index);
+  void removeStep({required int index}) {
+    steps.removeAt(index);
+    int imageStepIndex =
+        stepsImageModels.indexWhere((element) => element.stepIndex == index);
+    stepsImageModels.removeAt(imageStepIndex);
+    for (var element in stepsImageModels) {
+      if (element.stepIndex > imageStepIndex) {
+        element.stepIndex--;
+      }
+    }
+  }
+
+  void changeStepImage(MyStepImageModel stepImageModel) {
+    for (var stepImage in stepsImageModels) {
+      if (stepImage.stepIndex == stepImageModel.stepIndex) {
+        stepImage = stepImageModel;
+      }
+    }
+  }
+
+  void removeStepImage({required int index}) {
+    stepsImageModels.removeWhere((element) => element.stepIndex == index);
+  }
 
   void checkAndInitForEditing(
       {required RecipeDetailsModel? recipeDetailModel}) {
     if (recipeDetailModel == null) return;
     foodName = recipeDetailModel.foodName;
+    this.recipeDetailsModel = recipeDetailModel;
     log(foodName);
 
     foodDescription = recipeDetailModel.description;
@@ -58,7 +83,7 @@ class UploadFormCubit extends Cubit<UploadFormState> {
     log(foodName);
 
     ingredients = recipeDetailModel.ingredients;
-    steps = recipeDetailModel.steps;
+    steps = recipeDetailModel.steps.map((e) => e.step).toList();
     isEdit = true;
     id = recipeDetailModel.id;
   }
@@ -110,6 +135,7 @@ class UploadFormCubit extends Cubit<UploadFormState> {
       foodCookDuration: foodCookDuration,
       categoryId: categoryId,
       foodImage: convertToMultipart(foodImage)!,
+      stepsImageModels: stepsImageModels,
     );
   }
 
@@ -123,6 +149,7 @@ class UploadFormCubit extends Cubit<UploadFormState> {
       foodCookDuration: foodCookDuration,
       categoryId: categoryId,
       foodImage: convertToMultipart(foodImage),
+      stepsImageModels: stepsImageModels,
     );
   }
 }

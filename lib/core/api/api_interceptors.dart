@@ -84,7 +84,7 @@ class ApiInterceptor extends Interceptor {
     } on Exception catch (e) {
       if (e is DioException) {
         if (e.response?.statusCode != null) {
-          if (e.response?.statusCode == 401 || e.response?.statusCode == 403) {
+          if (e.response?.statusCode == 401 || e.response?.statusCode == 403 || e.response?.statusCode == 404) {
             authCredentialsHelper
                 .clearTokens(); // ⬅️ احذف بيانات المستخدم لو التوكن فشل
             log('refresh token expired');

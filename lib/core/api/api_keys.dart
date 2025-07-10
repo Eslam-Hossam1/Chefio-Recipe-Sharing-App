@@ -48,4 +48,5 @@ abstract class ApiKeys {
   static const String notificationLikeType = 'like';
   static const String notificationNewRecipeType = 'new_recipe';
   static const String notificationFollowType = 'follow';
+  static const String stepImage = 'stepImage';
 }
