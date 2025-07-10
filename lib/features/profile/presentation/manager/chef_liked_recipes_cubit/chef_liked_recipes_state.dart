@@ -36,4 +36,5 @@ final class FetchMoreLikedRecipesFailure extends ChefLikedRecipesState {
 final class ChefLikedRecipesSuccess extends ChefLikedRecipesState {}
 
 final class EmptyChefLikedRecipes extends ChefLikedRecipesState {}
+
 final class MyProfileEmptyLikedRecipes extends ChefLikedRecipesState {}

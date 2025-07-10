@@ -22,7 +22,7 @@ class SearchAppBar extends StatelessWidget {
       flexibleSpace: Center(
         child: AdaptivePadding(
           child: Row(
-            children:const [
+            children: const [
               CustomBackIconButton(),
               SizedBox(
                 width: 8,

@@ -17,6 +17,6 @@ final class SettingsFailure extends SettingsState {
   final String errorMessage;
   final String errorLocalizationkey;
 
-const   SettingsFailure({required this.errorMessage, required this.errorLocalizationkey});
-  
+  const SettingsFailure(
+      {required this.errorMessage, required this.errorLocalizationkey});
 }

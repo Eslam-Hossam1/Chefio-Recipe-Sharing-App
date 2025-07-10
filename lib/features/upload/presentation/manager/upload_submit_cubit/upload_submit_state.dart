@@ -17,6 +17,6 @@ final class UploadSubmitFailure extends UploadSubmitState {
   final String errorMessage;
   final String errorLocalizationKey;
 
- const UploadSubmitFailure({required this.errorMessage, required this.errorLocalizationKey});
-
+  const UploadSubmitFailure(
+      {required this.errorMessage, required this.errorLocalizationKey});
 }

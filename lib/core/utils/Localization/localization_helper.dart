@@ -15,6 +15,7 @@ abstract class LocalizationHelper {
   static Future<void> resetToDefaultLanguage(BuildContext context) async {
     await context.setLocale(context.supportedLocales.first);
   }
+
   static checkArabicLocale(BuildContext context) {
     return context.locale == AppLocals.arabic;
   }

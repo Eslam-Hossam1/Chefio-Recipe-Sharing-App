@@ -27,14 +27,13 @@ class MyProfileViewBodyConsumer extends StatelessWidget {
               context.read<MyProfileCubit>().profileModel!;
           List<ChefProfileRecipeModel> chefInitialRecipes =
               profileModel.profile.recipes.recipes;
-              
+
           context.read<ChefProfileRecipesCubit>().startWithInitialRecipes(
                 chefInitialRecipes: chefInitialRecipes,
                 limit: chefInitialRecipes.length,
                 chefId: profileModel.id,
               );
-                    log('from consumer   chefId:${profileModel.id} , _authCredentialsHelper.userId:${getIt<AuthCredentialsHelper>().userId}');
-
+          log('from consumer   chefId:${profileModel.id} , _authCredentialsHelper.userId:${getIt<AuthCredentialsHelper>().userId}');
         }
       },
       builder: (context, state) {

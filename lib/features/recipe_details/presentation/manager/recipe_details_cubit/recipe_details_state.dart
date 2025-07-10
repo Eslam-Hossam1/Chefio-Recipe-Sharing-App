@@ -16,6 +16,7 @@ final class RecipeDetailsFailure extends RecipeDetailsState {
   const RecipeDetailsFailure(
       {required this.errorMessage, required this.errorLocalizationKey});
 }
+
 final class RecipeDetailsDeleteRecipeFailure extends RecipeDetailsState {
   final String errorMessage;
   final String errorLocalizationKey;
@@ -25,11 +26,16 @@ final class RecipeDetailsDeleteRecipeFailure extends RecipeDetailsState {
 }
 
 final class RecipeDetailsLoading extends RecipeDetailsState {}
-final class RecipeDetailsDeleteRecipeLoading extends RecipeDetailsState implements DeleteRecipe {}
-final class RecipeDetailsDeleteRecipeSuccess extends RecipeDetailsState implements DeleteRecipe {}
 
-final class RecipeDetailsSuccess extends RecipeDetailsState implements DeleteRecipe {
+final class RecipeDetailsDeleteRecipeLoading extends RecipeDetailsState
+    implements DeleteRecipe {}
+
+final class RecipeDetailsDeleteRecipeSuccess extends RecipeDetailsState
+    implements DeleteRecipe {}
+
+final class RecipeDetailsSuccess extends RecipeDetailsState
+    implements DeleteRecipe {
   const RecipeDetailsSuccess();
 }
-abstract class DeleteRecipe extends RecipeDetailsState {}
 
+abstract class DeleteRecipe extends RecipeDetailsState {}

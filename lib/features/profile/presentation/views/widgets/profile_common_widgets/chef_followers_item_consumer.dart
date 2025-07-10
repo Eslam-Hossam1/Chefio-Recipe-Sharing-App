@@ -58,7 +58,6 @@ class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
               profileModel.profile.isFollowing = ApiKeys.following;
             }
           }
-
         },
         builder: (context, state) {
           return ProfileChefInfoItem(

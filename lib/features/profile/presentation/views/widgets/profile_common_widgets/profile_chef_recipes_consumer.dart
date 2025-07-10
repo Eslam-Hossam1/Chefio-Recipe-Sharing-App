@@ -47,7 +47,8 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
             hasScrollBody: false,
             child: Center(
               child: CustomInfoMessageWithButton(
-                message:AppLocalizationKeys.profile.myProfileNoRecipesMessage.tr(),
+                message:
+                    AppLocalizationKeys.profile.myProfileNoRecipesMessage.tr(),
                 btnText: AppLocalizationKeys.profile.addRecipe.tr(),
                 onPressed: () {
                   context.push(RoutePaths.upload);

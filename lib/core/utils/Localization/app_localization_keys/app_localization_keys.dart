@@ -26,6 +26,7 @@ abstract class AppLocalizationKeys {
   static const ThemesLocalization themes = ThemesLocalization.instance;
   static const LanguagesLocalization languages = LanguagesLocalization.instance;
   static const TimeUnitsLocalization timeUnits = TimeUnitsLocalization.instance;
-  static const NotificationsLocalization notifications = NotificationsLocalization.instance;
+  static const NotificationsLocalization notifications =
+      NotificationsLocalization.instance;
   static const SearchLoclaization search = SearchLoclaization.instance;
 }

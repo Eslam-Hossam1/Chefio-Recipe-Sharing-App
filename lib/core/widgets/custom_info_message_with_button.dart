@@ -38,7 +38,7 @@ class CustomInfoMessageWithButton extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                btnText??AppLocalizationKeys.global.tryAgain.tr(),
+                btnText ?? AppLocalizationKeys.global.tryAgain.tr(),
                 style: Styles.textStyleSemiBold15(context).copyWith(
                   color: Colors.white,
                 ),

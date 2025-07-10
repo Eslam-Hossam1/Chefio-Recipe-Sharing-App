@@ -10,7 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileUserAvatar extends StatelessWidget {
   const ProfileUserAvatar({
-    super.key, required this.profileModel,
+    super.key,
+    required this.profileModel,
   });
   final ProfileModel profileModel;
   @override

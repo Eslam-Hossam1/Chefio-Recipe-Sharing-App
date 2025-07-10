@@ -44,11 +44,12 @@ class NotificationsRepoImpl implements NotificationsRepo {
   }
 
   List<NotificationEntity> getNotificationEntitiesFromResponse(response) {
-    List<NotificationEntity> notificationsEntities = (response[ApiKeys.notifications][ApiKeys.notifications] as List)
-        .map(
-          (notification) => NotificationModel.fromJson(notification),
-        )
-        .toList();
+    List<NotificationEntity> notificationsEntities =
+        (response[ApiKeys.notifications][ApiKeys.notifications] as List)
+            .map(
+              (notification) => NotificationModel.fromJson(notification),
+            )
+            .toList();
     return notificationsEntities;
   }
 }

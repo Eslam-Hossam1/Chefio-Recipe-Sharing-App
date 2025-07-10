@@ -13,7 +13,7 @@ abstract class AppLanguages {
   );
 
   static final LanguageModel english = LanguageModel(
-    languageLocale:AppLocals.english,
+    languageLocale: AppLocals.english,
     languageName: 'English',
     languageLocalizationKey: AppLocalizationKeys.languages.english,
     countryFlagCode: 'us',

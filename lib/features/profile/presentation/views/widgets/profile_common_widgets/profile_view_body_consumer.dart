@@ -19,7 +19,8 @@ class ProfileViewBodyConsumer extends StatelessWidget {
     return BlocConsumer<ProfileCubit, ProfileState>(
       listener: (context, state) {
         if (state is ProfileSuccess) {
-          ProfileModel profileModel = context.read<ProfileCubit>().profileModel!;
+          ProfileModel profileModel =
+              context.read<ProfileCubit>().profileModel!;
           List<ChefProfileRecipeModel> chefInitialRecipes =
               profileModel.profile.recipes.recipes;
           context.read<ChefProfileRecipesCubit>().startWithInitialRecipes(

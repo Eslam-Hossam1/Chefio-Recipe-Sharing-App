@@ -12,7 +12,7 @@ class UploadSubmitCubit extends Cubit<UploadSubmitState> {
   UploadSubmitCubit({required UploadRepo uploadRepo})
       : _uploadRepo = uploadRepo,
         super(UploadSubmitInitial());
-  
+
   Future<void> editRecipe({required EditRecipeModel editRecipeModel}) async {
     emit(UploadSubmitLoading());
 
@@ -28,7 +28,8 @@ class UploadSubmitCubit extends Cubit<UploadSubmitState> {
     });
   }
 
-  Future<void> uploadRecipe({required UploadRecipeModel uploadRecipeModel}) async {
+  Future<void> uploadRecipe(
+      {required UploadRecipeModel uploadRecipeModel}) async {
     emit(UploadSubmitLoading());
     var result =
         await _uploadRepo.uploadRecipe(uploadRecipeModel: uploadRecipeModel);
@@ -42,6 +43,4 @@ class UploadSubmitCubit extends Cubit<UploadSubmitState> {
       emit(UploadSubmitSuccess());
     });
   }
-
-
 }

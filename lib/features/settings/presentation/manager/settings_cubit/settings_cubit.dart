@@ -8,9 +8,11 @@ part 'settings_state.dart';
 class SettingsCubit extends Cubit<SettingsState> {
   final AuthRepo _authRepo;
   final AuthCredentialsHelper _authCredentialsHelper;
-  SettingsCubit({required AuthRepo authRepo,required AuthCredentialsHelper authCredentialsHelper})
+  SettingsCubit(
+      {required AuthRepo authRepo,
+      required AuthCredentialsHelper authCredentialsHelper})
       : _authRepo = authRepo,
-      _authCredentialsHelper=authCredentialsHelper,
+        _authCredentialsHelper = authCredentialsHelper,
         super(SettingsInitial());
 
   Future<void> logout() async {
@@ -21,7 +23,7 @@ class SettingsCubit extends Cubit<SettingsState> {
         errorMessage: failure.errMsg,
         errorLocalizationkey: failure.errCode,
       )),
-      (success)async {
+      (success) async {
         await _authCredentialsHelper.clearTokens();
         emit(SettingsSuccess());
       },

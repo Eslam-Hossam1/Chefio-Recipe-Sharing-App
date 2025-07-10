@@ -17,9 +17,8 @@ class OtpCubit extends Cubit<OtpState> {
 
   Future<void> sendVerificationCode() async {
     log('🟢 sendVerificationCode started');
-  log('🔹 otpReason is: $otpReason');
-  log('🔹 sendCodeOnOpen = ${otpReason.sendCodeOnOpen}');
-
+    log('🔹 otpReason is: $otpReason');
+    log('🔹 sendCodeOnOpen = ${otpReason.sendCodeOnOpen}');
 
     if (!otpReason.sendCodeOnOpen) {
       emit(

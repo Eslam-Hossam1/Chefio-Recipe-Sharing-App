@@ -27,9 +27,8 @@ class _ProfileFollowButtonState extends State<ProfileFollowButton> {
   _toggleFollow() async {
     isFollowing = !isFollowing;
     await context.read<FollowChefCubit>().toggleFollowChef(
-          chefId: context.read<ProfileCubit>().profileModel!.id,
-          isFollowing: !isFollowing
-        );
+        chefId: context.read<ProfileCubit>().profileModel!.id,
+        isFollowing: !isFollowing);
   }
 
   @override

@@ -26,8 +26,8 @@ class NotificationsCubit extends Cubit<NotificationsState> {
     } else {
       emit(NotificationsFirstFetchLoading());
     }
-    var notificationsResult = await _notificationsRepo.fetchNotifications(
-       page: page, limit: limit);
+    var notificationsResult =
+        await _notificationsRepo.fetchNotifications(page: page, limit: limit);
     notificationsResult.fold(
       (failure) {
         if (notifications.isEmpty) {
@@ -62,7 +62,6 @@ class NotificationsCubit extends Cubit<NotificationsState> {
       },
     );
   }
-
 
   Future<void> refersh() async {
     page = 1;

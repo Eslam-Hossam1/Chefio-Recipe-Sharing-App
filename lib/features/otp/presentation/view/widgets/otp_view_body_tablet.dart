@@ -7,6 +7,8 @@ class OtpViewBodyTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TabletFormContainer(child: (context) => OtpViewBody(),);
+    return TabletFormContainer(
+      child: (context) => OtpViewBody(),
+    );
   }
 }

@@ -3,8 +3,10 @@ part of 'upload_second_step_page.dart';
 
 class UploadFormData {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey = GlobalKey<SliverAnimatedListState>();
-  final GlobalKey<SliverAnimatedListState> stepsAnimatedListKey = GlobalKey<SliverAnimatedListState>();
+  final GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey =
+      GlobalKey<SliverAnimatedListState>();
+  final GlobalKey<SliverAnimatedListState> stepsAnimatedListKey =
+      GlobalKey<SliverAnimatedListState>();
 
   final List<GlobalKey> ingredientsItemKeys = [GlobalKey(), GlobalKey()];
   final List<GlobalKey> stepsItemKeys = [GlobalKey(), GlobalKey()];

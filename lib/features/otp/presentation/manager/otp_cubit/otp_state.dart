@@ -8,6 +8,7 @@ sealed class OtpState extends Equatable {
 }
 
 final class OtpInitial extends OtpState {}
+
 final class SendOtpSuccess extends OtpState {}
 
 final class VerifyOtpSuccess extends OtpState {}

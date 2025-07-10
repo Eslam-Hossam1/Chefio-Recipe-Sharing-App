@@ -125,7 +125,7 @@ class PushNotificationsService {
           recipeId: myNotificationDataModel.recipeId!,
         ),
       );
-    }else{
+    } else {
       AppRouter.router.go(
         RoutingHelper.getProfilePath(
           chefId: myNotificationDataModel.senderId,

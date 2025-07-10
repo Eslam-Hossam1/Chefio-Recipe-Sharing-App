@@ -37,10 +37,12 @@ class LanguageSelectionView extends StatelessWidget {
                 ),
                 SizedBox(width: 8),
                 Text(
-                  AppLanguages.supportedLanguages[index].languageLocalizationKey
-                      .tr(),
-                  style: Styles.textStyleMedium15(context).copyWith(color: context.mainTextColor,)
-                ),
+                    AppLanguages
+                        .supportedLanguages[index].languageLocalizationKey
+                        .tr(),
+                    style: Styles.textStyleMedium15(context).copyWith(
+                      color: context.mainTextColor,
+                    )),
               ],
             ),
             activeColor: context.primaryColor,

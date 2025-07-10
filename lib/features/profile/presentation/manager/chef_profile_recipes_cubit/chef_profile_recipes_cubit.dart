@@ -76,7 +76,7 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
     required int limit,
     required String chefId,
   }) async {
-          log('chefId:${chefId} , _authCredentialsHelper.userId:${_authCredentialsHelper.userId}');
+    log('chefId:${chefId} , _authCredentialsHelper.userId:${_authCredentialsHelper.userId}');
 
     if (chefInitialRecipes.isEmpty && chefRecipes.isEmpty) {
       isLoading = false;

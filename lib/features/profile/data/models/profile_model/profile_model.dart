@@ -9,9 +9,12 @@ class ProfileModel extends Equatable {
   final Profile profile;
 
   const ProfileModel(
-      {required this.id,required this.success, required this.message, required this.profile});
+      {required this.id,
+      required this.success,
+      required this.message,
+      required this.profile});
 
-  factory ProfileModel.fromJson(Map<String, dynamic> json,String id) {
+  factory ProfileModel.fromJson(Map<String, dynamic> json, String id) {
     return ProfileModel(
       id: id,
       success: json['success'] as bool,

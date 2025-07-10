@@ -51,6 +51,7 @@ abstract class DialogHelper {
             btnCancelOnPress: () {})
         .show();
   }
+
   static void showEndSessionDialog(
     BuildContext context, {
     String? btnOkText,
@@ -61,16 +62,17 @@ abstract class DialogHelper {
     Color? btnCancelColor,
     String? btnCanceltext,
   }) {
-    customAdaptiveAwesomeDialog(context,
-            dialogType: DialogType.warning,
-            title: AppLocalizationKeys.global.warning.tr(),
-            desc: AppLocalizationKeys.auth.sessionExpired.tr(),
-            btnOkOnPress: btnOkOnPress,
-            btnOkText: btnOkText,
-            btnOk: btnOk,
-            btnOkColor: AppColors.lightPrimary,
-            onDismissCallback: onDismissCallback,)
-        .show();
+    customAdaptiveAwesomeDialog(
+      context,
+      dialogType: DialogType.warning,
+      title: AppLocalizationKeys.global.warning.tr(),
+      desc: AppLocalizationKeys.auth.sessionExpired.tr(),
+      btnOkOnPress: btnOkOnPress,
+      btnOkText: btnOkText,
+      btnOk: btnOk,
+      btnOkColor: AppColors.lightPrimary,
+      onDismissCallback: onDismissCallback,
+    ).show();
   }
 
   static void showSuccessDialog(

@@ -238,7 +238,7 @@ class AuthRepoImpl implements AuthRepo {
   @override
   Future<Either<ApiFailure, void>> logout() async {
     try {
-     await Future.wait(
+      await Future.wait(
         [
           _apiConsumer.post(EndPoints.logout),
           _googleAuthService.signOut(),

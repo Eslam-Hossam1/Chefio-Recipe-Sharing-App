@@ -9,13 +9,16 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 class SkeletonizerNotificationSliverList extends StatelessWidget {
   const SkeletonizerNotificationSliverList({super.key});
-  static final  NotificationEntity notificationEntity = NotificationEntity(
+  static final NotificationEntity notificationEntity = NotificationEntity(
     chefUsername: 'ajsd;lfkaj;lsf',
     isFollowing: false,
     notificationId: 'asdfklj',
     chefId: 'asdfkj;l',
     type: 'adfa;lj',
-    notificationMessageModel: NotificationMessageModel(localizationKey: AppLocalizationKeys.notifications.likedYourRecipe,message: 'aksdjfklajf;jaskljfsajfad',type: 'akjdf;klajsfkljsd'),
+    notificationMessageModel: NotificationMessageModel(
+        localizationKey: AppLocalizationKeys.notifications.likedYourRecipe,
+        message: 'aksdjfklajf;jaskljfsajfad',
+        type: 'akjdf;klajsfkljsd'),
     recipeId: '',
     recipePicture: null,
     chefProfilePicture: null,
@@ -23,24 +26,26 @@ class SkeletonizerNotificationSliverList extends StatelessWidget {
   );
   @override
   Widget build(BuildContext context) {
-    return Skeletonizer.sliver(child: SliverList.separated(
-      separatorBuilder: (context, index) {
-        return SizedBox(
-          height: 24,
-        );
-      },
-      itemCount: 20,
-      itemBuilder: (context, index) {
-        if (index % 2 == 0) {
-          return NotificationLikeItem(
-            notificationEntity:notificationEntity,
+    return Skeletonizer.sliver(
+      child: SliverList.separated(
+        separatorBuilder: (context, index) {
+          return SizedBox(
+            height: 24,
           );
-        } else {
-          return NotificationFollowItem(
-            notificationEntity:notificationEntity,
-          );
-        }
-      },
-    ),);
+        },
+        itemCount: 20,
+        itemBuilder: (context, index) {
+          if (index % 2 == 0) {
+            return NotificationLikeItem(
+              notificationEntity: notificationEntity,
+            );
+          } else {
+            return NotificationFollowItem(
+              notificationEntity: notificationEntity,
+            );
+          }
+        },
+      ),
+    );
   }
 }

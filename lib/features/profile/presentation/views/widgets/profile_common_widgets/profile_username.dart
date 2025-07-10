@@ -7,7 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileUsername extends StatelessWidget {
   const ProfileUsername({
-    super.key, required this.profileModel,
+    super.key,
+    required this.profileModel,
   });
   final ProfileModel profileModel;
   @override

@@ -10,8 +10,9 @@ abstract class OtpReason {
   final String email;
   onSuccess(BuildContext context);
 
-  OtpReason(
-      {required this.sendCodeOnOpen,
-      required this.localizationExitWarningConfirmation,
-      required this.email,});
+  OtpReason({
+    required this.sendCodeOnOpen,
+    required this.localizationExitWarningConfirmation,
+    required this.email,
+  });
 }

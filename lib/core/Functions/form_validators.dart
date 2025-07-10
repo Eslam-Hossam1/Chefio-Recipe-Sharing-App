@@ -11,8 +11,9 @@ abstract class FormValidators {
       return null;
     }
   }
-  static String? requiredNumberOfCharacters(String? value,int number) {
-     if (value == null || value.length<number) {
+
+  static String? requiredNumberOfCharacters(String? value, int number) {
+    if (value == null || value.length < number) {
       return 'This field require at least $number of characters';
     } else {
       return null;

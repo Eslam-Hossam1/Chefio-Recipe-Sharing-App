@@ -32,11 +32,12 @@ class FollowChefCubit extends Cubit<FollowChefState> {
       },
       (success) {
         int myProfileFollowingChange;
-          myProfileFollowingChange = isFollowing ? -1 : 1;
+        myProfileFollowingChange = isFollowing ? -1 : 1;
         emit(
           FollowChefSuccess(
-              chefId: chefId,
-              myProfileFollowingChange: myProfileFollowingChange,),
+            chefId: chefId,
+            myProfileFollowingChange: myProfileFollowingChange,
+          ),
         );
       },
     );

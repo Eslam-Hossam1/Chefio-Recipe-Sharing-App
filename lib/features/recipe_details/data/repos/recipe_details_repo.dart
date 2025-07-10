@@ -8,6 +8,5 @@ abstract class RecipeDetailsRepo {
       {required String recipeId});
   Future<Either<ApiFailure, List<RecipeLikerModel>>> fetchRecipeLikers(
       {required String recipeId});
-  Future<Either<ApiFailure, void>> deleteRecipe(
-      {required String recipeId});
+  Future<Either<ApiFailure, void>> deleteRecipe({required String recipeId});
 }

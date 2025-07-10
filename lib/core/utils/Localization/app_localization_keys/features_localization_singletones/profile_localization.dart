@@ -14,10 +14,11 @@ class ProfileLocalization {
   final String followed = "profile.followed";
   final String chefNoRecipes = "profile.chef_no_recipes";
   final String chefNoLikedRecipes = "profile.chef_no_likes";
-  final String myProfileNoRecipesMessage = "profile.my_profile_no_recipes_message";
+  final String myProfileNoRecipesMessage =
+      "profile.my_profile_no_recipes_message";
   final String addRecipe = "profile.add_recipe";
   final String myProfileNoLikedRecipesMessage = "profile.my_profile_no_likes";
-  
+
   final String shareProfile = "profile.share_profile";
   final String editProfile = "profile.edit_profile";
   final String editProfileSuccessMessage =

@@ -72,8 +72,8 @@ class LocalNotificationsService {
       ),
     );
 
-    int notificationId = remoteMessage.messageId?.hashCode
-    ?? DateTime.now().millisecondsSinceEpoch;
+    int notificationId = remoteMessage.messageId?.hashCode ??
+        DateTime.now().millisecondsSinceEpoch;
 
     await _flutterLocalNotificationsPlugin.show(
       notificationId,
@@ -89,15 +89,15 @@ class LocalNotificationsService {
       BigPictureStyleInformation? bigPictureStyleInformation) async {
     String imageUrl;
 
-      imageUrl = remoteMessage.notification?.android?.imageUrl??Constants.nullUserImageUrl;
-      _dio.options.responseType = ResponseType.bytes;
-      final response =
-          await _dio.get(imageUrl);
-      bigPictureStyleInformation = BigPictureStyleInformation(
-        ByteArrayAndroidBitmap.fromBase64String(base64Encode(response.data)),
-        largeIcon: ByteArrayAndroidBitmap.fromBase64String(
-            base64Encode(response.data)),
-      );
+    imageUrl = remoteMessage.notification?.android?.imageUrl ??
+        Constants.nullUserImageUrl;
+    _dio.options.responseType = ResponseType.bytes;
+    final response = await _dio.get(imageUrl);
+    bigPictureStyleInformation = BigPictureStyleInformation(
+      ByteArrayAndroidBitmap.fromBase64String(base64Encode(response.data)),
+      largeIcon:
+          ByteArrayAndroidBitmap.fromBase64String(base64Encode(response.data)),
+    );
 
     return bigPictureStyleInformation;
   }

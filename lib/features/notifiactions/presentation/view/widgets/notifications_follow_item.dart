@@ -18,7 +18,10 @@ class NotificationFollowItem extends StatelessWidget {
             notificationEntity: notificationEntity,
           ),
         ),
-        FollowButtonConsumer(chefId: notificationEntity.chefId,isFollowing: notificationEntity.isFollowing!,)
+        FollowButtonConsumer(
+          chefId: notificationEntity.chefId,
+          isFollowing: notificationEntity.isFollowing!,
+        )
       ],
     );
   }

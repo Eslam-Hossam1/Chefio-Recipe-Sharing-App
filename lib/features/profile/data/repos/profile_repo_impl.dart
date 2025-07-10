@@ -83,7 +83,7 @@ class ProfileRepoImpl implements ProfileRepo {
           ApiKeys.profileLimit: limit,
         },
       );
-      ProfileModel profileModel = ProfileModel.fromJson(response,chefId);
+      ProfileModel profileModel = ProfileModel.fromJson(response, chefId);
       return Right(profileModel);
     } catch (e) {
       return Left(handleException(e));

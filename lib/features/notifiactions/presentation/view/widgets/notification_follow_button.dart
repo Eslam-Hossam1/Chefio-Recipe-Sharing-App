@@ -16,18 +16,17 @@ class NotificationFollowButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<FollowChefCubit, FollowChefState>(
       listener: (context, state) {
-        if ((state is FollowChefSuccess ) &&
-            state.chefId ==
-                notificationEntity.chefId) {
+        if ((state is FollowChefSuccess) &&
+            state.chefId == notificationEntity.chefId) {
           notificationEntity.isFollowing = !notificationEntity.isFollowing!;
         }
         if (state is FollowChefFaiure) {
-            showCustomToast(
-              context,
-              message: state.errorLocalizationKey.tr(),
-              seconds: 2,
-            );
-          }
+          showCustomToast(
+            context,
+            message: state.errorLocalizationKey.tr(),
+            seconds: 2,
+          );
+        }
       },
       builder: (context, state) {
         final isLoading = state is FollowChefLoading &&
@@ -38,9 +37,8 @@ class NotificationFollowButton extends StatelessWidget {
               .isFollowing!, // Assuming the follow state is false for this example
           onPressed: () {
             context.read<FollowChefCubit>().toggleFollowChef(
-                  chefId: notificationEntity.chefId,
-                  isFollowing: notificationEntity.isFollowing!
-                );
+                chefId: notificationEntity.chefId,
+                isFollowing: notificationEntity.isFollowing!);
           },
         );
       },

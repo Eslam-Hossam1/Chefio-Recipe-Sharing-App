@@ -40,7 +40,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   Future<void> refresh({
     int limit = 30,
   }) async =>
-   await   fetchChefProfileWithInitialRecipes(
+      await fetchChefProfileWithInitialRecipes(
         chefId: profileModel!.id,
       );
 }

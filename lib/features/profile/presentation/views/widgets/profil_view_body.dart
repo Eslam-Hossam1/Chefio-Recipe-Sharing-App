@@ -20,7 +20,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class ProfileViewBody extends StatefulWidget {
-  const ProfileViewBody({super.key,required this.profileModel});
+  const ProfileViewBody({super.key, required this.profileModel});
   final ProfileModel profileModel;
   @override
   State<ProfileViewBody> createState() => _ProfileViewBodyState();
@@ -64,7 +64,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody>
             );
       } else {
         context.read<ChefLikedRecipesCubit>().fetchChefLikedRecipes(
-             chefId: widget.profileModel.id,
+              chefId: widget.profileModel.id,
             );
       }
     }
@@ -98,9 +98,17 @@ class _ProfileViewBodyState extends State<ProfileViewBody>
           SliverProfilePersistentTabBar(tabController: _tabController),
           SliverToBoxAdapter(child: ProfileSeparatorSizedBox()),
           if (_tabController.index == 0)
-            SliverAdaptivePadding(sliver: ProfileChefRecipesConsumer(chefId: widget.profileModel.id,),)
+            SliverAdaptivePadding(
+              sliver: ProfileChefRecipesConsumer(
+                chefId: widget.profileModel.id,
+              ),
+            )
           else
-            SliverAdaptivePadding(sliver: ProfileLikedRecipesConsumer(chefId: widget.profileModel.id,),),
+            SliverAdaptivePadding(
+              sliver: ProfileLikedRecipesConsumer(
+                chefId: widget.profileModel.id,
+              ),
+            ),
           ProfileRecipesScrollingLoadingIndicatorBuilder(),
           ProfileLikedRecipesScrollingLoadingIndicatorbuilder()
         ],
@@ -110,19 +118,25 @@ class _ProfileViewBodyState extends State<ProfileViewBody>
 
   Widget _buildProfileHeaderSection() {
     return SliverList(
-      delegate: SliverChildListDelegate( [
+      delegate: SliverChildListDelegate([
         const SizedBox(height: 16),
         const ProfileAppBar(),
         const SizedBox(height: 20),
-        ProfileUserAvatar(profileModel: widget.profileModel,),
-       const SizedBox(
+        ProfileUserAvatar(
+          profileModel: widget.profileModel,
+        ),
+        const SizedBox(
           height: 24,
         ),
-        ProfileUsername(profileModel: widget.profileModel,),
-       const SizedBox(height: 24),
-        UserInfoRow(profileModel: widget.profileModel,),
-       const SizedBox(height: 24),
-       const ProfileFollowButtonBuilder()
+        ProfileUsername(
+          profileModel: widget.profileModel,
+        ),
+        const SizedBox(height: 24),
+        UserInfoRow(
+          profileModel: widget.profileModel,
+        ),
+        const SizedBox(height: 24),
+        const ProfileFollowButtonBuilder()
       ]),
     );
   }

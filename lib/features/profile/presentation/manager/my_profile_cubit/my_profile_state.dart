@@ -8,6 +8,7 @@ sealed class MyProfileState extends Equatable {
 }
 
 final class MyProfileInitial extends MyProfileState {}
+
 final class MyProfileLoading extends MyProfileState {}
 
 final class MyProfileSuccess extends MyProfileState {}
