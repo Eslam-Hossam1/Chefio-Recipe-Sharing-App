@@ -24,34 +24,32 @@ class UploadRecipeModel {
   });
 
   Map<String, dynamic> toJson() {
-
     Map<String, dynamic> stepsImagesMap = getStepsImagesMap();
 
-    Map<String, dynamic> stepsMap = getStepsMap();
+    List<Map<String,dynamic>> steps = getSteps();
 
     var toUploadJson = {
       ApiKeys.recipePicture: foodImage,
       ApiKeys.foodName: foodName,
       ApiKeys.description: foodDescription,
       ApiKeys.cookingDuration: foodCookDuration,
-      ApiKeys.categoryId: categoryId,
+  //    ApiKeys.categoryId: categoryId,
       ApiKeys.ingredients: jsonEncode(ingredients),
-      ApiKeys.steps: jsonEncode(stepsMap),
+      ApiKeys.steps: jsonEncode(steps),
       ...stepsImagesMap
     };
     return toUploadJson;
   }
 
-  Map<String, dynamic> getStepsMap() {
-       Map<String, dynamic> stepsMap = {};
+  List<Map<String, dynamic>> getSteps() {
+    List<Map<String,dynamic>> stepsList = [];
     for (int i = 0; i < uploadSteps.length; i++) {
-      stepsMap['${ApiKeys.stepImage}_$i'] = uploadSteps[i].toJson(index: i);
+      stepsList.add(uploadSteps[i].toJson(index: i));
     }
-    return stepsMap;
+    return stepsList;
   }
 
   Map<String, dynamic> getStepsImagesMap() {
-    
     Map<String, dynamic> stepsImagesMap = {};
     for (int i = 0; i < uploadSteps.length; i++) {
       var multipartImage = convertToMultipart(uploadSteps[i].stepImageFile);

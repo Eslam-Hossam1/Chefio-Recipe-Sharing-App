@@ -181,7 +181,7 @@ class AppRouter {
             ),
           ],
           child:
-              UploadView(recipeDetailModel: state.extra as RecipeDetailsModel?),
+              UploadView(),
         ),
       ),
       GoRoute(

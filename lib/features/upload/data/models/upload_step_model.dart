@@ -10,7 +10,7 @@ class UploadStepModel {
   Map<String, dynamic> toJson({required int index}) {
     return {
       ApiKeys.step:stepText,
-      ApiKeys.stepImage:stepImageFile==null? null :"${ApiKeys.stepImage}_$index"
+      ApiKeys.stepImage:stepImageFile==null? 'null' :"${ApiKeys.stepImage}_$index"
     };
   }
 }
