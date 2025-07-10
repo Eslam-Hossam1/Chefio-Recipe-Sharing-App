@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:chefio_app/core/Functions/convert_to_multipart.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
-import 'package:chefio_app/features/upload/data/models/my_step_image_model.dart';
+import 'package:chefio_app/features/upload/data/models/upload_step_image_model.dart';
 import 'package:dio/dio.dart';
 
 class UploadRecipeModel {
@@ -13,7 +13,7 @@ class UploadRecipeModel {
   final int foodCookDuration;
   final List<String> ingredients;
   final List<String> steps;
-  final List<MyStepImageModel> stepsImageModels;
+  final List<UploadStepImageModel> stepsImageModels;
   const UploadRecipeModel({
     required this.ingredients,
     required this.steps,

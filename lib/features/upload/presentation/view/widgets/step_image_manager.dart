@@ -1,6 +1,5 @@
-
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
-import 'package:chefio_app/features/upload/data/models/my_step_image_model.dart';
+import 'package:chefio_app/features/upload/data/models/upload_step_image_model.dart';
 import 'package:chefio_app/features/upload/presentation/manager/step_item_cubit/step_item_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_step_photo_button.dart';
@@ -23,21 +22,21 @@ class StepImageManager extends StatelessWidget {
         listener: (context, state) {
       if (state is PickedAddStepImage) {
         context.read<UploadFormCubit>().stepsImageModels.add(
-              MyStepImageModel(
+              UploadStepImageModel(
                 stepIndex: index,
                 stepImageFile: state.stepImageFile,
               ),
             );
-      }else if(state is PickedChangeStepImage){
+      } else if (state is PickedChangeStepImage) {
         context.read<UploadFormCubit>().changeStepImage(
-              MyStepImageModel(
+              UploadStepImageModel(
                 stepIndex: index,
                 stepImageFile: state.stepImageFile,
               ),
             );
       }
     }, builder: (context, state) {
-       if (state is PickedStepImageState) {
+      if (state is PickedStepImageState) {
         return StepFileImage(
           fileImage: state.stepImageFile,
           stepImageIndex: index,

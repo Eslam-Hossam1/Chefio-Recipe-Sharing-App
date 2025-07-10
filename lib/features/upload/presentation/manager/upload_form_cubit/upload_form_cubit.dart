@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Functions/convert_to_multipart.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
-import 'package:chefio_app/features/upload/data/models/my_step_image_model.dart';
+import 'package:chefio_app/features/upload/data/models/upload_step_image_model.dart';
 import 'package:chefio_app/features/upload/data/models/upload_recipe_model.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -23,7 +23,7 @@ class UploadFormCubit extends Cubit<UploadFormState> {
   String categoryId = '';
   File? foodImage;
   List<Category> categories = [];
-  List<MyStepImageModel> stepsImageModels = [];
+  List<UploadStepImageModel> stepsImageModels = [];
   UploadFormCubit(
     this._uploadRepo,
   ) : super(UploadFormInitial());
@@ -55,7 +55,7 @@ class UploadFormCubit extends Cubit<UploadFormState> {
     }
   }
 
-  void changeStepImage(MyStepImageModel stepImageModel) {
+  void changeStepImage(UploadStepImageModel stepImageModel) {
     for (var stepImage in stepsImageModels) {
       if (stepImage.stepIndex == stepImageModel.stepIndex) {
         stepImage = stepImageModel;
