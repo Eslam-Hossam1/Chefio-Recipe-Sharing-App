@@ -12,10 +12,9 @@ class EditRecipeCoverPhotoCubit extends Cubit<EditRecipeCoverPhotoState> {
   final String imageUrl;
   EditRecipeCoverPhotoCubit({
     required CroppedImagePickerHelper croppedImagePickerHelper,
-    required String recipeImageUrl,
-  })  : imageUrl = recipeImageUrl,
-        _croppedImagePickerHelper = croppedImagePickerHelper,
-        super(UrlImage(imageUrl: recipeImageUrl));
+    required this.imageUrl,
+  })  : _croppedImagePickerHelper = croppedImagePickerHelper,
+        super(UrlImage(imageUrl: imageUrl));
   Future<void> pickRecipeImage({required ImageSource imageSource}) async {
     final returnedImage = await _croppedImagePickerHelper
         .pickSquareCroppedImage(imageSource: imageSource);

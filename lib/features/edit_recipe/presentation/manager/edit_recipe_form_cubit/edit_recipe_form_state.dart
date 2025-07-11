@@ -1,14 +1,12 @@
 part of 'edit_recipe_form_cubit.dart';
 
-sealed class UploadFormState extends Equatable {
-  const UploadFormState();
+sealed class EditRecipeFormState extends Equatable {
+  const EditRecipeFormState();
 
   @override
   List<Object> get props => [];
 }
 
-final class UploadFormInitial extends UploadFormState {}
+final class EditRecipeFormInitial extends EditRecipeFormState {}
 
-
-final class CategoriesLoaded extends UploadFormState {}
-
+final class CategoriesLoaded extends EditRecipeFormState {}
