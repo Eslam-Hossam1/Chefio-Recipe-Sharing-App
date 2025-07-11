@@ -1,5 +1,5 @@
 import 'package:chefio_app/features/edit_recipe/data/models/my_step_image_model.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/manager/step_item_cubit/step_item_cubit.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_step_item_cubit/edit_step_item_cubit.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:flutter/material.dart';

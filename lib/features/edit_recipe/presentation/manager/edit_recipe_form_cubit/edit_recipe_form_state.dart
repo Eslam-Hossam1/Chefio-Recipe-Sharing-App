@@ -7,6 +7,5 @@ sealed class EditRecipeFormState extends Equatable {
   List<Object> get props => [];
 }
 
-final class EditRecipeFormInitial extends EditRecipeFormState {}
 
 final class CategoriesLoaded extends EditRecipeFormState {}
