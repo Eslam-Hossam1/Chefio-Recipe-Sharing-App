@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:chefio_app/core/Functions/convert_to_multipart.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
+import 'package:chefio_app/features/edit_recipe/data/models/edit_recipe_form_model.dart';
 import 'package:chefio_app/features/edit_recipe/data/models/edit_step_model.dart';
 import 'package:dio/dio.dart';
 
@@ -26,17 +27,17 @@ class EditRecipeModel {
     this.foodImage,
   });
 
-   Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson() {
     Map<String, dynamic> stepsImagesMap = getStepsImagesMap();
 
-    List<Map<String,dynamic>> steps = getSteps();
+    List<Map<String, dynamic>> steps = getSteps();
 
     var toUploadJson = {
       ApiKeys.recipePicture: foodImage,
       ApiKeys.foodName: foodName,
       ApiKeys.description: foodDescription,
       ApiKeys.cookingDuration: foodCookDuration,
-  //    ApiKeys.categoryId: categoryId,
+      //    ApiKeys.categoryId: categoryId,
       ApiKeys.ingredients: jsonEncode(ingredients),
       ApiKeys.steps: jsonEncode(steps),
       ...stepsImagesMap
@@ -45,7 +46,7 @@ class EditRecipeModel {
   }
 
   List<Map<String, dynamic>> getSteps() {
-    List<Map<String,dynamic>> stepsList = [];
+    List<Map<String, dynamic>> stepsList = [];
     for (int i = 0; i < editSteps.length; i++) {
       stepsList.add(editSteps[i].toJson(index: i));
     }
@@ -62,4 +63,19 @@ class EditRecipeModel {
     }
     return stepsImagesMap;
   }
+
+  factory EditRecipeModel.fromEditRecipeFormModel(
+          {required EditRecipeFormModel editRecipeFormModel}) =>
+      EditRecipeModel(
+        id: editRecipeFormModel.id,
+        ingredients: editRecipeFormModel.ingredients,
+        editSteps: editRecipeFormModel.steps,
+        foodName: editRecipeFormModel.foodName,
+        foodDescription: editRecipeFormModel.foodDescription,
+        foodCookDuration: editRecipeFormModel.foodCookDuration,
+        categoryId: editRecipeFormModel.categoryId,
+        foodImage: convertToMultipart(
+          editRecipeFormModel.foodFileImage,
+        ),
+      );
 }
