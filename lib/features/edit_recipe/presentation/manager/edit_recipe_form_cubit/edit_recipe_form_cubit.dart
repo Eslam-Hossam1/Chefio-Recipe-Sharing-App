@@ -10,49 +10,48 @@ import 'package:flutter/material.dart';
 
 part 'edit_recipe_form_state.dart';
 
-class EditRecipeFormCubit extends Cubit<UploadFormState> {
+class EditRecipeFormCubit extends Cubit<EditRecipeFormState> {
   final EditRecipeRepo _editRecipeRepo;
-  final EditRecipeFormModel _editRecipeFormModel;
+  final EditRecipeFormModel editRecipeFormModel;
   List<Category> categories = [];
   EditRecipeFormCubit({
     required EditRecipeRepo editRecipeRepo,
-    required EditRecipeFormModel editRecipeFormModel,
-  })  : _editRecipeFormModel = editRecipeFormModel,
-        _editRecipeRepo = editRecipeRepo,
-        super(UploadFormInitial());
+    required this.editRecipeFormModel,
+  })  : _editRecipeRepo = editRecipeRepo,
+        super(EditRecipeFormInitial());
 
   void addIngerdient({
     required GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey,
   }) {
-    _editRecipeFormModel.ingredients.add("");
+    editRecipeFormModel.ingredients.add("");
     ingredientsAnimatedListKey.currentState!
-        .insertItem(_editRecipeFormModel.ingredients.length - 1);
+        .insertItem(editRecipeFormModel.ingredients.length - 1);
   }
 
   void addStep({
     required GlobalKey<SliverAnimatedListState> stepsAnimatedListKey,
   }) {
-    _editRecipeFormModel.steps.add(
+    editRecipeFormModel.steps.add(
       EditStepModel(
         stepText: '',
       ),
     );
     stepsAnimatedListKey.currentState!
-        .insertItem(_editRecipeFormModel.steps.length - 1);
+        .insertItem(editRecipeFormModel.steps.length - 1);
   }
 
   void removeIngredient({required int index}) =>
-      _editRecipeFormModel.ingredients.removeAt(index);
+      editRecipeFormModel.ingredients.removeAt(index);
   void removeStep({required int index}) {
-    _editRecipeFormModel.steps.removeAt(index);
+    editRecipeFormModel.steps.removeAt(index);
   }
 
   void setStepImage({required int stepIndex, required File stepImageFile}) {
-    _editRecipeFormModel.steps[stepIndex].stepImageFile = stepImageFile;
+    editRecipeFormModel.steps[stepIndex].stepImageFile = stepImageFile;
   }
 
   void removeStepImage({required int index}) {
-    _editRecipeFormModel.steps[index].stepImageFile = null;
+    editRecipeFormModel.steps[index].stepImageFile = null;
   }
 
   void fetchCategories() async {
@@ -61,5 +60,4 @@ class EditRecipeFormCubit extends Cubit<UploadFormState> {
       CategoriesLoaded(),
     );
   }
-
 }
