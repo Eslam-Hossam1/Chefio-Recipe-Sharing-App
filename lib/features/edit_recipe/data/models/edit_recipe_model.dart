@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:chefio_app/core/Functions/convert_to_multipart.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
-import 'package:chefio_app/features/upload/data/models/upload_step_image_model.dart';
+import 'package:chefio_app/features/edit_recipe/data/models/edit_step_model.dart';
 import 'package:dio/dio.dart';
 
 class EditRecipeModel {
@@ -13,40 +13,53 @@ class EditRecipeModel {
   final String categoryId;
   final int foodCookDuration;
   final List<String> ingredients;
-  final List<String> steps;
-  final List<UploadStepImageModel> stepsImageModels;
+  final List<EditStepModel> editSteps;
 
   const EditRecipeModel({
     required this.id,
     required this.ingredients,
-    required this.steps,
+    required this.editSteps,
     required this.foodName,
     required this.foodDescription,
     required this.foodCookDuration,
     required this.categoryId,
     this.foodImage,
-    required this.stepsImageModels,
   });
 
-  Map<String, dynamic> toJson() {
-    Map<String, dynamic> stepsImagesMap = {};
-    for (var step in stepsImageModels) {
-      var multipartImage = convertToMultipart(step.stepImageFile);
-      if (multipartImage != null) {
-        stepsImagesMap[ApiKeys.stepImage + step.stepIndex.toString()] =
-            multipartImage;
-      }
-    }
+   Map<String, dynamic> toJson() {
+    Map<String, dynamic> stepsImagesMap = getStepsImagesMap();
+
+    List<Map<String,dynamic>> steps = getSteps();
+
     var toUploadJson = {
       ApiKeys.recipePicture: foodImage,
       ApiKeys.foodName: foodName,
       ApiKeys.description: foodDescription,
       ApiKeys.cookingDuration: foodCookDuration,
-      ApiKeys.categoryId: categoryId,
+  //    ApiKeys.categoryId: categoryId,
       ApiKeys.ingredients: jsonEncode(ingredients),
       ApiKeys.steps: jsonEncode(steps),
       ...stepsImagesMap
     };
     return toUploadJson;
+  }
+
+  List<Map<String, dynamic>> getSteps() {
+    List<Map<String,dynamic>> stepsList = [];
+    for (int i = 0; i < editSteps.length; i++) {
+      stepsList.add(editSteps[i].toJson(index: i));
+    }
+    return stepsList;
+  }
+
+  Map<String, dynamic> getStepsImagesMap() {
+    Map<String, dynamic> stepsImagesMap = {};
+    for (int i = 0; i < editSteps.length; i++) {
+      var multipartImage = convertToMultipart(editSteps[i].stepImageFile);
+      if (multipartImage != null) {
+        stepsImagesMap['${ApiKeys.stepImage}_$i'] = multipartImage;
+      }
+    }
+    return stepsImagesMap;
   }
 }
