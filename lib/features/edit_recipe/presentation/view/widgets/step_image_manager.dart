@@ -1,8 +1,6 @@
-
-
 import 'package:chefio_app/features/edit_recipe/data/models/my_step_image_model.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/step_item_cubit/step_item_cubit.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,14 +31,14 @@ class _StepImageBuilderState extends State<StepImageManager> {
     return BlocConsumer<StepItemCubit, StepItemState>(
         listener: (context, state) {
       if (state is PickedAddStepImage) {
-        context.read<UploadFormCubit>().stepsImageModels.add(
+        context.read<EditRecipeFormCubit>().stepsImageModels.add(
               MyStepImageModel(
                 stepIndex: widget.index,
                 stepImageFile: state.stepImageFile,
               ),
             );
-      }else if(state is PickedChangeStepImage){
-        context.read<UploadFormCubit>().changeStepImage(
+      } else if (state is PickedChangeStepImage) {
+        context.read<EditRecipeFormCubit>().changeStepImage(
               MyStepImageModel(
                 stepIndex: widget.index,
                 stepImageFile: state.stepImageFile,
