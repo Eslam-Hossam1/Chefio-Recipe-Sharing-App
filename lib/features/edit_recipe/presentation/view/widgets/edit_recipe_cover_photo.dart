@@ -1,35 +1,16 @@
-import 'dart:developer';
-
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_cover_photo_cubit.dart/edit_recipe_cover_photo_cubit.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/empty_cover_photo.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
-import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddCoverPhoto extends StatefulWidget {
-  const AddCoverPhoto({
+class EditRecipeCoverPhoto extends StatelessWidget {
+  const EditRecipeCoverPhoto({
     super.key,
-    this.recipeDetailModel,
   });
-  final RecipeDetailsModel? recipeDetailModel;
-  @override
-  State<AddCoverPhoto> createState() => _AddCoverPhotoState();
-}
-
-class _AddCoverPhotoState extends State<AddCoverPhoto> {
-  @override
-  void initState() {
-    context.read<EditRecipeCoverPhotoCubit>().init(
-          imageUrl: widget.recipeDetailModel?.recipePicture,
-        );
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     final addCoverPhotoCubit = context.read<EditRecipeCoverPhotoCubit>();
@@ -54,8 +35,10 @@ class _AddCoverPhotoState extends State<AddCoverPhoto> {
             child: BlocConsumer<EditRecipeCoverPhotoCubit,
                 EditRecipeCoverPhotoState>(listener: (context, state) {
               if (state is PickedRecipeImage) {
-                context.read<EditRecipeFormCubit>().foodImage =
-                    state.recipeImageFile;
+                context
+                    .read<EditRecipeFormCubit>()
+                    .editRecipeFormModel
+                    .foodFileImage = state.recipeImageFile;
               }
             }, builder: (context, state) {
               if (state is UrlImage) {
