@@ -9,8 +9,8 @@ class EditStepModel {
 
   EditStepModel({
     required this.stepText,
-    required this.stepImageFile,
-    required this.stepUrlImage,
+    this.stepImageFile,
+    this.stepUrlImage,
   });
   String getImageField({required int index}) {
     if (stepImageFile == null && stepUrlImage == null) {
@@ -28,4 +28,5 @@ class EditStepModel {
       ApiKeys.stepImage: getImageField(index: index),
     };
   }
+  
 }
