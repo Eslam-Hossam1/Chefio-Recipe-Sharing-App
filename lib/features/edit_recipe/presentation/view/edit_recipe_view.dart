@@ -1,22 +1,16 @@
-import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
-import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
+
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
-import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/upload_first_step_page.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/upload_second_step_page.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class UploadView extends StatefulWidget {
-  const UploadView({super.key, this.recipeDetailModel});
-  final RecipeDetailsModel? recipeDetailModel;
+class EditView extends StatefulWidget {
+  const EditView({super.key,required  this.recipeDetailModel});
+  final RecipeDetailsModel recipeDetailModel;
   @override
-  State<UploadView> createState() => _UploadViewState();
+  State<EditView> createState() => _EditViewState();
 }
 
-class _UploadViewState extends State<UploadView> {
+class _EditViewState extends State<EditView> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 

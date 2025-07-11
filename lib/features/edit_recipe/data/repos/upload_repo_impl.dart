@@ -6,7 +6,7 @@ import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/core/services/categories_service.dart';
-import 'package:chefio_app/features/edit/data/models/edit_recipe_model.dart';
+import 'package:chefio_app/features/edit_recipe/data/models/edit_recipe_model.dart';
 import 'package:chefio_app/features/upload/data/models/upload_recipe_model.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo.dart';
 import 'package:dartz/dartz.dart';

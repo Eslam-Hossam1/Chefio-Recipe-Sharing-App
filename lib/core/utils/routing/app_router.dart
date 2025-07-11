@@ -23,6 +23,7 @@ import 'package:chefio_app/features/auth/presentation/view/verification_code_vie
 import 'package:chefio_app/features/edit_profile/data/repos/edit_profile_repo_impl.dart';
 import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profile/edit_profile_cubit.dart';
 import 'package:chefio_app/features/edit_profile/presentation/views/edit_profile_view.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/edit_recipe_view.dart';
 import 'package:chefio_app/features/main/presentation/view/main_view.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:chefio_app/features/otp/data/models/otp_reason.dart';
@@ -182,6 +183,29 @@ class AppRouter {
           ],
           child:
               UploadView(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.edit,
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => UploadFormCubit(
+                getIt<UploadRepoImpl>(),
+              ),
+            ),
+            BlocProvider(
+              create: (context) => UploadSubmitCubit(
+                uploadRepo: getIt<UploadRepoImpl>(),
+              ),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  AddCoverPhotoCubit(getIt<CroppedImagePickerHelper>()),
+            ),
+          ],
+          child:
+              EditView(recipeDetailModel: state.extra as RecipeDetailsModel,),
         ),
       ),
       GoRoute(

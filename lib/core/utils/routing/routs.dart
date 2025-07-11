@@ -17,6 +17,7 @@ abstract class RoutePaths {
   // 📌 Features
   static const search = "search";
   static const upload = "/upload";
+  static const edit = "/edit";
   static const notifications = "/notification";
   static const myProfile = "/my-profile";
   static const profileWithoutId = "/profile";
