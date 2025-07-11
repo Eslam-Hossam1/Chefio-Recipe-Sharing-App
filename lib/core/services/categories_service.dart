@@ -4,6 +4,7 @@ import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/models/category.dart';
 
 class CategoriesService {
+  //categories should be public for using in edit recipe without async/await
   List<Category> categories = [];
   final ApiConsumer _apiConsumer;
   final String _endPoint;
