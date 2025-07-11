@@ -5,13 +5,13 @@ import 'package:chefio_app/features/recipe_details/data/models/recipe_details_su
 
 class EditRecipeFormModel {
   final String id;
-  final List<String> ingredients;
-  final List<EditStepModel> steps;
-  final String foodName;
-  final String foodDescription;
-  final int foodCookDuration;
-  final String categoryId;
-  final File? foodFileImage;
+  List<String> ingredients;
+  List<EditStepModel> steps;
+  String foodName;
+  String foodDescription;
+  int foodCookDuration;
+  String categoryId;
+  File? foodFileImage;
   final String foodUrlImage;
 
   EditRecipeFormModel({
