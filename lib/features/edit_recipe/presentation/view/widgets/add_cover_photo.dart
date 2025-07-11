@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_cover_photo_cubit.dart/edit_recipe_cover_photo_cubit.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/empty_cover_photo.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
@@ -24,7 +24,7 @@ class AddCoverPhoto extends StatefulWidget {
 class _AddCoverPhotoState extends State<AddCoverPhoto> {
   @override
   void initState() {
-    context.read<AddCoverPhotoCubit>().init(
+    context.read<EditRecipeCoverPhotoCubit>().init(
           imageUrl: widget.recipeDetailModel?.recipePicture,
         );
     super.initState();
@@ -32,7 +32,7 @@ class _AddCoverPhotoState extends State<AddCoverPhoto> {
 
   @override
   Widget build(BuildContext context) {
-    final addCoverPhotoCubit = context.read<AddCoverPhotoCubit>();
+    final addCoverPhotoCubit = context.read<EditRecipeCoverPhotoCubit>();
 
     return Center(
       child: SizedBox(
@@ -51,8 +51,8 @@ class _AddCoverPhotoState extends State<AddCoverPhoto> {
                 },
               );
             },
-            child: BlocConsumer<AddCoverPhotoCubit, AddCoverPhotoState>(
-                listener: (context, state) {
+            child: BlocConsumer<EditRecipeCoverPhotoCubit,
+                EditRecipeCoverPhotoState>(listener: (context, state) {
               if (state is PickedRecipeImage) {
                 context.read<EditRecipeFormCubit>().foodImage =
                     state.recipeImageFile;

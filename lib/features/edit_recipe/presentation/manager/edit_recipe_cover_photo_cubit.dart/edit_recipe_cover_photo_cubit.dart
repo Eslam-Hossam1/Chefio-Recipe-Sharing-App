@@ -5,21 +5,17 @@ import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
 
-part 'add_cover_photo_state.dart';
+part 'edit_recipe_cover_photo_state.dart';
 
-class AddCoverPhotoCubit extends Cubit<AddCoverPhotoState> {
+class EditRecipeCoverPhotoCubit extends Cubit<EditRecipeCoverPhotoState> {
   final CroppedImagePickerHelper _croppedImagePickerHelper;
-
-  AddCoverPhotoCubit(this._croppedImagePickerHelper)
-      : super(AddCoverPhotoInitial());
-  void init({required String? imageUrl}) {
-    if (imageUrl != null) {
-      emit(UrlImage(imageUrl: imageUrl));
-    } else {
-      emit(EmptyCover());
-    }
-  }
-
+  final String imageUrl;
+  EditRecipeCoverPhotoCubit({
+    required CroppedImagePickerHelper croppedImagePickerHelper,
+    required String recipeImageUrl,
+  })  : imageUrl = recipeImageUrl,
+        _croppedImagePickerHelper = croppedImagePickerHelper,
+        super(UrlImage(imageUrl: recipeImageUrl));
   Future<void> pickRecipeImage({required ImageSource imageSource}) async {
     final returnedImage = await _croppedImagePickerHelper
         .pickSquareCroppedImage(imageSource: imageSource);
