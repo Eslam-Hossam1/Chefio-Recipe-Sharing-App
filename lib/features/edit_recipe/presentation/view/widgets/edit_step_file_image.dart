@@ -29,7 +29,9 @@ class EditStepFileImage extends StatelessWidget {
         bool? pickImage;
         pickImage = await showStepImageDialog(pickImage, parentContext);
         if (pickImage != null && pickImage) {
-          showChooseImageMethodBottomSheet(pickImage, context);
+          if (context.mounted) {
+            showChooseImageMethodBottomSheet(context);
+          }
         }
       },
       child: StepImageFileThumbnail(
@@ -60,7 +62,7 @@ class EditStepFileImage extends StatelessWidget {
     return pickImage;
   }
 
-  void showChooseImageMethodBottomSheet(bool? pickImage, BuildContext context) {
+  void showChooseImageMethodBottomSheet(BuildContext context) {
     showModalBottomSheet(
       backgroundColor: context.scaffoldBackgroundColor,
       context: context,

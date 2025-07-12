@@ -16,45 +16,55 @@ class StepFileImage extends StatelessWidget {
   final int stepImageIndex;
   @override
   Widget build(BuildContext context) {
-        final stepItemCubit = context.read<StepItemCubit>();
 
     return GestureDetector(
       onTap: () async {
-        final parentContext =
-            context; 
+        final parentContext = context;
         bool? pickImage;
-        pickImage = await showDialog(
-          context: parentContext,
-          builder: (context) {
-            return StepImageDialog(
-              stepImageIndex: stepImageIndex,
-              imageViewer: Image.file(
-                fileImage,
-              ),
-              removeImageMethod: (){
-                 parentContext.read<UploadFormCubit>().removeStepImage(
-                            index: stepImageIndex,
-                          );
-                      parentContext.read<StepItemCubit>().removeImage();
-              },
-            );
-          },
-        );
+        pickImage = await showStepImageDialog(pickImage, parentContext);
         if (pickImage != null && pickImage) {
-          showModalBottomSheet(
-            backgroundColor: context.scaffoldBackgroundColor,
-            context: context,
-            builder: (context) {
-              return ChooseImageSourceBottomSheet(
-                pickImageMethod: stepItemCubit.pickAndSetImage,
-              );
-            },
-          );
+          if(context.mounted){
+            showChooseImageMethodBottomSheet(context);
+          }
         }
       },
       child: StepImageFileThumbnail(
         fileImage: fileImage,
       ),
     );
+  }
+
+  Future<bool?> showStepImageDialog(
+      bool? pickImage, BuildContext parentContext) async {
+    pickImage = await showDialog(
+      context: parentContext,
+      builder: (context) {
+        return StepImageDialog(
+          stepImageIndex: stepImageIndex,
+          imageViewer: Image.file(
+            fileImage,
+          ),
+          removeImageMethod: () {
+            parentContext.read<UploadFormCubit>().removeStepImage(
+                  index: stepImageIndex,
+                );
+            parentContext.read<StepItemCubit>().removeImage();
+          },
+        );
+      },
+    );
+    return pickImage;
+  }
+  
+  void showChooseImageMethodBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+            backgroundColor: context.scaffoldBackgroundColor,
+            context: context,
+            builder: (context) {
+              return ChooseImageSourceBottomSheet(
+                pickImageMethod: context.read<StepItemCubit>().pickAndSetImage,
+              );
+            },
+          );
   }
 }

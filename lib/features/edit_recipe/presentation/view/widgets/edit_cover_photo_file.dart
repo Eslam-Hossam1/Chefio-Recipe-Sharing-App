@@ -22,7 +22,9 @@ class EditRecipeCoverFile extends StatelessWidget {
         bool? pickImage;
         pickImage = await showCoverPhotoDialog(pickImage, parentContext);
         if (pickImage != null && pickImage) {
-          showChooseImageMethodBottomSheet(pickImage, context);
+          if (context.mounted) {
+            showChooseImageMethodBottomSheet(context);
+          }
         }
       },
       child: ClipRRect(
@@ -57,7 +59,7 @@ class EditRecipeCoverFile extends StatelessWidget {
     return pickImage;
   }
 
-  void showChooseImageMethodBottomSheet(bool? pickImage, BuildContext context) {
+  void showChooseImageMethodBottomSheet(BuildContext context) {
     showModalBottomSheet(
       backgroundColor: context.scaffoldBackgroundColor,
       context: context,
