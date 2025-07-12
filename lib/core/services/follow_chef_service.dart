@@ -13,7 +13,7 @@ class FollowChefService {
   Future<Either<ApiFailure, void>> toggleFollowChef(
       {required String chefId}) async {
     try {
-      var result = await _apiConsumer.post(
+      await _apiConsumer.post(
         EndPoints.getToggleFollowChefEndpoint(
           chefId,
         ),

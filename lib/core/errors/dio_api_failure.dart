@@ -58,12 +58,6 @@ class DioApiFailure extends ApiFailure {
           AppLocalizationKeys.error.unknownError,
           ErrorCodes.unknownError,
         );
-      default:
-        return DioApiFailure(
-          "Opps there was an error, Please try again later",
-          AppLocalizationKeys.error.unknownError,
-          ErrorCodes.unknownError,
-        );
     }
   }
   factory DioApiFailure.frombadResponse(int status, dynamic responseBody) {

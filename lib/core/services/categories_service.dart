@@ -1,6 +1,4 @@
 import 'package:chefio_app/core/api/api_consumer.dart';
-import 'package:chefio_app/core/api/api_keys.dart';
-import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/models/category.dart';
 
 class CategoriesService {
