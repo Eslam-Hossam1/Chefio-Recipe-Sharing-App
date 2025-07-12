@@ -20,5 +20,10 @@ final class UrlImage extends EditRecipeCoverPhotoState {
 final class PickedRecipeImage extends EditRecipeCoverPhotoState {
   final File recipeImageFile;
 
-  const PickedRecipeImage({required this.recipeImageFile});
+  const PickedRecipeImage({
+    required this.recipeImageFile,
+  });
+
+  @override
+  List<Object> get props => [recipeImageFile];
 }

@@ -1,8 +1,6 @@
-import 'dart:developer';
-
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/app_colors.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
@@ -13,7 +11,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 
 class EditAndSharePopUpMenuButton extends StatelessWidget {
   const EditAndSharePopUpMenuButton({
@@ -72,9 +69,10 @@ class EditAndSharePopUpMenuButton extends StatelessWidget {
                 ],
               ),
               onTap: () {
-                context.push(
-                  RoutePaths.upload,
-                  extra: context.read<RecipeDetailsCubit>().recipeDetailModel,
+                RoutingHelper.pushEditRecipe(
+                  context,
+                  recipeDetailsModel:
+                      context.read<RecipeDetailsCubit>().recipeDetailModel!,
                 );
               }),
           PopupMenuItem(

@@ -3,28 +3,20 @@ import 'package:chefio_app/features/upload/presentation/manager/step_item_cubit/
 import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_step_photo_button.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/step_file_image.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/step_url_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StepImageManager extends StatelessWidget {
   const StepImageManager({
     super.key,
-    this.recipeDetailsModel,
     required this.index,
   });
-  final RecipeDetailsModel? recipeDetailsModel;
   final int index;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<StepItemCubit, StepItemState>(
         listener: (context, state) {
-      if (state is PickedAddStepImage) {
-        context.read<UploadFormCubit>().setStepImage(
-              stepIndex: index,
-              stepImageFile: state.stepImageFile,
-            );
-      } else if (state is PickedChangeStepImage) {
+      if (state is PickedSetStepImage) {
         context.read<UploadFormCubit>().setStepImage(
               stepIndex: index,
               stepImageFile: state.stepImageFile,

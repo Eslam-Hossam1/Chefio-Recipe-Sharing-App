@@ -1,10 +1,10 @@
-import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/enter_ingredient_item.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_enter_ingredient_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AnimatedAddIngredientsList extends StatelessWidget {
-  const AnimatedAddIngredientsList({
+class AnimatedEditIngredientsList extends StatelessWidget {
+  const AnimatedEditIngredientsList({
     super.key,
     required this.animatedListKey,
     required this.focusNodes,
@@ -15,10 +15,11 @@ class AnimatedAddIngredientsList extends StatelessWidget {
   final List<Key> ingredientItemsKeys;
   @override
   Widget build(BuildContext context) {
-    var uploadRecipeCubit = context.read<UploadFormCubit>();
+    var editRecipeCubit = context.read<EditRecipeFormCubit>();
+    var editRecipeModel = editRecipeCubit.editRecipeFormModel;
     return SliverAnimatedList(
       key: animatedListKey,
-      initialItemCount: uploadRecipeCubit.ingredients.length,
+      initialItemCount: editRecipeModel.ingredients.length,
       itemBuilder: (context, index, animation) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 16.0),
@@ -32,7 +33,7 @@ class AnimatedAddIngredientsList extends StatelessWidget {
             child: Dismissible(
                 key: ingredientItemsKeys[index],
                 onDismissed: (direction) {
-                  uploadRecipeCubit.removeIngredient(
+                  editRecipeCubit.removeIngredient(
                     index: index,
                   );
                   animatedListKey.currentState!.removeItem(index,
@@ -51,10 +52,10 @@ class AnimatedAddIngredientsList extends StatelessWidget {
                     ),
                   ),
                 ),
-                direction: uploadRecipeCubit.ingredients.length < 3
+                direction: editRecipeModel.ingredients.length < 3
                     ? DismissDirection.none
                     : DismissDirection.startToEnd,
-                child: EnterIngredientItem(
+                child: EditEnterIngredientItem(
                   ingredientIndex: index,
                   focusNode: focusNodes[index],
                 )),

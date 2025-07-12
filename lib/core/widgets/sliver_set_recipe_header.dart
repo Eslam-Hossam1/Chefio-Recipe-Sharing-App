@@ -3,8 +3,8 @@ import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_cancel.dart';
 import 'package:flutter/material.dart';
 
-class SliverUploadHeader extends StatelessWidget {
-  const SliverUploadHeader({
+class SliverSetRecipeHeader extends StatelessWidget {
+  const SliverSetRecipeHeader({
     super.key,
     required this.currentStep,
     required this.steps,

@@ -5,8 +5,8 @@ import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-class UploadRecipeBackButton extends StatelessWidget {
-  const UploadRecipeBackButton({
+class SetRecipeBackButton extends StatelessWidget {
+  const SetRecipeBackButton({
     super.key,
     required this.onBack,
   });

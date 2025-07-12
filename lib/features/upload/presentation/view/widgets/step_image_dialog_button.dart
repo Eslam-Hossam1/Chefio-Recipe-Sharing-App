@@ -5,14 +5,12 @@ import 'package:flutter/material.dart';
 class StepImageDialogButton extends StatelessWidget {
   const StepImageDialogButton({
     super.key,
-    required this.stepImageIndex,
     required this.text,
     required this.icon,
     this.color,
     required this.onTap,
   });
 
-  final int stepImageIndex;
   final String text;
   final IconData icon;
   final Color? color;

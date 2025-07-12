@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/helpers/share_helper.dart';
+import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/core/utils/routing/routing_helper.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
@@ -23,6 +24,11 @@ import 'package:chefio_app/features/auth/presentation/view/verification_code_vie
 import 'package:chefio_app/features/edit_profile/data/repos/edit_profile_repo_impl.dart';
 import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profile/edit_profile_cubit.dart';
 import 'package:chefio_app/features/edit_profile/presentation/views/edit_profile_view.dart';
+import 'package:chefio_app/features/edit_recipe/data/models/edit_recipe_form_model.dart';
+import 'package:chefio_app/features/edit_recipe/data/repos/edit_recipe_repo_impl.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_cover_photo_cubit.dart/edit_recipe_cover_photo_cubit.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_submit_cubit/edit_recipe_submit_cubit.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/edit_recipe_view.dart';
 import 'package:chefio_app/features/main/presentation/view/main_view.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
@@ -181,33 +187,39 @@ class AppRouter {
                   AddCoverPhotoCubit(getIt<CroppedImagePickerHelper>()),
             ),
           ],
-          child:
-              UploadView(),
+          child: UploadView(),
         ),
       ),
       GoRoute(
-        path: RoutePaths.edit,
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => UploadFormCubit(
-                getIt<UploadRepoImpl>(),
-              ),
-            ),
-            BlocProvider(
-              create: (context) => UploadSubmitCubit(
-                uploadRepo: getIt<UploadRepoImpl>(),
-              ),
-            ),
-            BlocProvider(
-              create: (context) =>
-                  AddCoverPhotoCubit(getIt<CroppedImagePickerHelper>()),
-            ),
-          ],
-          child:
-              EditView(recipeDetailModel: state.extra as RecipeDetailsModel,),
-        ),
-      ),
+          path: RoutePaths.editRecipe,
+          builder: (context, state) {
+            EditRecipeFormModel editRecipeFormModel =
+                EditRecipeFormModel.fromRecipeDetailsModel(
+              recipeDetailsModel: state.extra as RecipeDetailsModel,
+            );
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => EditRecipeFormCubit(
+                    categoriesService: getIt<CategoriesService>(),
+                    editRecipeFormModel: editRecipeFormModel,
+                  ),
+                ),
+                BlocProvider(
+                  create: (context) => EditRecipeSubmitCubit(
+                    editRecipeRepo: getIt<EditRecipeRepoImpl>(),
+                  ),
+                ),
+                BlocProvider(
+                  create: (context) => EditRecipeCoverPhotoCubit(
+                    croppedImagePickerHelper: getIt<CroppedImagePickerHelper>(),
+                    imageUrl: editRecipeFormModel.foodUrlImage,
+                  ),
+                ),
+              ],
+              child: EditView(),
+            );
+          }),
       GoRoute(
         path: RoutePaths.onboarding,
         builder: (context, state) => const OnBoardingView(),
@@ -304,7 +316,7 @@ class AppRouter {
           path: RoutePaths.otp,
           builder: (context, state) {
             final OtpReason otpReason = state.extra as OtpReason;
-              log('📦 Received extra from GoRouter: ${state.extra}');
+            log('📦 Received extra from GoRouter: ${state.extra}');
             return BlocProvider(
               create: (context) => OtpCubit(
                 otpRepo: getIt<OtpRepoImpl>(),

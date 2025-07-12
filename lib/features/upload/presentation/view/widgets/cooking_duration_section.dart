@@ -39,6 +39,10 @@ class CookingDurationSection extends StatelessWidget {
           Customslider(
             initialCurrentValue:
                 context.read<UploadFormCubit>().foodCookDuration,
+            onChangeEnd: (cookDuration) {
+              context.read<UploadFormCubit>().foodCookDuration =
+                  cookDuration.toInt();
+            },
           ),
         ],
       ),

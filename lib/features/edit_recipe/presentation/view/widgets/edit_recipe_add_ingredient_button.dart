@@ -1,12 +1,13 @@
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/add_button.dart';
+import 'package:chefio_app/core/widgets/add_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddIngredintButton extends StatelessWidget {
-  const AddIngredintButton({
+class EditRecipeAddIngredintButton extends StatelessWidget {
+  const EditRecipeAddIngredintButton({
     super.key,
     required this.ingredientsFocusNodes,
     required this.ingredientsItemKeys,
@@ -38,7 +39,7 @@ class AddIngredintButton extends StatelessWidget {
   }
 
   void _addIngredientToCubitAndHelpers(BuildContext context) {
-    final cubit = context.read<UploadFormCubit>();
+    final cubit = context.read<EditRecipeFormCubit>();
     cubit.addIngerdient(
       ingredientsAnimatedListKey: ingredientsAnimatedListKey,
     );

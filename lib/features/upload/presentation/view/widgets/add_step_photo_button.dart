@@ -25,7 +25,7 @@ class AddStepPhotoButton extends StatelessWidget {
             context: context,
             builder: (context) {
               return ChooseImageSourceBottomSheet(
-                pickImageMethod: stepItemCubit.pickImageForAdding,
+                pickImageMethod: stepItemCubit.pickAndSetImage,
               );
             },
           );

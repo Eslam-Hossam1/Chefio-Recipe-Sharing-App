@@ -3,13 +3,13 @@ import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
+import 'package:chefio_app/core/widgets/sliver_set_recipe_header.dart';
 import 'package:chefio_app/features/upload/presentation/manager/upload_submit_cubit/upload_submit_cubit.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_ingredient_button.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/add_step_button.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/animated_add_ingredients_list.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/animated_add_steps_list.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/upload_recipe_back_and_buttons_buttons.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/sliver_uplaod_header.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/upload_success_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +69,7 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
               child: CustomScrollView(
                 controller: formData.scrollController,
                 slivers: [
-                  const SliverUploadHeader(
+                  const SliverSetRecipeHeader(
                     currentStep: '2',
                     steps: '2',
                   ),

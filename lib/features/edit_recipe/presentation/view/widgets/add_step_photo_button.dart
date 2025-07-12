@@ -5,12 +5,15 @@ import 'package:chefio_app/features/upload/presentation/manager/step_item_cubit/
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddStepPhotoButton extends StatelessWidget {
   const AddStepPhotoButton({
     super.key,
+    required this.pickImageMethodForAdding,
   });
-
+  final dynamic Function({required ImageSource imageSource})
+      pickImageMethodForAdding;
   @override
   Widget build(BuildContext context) {
     final stepItemCubit = context.read<StepItemCubit>();
@@ -25,7 +28,7 @@ class AddStepPhotoButton extends StatelessWidget {
             context: context,
             builder: (context) {
               return ChooseImageSourceBottomSheet(
-                pickImageMethod: stepItemCubit.pickImageForAdding,
+                pickImageMethod: pickImageMethodForAdding,
               );
             },
           );

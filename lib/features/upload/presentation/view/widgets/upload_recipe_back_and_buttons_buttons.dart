@@ -1,4 +1,4 @@
-import 'package:chefio_app/features/upload/presentation/view/widgets/upload_recipe_back_button.dart';
+import 'package:chefio_app/core/widgets/set_recipe_back_button.dart';
 import 'package:chefio_app/features/upload/presentation/view/widgets/upload_recipe_submit_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +22,7 @@ class UploadRecipeBackAndSubmitButtons extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-              child: UploadRecipeBackButton(onBack: onBack),
+              child: SetRecipeBackButton(onBack: onBack),
             ),
             SizedBox(
               width: 12.w,

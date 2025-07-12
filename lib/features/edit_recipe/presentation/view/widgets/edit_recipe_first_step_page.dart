@@ -1,24 +1,25 @@
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
-import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/add_cover_photo.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/cooking_duration_section.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/food_name_and_description_section.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/next_button.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/sliver_uplaod_header.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/upload_choose_category_section.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_cooking_duration_section.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_cover_photo.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_food_name_and_description_section.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_next_button.dart';
+import 'package:chefio_app/core/widgets/sliver_set_recipe_header.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_choose_category_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class UploadFirstStepPage extends StatefulWidget {
-  const UploadFirstStepPage(
-      {super.key, required this.onNext, this.recipeDetailModel});
+class EditRecipeFirstStepPage extends StatefulWidget {
+  const EditRecipeFirstStepPage({
+    super.key,
+    required this.onNext,
+  });
   final VoidCallback onNext;
-  final RecipeDetailsModel? recipeDetailModel;
   @override
-  State<UploadFirstStepPage> createState() => _UploadFirstStepPageState();
+  State<EditRecipeFirstStepPage> createState() =>
+      _EditRecipeFirstStepPageState();
 }
 
-class _UploadFirstStepPageState extends State<UploadFirstStepPage>
+class _EditRecipeFirstStepPageState extends State<EditRecipeFirstStepPage>
     with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
@@ -41,7 +42,7 @@ class _UploadFirstStepPageState extends State<UploadFirstStepPage>
         autovalidateMode: autovalidateMode,
         child: CustomScrollView(
           slivers: [
-            SliverUploadHeader(
+            SliverSetRecipeHeader(
               currentStep: '1',
               steps: '2',
             ),
@@ -51,28 +52,26 @@ class _UploadFirstStepPageState extends State<UploadFirstStepPage>
               ),
             ),
             SliverToBoxAdapter(
-              child: AddCoverPhoto(
-                recipeDetailModel: widget.recipeDetailModel,
-              ),
+              child: EditRecipeCoverPhoto(),
             ),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 24.h,
               ),
             ),
-            FoodNameAndDescriptionSection(),
+            EditFoodNameAndDescriptionSection(),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 24.h,
               ),
             ),
-            UploadChooseCategorySection(),
+            EditChooseCategorySection(),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 24.h,
               ),
             ),
-            CookingDurationSection(),
+            EditCookingDurationSection(),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 24.h,
@@ -80,7 +79,7 @@ class _UploadFirstStepPageState extends State<UploadFirstStepPage>
             ),
             SliverFillRemaining(
               hasScrollBody: false,
-              child: NextButton(
+              child: EditRecipeNextButton(
                   enableAutoValidation: enableAutoValidation,
                   onNext: widget.onNext,
                   formKey: formKey),

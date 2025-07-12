@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
+import 'package:chefio_app/core/widgets/step_image_file_thumbnail.dart';
+import 'package:chefio_app/core/widgets/step_image_dialog.dart';
 import 'package:chefio_app/features/upload/presentation/manager/step_item_cubit/step_item_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/step_image_dialog.dart';
+import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,11 +27,16 @@ class StepFileImage extends StatelessWidget {
           context: parentContext,
           builder: (context) {
             return StepImageDialog(
-              parentContext: parentContext,
               stepImageIndex: stepImageIndex,
               imageViewer: Image.file(
                 fileImage,
               ),
+              removeImageMethod: (){
+                 parentContext.read<UploadFormCubit>().removeStepImage(
+                            index: stepImageIndex,
+                          );
+                      parentContext.read<StepItemCubit>().removeImage();
+              },
             );
           },
         );
@@ -39,21 +46,14 @@ class StepFileImage extends StatelessWidget {
             context: context,
             builder: (context) {
               return ChooseImageSourceBottomSheet(
-                pickImageMethod: stepItemCubit.pickImageForChanging,
+                pickImageMethod: stepItemCubit.pickAndSetImage,
               );
             },
           );
         }
       },
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: AspectRatio(
-          aspectRatio: 271 / 155,
-          child: Image.file(
-            fit: BoxFit.cover,
-            fileImage,
-          ),
-        ),
+      child: StepImageFileThumbnail(
+        fileImage: fileImage,
       ),
     );
   }

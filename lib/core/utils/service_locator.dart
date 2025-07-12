@@ -2,23 +2,21 @@ import 'package:app_links/app_links.dart';
 import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
+import 'package:chefio_app/core/helpers/share_helper.dart';
+import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/core/services/follow_chef_service.dart';
-import 'package:chefio_app/core/services/notifications/local_notifications_service.dart';
-import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
-import 'package:chefio_app/core/utils/jwt_decoder/jwt_decoder_impl.dart';
-import 'package:chefio_app/core/utils/deep_link_handler.dart';
 import 'package:chefio_app/core/services/google_auth_service.dart';
 import 'package:chefio_app/core/services/like_recipe_service.dart';
+import 'package:chefio_app/core/services/notifications/local_notifications_service.dart';
+import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
 import 'package:chefio_app/core/utils/cache/secure_storage_helper.dart';
-import 'package:chefio_app/core/helpers/share_helper.dart';
 import 'package:chefio_app/core/utils/cache/shared_prefernce_helper.dart';
-import 'package:chefio_app/features/auth/data/repos/auth_repo.dart';
+import 'package:chefio_app/core/utils/deep_link_handler.dart';
+import 'package:chefio_app/core/utils/jwt_decoder/jwt_decoder_impl.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo_impl.dart';
-import 'package:chefio_app/core/models/category.dart';
-import 'package:chefio_app/features/edit_profile/data/repos/edit_profile_repo.dart';
 import 'package:chefio_app/features/edit_profile/data/repos/edit_profile_repo_impl.dart';
+import 'package:chefio_app/features/edit_recipe/data/repos/edit_recipe_repo_impl.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:chefio_app/features/notifiactions/data/repos/notifications_repo_impl.dart';
 import 'package:chefio_app/features/onboarding/presentation/view_model/onboarding_view_model.dart';
@@ -29,7 +27,6 @@ import 'package:chefio_app/features/search/data/repos/search_recipe_rebo_impl.da
 import 'package:chefio_app/features/splash/presentation/view_model/splash_view_model.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:dio/dio.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -173,5 +170,10 @@ Future<void> setupServiceLocator() async {
   );
   getIt.registerSingleton<OtpRepoImpl>(
     OtpRepoImpl(),
+  );
+  getIt.registerSingleton<EditRecipeRepoImpl>(
+    EditRecipeRepoImpl(
+      getIt<DioConsumer>(),
+    ),
   );
 }

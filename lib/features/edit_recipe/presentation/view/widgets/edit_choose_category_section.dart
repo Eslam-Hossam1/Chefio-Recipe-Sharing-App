@@ -1,18 +1,20 @@
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
-import 'package:chefio_app/core/models/category.dart';
+import 'package:chefio_app/features/edit_recipe/data/models/edit_recipe_form_model.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
-import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class UploadChooseCategorySection extends StatelessWidget {
-  const UploadChooseCategorySection({super.key});
+class EditChooseCategorySection extends StatelessWidget {
+  const EditChooseCategorySection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    EditRecipeFormModel editRecipeFormModel =
+        context.read<EditRecipeFormCubit>().editRecipeFormModel;
     return SliverToBoxAdapter(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,9 +30,9 @@ class UploadChooseCategorySection extends StatelessWidget {
           ),
           CategoriesListView(
             applyPadding: false,
-            categories: context.read<UploadFormCubit>().categories,
+            categories: context.read<EditRecipeFormCubit>().categories,
             onCategoryPressed: (category) {
-              context.read<UploadFormCubit>().categoryId = category.id;
+              editRecipeFormModel.categoryId = category.id;
             },
           )
         ],

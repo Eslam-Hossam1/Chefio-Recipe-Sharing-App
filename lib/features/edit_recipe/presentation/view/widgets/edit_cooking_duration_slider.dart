@@ -4,17 +4,18 @@ import 'package:chefio_app/features/upload/presentation/view/widgets/slider_dura
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Customslider extends StatefulWidget {
-  const Customslider({
+class EditCookingDurationSlider extends StatefulWidget {
+  const EditCookingDurationSlider({
     super.key,
-    this.initialCurrentValue,
+    this.initialCurrentValue,required this.onChangeEnd,
   });
   final int? initialCurrentValue;
+  final void Function(double) onChangeEnd;
   @override
-  State<Customslider> createState() => _CustomsliderState();
+  State<EditCookingDurationSlider> createState() => _EditCookingDurationSliderState();
 }
 
-class _CustomsliderState extends State<Customslider> {
+class _EditCookingDurationSliderState extends State<EditCookingDurationSlider> {
   late double currentValue;
   @override
   void initState() {
@@ -44,10 +45,7 @@ class _CustomsliderState extends State<Customslider> {
             value: currentValue,
             min: 1,
             max: 90,
-            onChangeEnd: (cookDuration) {
-              context.read<UploadFormCubit>().foodCookDuration =
-                  cookDuration.toInt();
-            },
+            onChangeEnd: widget.onChangeEnd,
             onChanged: (value) {
               setState(() {
                 currentValue = value;

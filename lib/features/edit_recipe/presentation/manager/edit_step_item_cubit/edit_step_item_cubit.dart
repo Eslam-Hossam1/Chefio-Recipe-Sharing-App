@@ -7,10 +7,10 @@ import 'package:image_picker/image_picker.dart';
 
 part 'edit_step_item_state.dart';
 
-class StepItemCubit extends Cubit<StepItemState> {
+class EditStepItemCubit extends Cubit<StepItemState> {
   final CroppedImagePickerHelper _croppedImagePickerHelper;
-  
-  StepItemCubit(this._croppedImagePickerHelper) : super(StepInitial());
+
+  EditStepItemCubit(this._croppedImagePickerHelper) : super(StepInitial());
   void init({required String? imageUrl}) {
     if (imageUrl != null) {
       emit(UrlImage(imageUrl: imageUrl));
@@ -19,21 +19,13 @@ class StepItemCubit extends Cubit<StepItemState> {
     }
   }
 
-  Future<void> pickImageForChanging({required ImageSource imageSource}) async {
+  Future<void> pickAndSetImage({required ImageSource imageSource}) async {
     final returnedImage = await _croppedImagePickerHelper
         .pickSquareCroppedImage(imageSource: imageSource);
     if (returnedImage == null) return;
     var imageFile = File(returnedImage.path);
-      emit(NoImage());
-    emit(PickedChangeStepImage(stepImageFile: imageFile));
-  }
-
-  Future<void> pickImageForAdding({required ImageSource imageSource}) async {
-    final returnedImage = await _croppedImagePickerHelper
-        .pickSquareCroppedImage(imageSource: imageSource);
-    if (returnedImage == null) return;
-    var imageFile = File(returnedImage.path);
-    emit(PickedAddStepImage(stepImageFile: imageFile));
+    emit(NoImage());
+    emit(PickedSetStepImage(stepImageFile: imageFile));
   }
 
   void removeImage() {

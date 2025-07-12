@@ -4,7 +4,7 @@ import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/step_image_manager.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_step_image_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +22,9 @@ class EnterStepItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var editRecipeCubit = context.read<EditRecipeFormCubit>();
+    var editRecipeFormModel = editRecipeCubit.editRecipeFormModel;
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -53,24 +56,20 @@ class EnterStepItem extends StatelessWidget {
                 focusNode: focusNode,
                 validator: (value) =>
                     FormValidators.requiredNumberOfCharacters(value, 2),
-                initialValue:
-                    context.read<EditRecipeFormCubit>().steps[stepIndex],
+                initialValue: editRecipeFormModel.steps[stepIndex].stepText,
                 onSaved: (step) {
-                  context.read<EditRecipeFormCubit>().steps[stepIndex] = step!;
+                  editRecipeFormModel.steps[stepIndex].stepText = step!;
                 },
                 onChanged: (stepChange) {
-                  context.read<EditRecipeFormCubit>().steps[stepIndex] =
-                      stepChange;
+                  editRecipeFormModel.steps[stepIndex].stepText = stepChange;
                 },
                 hint: AppLocalizationKeys.upload.stepHint.tr(),
                 borderRadius: 8,
                 maxLines: 4,
               ),
               SizedBox(height: 8.h),
-              StepImageManager(
+              EditStepImageManager(
                 index: stepIndex,
-                recipeDetailsModel:
-                    context.read<EditRecipeFormCubit>().recipeDetailsModel,
               )
             ],
           ),

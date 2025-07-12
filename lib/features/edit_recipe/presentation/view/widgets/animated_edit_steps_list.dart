@@ -1,13 +1,13 @@
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
-import 'package:chefio_app/features/upload/presentation/manager/step_item_cubit/step_item_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/enter_step_item.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_step_item_cubit/edit_step_item_cubit.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/enter_step_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AnimatedAddStepsList extends StatelessWidget {
-  const AnimatedAddStepsList({
+class AnimatedEditStepsList extends StatelessWidget {
+  const AnimatedEditStepsList({
     super.key,
     required this.animatedListKey,
     required this.focusNodes,
@@ -19,10 +19,12 @@ class AnimatedAddStepsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var uploadRecipeCubit = context.read<UploadFormCubit>();
+    var editRecipeCubit = context.read<EditRecipeFormCubit>();
+    var editRecipeModel = editRecipeCubit.editRecipeFormModel;
+
     return SliverAnimatedList(
       key: animatedListKey,
-      initialItemCount: uploadRecipeCubit.steps.length,
+      initialItemCount: editRecipeModel.steps.length,
       itemBuilder: (context, index, animation) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 16.0),
@@ -36,7 +38,7 @@ class AnimatedAddStepsList extends StatelessWidget {
             child: Dismissible(
               key: stepItemsKeys[index],
               onDismissed: (direction) {
-                uploadRecipeCubit.removeStep(
+                editRecipeCubit.removeStep(
                   index: index,
                 );
                 animatedListKey.currentState!.removeItem(index,
@@ -55,11 +57,11 @@ class AnimatedAddStepsList extends StatelessWidget {
                   ),
                 ),
               ),
-              direction: uploadRecipeCubit.steps.length < 3
+              direction: editRecipeModel.steps.length < 3
                   ? DismissDirection.none
                   : DismissDirection.startToEnd,
               child: BlocProvider(
-                create: (context) => StepItemCubit(
+                create: (context) => EditStepItemCubit(
                   getIt<CroppedImagePickerHelper>(),
                 ),
                 child: EnterStepItem(

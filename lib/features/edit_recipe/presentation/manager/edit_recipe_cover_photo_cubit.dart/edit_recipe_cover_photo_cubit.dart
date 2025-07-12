@@ -22,4 +22,6 @@ class EditRecipeCoverPhotoCubit extends Cubit<EditRecipeCoverPhotoState> {
     var recipeImageFile = File(returnedImage.path);
     emit(PickedRecipeImage(recipeImageFile: recipeImageFile));
   }
+
+  void removeImageFile() => UrlImage(imageUrl: imageUrl);
 }

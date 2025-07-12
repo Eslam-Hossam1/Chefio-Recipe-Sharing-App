@@ -1,12 +1,13 @@
-
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
-import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_first_step_page.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_second_step_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EditView extends StatefulWidget {
-  const EditView({super.key,required  this.recipeDetailModel});
-  final RecipeDetailsModel recipeDetailModel;
+  const EditView({
+    super.key,
+  });
   @override
   State<EditView> createState() => _EditViewState();
 }
@@ -32,43 +33,21 @@ class _EditViewState extends State<EditView> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    context.read<EditRecipeFormCubit>().fetchCategories();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(body: SafeArea(
       child: BlocBuilder<EditRecipeFormCubit, EditRecipeFormState>(
-        builder: (context, state) {
-          if (state is CategoriesFailed) {
-            return Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: CustomInfoMessageWithButton(
-                message: state.errorLocalizationKey.tr(),
-                onPressed: context.read<UploadFormCubit>().fetchCategories,
-              ),
-            );
-          } else if (state is LoadingCategories) {
-            return Center(
-              child: CustomCircularProgressIndicator(),
-            );
-          } else {
-            return PageView(
-              controller: _pageController,
-              physics: NeverScrollableScrollPhysics(),
-              children: [
-                UploadFirstStepPage(
-                  onNext: _nextPage,
-                  recipeDetailModel: widget.recipeDetailModel,
-                ),
-                UploadSecondStepPage(onBack: _previousPage),
-              ],
-            );
-          }
-        },
-      ),
+          builder: (context, state) {
+        return PageView(
+          controller: _pageController,
+          physics: NeverScrollableScrollPhysics(),
+          children: [
+            EditRecipeFirstStepPage(
+              onNext: _nextPage,
+            ),
+            EditRecipeSecondStepPage(onBack: _previousPage),
+          ],
+        );
+      }),
     ));
   }
 }
