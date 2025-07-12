@@ -9,18 +9,14 @@ import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:chefio_app/features/auth/presentation/manager/forgot_password_cubit/forgot_password_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/manager/forgot_password_verification_code_cubit/forgot_password_verification_code_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/manager/verification_code_cubit/verification_code_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/view/forgot_password_verfication_code_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/forgot_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/sign_up_view.dart';
-import 'package:chefio_app/features/auth/presentation/view/verification_code_view.dart';
 import 'package:chefio_app/features/edit_profile/data/repos/edit_profile_repo_impl.dart';
 import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profile/edit_profile_cubit.dart';
 import 'package:chefio_app/features/edit_profile/presentation/views/edit_profile_view.dart';
@@ -278,27 +274,12 @@ class AppRouter {
           child: const SignUpView(),
         ),
       ),
-      GoRoute(
-        path: RoutePaths.verificationCode,
-        builder: (context, state) => BlocProvider(
-          create: (context) => VerificationCodeCubit(getIt<AuthRepoImpl>()),
-          child: VerificationCodeView(email: state.extra as String),
-        ),
-      ),
+
       GoRoute(
         path: RoutePaths.forgetPassword,
         builder: (context, state) => BlocProvider(
           create: (context) => ForgotPasswordCubit(getIt<AuthRepoImpl>()),
           child: const ForgotPasswordView(),
-        ),
-      ),
-      GoRoute(
-        path: RoutePaths.forgotPasswordVerificationCode,
-        builder: (context, state) => BlocProvider(
-          create: (context) =>
-              ForgotPasswordVerificationCodeCubit(getIt<AuthRepoImpl>()),
-          child:
-              ForgotPasswordVerificationCodeView(email: state.extra as String),
         ),
       ),
       GoRoute(
