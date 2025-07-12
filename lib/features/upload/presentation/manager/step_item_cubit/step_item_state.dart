@@ -11,17 +11,8 @@ final class StepInitial extends StepItemState {}
 
 final class NoImage extends StepItemState {}
 
-
-
-
-final class PickedSetStepImage extends PickedStepImageState  {
- const PickedSetStepImage({required super.stepImageFile});
-
-}
-
-abstract class PickedStepImageState extends StepItemState {
+final class PickedSetStepImage extends StepItemState {
   final File stepImageFile;
 
- const PickedStepImageState({required this.stepImageFile});
-
+  const PickedSetStepImage({required this.stepImageFile});
 }

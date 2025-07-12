@@ -17,6 +17,7 @@ class StepItemCubit extends Cubit<StepItemState> {
         .pickSquareCroppedImage(imageSource: imageSource);
     if (returnedImage == null) return;
     var imageFile = File(returnedImage.path);
+    emit(NoImage());
     emit(PickedSetStepImage(stepImageFile: imageFile));
   }
 

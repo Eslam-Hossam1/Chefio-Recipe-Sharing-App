@@ -56,13 +56,13 @@ class StepFileImage extends StatelessWidget {
     return pickImage;
   }
   
-  void showChooseImageMethodBottomSheet(BuildContext context) {
+  void showChooseImageMethodBottomSheet(BuildContext parentContext) {
     showModalBottomSheet(
-            backgroundColor: context.scaffoldBackgroundColor,
-            context: context,
+            backgroundColor: parentContext.scaffoldBackgroundColor,
+            context: parentContext,
             builder: (context) {
               return ChooseImageSourceBottomSheet(
-                pickImageMethod: context.read<StepItemCubit>().pickAndSetImage,
+                pickImageMethod: parentContext.read<StepItemCubit>().pickAndSetImage,
               );
             },
           );

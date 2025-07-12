@@ -18,6 +18,12 @@ class AddCoverPhotoCubit extends Cubit<AddCoverPhotoState> {
         .pickSquareCroppedImage(imageSource: imageSource);
     if (returnedImage == null) return;
     var recipeImageFile = File(returnedImage.path);
-    emit(PickedRecipeImage(recipeImageFile: recipeImageFile));
+    // Emit a new state with timestamp to avoid Bloc ignoring identical states
+    emit(
+      PickedRecipeImage(
+        recipeImageFile: recipeImageFile,
+        timestamp: DateTime.now(),
+      ),
+    );
   }
 }

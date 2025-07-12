@@ -166,7 +166,7 @@
         "try_again": "Try Again",
         "take_from_gallery": "Take From Gallery",
         "take_from_camera": "Take From Camera",
-        "delete_recipe": "Eliminar receta",
+        "delete_recipe": "Delete Recipe",
         "delete_recipe_confirmation": "¿Estás seguro de que deseas eliminar esta receta?"
     },
     "errors": {

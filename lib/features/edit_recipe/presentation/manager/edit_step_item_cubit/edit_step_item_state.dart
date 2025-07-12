@@ -17,12 +17,9 @@ final class UrlImage extends StepItemState {
   const UrlImage({required this.imageUrl});
 }
 
-final class PickedSetStepImage extends PickedStepImageState {
-  const PickedSetStepImage({required super.stepImageFile});
-}
+final class PickedSetStepImage extends StepItemState {
+    final File stepImageFile;
 
-abstract class PickedStepImageState extends StepItemState {
-  final File stepImageFile;
+ const  PickedSetStepImage({required this.stepImageFile});
 
-  const PickedStepImageState({required this.stepImageFile});
 }

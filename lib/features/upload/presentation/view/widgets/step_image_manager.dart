@@ -23,7 +23,7 @@ class StepImageManager extends StatelessWidget {
             );
       }
     }, builder: (context, state) {
-      if (state is PickedStepImageState) {
+      if (state is PickedSetStepImage) {
         return StepFileImage(
           fileImage: state.stepImageFile,
           stepImageIndex: index,

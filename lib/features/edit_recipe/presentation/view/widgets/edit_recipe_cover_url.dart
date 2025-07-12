@@ -13,6 +13,9 @@ class EditRecipeCoverUrl extends StatelessWidget {
   final String imageUrl;
   @override
   Widget build(BuildContext context) {
+    var pickImageMethod =
+        context.read<EditRecipeCoverPhotoCubit>().pickRecipeImage;
+
     return GestureDetector(
       onTap: () {
         showModalBottomSheet(
@@ -21,7 +24,7 @@ class EditRecipeCoverUrl extends StatelessWidget {
           builder: (context) {
             return ChooseImageSourceBottomSheet(
               pickImageMethod:
-                  context.read<EditRecipeCoverPhotoCubit>().pickRecipeImage,
+                  pickImageMethod,
             );
           },
         );

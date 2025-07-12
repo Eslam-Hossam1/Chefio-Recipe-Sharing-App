@@ -1,9 +1,7 @@
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
-import 'package:chefio_app/features/upload/presentation/manager/step_item_cubit/step_item_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -16,8 +14,6 @@ class AddStepPhotoButton extends StatelessWidget {
       pickImageMethodForAdding;
   @override
   Widget build(BuildContext context) {
-    final stepItemCubit = context.read<StepItemCubit>();
-
     return SizedBox(
       width: double.infinity,
       height: 44,

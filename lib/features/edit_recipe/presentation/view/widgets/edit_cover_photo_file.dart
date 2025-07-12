@@ -59,14 +59,14 @@ class EditRecipeCoverFile extends StatelessWidget {
     return pickImage;
   }
 
-  void showChooseImageMethodBottomSheet(BuildContext context) {
+  void showChooseImageMethodBottomSheet(BuildContext parentContext) {
     showModalBottomSheet(
-      backgroundColor: context.scaffoldBackgroundColor,
-      context: context,
+      backgroundColor: parentContext.scaffoldBackgroundColor,
+      context: parentContext,
       builder: (context) {
         return ChooseImageSourceBottomSheet(
           pickImageMethod:
-              context.read<EditRecipeCoverPhotoCubit>().pickRecipeImage,
+              parentContext.read<EditRecipeCoverPhotoCubit>().pickRecipeImage,
         );
       },
     );

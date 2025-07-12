@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_cooking_duration_section.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_cover_photo.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_cover_photo_manager.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_food_name_and_description_section.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_next_button.dart';
 import 'package:chefio_app/core/widgets/sliver_set_recipe_header.dart';
@@ -52,7 +52,7 @@ class _EditRecipeFirstStepPageState extends State<EditRecipeFirstStepPage>
               ),
             ),
             SliverToBoxAdapter(
-              child: EditRecipeCoverPhoto(),
+              child: EditRecipeCoverPhotoManager(),
             ),
             SliverToBoxAdapter(
               child: SizedBox(

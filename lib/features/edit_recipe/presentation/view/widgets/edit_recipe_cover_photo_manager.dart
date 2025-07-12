@@ -6,8 +6,8 @@ import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/empty_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class EditRecipeCoverPhoto extends StatelessWidget {
-  const EditRecipeCoverPhoto({
+class EditRecipeCoverPhotoManager extends StatelessWidget {
+  const EditRecipeCoverPhotoManager({
     super.key,
   });
   @override
