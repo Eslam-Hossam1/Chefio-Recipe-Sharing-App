@@ -11,17 +11,27 @@ class DioConsumer extends ApiConsumer {
 
   DioConsumer({required this.dio}) {
     dio.options.baseUrl = EndPoints.baseUrl;
-    dio.interceptors.add(ApiInterceptor(
-        client: dio, authCredentialsHelper: getIt<AuthCredentialsHelper>()));
+    _setupInterceptors();
+  }
+
+  void _setupInterceptors() {
+    dio.interceptors.add(
+      ApiInterceptor(
+        client: dio,
+        authCredentialsHelper: getIt<AuthCredentialsHelper>(),
+      ),
+    );
     if (kDebugMode) {
-      dio.interceptors.add(LogInterceptor(
-        request: true,
-        requestHeader: true,
-        requestBody: true,
-        responseHeader: true,
-        responseBody: true,
-        error: true,
-      ));
+      dio.interceptors.add(
+        LogInterceptor(
+          request: true,
+          requestHeader: true,
+          requestBody: true,
+          responseHeader: true,
+          responseBody: true,
+          error: true,
+        ),
+      );
     }
   }
 

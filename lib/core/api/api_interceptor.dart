@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
@@ -13,44 +12,45 @@ import 'package:go_router/go_router.dart';
 class ApiInterceptor extends Interceptor {
   final Dio client;
   final AuthCredentialsHelper authCredentialsHelper;
-  ApiInterceptor({required this.client, required this.authCredentialsHelper});
+
+  ApiInterceptor({
+    required this.client,
+    required this.authCredentialsHelper,
+  });
 
   @override
-  void onRequest(
-      RequestOptions options, RequestInterceptorHandler handler) async {
-    String? token = authCredentialsHelper.accessToken;
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+    final token = authCredentialsHelper.accessToken;
+
     options.headers[ApiKeys.authorization] = token;
     options.headers[ApiKeys.client] = "not-browser";
+
     super.onRequest(options, handler);
   }
 
   @override
-  Future<void> onError(
-      DioException err, ErrorInterceptorHandler handler) async {
-    debugPrint(
-        'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
+  Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
+    debugPrint('ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
 
-    if (err.response?.statusCode == 401) {
-      if (authCredentialsHelper.userIsAuthenticated() &&
-          !(err.requestOptions.extra['retrying'] ?? false)) {
-        // ⬅️ منع التكرار
+    final isUnauthorized = err.response?.statusCode == 401;
+    final isUserLoggedIn = authCredentialsHelper.userIsAuthenticated();
+    final hasNotRetried = !(err.requestOptions.extra['retrying'] ?? false);
 
-        err.requestOptions.extra['retrying'] =
-            true; // ⬅️ إضافة علامة إننا بنعمل retry
+    if (isUnauthorized && isUserLoggedIn && hasNotRetried) {
+      err.requestOptions.extra['retrying'] = true;
 
-        try {
-          bool refreshed = await _refreshToken();
-          if (refreshed) {
-            return handler.resolve(await _retry(err.requestOptions));
-          } else {
-            // authCredentialsHelper
-            //     .clearTokens(); // ⬅️ حذف بيانات المستخدم لو التوكن فشل
-          }
-        } catch (e) {
-          log(e.toString());
-          // authCredentialsHelper
-          //     .clearTokens(); // ⬅️ تأكيد حذف التوكنات لو حصل خطأ
+      try {
+        final refreshed = await _refreshToken();
+
+        if (refreshed) {
+          final response = await _retry(err.requestOptions);
+          return handler.resolve(response);
+        } else {
+          _handleSessionEnd();
         }
+      } catch (e) {
+        log(e.toString());
+        _handleSessionEnd();
       }
     }
 
@@ -62,10 +62,13 @@ class ApiInterceptor extends Interceptor {
       method: requestOptions.method,
       headers: requestOptions.headers,
     );
-    return client.request<dynamic>(requestOptions.path,
-        data: requestOptions.data,
-        queryParameters: requestOptions.queryParameters,
-        options: options);
+
+    return client.request<dynamic>(
+      requestOptions.path,
+      data: requestOptions.data,
+      queryParameters: requestOptions.queryParameters,
+      options: options,
+    );
   }
 
   Future<bool> _refreshToken() async {
@@ -73,34 +76,40 @@ class ApiInterceptor extends Interceptor {
       final response = await client.post(EndPoints.refreshToken, data: {
         ApiKeys.refreshToken: authCredentialsHelper.refreshToken,
       });
-      log(response.toString());
-      log('refresh success');
+
       final json = response.data;
-      String accessToken = json[ApiKeys.newAccessToken];
-      await authCredentialsHelper.storeAccessToken(accessToken);
+      final newAccessToken = json[ApiKeys.newAccessToken];
+
+      await authCredentialsHelper.storeAccessToken(newAccessToken);
+
+      log('Access token refreshed');
       return true;
-    } on Exception catch (e) {
-      if (e is DioException) {
-        if (e.response?.statusCode != null) {
-          if (e.response?.statusCode == 401 || e.response?.statusCode == 403 || e.response?.statusCode == 404) {
-            authCredentialsHelper
-                .clearTokens(); // ⬅️ احذف بيانات المستخدم لو التوكن فشل
-            log('refresh token expired');
-            final context = AppRouter.rootNavigatorKey.currentState!.context;
-            DialogHelper.showEndSessionDialog(
-              context,
-              onDismissCallback: (p0) {
-                context.go(RoutePaths.login);
-              },
-              btnOkOnPress: () {
-                context.go(RoutePaths.login);
-              },
-            );
-          }
-        }
+    } on DioException catch (e) {
+      final statusCode = e.response?.statusCode;
+
+      if (statusCode == 401 || statusCode == 403 || statusCode == 404) {
+        log('Refresh token expired or invalid');
+        _handleSessionEnd();
       }
 
       return false;
+    } catch (e) {
+      log('Unexpected error during token refresh: $e');
+      _handleSessionEnd();
+      return false;
+    }
+  }
+
+  void _handleSessionEnd() {
+    authCredentialsHelper.clearTokens();
+
+    final context = AppRouter.rootNavigatorKey.currentState?.context;
+    if (context != null) {
+      DialogHelper.showEndSessionDialog(
+        context,
+        onDismissCallback: (_) => context.go(RoutePaths.login),
+        btnOkOnPress: () => context.go(RoutePaths.login),
+      );
     }
   }
 }
