@@ -12,7 +12,7 @@ import 'package:chefio_app/features/auth/presentation/manager/forgot_password_cu
 import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/reset_password_cubit/reset_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
-import 'package:chefio_app/features/auth/presentation/manager/validate_sign_up_password_cubit/validate_sign_up_password_cubit.dart';
+import 'package:chefio_app/features/auth/presentation/manager/validate_password_cubit/validate_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/forgot_password_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/login_view.dart';
 import 'package:chefio_app/features/auth/presentation/view/reset_password_view.dart';
@@ -269,12 +269,11 @@ class AppRouter {
           providers: [
             BlocProvider(
                 create: (context) => SignUpCubit(getIt<AuthRepoImpl>())),
-            BlocProvider(create: (context) => ValidateSignUpPasswordCubit()),
+            BlocProvider(create: (context) => ValidatePasswordCubit()),
           ],
           child: const SignUpView(),
         ),
       ),
-
       GoRoute(
         path: RoutePaths.forgetPassword,
         builder: (context, state) => BlocProvider(
@@ -286,7 +285,7 @@ class AppRouter {
         path: RoutePaths.resetPassword,
         builder: (context, state) => MultiBlocProvider(
           providers: [
-            BlocProvider(create: (context) => ValidateSignUpPasswordCubit()),
+            BlocProvider(create: (context) => ValidatePasswordCubit()),
             BlocProvider(
                 create: (context) => ResetPasswordCubit(getIt<AuthRepoImpl>())),
           ],

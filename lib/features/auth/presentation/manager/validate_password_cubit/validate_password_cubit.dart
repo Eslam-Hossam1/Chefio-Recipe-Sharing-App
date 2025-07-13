@@ -3,10 +3,10 @@ import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_loc
 import 'package:easy_localization/easy_localization.dart';
 import 'package:meta/meta.dart';
 
-part 'validate_sign_up_password_state.dart';
+part 'validate_password_state.dart';
 
-class ValidateSignUpPasswordCubit extends Cubit<ValidateSignUpPasswordState> {
-  ValidateSignUpPasswordCubit() : super(ValidateSignUpPasswordInitial());
+class ValidatePasswordCubit extends Cubit<ValidatePasswordState> {
+  ValidatePasswordCubit() : super(ValidatePasswordInitial());
   bool isMinLengthValid = false;
   bool isContainsNumberValid = false;
   bool isContainsUppercaseLetter = false;
@@ -28,7 +28,7 @@ class ValidateSignUpPasswordCubit extends Cubit<ValidateSignUpPasswordState> {
     isContainsUppercaseLetter = uppercaseRegex.hasMatch(password);
     isContainsSpecialLetter = specialLetterRegex.hasMatch(password);
     isContainsLowercaseLetter = lowercaseRegex.hasMatch(password);
-    emit(ValidateSignUpPasswordUpdate());
+    emit(ValidatePasswordUpdate());
   }
 
   bool validateAtLeastSixChar({required String password}) {
