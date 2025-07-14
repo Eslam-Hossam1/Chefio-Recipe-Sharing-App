@@ -4,7 +4,7 @@ import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
 import 'package:chefio_app/features/upload_recipe/data/models/upload_recipe_form_model.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,8 +14,8 @@ class UploadChooseCategorySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final UploadRecipeFormModel uploadRecipeFormModel =
-        context.read<UploadFormCubit>().uploadRecipeFormModel;
+    final UploadRecipeFormModel uploadRecipeFormModel =
+        context.read<UploadRecipeFormCubit>().uploadRecipeFormModel;
 
     return SliverToBoxAdapter(
       child: Column(
@@ -32,7 +32,7 @@ class UploadChooseCategorySection extends StatelessWidget {
           ),
           CategoriesListView(
             applyPadding: false,
-            categories: context.read<UploadFormCubit>().categories,
+            categories: context.read<UploadRecipeFormCubit>().categories,
             onCategoryPressed: (category) {
               uploadRecipeFormModel.categoryId = category.id;
             },

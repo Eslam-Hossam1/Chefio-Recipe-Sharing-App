@@ -4,7 +4,7 @@ import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/upload_recipe/data/models/upload_recipe_form_model.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,8 +16,8 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final UploadRecipeFormModel uploadRecipeFormModel =
-        context.read<UploadFormCubit>().uploadRecipeFormModel;
+    final UploadRecipeFormModel uploadRecipeFormModel =
+        context.read<UploadRecipeFormCubit>().uploadRecipeFormModel;
 
     return SliverToBoxAdapter(
       child: Column(
@@ -58,8 +58,7 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
                 FormValidators.requiredNumberOfCharacters(value, 3),
             initialValue: uploadRecipeFormModel.foodDescription,
             onSaved: (foodDescription) {
-             uploadRecipeFormModel.foodDescription =
-                  foodDescription!;
+              uploadRecipeFormModel.foodDescription = foodDescription!;
             },
             hint: AppLocalizationKeys.upload.descriptionHint.tr(),
             borderRadius: 8,

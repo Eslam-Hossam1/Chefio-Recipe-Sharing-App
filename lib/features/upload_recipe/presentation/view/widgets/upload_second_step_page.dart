@@ -4,7 +4,7 @@ import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/sliver_set_recipe_header.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_submit_cubit/upload_submit_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_submit_cubit/upload_recipe_submit_cubit.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/add_ingredient_button.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/add_step_button.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/animated_add_ingredients_list.dart';
@@ -42,7 +42,7 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return BlocConsumer<UploadSubmitCubit, UploadSubmitState>(
+    return BlocConsumer<UploadRecipeSubmitCubit, UploadRecipeSubmitState>(
       listener: (context, state) {
         if (state is UploadSubmitFailure) {
           DialogHelper.showErrorDialog(

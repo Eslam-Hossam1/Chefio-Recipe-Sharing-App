@@ -4,7 +4,7 @@ import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/upload_recipe/data/models/upload_recipe_form_model.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/step_image_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class EnterStepItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UploadRecipeFormModel uploadRecipeFormModel =
-        context.read<UploadFormCubit>().uploadRecipeFormModel;
+        context.read<UploadRecipeFormCubit>().uploadRecipeFormModel;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -56,16 +56,12 @@ class EnterStepItem extends StatelessWidget {
                 focusNode: focusNode,
                 validator: (value) =>
                     FormValidators.requiredNumberOfCharacters(value, 2),
-                initialValue: uploadRecipeFormModel
-                    .steps[stepIndex]
-                    .stepText,
+                initialValue: uploadRecipeFormModel.steps[stepIndex].stepText,
                 onSaved: (step) {
-                  uploadRecipeFormModel.steps[stepIndex].stepText =
-                      step!;
+                  uploadRecipeFormModel.steps[stepIndex].stepText = step!;
                 },
                 onChanged: (stepChange) {
-                  uploadRecipeFormModel.steps[stepIndex].stepText =
-                      stepChange;
+                  uploadRecipeFormModel.steps[stepIndex].stepText = stepChange;
                 },
                 hint: AppLocalizationKeys.upload.stepHint.tr(),
                 borderRadius: 8,

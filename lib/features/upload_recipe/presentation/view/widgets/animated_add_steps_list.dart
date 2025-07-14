@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/manager/step_item_cubit/step_item_cubit.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/enter_step_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +19,7 @@ class AnimatedAddStepsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var uploadRecipeCubit = context.read<UploadFormCubit>();
+    var uploadRecipeCubit = context.read<UploadRecipeFormCubit>();
     return SliverAnimatedList(
       key: animatedListKey,
       initialItemCount: uploadRecipeCubit.uploadRecipeFormModel.steps.length,
@@ -55,9 +55,10 @@ class AnimatedAddStepsList extends StatelessWidget {
                   ),
                 ),
               ),
-              direction: uploadRecipeCubit.uploadRecipeFormModel.steps.length < 3
-                  ? DismissDirection.none
-                  : DismissDirection.startToEnd,
+              direction:
+                  uploadRecipeCubit.uploadRecipeFormModel.steps.length < 3
+                      ? DismissDirection.none
+                      : DismissDirection.startToEnd,
               child: BlocProvider(
                 create: (context) => StepItemCubit(
                   getIt<CroppedImagePickerHelper>(),

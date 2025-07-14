@@ -24,7 +24,7 @@ import 'package:chefio_app/features/otp/data/repos/otp_repo_impl.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/search/data/repos/search_recipe_rebo_impl.dart';
-import 'package:chefio_app/features/upload_recipe/data/repos/upload_repo_impl.dart';
+import 'package:chefio_app/features/upload_recipe/data/repos/upload_recipe_repo_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -103,8 +103,8 @@ Future<void> setupServiceLocator() async {
       getIt<CategoriesService>(),
     ),
   );
-  getIt.registerSingleton<UploadRepoImpl>(
-    UploadRepoImpl(
+  getIt.registerSingleton<UploadRecipeRepoImpl>(
+    UploadRecipeRepoImpl(
       getIt<DioConsumer>(),
       getIt<CategoriesService>(),
     ),

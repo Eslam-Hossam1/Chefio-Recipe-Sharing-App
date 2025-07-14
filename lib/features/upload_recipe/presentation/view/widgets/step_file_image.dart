@@ -5,7 +5,7 @@ import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
 import 'package:chefio_app/core/widgets/step_image_file_thumbnail.dart';
 import 'package:chefio_app/core/widgets/step_image_dialog.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/manager/step_item_cubit/step_item_cubit.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,14 +16,13 @@ class StepFileImage extends StatelessWidget {
   final int stepImageIndex;
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: () async {
         final parentContext = context;
         bool? pickImage;
         pickImage = await showStepImageDialog(pickImage, parentContext);
         if (pickImage != null && pickImage) {
-          if(context.mounted){
+          if (context.mounted) {
             showChooseImageMethodBottomSheet(context);
           }
         }
@@ -45,7 +44,7 @@ class StepFileImage extends StatelessWidget {
             fileImage,
           ),
           removeImageMethod: () {
-            parentContext.read<UploadFormCubit>().removeStepImage(
+            parentContext.read<UploadRecipeFormCubit>().removeStepImage(
                   index: stepImageIndex,
                 );
             parentContext.read<StepItemCubit>().removeImage();
@@ -55,16 +54,16 @@ class StepFileImage extends StatelessWidget {
     );
     return pickImage;
   }
-  
+
   void showChooseImageMethodBottomSheet(BuildContext parentContext) {
     showModalBottomSheet(
-            backgroundColor: parentContext.scaffoldBackgroundColor,
-            context: parentContext,
-            builder: (context) {
-              return ChooseImageSourceBottomSheet(
-                pickImageMethod: parentContext.read<StepItemCubit>().pickAndSetImage,
-              );
-            },
-          );
+      backgroundColor: parentContext.scaffoldBackgroundColor,
+      context: parentContext,
+      builder: (context) {
+        return ChooseImageSourceBottomSheet(
+          pickImageMethod: parentContext.read<StepItemCubit>().pickAndSetImage,
+        );
+      },
+    );
   }
 }

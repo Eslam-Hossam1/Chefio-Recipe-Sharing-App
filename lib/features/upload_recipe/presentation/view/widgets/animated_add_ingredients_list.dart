@@ -1,4 +1,4 @@
-import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/enter_ingredient_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,10 +15,11 @@ class AnimatedAddIngredientsList extends StatelessWidget {
   final List<Key> ingredientItemsKeys;
   @override
   Widget build(BuildContext context) {
-    var uploadRecipeCubit = context.read<UploadFormCubit>();
+    var uploadRecipeCubit = context.read<UploadRecipeFormCubit>();
     return SliverAnimatedList(
       key: animatedListKey,
-      initialItemCount: uploadRecipeCubit.uploadRecipeFormModel.ingredients.length,
+      initialItemCount:
+          uploadRecipeCubit.uploadRecipeFormModel.ingredients.length,
       itemBuilder: (context, index, animation) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 16.0),
@@ -51,9 +52,11 @@ class AnimatedAddIngredientsList extends StatelessWidget {
                     ),
                   ),
                 ),
-                direction: uploadRecipeCubit.uploadRecipeFormModel.ingredients.length < 3
-                    ? DismissDirection.none
-                    : DismissDirection.startToEnd,
+                direction:
+                    uploadRecipeCubit.uploadRecipeFormModel.ingredients.length <
+                            3
+                        ? DismissDirection.none
+                        : DismissDirection.startToEnd,
                 child: EnterIngredientItem(
                   ingredientIndex: index,
                   focusNode: focusNodes[index],

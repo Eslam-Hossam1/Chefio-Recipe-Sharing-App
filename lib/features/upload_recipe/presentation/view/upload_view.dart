@@ -2,7 +2,7 @@ import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_first_step_page.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_second_step_page.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -10,7 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UploadView extends StatefulWidget {
-  const UploadView({super.key,});
+  const UploadView({
+    super.key,
+  });
   @override
   State<UploadView> createState() => _UploadViewState();
 }
@@ -39,20 +41,21 @@ class _UploadViewState extends State<UploadView> {
   void initState() {
     super.initState();
 
-    context.read<UploadFormCubit>().fetchCategories();
+    context.read<UploadRecipeFormCubit>().fetchCategories();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: SafeArea(
-      child: BlocBuilder<UploadFormCubit, UploadFormState>(
+      child: BlocBuilder<UploadRecipeFormCubit, UploadRecipeFormState>(
         builder: (context, state) {
           if (state is CategoriesFailed) {
             return Padding(
               padding: const EdgeInsets.all(32.0),
               child: CustomInfoMessageWithButton(
                 message: state.errorLocalizationKey.tr(),
-                onPressed: context.read<UploadFormCubit>().fetchCategories,
+                onPressed:
+                    context.read<UploadRecipeFormCubit>().fetchCategories,
               ),
             );
           } else if (state is LoadingCategories) {

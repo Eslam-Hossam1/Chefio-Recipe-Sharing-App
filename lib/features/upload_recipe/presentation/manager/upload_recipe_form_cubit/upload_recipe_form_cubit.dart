@@ -4,18 +4,18 @@ import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/upload_recipe/data/models/upload_recipe_form_model.dart';
 import 'package:chefio_app/features/upload_recipe/data/models/upload_step_model.dart';
-import 'package:chefio_app/features/upload_recipe/data/repos/upload_repo.dart';
+import 'package:chefio_app/features/upload_recipe/data/repos/upload_recipe_repo.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-part 'upload_form_state.dart';
+part 'upload_recipe_form_state.dart';
 
-class UploadFormCubit extends Cubit<UploadFormState> {
-  final UploadRepo _uploadRepo;
+class UploadRecipeFormCubit extends Cubit<UploadRecipeFormState> {
+  final UploadRecipeRepo _uploadRepo;
   final UploadRecipeFormModel uploadRecipeFormModel = UploadRecipeFormModel();
 
   List<Category> categories = [];
-  UploadFormCubit(
+  UploadRecipeFormCubit(
     this._uploadRepo,
   ) : super(UploadFormInitial());
 
@@ -23,7 +23,8 @@ class UploadFormCubit extends Cubit<UploadFormState> {
     required GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey,
   }) {
     uploadRecipeFormModel.ingredients.add("");
-    ingredientsAnimatedListKey.currentState!.insertItem(uploadRecipeFormModel.ingredients.length - 1);
+    ingredientsAnimatedListKey.currentState!
+        .insertItem(uploadRecipeFormModel.ingredients.length - 1);
   }
 
   void addStep({
@@ -34,20 +35,22 @@ class UploadFormCubit extends Cubit<UploadFormState> {
         stepText: '',
       ),
     );
-    stepsAnimatedListKey.currentState!.insertItem(uploadRecipeFormModel.steps.length - 1);
+    stepsAnimatedListKey.currentState!
+        .insertItem(uploadRecipeFormModel.steps.length - 1);
   }
 
-  void removeIngredient({required int index}) => uploadRecipeFormModel.ingredients.removeAt(index);
+  void removeIngredient({required int index}) =>
+      uploadRecipeFormModel.ingredients.removeAt(index);
   void removeStep({required int index}) {
     uploadRecipeFormModel.steps.removeAt(index);
   }
 
   void setStepImage({required int stepIndex, required File stepImageFile}) {
-   uploadRecipeFormModel. steps[stepIndex].stepImageFile = stepImageFile;
+    uploadRecipeFormModel.steps[stepIndex].stepImageFile = stepImageFile;
   }
 
   void removeStepImage({required int index}) {
-   uploadRecipeFormModel. steps[index].stepImageFile = null;
+    uploadRecipeFormModel.steps[index].stepImageFile = null;
   }
 
   Future<void> fetchCategories() async {
@@ -75,6 +78,4 @@ class UploadFormCubit extends Cubit<UploadFormState> {
       return false;
     }
   }
-
-  
 }

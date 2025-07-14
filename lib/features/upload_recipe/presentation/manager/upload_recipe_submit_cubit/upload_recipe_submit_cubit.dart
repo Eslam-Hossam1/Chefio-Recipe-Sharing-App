@@ -1,18 +1,17 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/features/upload_recipe/data/models/upload_recipe_model.dart';
-import 'package:chefio_app/features/upload_recipe/data/repos/upload_repo.dart';
+import 'package:chefio_app/features/upload_recipe/data/repos/upload_recipe_repo.dart';
 import 'package:equatable/equatable.dart';
 
-part 'upload_submit_state.dart';
+part 'upload_recipe_submit_state.dart';
 
-class UploadSubmitCubit extends Cubit<UploadSubmitState> {
-  final UploadRepo _uploadRepo;
+class UploadRecipeSubmitCubit extends Cubit<UploadRecipeSubmitState> {
+  final UploadRecipeRepo _uploadRepo;
 
-  UploadSubmitCubit({required UploadRepo uploadRepo})
+  UploadRecipeSubmitCubit({required UploadRecipeRepo uploadRepo})
       : _uploadRepo = uploadRepo,
         super(UploadSubmitInitial());
 
-  
   Future<void> uploadRecipe(
       {required UploadRecipeModel uploadRecipeModel}) async {
     emit(UploadSubmitLoading());

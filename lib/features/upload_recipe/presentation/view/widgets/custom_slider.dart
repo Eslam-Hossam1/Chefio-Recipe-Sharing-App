@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/slider_duration_label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
