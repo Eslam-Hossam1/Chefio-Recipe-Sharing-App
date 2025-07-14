@@ -19,10 +19,10 @@ class EditRecipeFormCubit extends Cubit<EditRecipeFormState> {
     required CategoriesService categoriesService,
   })  : categories = categoriesService.categories,
         super(CategoriesLoaded()) {
-    moveRecipeCategoryToTheFirstIndex();
+    _moveRecipeCategoryToTheFirstIndex();
   }
 
-  void moveRecipeCategoryToTheFirstIndex() {
+  void _moveRecipeCategoryToTheFirstIndex() {
     for (int i = 0; i < categories.length; i++) {
       if (categories[i].id == editRecipeFormModel.categoryId) {
         Category temp = categories[i];
