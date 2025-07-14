@@ -24,7 +24,6 @@ import 'package:chefio_app/features/otp/data/repos/otp_repo_impl.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/search/data/repos/search_recipe_rebo_impl.dart';
-import 'package:chefio_app/features/splash/presentation/view_model/splash_view_model.dart';
 import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -92,11 +91,7 @@ Future<void> setupServiceLocator() async {
   getIt.registerSingleton<GoogleAuthService>(
     GoogleAuthService(),
   );
-  getIt.registerSingleton<SplashViewModel>(
-    SplashViewModel(
-      getIt<AuthCredentialsHelper>(),
-    ),
-  );
+
   getIt.registerSingleton<AuthRepoImpl>(
     AuthRepoImpl(
       getIt<DioConsumer>(),

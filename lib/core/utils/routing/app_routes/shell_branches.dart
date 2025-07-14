@@ -22,14 +22,12 @@ import 'package:go_router/go_router.dart';
 abstract class ShellBranches {
   // Define navigator keys
   static final _homeKey = GlobalKey<NavigatorState>();
-  // static final _uploadKey = GlobalKey<NavigatorState>();
   static final _notificationKey = GlobalKey<NavigatorState>();
   static final _profileKey = GlobalKey<NavigatorState>();
 
   // Method to return the list of StatefulShellBranch
   static List<StatefulShellBranch> get branches => [
         _homeBranch(),
-        // _uploadBranch(),
         _notificationBranch(),
         _profileBranch(),
       ];
@@ -66,18 +64,6 @@ abstract class ShellBranches {
       ],
     );
   }
-
-  // static StatefulShellBranch _uploadBranch() {
-  //   return StatefulShellBranch(
-  //     navigatorKey: _uploadKey,
-  //     routes: [
-  //       GoRoute(
-  //         path: RoutePaths.upload,
-  //         builder: (context, state) => const UploadView(),
-  //       ),
-  //     ],
-  //   );
-  // }
 
   static StatefulShellBranch _notificationBranch() {
     return StatefulShellBranch(
