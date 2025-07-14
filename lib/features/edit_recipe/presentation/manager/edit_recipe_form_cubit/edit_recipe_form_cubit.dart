@@ -18,8 +18,21 @@ class EditRecipeFormCubit extends Cubit<EditRecipeFormState> {
     required this.editRecipeFormModel,
     required CategoriesService categoriesService,
   })  : categories = categoriesService.categories,
-        super(CategoriesLoaded());
-        
+        super(CategoriesLoaded()) {
+    moveRecipeCategoryToTheFirstIndex();
+  }
+
+  void moveRecipeCategoryToTheFirstIndex() {
+    for (int i = 0; i < categories.length; i++) {
+      if (categories[i].id == editRecipeFormModel.categoryId) {
+        Category temp = categories[i];
+        categories[i] = categories[0];
+        categories[0] = temp;
+        break;
+      }
+    }
+  }
+
   void addIngerdient({
     required GlobalKey<SliverAnimatedListState> ingredientsAnimatedListKey,
   }) {
