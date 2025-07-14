@@ -1,6 +1,6 @@
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/edit_and_share_pop_up_menu_buton.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_pop_up_menu_buton.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/share_glass_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
