@@ -73,7 +73,7 @@ class OnBoardingBottomSectionTablet extends StatelessWidget {
       BuildContext context) async {
     await getIt<OnBoardingCacheHelper>().setOnBoardingCompletedToTrue(context);
     if (context.mounted) {
-      context.push(RoutePaths.signup);
+      context.go(RoutePaths.signup);
     }
   }
 }
