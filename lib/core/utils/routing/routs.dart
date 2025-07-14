@@ -29,7 +29,7 @@ abstract class RoutePaths {
 
   //Recipe
   static const editRecipe = "/edit-recipe";
-  static const upload = "/upload";
+  static const uploadRecipe = "/upload-recipe";
   static const recipeDetailsWithoutId = "/recipe-detail";
   static const recipeDetails = "$recipeDetailsWithoutId/:id";
 

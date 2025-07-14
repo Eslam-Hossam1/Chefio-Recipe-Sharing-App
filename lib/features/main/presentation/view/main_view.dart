@@ -104,7 +104,7 @@ class _MainScaffoldViewState extends State<MainScaffoldView> {
     required int myProfileItemIndex,
   }) {
     if (callBackIndex == uploadItemIndex) {
-      context.push(RoutePaths.upload);
+      context.push(RoutePaths.uploadRecipe);
       return;
     }
 

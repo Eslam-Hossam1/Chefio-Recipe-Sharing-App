@@ -51,7 +51,7 @@ class ProfileChefRecipesConsumer extends StatelessWidget {
                     AppLocalizationKeys.profile.myProfileNoRecipesMessage.tr(),
                 btnText: AppLocalizationKeys.profile.addRecipe.tr(),
                 onPressed: () {
-                  context.push(RoutePaths.upload);
+                  context.push(RoutePaths.uploadRecipe);
                 },
               ),
             ),

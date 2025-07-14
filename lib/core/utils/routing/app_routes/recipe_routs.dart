@@ -10,11 +10,11 @@ import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_rep
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_actions_cubit/recipe_details_actions_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/recipe_details_view.dart';
-import 'package:chefio_app/features/upload/data/repos/upload_repo_impl.dart';
-import 'package:chefio_app/features/upload/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/manager/upload_submit_cubit/upload_submit_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/view/upload_view.dart';
+import 'package:chefio_app/features/upload_recipe/data/repos/upload_repo_impl.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_form_cubit/upload_form_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_submit_cubit/upload_submit_cubit.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/upload_view.dart';
 import 'package:chefio_app/features/edit_recipe/data/models/edit_recipe_form_model.dart';
 import 'package:chefio_app/features/edit_recipe/data/repos/edit_recipe_repo_impl.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_cover_photo_cubit.dart/edit_recipe_cover_photo_cubit.dart';
@@ -50,7 +50,7 @@ class RecipeRoutes {
         );
       });
   static GoRoute upload = GoRoute(
-    path: RoutePaths.upload,
+    path: RoutePaths.uploadRecipe,
     builder: (context, state) => MultiBlocProvider(
       providers: [
         BlocProvider(

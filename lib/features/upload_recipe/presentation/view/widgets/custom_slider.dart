@@ -4,18 +4,18 @@ import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/slid
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class EditCookingDurationSlider extends StatefulWidget {
-  const EditCookingDurationSlider({
+class Customslider extends StatefulWidget {
+  const Customslider({
     super.key,
     this.initialCurrentValue,required this.onChangeEnd,
   });
   final int? initialCurrentValue;
   final void Function(double) onChangeEnd;
   @override
-  State<EditCookingDurationSlider> createState() => _EditCookingDurationSliderState();
+  State<Customslider> createState() => _CustomsliderState();
 }
 
-class _EditCookingDurationSliderState extends State<EditCookingDurationSlider> {
+class _CustomsliderState extends State<Customslider> {
   late double currentValue;
   @override
   void initState() {
