@@ -1,9 +1,9 @@
+import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/theme/app_colors.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_cover_photo_cubit.dart/edit_recipe_cover_photo_cubit.dart';
-import 'package:chefio_app/features/upload/presentation/view/widgets/step_image_dialog_button.dart';
+import 'package:chefio_app/core/widgets/image_dialog_button.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -31,17 +31,17 @@ class CoverPhotoDialog extends StatelessWidget {
               color: context.scaffoldBackgroundColor,
               child: Row(
                 children: [
-                  StepImageDialogButton(
+                  ImageDialogButton(
                     icon: Icons.edit,
-                    text: 'Edit',
+                    text: AppLocalizationKeys.global.edit.tr(),
                     onTap: () {
                       context.pop(true);
                     },
                   ),
-                  StepImageDialogButton(
+                  ImageDialogButton(
                     icon: Icons.undo,
                     color: AppColors.logoutIcon,
-                    text: 'Reset Image',
+                    text: AppLocalizationKeys.global.undo.tr(),
                     onTap: () {
                       removeImageMethod();
                       context.pop();

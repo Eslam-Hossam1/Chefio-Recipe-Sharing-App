@@ -30,4 +30,8 @@ class Global {
   final String takeFromCamera = 'global.take_from_camera';
   final String deleteRecipe = 'global.delete_recipe';
   final String deleteRecipeConfirmation = 'global.delete_recipe_confirmation';
+  final String edit = 'global.edit';
+  final String remove = 'global.remove';
+  final String restoreImage = 'global.restore_image';
+  final String undo = 'global.undo';
 }
