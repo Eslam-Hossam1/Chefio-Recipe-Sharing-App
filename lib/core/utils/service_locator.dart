@@ -3,6 +3,7 @@ import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
+import 'package:chefio_app/core/helpers/on_boarding_cache_helper.dart';
 import 'package:chefio_app/core/helpers/share_helper.dart';
 import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/core/services/follow_chef_service.dart';
@@ -19,7 +20,6 @@ import 'package:chefio_app/features/edit_profile/data/repos/edit_profile_repo_im
 import 'package:chefio_app/features/edit_recipe/data/repos/edit_recipe_repo_impl.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:chefio_app/features/notifiactions/data/repos/notifications_repo_impl.dart';
-import 'package:chefio_app/features/onboarding/presentation/view_model/onboarding_view_model.dart';
 import 'package:chefio_app/features/otp/data/repos/otp_repo_impl.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
@@ -52,10 +52,6 @@ Future<void> setupServiceLocator() async {
 
   getIt.registerSingleton<SecureStorageHelper>(
     SecureStorageHelper(secureStorage),
-  );
-
-  getIt.registerLazySingleton<OnboardingViewModel>(
-    () => OnboardingViewModel(),
   );
 
   getIt.registerSingleton<AuthCredentialsHelper>(
@@ -169,6 +165,11 @@ Future<void> setupServiceLocator() async {
   getIt.registerSingleton<EditRecipeRepoImpl>(
     EditRecipeRepoImpl(
       getIt<DioConsumer>(),
+    ),
+  );
+  getIt.registerSingleton<OnBoardingCacheHelper>(
+    OnBoardingCacheHelper(
+      sharedPreferencesHelper: getIt<SharedPreferencesHelper>(),
     ),
   );
 }

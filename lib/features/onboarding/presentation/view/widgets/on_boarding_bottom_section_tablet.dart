@@ -1,13 +1,11 @@
+import 'package:chefio_app/core/helpers/on_boarding_cache_helper.dart';
 import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/routing/app_router.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
 import 'package:chefio_app/core/utils/service_locator.dart';
-import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
-import 'package:chefio_app/features/onboarding/presentation/view_model/onboarding_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -73,7 +71,7 @@ class OnBoardingBottomSectionTablet extends StatelessWidget {
 
   Future<void> setOnBoardingCompletedToTrueThenNavigate(
       BuildContext context) async {
-    await getIt<OnboardingViewModel>().setOnBoardingCompletedToTrue(context);
+    await getIt<OnBoardingCacheHelper>().setOnBoardingCompletedToTrue(context);
     if (context.mounted) {
       context.push(RoutePaths.signup);
     }

@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/utils/cache/shared_prefernce_helper.dart';
+import 'package:chefio_app/core/helpers/on_boarding_cache_helper.dart';
 import 'package:chefio_app/core/utils/routing/app_routes/all_routs.dart';
 import 'package:chefio_app/core/utils/routing/router_redirect.dart';
 import 'package:chefio_app/core/utils/routing/routs.dart';
@@ -11,7 +11,7 @@ class AppRouter {
   static final rootNavigatorKey = GlobalKey<NavigatorState>();
   static final routerRedirect = RouterRedirect(
     authCredentialsHelper: getIt<AuthCredentialsHelper>(),
-    sharedPreferencesHelper: getIt<SharedPreferencesHelper>(),
+    onBoardingCacheHelper: getIt<OnBoardingCacheHelper>(),
   );
 
   static final router = GoRouter(
