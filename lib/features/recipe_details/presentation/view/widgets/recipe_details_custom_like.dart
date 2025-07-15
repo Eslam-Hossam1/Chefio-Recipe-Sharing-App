@@ -53,7 +53,7 @@ class _RecipeDetailsCustomLikeState extends State<RecipeDetailsCustomLike> {
       listener: (context, state) {
         if (state is LikeRecipeFailed) {
           showCustomToast(context,
-              message: state.errorLocalizationKey.tr(), seconds: 2);
+              message: state.errorLocalizationKey.tr(), );
         }
         // if (state is LikeRecipeSuccess) {
         //   context.read<LikeRecipeCubit>().syncLikeRecipeFromRecipeDetails(

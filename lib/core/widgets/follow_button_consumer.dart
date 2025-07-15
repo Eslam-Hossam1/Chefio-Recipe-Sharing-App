@@ -40,7 +40,6 @@ class _FollowButtonConsumerState extends State<FollowButtonConsumer> {
           showCustomToast(
             context,
             message: state.errorLocalizationKey.tr(),
-            seconds: 2,
           );
         }
       },

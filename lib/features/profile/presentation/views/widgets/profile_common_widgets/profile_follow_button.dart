@@ -40,7 +40,6 @@ class _ProfileFollowButtonState extends State<ProfileFollowButton> {
         showCustomToast(
           context,
           message: state.errorLocalizationKey.tr(),
-          seconds: 2,
         );
       }
     }, builder: (context, state) {

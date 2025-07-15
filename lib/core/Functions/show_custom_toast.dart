@@ -1,39 +1,41 @@
 import 'package:chefio_app/core/utils/styles.dart';
 import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:toastification/toastification.dart';
 
 void showCustomToast(
   BuildContext context, {
   required String message,
-  int seconds = 3,
 }) {
-  OverlayEntry overlayEntry = OverlayEntry(
-    builder: (context) => Positioned(
-      top: MediaQuery.of(context).size.height * 0.4,
-      left: 0,
-      right: 0,
-      child: Center(
-        child: Container(
-          width: (MediaQuery.sizeOf(context).width * .8).clamp(100, 400),
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          decoration: BoxDecoration(
-            color: context.toastColor,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Text(
-            message,
-            style: Styles.textStyleMedium17(context)
-                .copyWith(color: context.mainTextColor),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ),
+  toastification.show(
+    context: context,
+    type: ToastificationType.info,
+    style: ToastificationStyle.simple,
+    autoCloseDuration: const Duration(seconds: 5),
+    title: Text(
+      message,
+      style: Styles.textStyleMedium17(context)
+          .copyWith(color: context.mainTextColor),
+      textAlign: TextAlign.center,
     ),
+    alignment: Alignment.center,
+    primaryColor: context.primaryColor,
+    backgroundColor: context.toastColor,
+    foregroundColor: context.mainTextColor,
+    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+    margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+    borderRadius: BorderRadius.circular(12),
+    boxShadow: const [
+      BoxShadow(
+        color: Color(0x07000000),
+        blurRadius: 16,
+        offset: Offset(0, 16),
+        spreadRadius: 0,
+      )
+    ],
+    closeOnClick: true,
+    pauseOnHover: true,
+    dragToClose: true,
+    applyBlurEffect: true,
   );
-
-  Overlay.of(context).insert(overlayEntry);
-
-  Future.delayed(Duration(seconds: seconds), () {
-    overlayEntry.remove();
-  });
 }

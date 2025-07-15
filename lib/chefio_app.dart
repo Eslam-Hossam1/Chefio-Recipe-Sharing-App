@@ -75,7 +75,7 @@ class _ChefioState extends State<Chefio> {
                   //getting textTheme bassed on context cuz of using easy localization
                   // for localization to access current locale and get the textTheme bassed on it
                   themeMode: mode,
-                  theme: AppThemes.lightTheme
+                  theme: AppThemes.darkTheme
                       .copyWith(textTheme: getTextTheme(context)),
                   darkTheme: AppThemes.darkTheme
                       .copyWith(textTheme: getTextTheme(context)),

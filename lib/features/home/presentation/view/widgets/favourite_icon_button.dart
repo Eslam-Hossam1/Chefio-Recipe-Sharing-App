@@ -39,7 +39,7 @@ class _FavouriteIconButtonState extends State<FavouriteIconButton> {
       listener: (context, state) {
         if (state is LikeRecipeFailed) {
           showCustomToast(context,
-              message: state.errorLocalizationKey.tr(), seconds: 2);
+              message: state.errorLocalizationKey.tr(),);
         }
       },
       builder: (context, state) {

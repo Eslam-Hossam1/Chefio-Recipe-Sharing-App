@@ -24,7 +24,6 @@ class NotificationFollowButton extends StatelessWidget {
           showCustomToast(
             context,
             message: state.errorLocalizationKey.tr(),
-            seconds: 2,
           );
         }
       },
