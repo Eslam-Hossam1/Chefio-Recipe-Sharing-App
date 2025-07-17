@@ -122,7 +122,7 @@ Chefio is organized by **features**, with clean separation of business logic, se
 
 Chefio was built in close collaboration with a backend engineer, who developed a powerful RESTful API and supported Firebase messaging.
 
-On the frontend side, I:
+On the client side, I:
 - Architected the entire app using MVVM and clean feature modules.
 - Built robust Cubits and reusable logic across features.
 - Integrated REST APIs using Dio with error handling.
