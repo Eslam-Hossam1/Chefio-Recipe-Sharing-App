@@ -49,7 +49,6 @@ It allows users (Chefs) to discover, upload, and share delicious recipes with a 
 
 ### ✏️ Edit Recipe
 - Same interface as Upload with pre-filled data
-- Ability to remove and restore existing step images
 
 ### 👤 Edit Profile
 - Update name, bio, and profile picture
@@ -86,7 +85,6 @@ It allows users (Chefs) to discover, upload, and share delicious recipes with a 
 
 ### 🚀 Onboarding
 - Single-screen onboarding with stylish plate design
-- Responsive in portrait mode for mobile and tablet
 
 ### ⚙️ Settings
 - Switch theme and language
