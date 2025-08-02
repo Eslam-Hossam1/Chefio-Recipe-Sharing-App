@@ -14,7 +14,7 @@ class AuthCredentialsHelper {
   AuthCredentials? _authCredentialsModel;
 
   Future<void> init() async {
-    _authCredentialsModel = AuthCredentials(
+    _authCredentialsModel = AuthCredentials._(
       accessToken: await getAccessToken(),
       refreshToken: await getRefreshToken(),
     );
@@ -73,5 +73,5 @@ class AuthCredentials {
   String? accessToken;
   String? refreshToken;
 
-  AuthCredentials({required this.accessToken, required this.refreshToken});
+  AuthCredentials._({required this.accessToken, required this.refreshToken});
 }
