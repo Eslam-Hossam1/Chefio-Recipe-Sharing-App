@@ -1,5 +1,5 @@
-import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/theme/styles.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profile/edit_profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

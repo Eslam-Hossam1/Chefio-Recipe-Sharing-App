@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/utils/constants.dart';
-import 'package:chefio_app/core/utils/routing/routing_helper.dart';
+import 'package:chefio_app/core/routing/routing_helper.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
 import 'package:chefio_app/features/notifiactions/domain/notification_entity.dart';
 import 'package:flutter/material.dart';

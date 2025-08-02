@@ -1,8 +1,8 @@
 import 'dart:developer';
 
-import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
-import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';

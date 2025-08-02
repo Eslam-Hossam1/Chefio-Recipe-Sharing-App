@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/custom_back_icon_button.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_text_field.dart';

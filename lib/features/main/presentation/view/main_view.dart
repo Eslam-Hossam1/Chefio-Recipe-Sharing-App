@@ -1,7 +1,7 @@
-import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/routing/routs.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/main/data/models/bottom_nav_bar_model.dart';
 import 'package:chefio_app/features/main/presentation/view/utils/bottom_nav_bar_item_builder.dart';
 import 'package:flutter/material.dart';

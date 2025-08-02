@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
-import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/routing/routs.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_profile_recipes_cubit/chef_profile_recipes_cubit.dart';

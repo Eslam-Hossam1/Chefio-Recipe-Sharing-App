@@ -1,9 +1,9 @@
 import 'package:chefio_app/core/helpers/share_helper.dart';
 import 'package:chefio_app/core/models/pop_up_menu_model.dart';
-import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/routing/routs.dart';
+import 'package:chefio_app/core/di/service_locator.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/build_pop_up_menu_item.dart';
 import 'package:chefio_app/features/profile/presentation/manager/my_profile_cubit/my_profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';

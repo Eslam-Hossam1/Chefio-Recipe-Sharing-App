@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/routing/routing_helper.dart';
+import 'package:chefio_app/core/routing/routing_helper.dart';
 import 'package:chefio_app/features/notifiactions/data/models/notification_model.dart';
 import 'package:chefio_app/features/notifiactions/domain/notification_entity.dart';
 import 'package:chefio_app/features/notifiactions/presentation/view/widgets/notification_recipe_Image.dart';

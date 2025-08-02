@@ -1,10 +1,10 @@
 import 'dart:developer';
 
-import 'package:chefio_app/core/utils/routing/app_router.dart';
+import 'package:chefio_app/core/routing/app_router.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/services/google_auth_service.dart';
-import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
 import 'package:chefio_app/features/auth/presentation/manager/log_in_cubit.dart/log_in_cubit.dart';

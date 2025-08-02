@@ -2,7 +2,7 @@
 
 import 'package:go_router/go_router.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_view.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/routing/routs.dart';
 
 class OnboardingRoutes {
   static GoRoute onboarding = GoRoute(

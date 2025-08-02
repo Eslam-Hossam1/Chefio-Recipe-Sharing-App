@@ -2,8 +2,8 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/core/routing/routs.dart';
+import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:chefio_app/features/settings/presentation/manager/settings_cubit/settings_cubit.dart';
 import 'package:chefio_app/features/settings/presentation/views/language_selection_view.dart';
 import 'package:chefio_app/features/settings/presentation/views/theme_selection_view.dart';

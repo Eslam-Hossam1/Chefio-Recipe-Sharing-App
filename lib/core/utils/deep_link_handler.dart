@@ -1,7 +1,7 @@
 import 'package:app_links/app_links.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/utils/routing/routing_helper.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/routing/routing_helper.dart';
+import 'package:chefio_app/core/routing/routs.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

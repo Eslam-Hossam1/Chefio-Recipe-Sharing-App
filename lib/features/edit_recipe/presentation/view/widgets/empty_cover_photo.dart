@@ -1,7 +1,7 @@
-import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/theme/styles.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_cover_photo_cubit.dart/edit_recipe_cover_photo_cubit.dart';
 import 'package:dotted_border/dotted_border.dart';

@@ -1,6 +1,6 @@
-import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/theme/styles.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/manager/validate_password_cubit/validate_password_cubit.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/password_standards/password_standard.dart';
 import 'package:easy_localization/easy_localization.dart';

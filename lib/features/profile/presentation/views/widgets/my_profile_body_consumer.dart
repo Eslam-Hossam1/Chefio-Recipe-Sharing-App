@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';

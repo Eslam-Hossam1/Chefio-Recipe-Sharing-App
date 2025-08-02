@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/search/presentation/manager/search_recipe_cubit/search_recipe_cubit.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_app_bar.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_consumer.dart';

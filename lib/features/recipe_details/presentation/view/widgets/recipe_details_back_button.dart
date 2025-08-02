@@ -1,6 +1,6 @@
-import 'package:chefio_app/core/utils/Localization/localization_helper.dart';
+import 'package:chefio_app/core/Localization/localization_helper.dart';
 import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/routing/routs.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/custom_circle_glass_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

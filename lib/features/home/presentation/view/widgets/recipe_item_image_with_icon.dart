@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
 import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/utils/constants.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/favourite_icon_button.dart';

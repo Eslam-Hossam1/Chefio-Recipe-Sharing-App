@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/routing/routs.dart';
 import 'package:chefio_app/features/otp/data/models/otp_reason.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:flutter/widgets.dart';

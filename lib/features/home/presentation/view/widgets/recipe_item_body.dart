@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
-import 'package:chefio_app/core/utils/routing/routing_helper.dart';
-import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/routing/routing_helper.dart';
+import 'package:chefio_app/core/theme/styles.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/recipe_category_with_cooking_duration_text.dart';
 import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipe_item_image_with_icon.dart';

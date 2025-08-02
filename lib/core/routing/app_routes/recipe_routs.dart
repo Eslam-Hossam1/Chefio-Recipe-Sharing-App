@@ -2,8 +2,8 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/core/routing/routs.dart';
+import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/services/categories_service.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';

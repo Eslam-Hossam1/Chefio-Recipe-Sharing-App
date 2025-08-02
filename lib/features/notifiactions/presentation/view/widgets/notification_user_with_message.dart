@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/utils/get_time_ago.dart';
-import 'package:chefio_app/core/utils/routing/routing_helper.dart';
-import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/routing/routing_helper.dart';
+import 'package:chefio_app/core/theme/styles.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_circle_image.dart';
 import 'package:chefio_app/features/notifiactions/domain/notification_entity.dart';
 import 'package:easy_localization/easy_localization.dart';

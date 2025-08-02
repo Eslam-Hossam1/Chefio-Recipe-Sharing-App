@@ -1,6 +1,6 @@
-import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
+import 'package:chefio_app/core/routing/routs.dart';
 import 'package:chefio_app/features/edit_profile/presentation/manager/edit_profile/edit_profile_cubit.dart';
 import 'package:chefio_app/features/edit_profile/presentation/views/widgets/edit_profile_body.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';

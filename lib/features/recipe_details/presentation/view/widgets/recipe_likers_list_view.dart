@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/routing/routing_helper.dart';
+import 'package:chefio_app/core/routing/routing_helper.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_liker_model/recipe_liker_model.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/user_tile_item.dart';
 import 'package:flutter/material.dart';

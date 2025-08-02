@@ -1,5 +1,5 @@
 import 'package:chefio_app/core/utils/constants.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
 import 'package:chefio_app/core/widgets/custom_File_circle_image.dart';
 import 'package:chefio_app/core/widgets/custom_circle_image.dart';

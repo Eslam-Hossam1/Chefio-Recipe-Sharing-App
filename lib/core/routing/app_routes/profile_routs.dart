@@ -2,8 +2,8 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/core/routing/routs.dart';
+import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:chefio_app/features/profile/presentation/views/profile_view.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';

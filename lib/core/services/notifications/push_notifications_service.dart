@@ -7,10 +7,10 @@ import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/helpers/notification_log_helper.dart';
 import 'package:chefio_app/core/services/notifications/local_notifications_service.dart';
 import 'package:chefio_app/core/services/notifications/models/my_notification_data_model.dart';
-import 'package:chefio_app/core/utils/routing/app_router.dart';
-import 'package:chefio_app/core/utils/routing/routing_helper.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/core/routing/app_router.dart';
+import 'package:chefio_app/core/routing/routing_helper.dart';
+import 'package:chefio_app/core/routing/routs.dart';
+import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 

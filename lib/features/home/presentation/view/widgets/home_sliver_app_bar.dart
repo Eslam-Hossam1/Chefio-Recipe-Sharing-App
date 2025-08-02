@@ -1,11 +1,11 @@
-import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/theme/styles.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/search_icon_button.dart';
 import 'package:flutter/material.dart';
-import 'package:chefio_app/core/utils/styles.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/theme/styles.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/search_icon_button.dart';
 import 'package:flutter/material.dart';
 

@@ -1,10 +1,10 @@
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
-import 'package:chefio_app/core/utils/Localization/app_languages.dart';
-import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/Localization/app_languages.dart';
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/utils/theme/app_theme_options.dart';
-import 'package:chefio_app/core/utils/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/routing/routs.dart';
+import 'package:chefio_app/core/theme/app_theme_options.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/settings/presentation/manager/settings_cubit/settings_cubit.dart';
 import 'package:chefio_app/features/settings/presentation/views/widgets/logout_button.dart';
 import 'package:chefio_app/features/settings/presentation/views/widgets/setting_tile.dart';

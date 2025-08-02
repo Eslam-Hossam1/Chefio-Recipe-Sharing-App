@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/styles.dart';
+import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_action_button.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_back_button.dart';

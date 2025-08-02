@@ -1,5 +1,5 @@
-import 'package:chefio_app/core/utils/Localization/app_localization_keys/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/theme/models/theme_mode_option.dart';
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/theme/models/theme_mode_option.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppThemeOptions {

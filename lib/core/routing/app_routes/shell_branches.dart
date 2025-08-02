@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/utils/routing/routs.dart';
-import 'package:chefio_app/core/utils/service_locator.dart';
+import 'package:chefio_app/core/routing/routs.dart';
+import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_categories_cubit/home_categories_cubit.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';

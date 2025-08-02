@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/routing/routing_helper.dart';
+import 'package:chefio_app/core/routing/routing_helper.dart';
 import 'package:chefio_app/core/widgets/recipe_category_with_cooking_duration_text.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';

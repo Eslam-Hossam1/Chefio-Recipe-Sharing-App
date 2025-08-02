@@ -1,4 +1,4 @@
-import 'package:chefio_app/core/utils/jwt_decoder/jwt_decoder_interface.dart';
+import 'package:chefio_app/core/services/jwt_decoder/jwt_decoder_interface.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
 class JwtDecoderImpl implements JwtDecoderInterface {
