@@ -108,14 +108,6 @@ It allows users (Chefs) to discover, upload, and share delicious recipes with a 
 
 ---
 
-## 📂 Project Structure
-
-Chefio is organized by **features**, with clean separation of business logic, services, and UI. Built with scalability and readability in mind.
-
-![Project Structure](project_structure.png)
-
----
-
 ## 🤝 Collaboration & Development Effort
 
 Chefio was built in close collaboration with a backend engineer, who developed a powerful RESTful API and supported Firebase messaging.
