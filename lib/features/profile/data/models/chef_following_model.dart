@@ -1,5 +1,4 @@
 import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
-import 'package:equatable/equatable.dart';
 
 class ChefFollowingModel extends ChefConnectionEntity {
   final String id;
@@ -34,6 +33,5 @@ class ChefFollowingModel extends ChefConnectionEntity {
         'isFollowed': isFollowed,
       };
 
-  @override
   List<Object?> get props => [id, username, profilePicture, isFollowed];
 }

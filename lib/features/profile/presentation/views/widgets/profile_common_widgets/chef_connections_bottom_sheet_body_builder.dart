@@ -25,7 +25,7 @@ class ChefConnectionsBottomSheetBodyBuilder extends StatelessWidget {
           return ChefConnectionsListView(
             scrollController: scrollController,
             chefConnections:
-                context.read<ChefConnectionsCubit>().chefConnections!,
+                context.read<ChefConnectionsCubit>().chefConnections,
           );
         } else if (state is ChefHasNoFollowers) {
           return CustomTextInfoMessage(

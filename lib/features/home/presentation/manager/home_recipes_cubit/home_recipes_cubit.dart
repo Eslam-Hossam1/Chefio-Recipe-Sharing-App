@@ -1,7 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
-import 'package:chefio_app/core/models/category.dart';
-import 'package:chefio_app/features/home/data/models/home_success_model/recipe_model.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo.dart';
 import 'package:equatable/equatable.dart';
 
@@ -48,7 +46,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
     isLoading = true;
 
     var result = await _homeRepo.fetchRecipesFromApi(
-      categoryName: this.categoryName,
+      categoryName: categoryName,
       page: page,
       limit: limit,
     );

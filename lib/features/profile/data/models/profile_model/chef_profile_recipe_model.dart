@@ -1,5 +1,4 @@
 import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
-import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/models/category.dart';
 
 //chef's recipe model whch is used in the profile page

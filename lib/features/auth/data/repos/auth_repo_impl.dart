@@ -5,7 +5,6 @@ import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
-import 'package:chefio_app/core/errors/failures.dart';
 import 'package:chefio_app/core/services/google_auth_service.dart';
 import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
 import 'package:chefio_app/core/utils/constants.dart';
@@ -60,26 +59,6 @@ class AuthRepoImpl implements AuthRepo {
         data: {
           ApiKeys.email: email,
         },
-      );
-      return Right(null);
-    } catch (e) {
-      if (e is DioException) {
-        return Left(DioApiFailure.fromDioException(e));
-      } else {
-        return Left(DioApiFailure.unknown(
-          e.toString(),
-        ));
-      }
-    }
-  }
-
-  @override
-  Future<Either<ApiFailure, void>> verifyVerificationCode(
-      {required String email, required int code}) async {
-    try {
-      await _apiConsumer.patch(
-        EndPoints.verifyVerificationCode,
-        data: {ApiKeys.email: email, ApiKeys.providedCode: code},
       );
       return Right(null);
     } catch (e) {
@@ -155,7 +134,7 @@ class AuthRepoImpl implements AuthRepo {
         username: googleUser.displayName ?? "Unkown",
         profilePicture: googleUser.photoUrl ?? Constants.nullUserImageUrl,
       );
-      final String? idToken = googleAuth.idToken;
+       final String? idToken = googleAuth.idToken;
       final response = await _apiConsumer.post(
         EndPoints.googleSignIn,
         data: googleSignInModel.toJson(),
@@ -183,26 +162,6 @@ class AuthRepoImpl implements AuthRepo {
         data: {
           ApiKeys.email: email,
         },
-      );
-      return Right(null);
-    } catch (e) {
-      if (e is DioException) {
-        return Left(DioApiFailure.fromDioException(e));
-      } else {
-        return Left(DioApiFailure.unknown(
-          e.toString(),
-        ));
-      }
-    }
-  }
-
-  @override
-  Future<Either<ApiFailure, void>> verifyForgotPasswordVerificationCode(
-      {required String email, required int code}) async {
-    try {
-      await _apiConsumer.post(
-        EndPoints.verifyForgotPasswordVerificationCode,
-        data: {ApiKeys.email: email, ApiKeys.providedCode: code},
       );
       return Right(null);
     } catch (e) {

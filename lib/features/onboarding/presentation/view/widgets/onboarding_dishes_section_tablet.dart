@@ -1,5 +1,4 @@
 import 'package:chefio_app/core/utils/assets.dart';
-import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/onboarding_ui_helper.dart';
 import 'package:chefio_app/features/onboarding/presentation/view/widgets/dish_image.dart';
 import 'package:flutter/material.dart';

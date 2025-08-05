@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:flutter/material.dart';
 

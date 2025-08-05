@@ -1,5 +1,4 @@
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
-import 'package:equatable/equatable.dart';
 
 import '../../../../../core/models/category.dart';
 import 'created_by.dart';

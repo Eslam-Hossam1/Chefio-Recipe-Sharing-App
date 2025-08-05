@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/errors/error_codes.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
 import 'package:chefio_app/features/auth/data/repos/auth_repo.dart';
 import 'package:equatable/equatable.dart';
 

@@ -3,9 +3,7 @@ import 'dart:ui';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
-import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileUserAvatar extends StatelessWidget {

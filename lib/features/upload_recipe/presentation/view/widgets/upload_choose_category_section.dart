@@ -1,7 +1,6 @@
 import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
-import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
 import 'package:chefio_app/features/upload_recipe/data/models/upload_recipe_form_model.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';

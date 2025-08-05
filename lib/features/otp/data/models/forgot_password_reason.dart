@@ -2,10 +2,8 @@ import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/routing/routs.dart';
 import 'package:chefio_app/features/otp/data/models/otp_reason.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 

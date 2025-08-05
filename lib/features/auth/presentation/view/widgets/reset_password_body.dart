@@ -1,17 +1,10 @@
 import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
-import 'package:chefio_app/core/routing/app_router.dart';
-import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
-import 'package:chefio_app/core/widgets/clickable_text.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/reset_password_form.dart';
-import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_form.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class ResetPasswordViewBody extends StatelessWidget {
   const ResetPasswordViewBody({super.key});

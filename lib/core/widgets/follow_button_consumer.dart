@@ -1,6 +1,5 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
-import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/follow_button.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

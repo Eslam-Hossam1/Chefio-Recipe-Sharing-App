@@ -76,11 +76,11 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
     required int limit,
     required String chefId,
   }) async {
-    log('chefId:${chefId} , _authCredentialsHelper.userId:${_authCredentialsHelper.userId}');
+    log('chefId:$chefId , _authCredentialsHelper.userId:${_authCredentialsHelper.userId}');
 
     if (chefInitialRecipes.isEmpty && chefRecipes.isEmpty) {
       isLoading = false;
-      log('chefId:${chefId} , _authCredentialsHelper.userId:${_authCredentialsHelper.userId}');
+      log('chefId:$chefId , _authCredentialsHelper.userId:${_authCredentialsHelper.userId}');
 
       if (chefId == _authCredentialsHelper.userId) {
         emit(MyProfileEmptyRecipes());

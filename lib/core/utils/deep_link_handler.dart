@@ -20,7 +20,6 @@ class DeepLinkHandler {
     // Handle incoming deep links
     _appLinks.uriLinkStream.listen((Uri? uri) {
       if (uri != null) {
-        print('Deep link received: $uri');
         _handleDeepLink(uri, context);
       }
     });
@@ -28,7 +27,6 @@ class DeepLinkHandler {
     // Handle initial deep link
     final Uri? initialLink = await _appLinks.getInitialLink();
     if (initialLink != null) {
-      print('Initial deep link: $initialLink');
       _handleDeepLink(initialLink, context);
     }
   }

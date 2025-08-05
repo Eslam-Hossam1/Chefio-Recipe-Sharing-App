@@ -1,10 +1,6 @@
-import 'dart:developer';
-
-import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
-import 'package:flutter/foundation.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton(

@@ -1,7 +1,5 @@
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
-import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/chef_followers_bottom_sheet.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_chef_info_item.dart';
@@ -48,7 +46,7 @@ class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
       child: BlocConsumer<FollowChefCubit, FollowChefState>(
         listener: (context, state) {
           if ((state is FollowChefSuccess) && state.chefId == profileChefId) {
-            if (profileModel!.profile.isFollowing == ApiKeys.following) {
+            if (profileModel.profile.isFollowing == ApiKeys.following) {
               profileModel.profile.followersCount--;
               followersCount--;
               profileModel.profile.isFollowing = ApiKeys.notFollowing;

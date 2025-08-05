@@ -1,7 +1,6 @@
 import 'package:chefio_app/core/theme/app_colors.dart';
 import 'package:chefio_app/core/theme/custom_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppThemes {
   static final ThemeData lightTheme = ThemeData(

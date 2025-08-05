@@ -1,8 +1,7 @@
-import 'package:equatable/equatable.dart';
 
 import 'initial_recipes.dart';
 
-class Profile extends Equatable {
+class Profile {
   final String username;
   final String email;
   final String? profilePicture;
@@ -41,17 +40,4 @@ class Profile extends Equatable {
         'isFollowing': isFollowing,
         'recipes': recipes.toJson(),
       };
-
-  @override
-  List<Object?> get props {
-    return [
-      username,
-      email,
-      profilePicture,
-      followersCount,
-      followingCount,
-      isFollowing,
-      recipes,
-    ];
-  }
 }

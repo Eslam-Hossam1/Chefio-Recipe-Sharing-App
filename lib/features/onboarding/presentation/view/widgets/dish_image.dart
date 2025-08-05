@@ -1,7 +1,5 @@
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class DishImage extends StatelessWidget {
   final String assetPath;

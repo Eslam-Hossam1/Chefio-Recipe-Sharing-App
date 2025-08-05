@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:chefio_app/features/notifiactions/data/models/notification_model.dart';
 import 'package:chefio_app/features/notifiactions/data/repos/notifications_repo.dart';
 import 'package:chefio_app/features/notifiactions/domain/notification_entity.dart';
 import 'package:equatable/equatable.dart';

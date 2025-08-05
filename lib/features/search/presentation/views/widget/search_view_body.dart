@@ -1,15 +1,8 @@
-import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/search/presentation/manager/search_recipe_cubit/search_recipe_cubit.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_app_bar.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_consumer.dart';
 import 'package:chefio_app/features/search/presentation/views/widget/search_scrolling_loading_indicator_builder.dart';
-import 'package:chefio_app/features/search/presentation/views/widget/search_empty_result.dart';
-import 'package:chefio_app/features/search/presentation/views/widget/search_error.dart';
-import 'package:chefio_app/features/search/presentation/views/widget/search_first_loading.dart';
-import 'package:chefio_app/features/search/presentation/views/widget/search_initial.dart';
-import 'package:chefio_app/features/search/presentation/views/widget/search_result.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

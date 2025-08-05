@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:meta/meta.dart';
 
 part 'validate_password_state.dart';
 
@@ -70,7 +69,7 @@ class ValidatePasswordCubit extends Cubit<ValidatePasswordState> {
     } else if (!validateContainsLowercaseLetter(password: password)) {
       return AppLocalizationKeys.auth.signUpViewContainsLowercaseLetter.tr();
     } else {
-      null;
+      return null;
     }
   }
 }

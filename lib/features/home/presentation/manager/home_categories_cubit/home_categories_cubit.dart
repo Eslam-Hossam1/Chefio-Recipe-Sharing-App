@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/models/category.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/home_categories_builder.dart';
 import 'package:equatable/equatable.dart';
 
 part 'home_categories_state.dart';

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
@@ -81,6 +79,6 @@ class ChefLikedRecipesCubit extends Cubit<ChefLikedRecipesState> {
     isLoading = false;
     chefLikedRecipes.clear();
     emit(ChefLikedRecipesInitial()); // نرجع للحالة المبدئية مثلاً
-    await fetchChefLikedRecipes(chefId: chefId!);
+    await fetchChefLikedRecipes(chefId: chefId);
   }
 }

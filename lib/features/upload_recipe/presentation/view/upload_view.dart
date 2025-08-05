@@ -1,7 +1,5 @@
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
-import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_first_step_page.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_second_step_page.dart';

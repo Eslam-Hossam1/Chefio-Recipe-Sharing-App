@@ -1,7 +1,5 @@
 import 'package:chefio_app/core/Functions/show_custom_exit_confirmation_dialog.dart';
-import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
-import 'package:chefio_app/core/widgets/adaptive_layout_widget.dart';
 import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/otp/data/models/otp_reason.dart';
 import 'package:chefio_app/features/otp/presentation/manager/otp_cubit/otp_cubit.dart';

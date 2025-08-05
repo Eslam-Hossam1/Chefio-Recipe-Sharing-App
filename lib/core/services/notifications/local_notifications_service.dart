@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:chefio_app/core/services/notifications/models/my_notification_data_model.dart';
 import 'package:chefio_app/core/utils/constants.dart';
