@@ -6,6 +6,7 @@ import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/utils/size_config.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/widgets/tablet_form_container.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,30 +20,32 @@ class CustomPinCodeField extends StatelessWidget {
   final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return PinCodeTextField(
-      autovalidateMode: AutovalidateMode.disabled,
-      onSaved: onSaved,
-      validator: FormValidators.pincodeTextFormFieldValidator,
-      pastedTextStyle:
-          Styles.textStyleBold15(context).copyWith(color: context.primaryColor),
-      appContext: context,
-      length: 6,
-      textStyle: Styles.textStyleSemiBold34(context)
-          .copyWith(color: context.mainTextColor),
-      showCursor: false,
-      animationType: AnimationType.fade,
-      keyboardType: TextInputType.number,
-      pinTheme: PinTheme(
-        shape: PinCodeFieldShape.box,
-        borderRadius: BorderRadius.circular(16.r),
-        fieldHeight: getfieldWidth(context),
-        fieldWidth: getfieldWidth(context),
-        activeColor: context.primaryColor,
-        inactiveColor: context.outlineColor,
-        selectedColor: Colors.blue,
+    return TabletFormContainer(
+      child: PinCodeTextField(
+        autovalidateMode: AutovalidateMode.disabled,
+        onSaved: onSaved,
+        validator: FormValidators.pincodeTextFormFieldValidator,
+        pastedTextStyle:
+            Styles.textStyleBold15(context).copyWith(color: context.primaryColor),
+        appContext: context,
+        length: 6,
+        textStyle: Styles.textStyleSemiBold34(context)
+            .copyWith(color: context.mainTextColor),
+        showCursor: false,
+        animationType: AnimationType.fade,
+        keyboardType: TextInputType.number,
+        pinTheme: PinTheme(
+          shape: PinCodeFieldShape.box,
+          borderRadius: BorderRadius.circular(16.r),
+          fieldHeight: getfieldWidth(context),
+          fieldWidth: getfieldWidth(context),
+          activeColor: context.primaryColor,
+          inactiveColor: context.outlineColor,
+          selectedColor: Colors.blue,
+        ),
+        onChanged: onChanged, // Optional for real-time input tracking
+        onCompleted: onCompleted, // Callback when the user completes input
       ),
-      onChanged: onChanged, // Optional for real-time input tracking
-      onCompleted: onCompleted, // Callback when the user completes input
     );
   }
 

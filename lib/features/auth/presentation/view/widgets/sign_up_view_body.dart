@@ -4,6 +4,7 @@ import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/routing/routs.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/clickable_text.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/sign_up_form.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -17,75 +18,77 @@ class SignUpViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverFillRemaining(
-          hasScrollBody: false,
-          child: Column(
-            children: [
-              Expanded(
-                child: SizedBox(
-                  height: 20,
+    return AdaptivePadding(
+      child: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 20,
+                  ),
                 ),
-              ),
-              Text(
-                textAlign: TextAlign.center,
-                AppLocalizationKeys.auth.signUpViewWelcome.tr(),
-                style: Styles.textStyleBold22(context).copyWith(
-                  color: context.mainTextColor,
+                Text(
+                  textAlign: TextAlign.center,
+                  AppLocalizationKeys.auth.signUpViewWelcome.tr(),
+                  style: Styles.textStyleBold22(context).copyWith(
+                    color: context.mainTextColor,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Text(
-                textAlign: TextAlign.center,
-                AppLocalizationKeys.auth.enterAccount.tr(),
-                style: Styles.textStyleMedium15(context).copyWith(
-                  color: context.secondaryTextColor,
+                const SizedBox(
+                  height: 8,
                 ),
-              ),
-              const SizedBox(
-                height: 32,
-              ),
-              const SignUpForm(),
-              const SizedBox(
-                height: 24,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppLocalizationKeys.auth.signUpViewAlreadyHaveAnAccount
-                        .tr(),
-                    style: Styles.textStyleSemiBold15(context).copyWith(
-                      color: context.mainTextColor,
+                Text(
+                  textAlign: TextAlign.center,
+                  AppLocalizationKeys.auth.enterAccount.tr(),
+                  style: Styles.textStyleMedium15(context).copyWith(
+                    color: context.secondaryTextColor,
+                  ),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                const SignUpForm(),
+                const SizedBox(
+                  height: 24,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      AppLocalizationKeys.auth.signUpViewAlreadyHaveAnAccount
+                          .tr(),
+                      style: Styles.textStyleSemiBold15(context).copyWith(
+                        color: context.mainTextColor,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  ClickableText(
-                    onTap: () {
-                      context.go(RoutePaths.login);
-                    },
-                    text: AppLocalizationKeys.auth.logIn.tr(),
-                    style: Styles.textStyleBold15(context).copyWith(
-                      color: context.primaryColor,
+                    const SizedBox(
+                      width: 8,
                     ),
-                  ),
-                ],
-              ),
-              Expanded(
-                flex: 2,
-                child: const SizedBox(
-                  height: 20,
+                    ClickableText(
+                      onTap: () {
+                        context.go(RoutePaths.login);
+                      },
+                      text: AppLocalizationKeys.auth.logIn.tr(),
+                      style: Styles.textStyleBold15(context).copyWith(
+                        color: context.primaryColor,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
+                Expanded(
+                  flex: 2,
+                  child: const SizedBox(
+                    height: 20,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

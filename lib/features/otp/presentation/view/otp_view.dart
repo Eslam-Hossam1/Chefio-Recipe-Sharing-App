@@ -6,7 +6,6 @@ import 'package:chefio_app/core/widgets/custom_cicular_progress_indicator.dart';
 import 'package:chefio_app/features/otp/data/models/otp_reason.dart';
 import 'package:chefio_app/features/otp/presentation/manager/otp_cubit/otp_cubit.dart';
 import 'package:chefio_app/features/otp/presentation/view/widgets/otp_view_body.dart';
-import 'package:chefio_app/features/otp/presentation/view/widgets/otp_view_body_tablet.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -68,14 +67,7 @@ class _OtpViewState extends State<OtpView> {
             },
             child: Scaffold(
               body: SafeArea(
-                child: AdaptiveLayout(
-                  mobileLayout: (context) => Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: Constants.kMobileHorizontalPadding),
-                    child: OtpViewBody(),
-                  ),
-                  tabletLayout: (context) => OtpViewBodyTablet(),
-                ),
+                child: OtpViewBody()
               ),
             ),
           ),

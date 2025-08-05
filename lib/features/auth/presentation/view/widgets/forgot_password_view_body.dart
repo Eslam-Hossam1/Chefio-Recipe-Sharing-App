@@ -2,6 +2,7 @@ import 'package:chefio_app/core/Localization/app_localization_keys/app_localizat
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/forgot_password_form.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -15,51 +16,53 @@ class ForgotPasswordViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverFillRemaining(
-          hasScrollBody: false,
-          child: Column(
-            children: [
-              Expanded(
-                child: SizedBox(
-                  height: 20,
+    return AdaptivePadding(
+      child: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 20,
+                  ),
                 ),
-              ),
-              Text(
-                textAlign: TextAlign.center,
-                AppLocalizationKeys.auth.forgetPasswordViewPasswordRecovery
-                    .tr(),
-                style: Styles.textStyleBold22(context).copyWith(
-                  color: context.mainTextColor,
+                Text(
+                  textAlign: TextAlign.center,
+                  AppLocalizationKeys.auth.forgetPasswordViewPasswordRecovery
+                      .tr(),
+                  style: Styles.textStyleBold22(context).copyWith(
+                    color: context.mainTextColor,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              Text(
-                textAlign: TextAlign.center,
-                AppLocalizationKeys
-                    .auth.forgetPasswordViewEnterEmailRecoverPassword
-                    .tr(),
-                style: Styles.textStyleMedium15(context).copyWith(
-                  color: context.secondaryTextColor,
+                SizedBox(
+                  height: 8,
                 ),
-              ),
-              SizedBox(
-                height: 32,
-              ),
-              const ForgotPasswordForm(),
-              Expanded(
-                flex: 2,
-                child: SizedBox(
-                  height: 20,
+                Text(
+                  textAlign: TextAlign.center,
+                  AppLocalizationKeys
+                      .auth.forgetPasswordViewEnterEmailRecoverPassword
+                      .tr(),
+                  style: Styles.textStyleMedium15(context).copyWith(
+                    color: context.secondaryTextColor,
+                  ),
                 ),
-              )
-            ],
+                SizedBox(
+                  height: 32,
+                ),
+                const ForgotPasswordForm(),
+                Expanded(
+                  flex: 2,
+                  child: SizedBox(
+                    height: 20,
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
