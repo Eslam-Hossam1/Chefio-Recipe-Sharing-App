@@ -1,5 +1,3 @@
-
-
 import 'dart:developer';
 
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
@@ -27,6 +25,11 @@ class RouterRedirect {
     if (isAppJustOpenedNormally) {
       return determineInitialView();
     } else {
+      bool navigateToNoCredentialsRequiredRouts =
+          checkNavigateToNoTokenRequiredRouts(state);
+      if (navigateToNoCredentialsRequiredRouts) {
+        return null; // No redirection needed for these routes
+      }
       return handleAppOpenedFromDeepLink(state);
     }
   }
@@ -39,7 +42,7 @@ class RouterRedirect {
   }
 
   String determineInitialView() {
-    if (!_onBoardingCacheHelper.isOnBoardingCompleted()) {
+    if (_onBoardingCacheHelper.isOnBoardingCompleted()) {
       return RoutePaths.onboarding;
     } else {
       return _authCredentialsHelper.userIsAuthenticated()
@@ -63,5 +66,15 @@ class RouterRedirect {
     }
 
     return null;
+  }
+
+  bool checkNavigateToNoTokenRequiredRouts(GoRouterState state) {
+    bool navigateToNoTokenRequiredRouts =
+        state.matchedLocation == RoutePaths.login ||
+            state.matchedLocation == RoutePaths.signup ||
+            state.matchedLocation == RoutePaths.forgetPassword ||
+            state.matchedLocation == RoutePaths.resetPassword ||
+            state.matchedLocation == RoutePaths.otp;
+    return navigateToNoTokenRequiredRouts;
   }
 }
