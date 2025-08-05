@@ -13,7 +13,7 @@ abstract class RoutingHelper {
     BuildContext context, {
     required RecipeDetailsModel recipeDetailsModel,
   }) {
-    context.go(
+    context.push(
       RoutePaths.editRecipe,
       extra: recipeDetailsModel,
     );
