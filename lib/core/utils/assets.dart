@@ -1,11 +1,10 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-
+  
   /// Assets for imagesAddCoverPhotoIcon
   /// assets/images/add_cover_photo_icon.svg
-  static const String imagesAddCoverPhotoIcon =
-      "assets/images/add_cover_photo_icon.svg";
+  static const String imagesAddCoverPhotoIcon = "assets/images/add_cover_photo_icon.svg";
 
   /// Assets for imagesArrowUpward
   /// assets/images/arrow_upward.svg
@@ -13,8 +12,7 @@ class Assets {
 
   /// Assets for imagesBigUserAvatarImageTest
   /// assets/images/big_user_avatar_image_test.png
-  static const String imagesBigUserAvatarImageTest =
-      "assets/images/big_user_avatar_image_test.png";
+  static const String imagesBigUserAvatarImageTest = "assets/images/big_user_avatar_image_test.png";
 
   /// Assets for imagesBottomDish
   /// assets/images/bottom_dish.png
@@ -22,13 +20,11 @@ class Assets {
 
   /// Assets for imagesBottomLeftDish
   /// assets/images/bottom_left_dish.png
-  static const String imagesBottomLeftDish =
-      "assets/images/bottom_left_dish.png";
+  static const String imagesBottomLeftDish = "assets/images/bottom_left_dish.png";
 
   /// Assets for imagesBottomRightDish
   /// assets/images/bottom_right_dish.png
-  static const String imagesBottomRightDish =
-      "assets/images/bottom_right_dish.png";
+  static const String imagesBottomRightDish = "assets/images/bottom_right_dish.png";
 
   /// Assets for imagesCamera
   /// assets/images/camera.svg
@@ -40,13 +36,15 @@ class Assets {
 
   /// Assets for imagesCenterLeftDish
   /// assets/images/center_left_dish.png
-  static const String imagesCenterLeftDish =
-      "assets/images/center_left_dish.png";
+  static const String imagesCenterLeftDish = "assets/images/center_left_dish.png";
 
   /// Assets for imagesCenterRightDish
   /// assets/images/center_right_dish.png
-  static const String imagesCenterRightDish =
-      "assets/images/center_right_dish.png";
+  static const String imagesCenterRightDish = "assets/images/center_right_dish.png";
+
+  /// Assets for imagesChefioLogo
+  /// assets/images/chefio_logo.svg
+  static const String imagesChefioLogo = "assets/images/chefio_logo.svg";
 
   /// Assets for imagesCloseIcon
   /// assets/images/close_icon.svg
@@ -74,8 +72,7 @@ class Assets {
 
   /// Assets for imagesFoodDetailsPictureTest
   /// assets/images/food_details_picture_test.png
-  static const String imagesFoodDetailsPictureTest =
-      "assets/images/food_details_picture_test.png";
+  static const String imagesFoodDetailsPictureTest = "assets/images/food_details_picture_test.png";
 
   /// Assets for imagesGoogleIcon
   /// assets/images/google_icon.svg
@@ -99,8 +96,7 @@ class Assets {
 
   /// Assets for imagesIosBackOutline
   /// assets/images/ios_back_outline.svg
-  static const String imagesIosBackOutline =
-      "assets/images/ios_back_outline.svg";
+  static const String imagesIosBackOutline = "assets/images/ios_back_outline.svg";
 
   /// Assets for imagesLikesHeart
   /// assets/images/likes_heart.svg
@@ -136,8 +132,7 @@ class Assets {
 
   /// Assets for imagesRectangleFoodIngredientPictureTest
   /// assets/images/rectangle_food_ingredient_picture_test.png
-  static const String imagesRectangleFoodIngredientPictureTest =
-      "assets/images/rectangle_food_ingredient_picture_test.png";
+  static const String imagesRectangleFoodIngredientPictureTest = "assets/images/rectangle_food_ingredient_picture_test.png";
 
   /// Assets for imagesSaladTest
   /// assets/images/salad_test.png
@@ -157,17 +152,19 @@ class Assets {
 
   /// Assets for imagesSplashBackgroundDark
   /// assets/images/splash_background_dark.png
-  static const String imagesSplashBackgroundDark =
-      "assets/images/splash_background_dark.png";
+  static const String imagesSplashBackgroundDark = "assets/images/splash_background_dark.png";
 
   /// Assets for imagesSplashBackgroundLight
   /// assets/images/splash_background_light.png
-  static const String imagesSplashBackgroundLight =
-      "assets/images/splash_background_light.png";
+  static const String imagesSplashBackgroundLight = "assets/images/splash_background_light.png";
 
   /// Assets for imagesSplashLogo
   /// assets/images/splash_logo.png
   static const String imagesSplashLogo = "assets/images/splash_logo.png";
+
+  /// Assets for imagesSplashLogoAndroid12
+  /// assets/images/splash_logo_android_12.png
+  static const String imagesSplashLogoAndroid12 = "assets/images/splash_logo_android_12.png";
 
   /// Assets for imagesTimeCircle
   /// assets/images/time_circle.svg
@@ -201,3 +198,4 @@ class Assets {
   /// assets/images/user_two_test.png
   static const String imagesUserTwoTest = "assets/images/user_two_test.png";
 }
+

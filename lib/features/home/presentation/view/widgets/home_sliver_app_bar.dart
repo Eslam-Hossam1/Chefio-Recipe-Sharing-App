@@ -1,13 +1,8 @@
-import 'package:chefio_app/core/theme/styles.dart';
-import 'package:chefio_app/core/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/assets.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/search_icon_button.dart';
 import 'package:flutter/material.dart';
-import 'package:chefio_app/core/theme/styles.dart';
-import 'package:chefio_app/core/theme/theme_colors_extension.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/search_icon_button.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeSliverAppBar extends StatelessWidget {
   const HomeSliverAppBar({super.key, this.searchWidget});
@@ -26,10 +21,10 @@ class HomeSliverAppBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'Chefio',
-              style: Styles.textStyleBold22(context)
-                  .copyWith(color: context.primaryColor),
+            SvgPicture.asset(
+              Assets.imagesChefioLogo,
+              width: 22.w,
+              height: 22.w,
             ),
             searchWidget ?? SizedBox(),
           ],
