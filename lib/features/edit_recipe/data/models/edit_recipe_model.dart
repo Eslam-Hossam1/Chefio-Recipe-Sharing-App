@@ -33,17 +33,16 @@ class EditRecipeModel {
     List<Map<String, dynamic>> steps = getSteps();
 
     var toUploadJson = {
-    //  ApiKeys.recipePicture: foodImage,
       ApiKeys.foodName: foodName,
       ApiKeys.description: foodDescription,
       ApiKeys.cookingDuration: foodCookDuration,
-      //    ApiKeys.categoryId: categoryId,
+      ApiKeys.categoryId: categoryId,
       ApiKeys.ingredients: jsonEncode(ingredients),
       ApiKeys.steps: jsonEncode(steps),
       ...stepsImagesMap
     };
-    if(foodImage!=null){
-            toUploadJson[ApiKeys.recipePicture] = foodImage;
+    if (foodImage != null) {
+      toUploadJson[ApiKeys.recipePicture] = foodImage;
     }
     return toUploadJson;
   }
