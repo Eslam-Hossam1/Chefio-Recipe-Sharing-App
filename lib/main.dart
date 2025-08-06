@@ -1,10 +1,10 @@
-import 'package:chefio_app/chefio_app.dart';
-import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
-import 'package:chefio_app/core/Localization/app_locals.dart';
-import 'package:chefio_app/core/utils/app_bloc_observer.dart';
-import 'package:chefio_app/core/di/service_locator.dart';
-import 'package:chefio_app/firebase_options.dart';
+import 'chefio_app.dart';
+import 'core/helpers/auth_credentials_helper.dart';
+import 'core/services/notifications/push_notifications_service.dart';
+import 'core/Localization/app_locals.dart';
+import 'core/utils/app_bloc_observer.dart';
+import 'core/di/service_locator.dart';
+import 'firebase_options.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -32,7 +32,7 @@ void main() async {
   await getIt<AuthCredentialsHelper>().init();
   runApp(
     DevicePreview(
-      enabled: kReleaseMode,
+      enabled: !kReleaseMode,
       builder: (context) => EasyLocalization(
         supportedLocales: AppLocals.supportedLocales,
         path: "assets/translations",
