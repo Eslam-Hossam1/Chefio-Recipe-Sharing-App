@@ -1,4 +1,4 @@
-import 'package:chefio_app/features/home/presentation/view/widgets/home_view_body_mobile.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -8,7 +8,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: HomeViewBodyMobile(),
+        child: HomeViewBody(),
       ),
     );
   }
