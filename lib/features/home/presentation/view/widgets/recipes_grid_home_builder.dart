@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_recipes_grid.dart';
@@ -31,6 +32,13 @@ class RecipesGridHomeBuilder extends StatelessWidget {
           );
         } else if (state is HomeRecipesFirstLoading) {
           return SliverSkeletonizerRecipesGrid();
+        } else if (state is HomeRecipesEmpty) {
+          return SliverFillRemaining(
+            hasScrollBody: false,
+            child: CustomTextInfoMessage(
+              text: AppLocalizationKeys.global.noRecipes.tr(),
+            ),
+          );
         } else {
           return SliverRecipesGrid(
               recipes: context.read<HomeRecipesCubit>().recipes);

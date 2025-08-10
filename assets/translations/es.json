@@ -172,7 +172,8 @@
     "take_from_camera": "Tomar desde la cámara",
     "delete_recipe": "Eliminar receta",
     "delete_recipe_confirmation": "¿Estás seguro de que deseas eliminar esta receta?",
-    "min_characters_required": "Este campo requiere al menos {} caracteres"
+    "min_characters_required": "Este campo requiere al menos {} caracteres",
+    "no_recipes": "no hay recetas"
   },
   "errors": {
     "bad_request": "Solicitud inválida. Verifica tu entrada.",

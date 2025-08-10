@@ -70,9 +70,16 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
         }
       },
       (newRecipes) {
+        if (newRecipes.isEmpty && recipes.isEmpty) {
+          hasMoreData = false;
+          emit(HomeRecipesEmpty());
+          return;
+        }
+
         if (newRecipes.length < limit) {
           hasMoreData = false;
         }
+
         recipes.addAll(newRecipes);
         page += 1;
         isLoading = false;

@@ -167,7 +167,8 @@
             "take_from_camera": "التقط من الكاميرا",
             "delete_recipe": "حذف الوصفة",
             "delete_recipe_confirmation": "هل أنت متأكد أنك تريد حذف هذه الوصفة؟",
-            "min_characters_required": "هذا الحقل يتطلب على الأقل {} حرفًا"
+            "min_characters_required": "هذا الحقل يتطلب على الأقل {} حرفًا",
+            "no_recipes": "لا يوجد وصفات"
         },
         "recipe_details": {
             "share_recipe": "مشاركة الوصفة",

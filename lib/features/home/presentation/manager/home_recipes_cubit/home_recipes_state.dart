@@ -34,3 +34,5 @@ final class HomeRecipesFirstFetchFailure extends HomeRecipesState {
     required this.errorLocalizationKey,
   });
 }
+
+final class HomeRecipesEmpty extends HomeRecipesState {}

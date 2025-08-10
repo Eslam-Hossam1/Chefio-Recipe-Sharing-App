@@ -35,4 +35,5 @@ class Global {
   final String restoreImage = 'global.restore_image';
   final String undo = 'global.undo';
   final String minCharactersRequired = 'global.min_characters_required';
+  final String noRecipes = 'global.no_recipes';
 }
