@@ -37,9 +37,12 @@ class _FavouriteIconButtonState extends State<FavouriteIconButton> {
   Widget build(BuildContext context) {
     return BlocConsumer<LikeRecipeCubit, LikeRecipeState>(
       listener: (context, state) {
-        if (state is LikeRecipeFailed) {
-          showCustomToast(context,
-              message: state.errorLocalizationKey.tr(),);
+        if (state is LikeRecipeFailed &&
+            state.recipeId == widget.recipeBodyEntity.recipeId) {
+          showCustomToast(
+            context,
+            message: state.errorLocalizationKey.tr(),
+          );
         }
       },
       builder: (context, state) {
