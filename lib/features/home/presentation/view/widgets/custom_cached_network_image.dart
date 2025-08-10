@@ -22,11 +22,9 @@ class CustomCachedNetworkImage extends StatelessWidget {
           Container(
             color: context.cachedNetworkImagePlaceholderColor,
           ),
-      errorWidget: (context, url, error) => Center(
-        child: Image.asset(
-          Assets.imagesImagePlaceholder,
-          fit: BoxFit.cover,
-        ),
+      errorWidget: (context, url, error) => Image.asset(
+        Assets.imagesImagePlaceholder,
+        fit: BoxFit.cover,
       ),
     );
   }
