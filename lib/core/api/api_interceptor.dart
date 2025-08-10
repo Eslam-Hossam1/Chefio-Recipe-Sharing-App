@@ -19,29 +19,37 @@ class ApiInterceptor extends Interceptor {
   });
 
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     final token = authCredentialsHelper.accessToken;
 
-    options.headers[ApiKeys.authorization] = token;
+    options.headers[ApiKeys.authorization] = "Bearer $token";
     options.headers[ApiKeys.client] = "not-browser";
 
     super.onRequest(options, handler);
   }
 
   @override
-  Future<void> onError(DioException err, ErrorInterceptorHandler handler) async {
-    debugPrint('ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
+  Future<void> onError(
+      DioException err, ErrorInterceptorHandler handler) async {
+    debugPrint(
+        'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
 
     final isUnauthorized = err.response?.statusCode == 401;
     final isUserLoggedIn = authCredentialsHelper.userIsAuthenticated();
     final hasNotRetried = !(err.requestOptions.extra['retrying'] ?? false);
+    final isRefreshRequest =
+        err.requestOptions.path.contains(EndPoints.refreshToken);
+
+    if (isRefreshRequest) {
+      return handler.next(err);
+    }
 
     if (isUnauthorized && isUserLoggedIn && hasNotRetried) {
       err.requestOptions.extra['retrying'] = true;
 
       try {
         final refreshed = await _refreshToken();
-
         if (refreshed) {
           final response = await _retry(err.requestOptions);
           return handler.resolve(response);
@@ -50,6 +58,7 @@ class ApiInterceptor extends Interceptor {
         }
       } catch (e) {
         log(e.toString());
+
         _handleSessionEnd();
       }
     }
@@ -74,7 +83,7 @@ class ApiInterceptor extends Interceptor {
   Future<bool> _refreshToken() async {
     try {
       final response = await client.post(EndPoints.refreshToken, data: {
-        ApiKeys.refreshToken: authCredentialsHelper.refreshToken,
+        ApiKeys.refreshToken: "Bearer ${authCredentialsHelper.refreshToken}",
       });
 
       final json = response.data;
@@ -82,20 +91,8 @@ class ApiInterceptor extends Interceptor {
 
       await authCredentialsHelper.storeAccessToken(newAccessToken);
 
-      log('Access token refreshed');
       return true;
-    } on DioException catch (e) {
-      final statusCode = e.response?.statusCode;
-
-      if (statusCode == 401 || statusCode == 403 || statusCode == 404) {
-        log('Refresh token expired or invalid');
-        _handleSessionEnd();
-      }
-
-      return false;
     } catch (e) {
-      log('Unexpected error during token refresh: $e');
-      _handleSessionEnd();
       return false;
     }
   }
