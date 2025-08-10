@@ -21,7 +21,7 @@ class MyProfilePopUpMenuButton extends StatelessWidget {
       textLocalizationKey: AppLocalizationKeys.profile.shareProfile,
       onTap: (context) async {
         await getIt<ShareHelper>().shareProfile(
-          chefId: context.read<ProfileCubit>().profileModel!.id,
+          chefId: context.read<MyProfileCubit>().profileModel!.id,
         );
       },
     ),
