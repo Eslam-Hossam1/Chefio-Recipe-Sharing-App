@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
@@ -13,14 +12,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class HomeViewBodyMobile extends StatefulWidget {
-  const HomeViewBodyMobile({super.key});
+class HomeViewBody extends StatefulWidget {
+  const HomeViewBody({super.key});
 
   @override
-  State<HomeViewBodyMobile> createState() => _HomeViewBodyMobileState();
+  State<HomeViewBody> createState() => _HomeViewBodyState();
 }
 
-class _HomeViewBodyMobileState extends State<HomeViewBodyMobile> {
+class _HomeViewBodyState extends State<HomeViewBody> {
   late ScrollController _scrollController;
   late RefreshController _refreshController;
 
@@ -65,9 +64,7 @@ class _HomeViewBodyMobileState extends State<HomeViewBodyMobile> {
       child: CustomScrollView(
         controller: _scrollController,
         slivers: [
-          HomeSliverAppBar(
-            searchWidget: SearchIconButton(),
-          ),
+          HomeSliverAppBar(),
           SliverToBoxAdapter(
             child: SizedBox(
               height: 16,
