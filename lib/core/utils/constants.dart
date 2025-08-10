@@ -15,6 +15,6 @@ abstract class Constants {
   static const Duration kSplashNavigationDelayDuration =
       Duration(milliseconds: 500);
   static const nullUserImageUrl =
-      "https://static.vecteezy.com/system/resources/thumbnails/007/375/314/small_2x/character-of-illustration-chef-free-vector.jpg";
+      "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
   static const double userTileImageSize = 40;
 }
