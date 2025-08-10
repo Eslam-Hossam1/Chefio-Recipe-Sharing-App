@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import 'chefio_app.dart';
 import 'core/helpers/auth_credentials_helper.dart';
 import 'core/services/notifications/push_notifications_service.dart';
@@ -16,6 +18,11 @@ import 'package:path_provider/path_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
