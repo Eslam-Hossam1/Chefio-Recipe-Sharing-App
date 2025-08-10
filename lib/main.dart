@@ -1,42 +1,18 @@
-import 'package:flutter/services.dart';
-
-import 'chefio_app.dart';
-import 'core/helpers/auth_credentials_helper.dart';
-import 'core/services/notifications/push_notifications_service.dart';
-import 'core/Localization/app_locals.dart';
-import 'core/utils/app_bloc_observer.dart';
-import 'core/di/service_locator.dart';
-import 'firebase_options.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:path_provider/path_provider.dart';
 
-void main() async {
+import 'chefio_app.dart';
+import 'core/config/app_initializer.dart';
+import 'core/localization/app_locals.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+  
+  // Run all initializations
+  await AppInitializer.initialize();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  Bloc.observer = AppBlocObserver();
-  HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: kIsWeb
-        ? HydratedStorageDirectory.web
-        : HydratedStorageDirectory((await getTemporaryDirectory()).path),
-  );
-  await dotenv.load(fileName: ".env");
-  await setupServiceLocator();
-  await getIt<PushNotificationsService>().init();
-  await EasyLocalization.ensureInitialized();
-  await getIt<AuthCredentialsHelper>().init();
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
