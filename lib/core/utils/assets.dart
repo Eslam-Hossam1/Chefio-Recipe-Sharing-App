@@ -95,8 +95,8 @@ class Assets {
   static const String imagesHome = "assets/images/home.svg";
 
   /// Assets for imagesImagePlaceholder
-  /// assets/images/image_placeholder.png
-  static const String imagesImagePlaceholder = "assets/images/image_placeholder.png";
+  /// assets/images/image_placeholder.jpg
+  static const String imagesImagePlaceholder = "assets/images/image_placeholder.jpg";
 
   /// Assets for imagesIosBackOutline
   /// assets/images/ios_back_outline.svg

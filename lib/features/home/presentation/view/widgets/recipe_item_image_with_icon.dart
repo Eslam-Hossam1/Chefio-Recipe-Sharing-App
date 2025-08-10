@@ -1,6 +1,6 @@
 
 import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
-import 'package:chefio_app/core/utils/constants.dart';
+import 'package:chefio_app/core/Localization/app_locals.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/favourite_icon_button.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -29,8 +29,8 @@ class RecipeItemImageWithIcon extends StatelessWidget {
           ),
           Positioned(
             top: 16,
-            right: context.locale == Constants.arabicLocale ? null : 16,
-            left: context.locale == Constants.arabicLocale ? 16 : null,
+            right: context.locale == AppLocals.arabic ? null : 16,
+            left: context.locale == AppLocals.arabic ? 16 : null,
             child: FavouriteIconButton(
               recipeBodyEntity: recipeBodyEntity,
             ),
