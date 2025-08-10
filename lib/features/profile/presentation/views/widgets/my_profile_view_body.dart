@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_liked_recipes_cubit/chef_liked_recipes_cubit.dart';
@@ -56,7 +57,7 @@ class _MyProfileViewBodyState extends State<MyProfileViewBody>
 
   void _onScroll() {
     if (_scrollController.position.pixels >=
-        _scrollController.position.maxScrollExtent) {
+        _scrollController.position.maxScrollExtent * Constants.loadMoreTriggerRatio) {
       if (_tabController.index == 0) {
         context.read<ChefProfileRecipesCubit>().fetchChefRecipes(
               chefId: context.read<MyProfileCubit>().profileModel!.id,

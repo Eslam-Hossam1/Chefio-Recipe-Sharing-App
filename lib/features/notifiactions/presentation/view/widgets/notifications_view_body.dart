@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/features/notifiactions/presentation/manager/notifications_cubit/notifications_cubit.dart';
 import 'package:chefio_app/features/notifiactions/presentation/view/widgets/notifications_list_builder.dart';
@@ -26,7 +27,8 @@ class _NotificationsViewBodyState extends State<NotificationsViewBody> {
 
   void _onScroll() {
     if (_scrollController.position.pixels >=
-        _scrollController.position.maxScrollExtent) {
+        _scrollController.position.maxScrollExtent *
+            Constants.loadMoreTriggerRatio) {
       context.read<NotificationsCubit>().fetchNotifications();
     }
   }

@@ -1,5 +1,5 @@
-import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_categories_cubit/home_categories_cubit.dart';
 import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
@@ -7,7 +7,6 @@ import 'package:chefio_app/features/home/presentation/view/widgets/home_categori
 import 'package:chefio_app/features/home/presentation/view/widgets/home_scrolling_loading_indicator_builder.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/home_sliver_app_bar.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/recipes_grid_home_builder.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/search_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -43,7 +42,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
 
   void _onScroll() {
     if (_scrollController.position.pixels >=
-        _scrollController.position.maxScrollExtent) {
+        _scrollController.position.maxScrollExtent* Constants.loadMoreTriggerRatio) {
       context.read<HomeRecipesCubit>().fetchRecipes();
     }
   }

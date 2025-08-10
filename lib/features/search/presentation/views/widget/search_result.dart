@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/sliver_recipes_grid.dart';
 import 'package:chefio_app/features/search/presentation/manager/search_recipe_cubit/search_recipe_cubit.dart';
@@ -23,7 +24,8 @@ class _SearchResultState extends State<SearchResult> {
 
   void _onScroll() {
     if (_scrollController.position.pixels >=
-        _scrollController.position.maxScrollExtent) {
+        _scrollController.position.maxScrollExtent *
+            Constants.loadMoreTriggerRatio) {
       context.read<SearchRecipeCubit>().fetchMoreRecipes();
     }
   }
