@@ -42,7 +42,7 @@ class RouterRedirect {
   }
 
   String determineInitialView() {
-    if (_onBoardingCacheHelper.isOnBoardingCompleted()) {
+    if (!_onBoardingCacheHelper.isOnBoardingCompleted()) {
       return RoutePaths.onboarding;
     } else {
       return _authCredentialsHelper.userIsAuthenticated()
@@ -74,7 +74,8 @@ class RouterRedirect {
             state.matchedLocation == RoutePaths.signup ||
             state.matchedLocation == RoutePaths.forgetPassword ||
             state.matchedLocation == RoutePaths.resetPassword ||
-            state.matchedLocation == RoutePaths.otp;
+            state.matchedLocation == RoutePaths.otp ||
+            state.matchedLocation == RoutePaths.onboarding;
     return navigateToNoTokenRequiredRouts;
   }
 }
