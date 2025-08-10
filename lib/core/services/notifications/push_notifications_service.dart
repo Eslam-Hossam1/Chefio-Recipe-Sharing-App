@@ -34,8 +34,6 @@ class PushNotificationsService {
     await _localNotificationsService.init(
       onNotificationClick: handleForegroundMessageTap,
     );
-    String? token = await _firebaseMessaging.getToken();
-    log('FCM Token: ${token ?? 'null token'}');
     //when message arrive and the application in background state
     FirebaseMessaging.onBackgroundMessage(handleBackgroundMessage);
     //show message that arrive when the application in foreground state

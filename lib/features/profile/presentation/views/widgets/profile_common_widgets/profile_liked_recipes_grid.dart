@@ -16,7 +16,6 @@ class ProfileLikedRecipesGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    log('Screen width: $width');
 
     final bool isBigMobile =
         width >= 420 && width < SizeConfig.tabletBreakPoint;

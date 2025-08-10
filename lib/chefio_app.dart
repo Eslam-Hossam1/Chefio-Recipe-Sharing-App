@@ -40,6 +40,7 @@ class _ChefioState extends State<Chefio> {
         designSize: const Size(Constants.kDesignWidth, Constants.kDesignHeight),
         minTextAdapt: true,
         builder: (context, child) {
+          //this cubits used in multi parts in app and should be provided globally
           return MultiBlocProvider(
             providers: [
               BlocProvider(
