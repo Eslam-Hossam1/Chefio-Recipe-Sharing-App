@@ -65,5 +65,6 @@ class EditRecipeFormCubit extends Cubit<EditRecipeFormState> {
 
   void removeStepImage({required int index}) {
     editRecipeFormModel.steps[index].stepImageFile = null;
+    editRecipeFormModel.steps[index].stepUrlImage = null;
   }
 }
