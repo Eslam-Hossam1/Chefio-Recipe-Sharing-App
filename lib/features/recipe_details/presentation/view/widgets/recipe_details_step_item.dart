@@ -43,7 +43,7 @@ class RecipeDetailsStepItem extends StatelessWidget {
                   color: context.mainTextColor,
                 ),
               ),
-              recipeDetailsStep.stepImage == null
+              recipeDetailsStep.stepImage == null || recipeDetailsStep.stepImage == "null"
                   ? SizedBox.shrink()
                   : Column(
                       children: [

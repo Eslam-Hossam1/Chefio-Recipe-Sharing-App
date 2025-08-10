@@ -12,7 +12,7 @@ class EditStepItemCubit extends Cubit<StepItemState> {
 
   EditStepItemCubit(this._croppedImagePickerHelper) : super(StepInitial());
   void init({required String? imageUrl}) {
-    if (imageUrl != null) {
+    if (imageUrl != null && imageUrl!= "null") {
       emit(UrlImage(imageUrl: imageUrl));
     } else {
       emit(NoImage());
