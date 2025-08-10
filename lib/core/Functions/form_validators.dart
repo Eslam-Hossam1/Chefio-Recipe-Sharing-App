@@ -1,4 +1,3 @@
-
 import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -13,7 +12,9 @@ abstract class FormValidators {
 
   static String? requiredNumberOfCharacters(String? value, int number) {
     if (value == null || value.length < number) {
-      return 'This field require at least $number of characters';
+      return AppLocalizationKeys.global.minCharactersRequired.tr(args: [
+        number.toString(),
+      ]);
     } else {
       return null;
     }

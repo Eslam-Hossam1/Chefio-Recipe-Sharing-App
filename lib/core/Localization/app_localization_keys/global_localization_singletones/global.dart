@@ -34,4 +34,5 @@ class Global {
   final String remove = 'global.remove';
   final String restoreImage = 'global.restore_image';
   final String undo = 'global.undo';
+  final String minCharactersRequired = 'global.min_characters_required';
 }
