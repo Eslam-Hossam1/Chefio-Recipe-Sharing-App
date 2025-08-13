@@ -15,32 +15,30 @@ class CustomPinCodeField extends StatelessWidget {
   final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return TabletFormContainer(
-      child: PinCodeTextField(
-        autovalidateMode: AutovalidateMode.disabled,
-        onSaved: onSaved,
-        validator: FormValidators.pincodeTextFormFieldValidator,
-        pastedTextStyle:
-            Styles.textStyleBold15(context).copyWith(color: context.primaryColor),
-        appContext: context,
-        length: 6,
-        textStyle: Styles.textStyleSemiBold34(context)
-            .copyWith(color: context.mainTextColor),
-        showCursor: false,
-        animationType: AnimationType.fade,
-        keyboardType: TextInputType.number,
-        pinTheme: PinTheme(
-          shape: PinCodeFieldShape.box,
-          borderRadius: BorderRadius.circular(16.r),
-          fieldHeight: getfieldWidth(context),
-          fieldWidth: getfieldWidth(context),
-          activeColor: context.primaryColor,
-          inactiveColor: context.outlineColor,
-          selectedColor: Colors.blue,
-        ),
-        onChanged: onChanged, // Optional for real-time input tracking
-        onCompleted: onCompleted, // Callback when the user completes input
+    return PinCodeTextField(
+      autovalidateMode: AutovalidateMode.disabled,
+      onSaved: onSaved,
+      validator: FormValidators.pincodeTextFormFieldValidator,
+      pastedTextStyle:
+          Styles.textStyleBold15(context).copyWith(color: context.primaryColor),
+      appContext: context,
+      length: 6,
+      textStyle: Styles.textStyleSemiBold34(context)
+          .copyWith(color: context.mainTextColor),
+      showCursor: false,
+      animationType: AnimationType.fade,
+      keyboardType: TextInputType.number,
+      pinTheme: PinTheme(
+        shape: PinCodeFieldShape.box,
+        borderRadius: BorderRadius.circular(16.r),
+        fieldHeight: getfieldWidth(context),
+        fieldWidth: getfieldWidth(context),
+        activeColor: context.primaryColor,
+        inactiveColor: context.outlineColor,
+        selectedColor: Colors.blue,
       ),
+      onChanged: onChanged, // Optional for real-time input tracking
+      onCompleted: onCompleted, // Callback when the user completes input
     );
   }
 
