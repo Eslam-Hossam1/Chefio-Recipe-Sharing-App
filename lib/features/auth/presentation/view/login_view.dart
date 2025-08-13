@@ -38,8 +38,9 @@ class LoginView extends StatelessWidget {
         } else if (state is LogInEmailNotFound) {
           DialogHelper.showWarningDialog(
             context,
-            errorMessage: AppLocalizationKeys.auth.emailNotRegisteredMessage.tr(),
-            btnOkText: AppLocalizationKeys.auth.createAccount.tr(),
+            errorMessage:
+                AppLocalizationKeys.auth.emailNotRegisteredMessage.tr(),
+            btnOkText: AppLocalizationKeys.auth.create.tr(),
             btnCanceltext: AppLocalizationKeys.global.cancel.tr(),
             btnOkOnPress: () {
               context.go(RoutePaths.signup, extra: state.email);

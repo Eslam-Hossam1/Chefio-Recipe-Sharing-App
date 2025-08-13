@@ -31,7 +31,7 @@
       "your_email_need_to_verified": "Tu correo no está verificado. Te enviamos un enlace de verificación. Verifícalo para continuar.",
       "session_expired": "Tu sesión ha expirado, por favor inicia sesión de nuevo",
       "email_not_registered_message": "Este correo electrónico no está registrado. ¿Quieres crear una nueva cuenta?",
-      "create_account": "Crear cuenta"
+      "create": "Crear"
     },
     "sign_up": {
       "welcome": "¡Bienvenido!",

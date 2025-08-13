@@ -13,6 +13,12 @@ final class SignUpSuccess extends SignUpState {
 
 final class SignUpLoading extends SignUpState {}
 
+final class SignUpEmailRegisteredButNotVerified extends SignUpState {
+  final String email;
+
+  SignUpEmailRegisteredButNotVerified({required this.email});
+}
+
 final class SignUpFailure extends SignUpState {
   final String errorMessage;
   final String errorLocalizationKey;

@@ -61,6 +61,7 @@ class _SignUpFormState extends State<SignUpForm> {
             onSaved: (value) {
               email = value;
             },
+            initialValue: context.read<SignUpCubit>().email,
           ),
           SizedBox(
             height: 16.h,

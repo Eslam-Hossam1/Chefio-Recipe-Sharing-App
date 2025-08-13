@@ -28,6 +28,14 @@ class SignUpButton extends StatelessWidget {
             errorMessage: state.errorLocalizationKey.tr(),
             btnOkOnPress: () {},
           );
+        } else if (state is SignUpEmailRegisteredButNotVerified) {
+          RoutingHelper.pushOtp(
+            context,
+            otpReason: SignUpReason(
+              apiConsumer: getIt<DioConsumer>(),
+              email: state.email,
+            ),
+          );
         } else if (state is SignUpSuccess) {
           RoutingHelper.pushOtp(
             context,

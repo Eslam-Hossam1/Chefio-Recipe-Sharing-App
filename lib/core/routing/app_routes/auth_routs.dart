@@ -34,13 +34,16 @@ class AuthRoutes {
 
   static GoRoute signup = GoRoute(
     path: RoutePaths.signup,
-    builder: (context, state) => MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => SignUpCubit(getIt<AuthRepoImpl>())),
-        BlocProvider(create: (context) => ValidatePasswordCubit()),
-      ],
-      child: const SignUpView(),
-    ),
+    builder: (context, state) {
+      String? email = state.extra as String?;
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => SignUpCubit(getIt<AuthRepoImpl>(),email: email,)),
+          BlocProvider(create: (context) => ValidatePasswordCubit()),
+        ],
+        child: const SignUpView(),
+      );
+    },
   );
 
   static GoRoute forgotPassword = GoRoute(
