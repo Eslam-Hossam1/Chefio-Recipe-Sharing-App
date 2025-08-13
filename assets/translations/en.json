@@ -29,7 +29,9 @@
             "wrong_password": "The password is incorrect. Please try again.",
             "user_disabled": "This user account has been disabled. Please contact support.",
             "your_email_need_to_verified": "Your email is not verified yet. We have sent you a new verification email. Please check your inbox and verify your email to continue.",
-            "session_expired": "Your session has expired, please login again"
+            "session_expired": "Your session has expired, please login again",
+            "email_not_registered_message": "This email is not registered. Do you want to create a new account?",
+            "create_account": "Create Account"
         },
         "sign_up": {
             "welcome": "Welcome!",
