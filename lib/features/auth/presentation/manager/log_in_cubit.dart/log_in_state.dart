@@ -15,6 +15,11 @@ final class LogInSuccess extends LogInState {
 
 final class LogInLoading extends LogInState {}
 
+class LogInEmailNotFound extends LogInState {
+  final String email;
+  const LogInEmailNotFound({required this.email});
+}
+
 final class LogInFailure extends LogInState {
   final String errorMessage;
   final String errorLocalizationKey;

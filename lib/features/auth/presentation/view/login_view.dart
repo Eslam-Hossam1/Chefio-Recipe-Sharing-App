@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/api/dio_consumer.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/routing/routing_helper.dart';
@@ -33,6 +34,16 @@ class LoginView extends StatelessWidget {
               apiConsumer: getIt<DioConsumer>(),
               email: state.email,
             ),
+          );
+        } else if (state is LogInEmailNotFound) {
+          DialogHelper.showWarningDialog(
+            context,
+            errorMessage: AppLocalizationKeys.auth.emailNotRegisteredMessage.tr(),
+            btnOkText: AppLocalizationKeys.auth.createAccount.tr(),
+            btnCanceltext: AppLocalizationKeys.global.cancel.tr(),
+            btnOkOnPress: () {
+              context.go(RoutePaths.signup, extra: state.email);
+            },
           );
         } else if (state is LogInSuccess) {
           context.go(RoutePaths.home);

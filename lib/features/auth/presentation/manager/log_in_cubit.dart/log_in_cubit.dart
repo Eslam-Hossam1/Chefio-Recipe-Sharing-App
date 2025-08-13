@@ -25,9 +25,13 @@ class LogInCubit extends Cubit<LogInState> {
 
     logInResult.fold(
       (failure) {
-        bool isNotVerifiedEmail = failure.errCode == ErrorCodes.forbidden|| failure.errCode == ErrorCodes.emailNotVerified;
+        bool isNotVerifiedEmail = failure.errCode == ErrorCodes.forbidden ||
+            failure.errCode == ErrorCodes.emailNotVerified;
+        bool isEmailNotFound = failure.errCode == ErrorCodes.notFound;
         if (isNotVerifiedEmail) {
           emit(LogInNeedVerification(email: email));
+        } else if (isEmailNotFound) {
+          emit(LogInEmailNotFound(email: email)); 
         } else {
           emit(LogInFailure(
               errorMessage: failure.errMsg,
