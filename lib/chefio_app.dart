@@ -10,6 +10,8 @@ import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/core/routing/app_router.dart';
 import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:chefio_app/core/theme/app_themes.dart';
+import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:chefio_app/features/profile/presentation/manager/chef_connections_cubit/chef_connections_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/manager/my_profile_cubit/my_profile_cubit.dart';
@@ -57,6 +59,9 @@ class _ChefioState extends State<Chefio> {
               BlocProvider(
                 create: (context) => FollowChefCubit(
                     followChefService: getIt<FollowChefService>()),
+              ),
+              BlocProvider(
+                create: (context) => HomeRecipesCubit(getIt<HomeRepoImpl>()),
               ),
               BlocProvider(
                 create: (context) => MyProfileCubit(

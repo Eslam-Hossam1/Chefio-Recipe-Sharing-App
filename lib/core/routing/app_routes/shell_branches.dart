@@ -39,15 +39,8 @@ abstract class ShellBranches {
       routes: [
         GoRoute(
           path: RoutePaths.home,
-          builder: (context, state) => MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => HomeRecipesCubit(getIt<HomeRepoImpl>()),
-              ),
-              BlocProvider(
-                create: (context) => HomeCategoriesCubit(getIt<HomeRepoImpl>()),
-              ),
-            ],
+          builder: (context, state) => BlocProvider(
+            create: (context) => HomeCategoriesCubit(getIt<HomeRepoImpl>()),
             child: const HomeView(),
           ),
           routes: [
