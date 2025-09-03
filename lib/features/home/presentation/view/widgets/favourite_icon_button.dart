@@ -1,7 +1,7 @@
 import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/cubit/like_recipe_cubit/like_recipe_cubit.dart';
-import 'package:chefio_app/features/home/presentation/view/widgets/Glass_favourite_icon.dart';
+import 'package:chefio_app/features/home/presentation/view/widgets/glass_favourite_icon.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,5 +1,5 @@
 import 'package:chefio_app/features/notifiactions/domain/notification_entity.dart';
-import 'package:chefio_app/features/notifiactions/presentation/view/widgets/notification_recipe_Image.dart';
+import 'package:chefio_app/features/notifiactions/presentation/view/widgets/notification_recipe_image.dart';
 import 'package:chefio_app/features/notifiactions/presentation/view/widgets/notification_user_with_message.dart';
 import 'package:flutter/material.dart';
 

@@ -126,15 +126,13 @@ class AuthRepoImpl implements AuthRepo {
           await _googleAuthService.signInWithGoogle();
       if (googleUser == null) return right(null);
 
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
+      await googleUser.authentication;
       GoogleSignInModel googleSignInModel = GoogleSignInModel(
         googleId: googleUser.id,
         email: googleUser.email,
         username: googleUser.displayName ?? "Unkown",
         profilePicture: googleUser.photoUrl ?? Constants.nullUserImageUrl,
       );
-       final String? idToken = googleAuth.idToken;
       final response = await _apiConsumer.post(
         EndPoints.googleSignIn,
         data: googleSignInModel.toJson(),
