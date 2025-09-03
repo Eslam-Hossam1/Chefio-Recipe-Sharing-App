@@ -4,8 +4,11 @@ import 'package:chefio_app/core/routing/routs.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/custom_text_button.dart';
+import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
+import 'package:chefio_app/features/profile/presentation/manager/my_profile_cubit/my_profile_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class EditRecipeSuccessDialog extends StatelessWidget {
@@ -49,6 +52,7 @@ class EditRecipeSuccessDialog extends StatelessWidget {
             CustomTextButton(
               width: double.infinity,
               onPressed: () {
+                _refreshHomeAndProfileToSyncChanges(context);
                 context.go(RoutePaths.home);
               },
               child: Text(
@@ -61,5 +65,10 @@ class EditRecipeSuccessDialog extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _refreshHomeAndProfileToSyncChanges(BuildContext context) {
+    context.read<MyProfileCubit>().refresh();
+    context.read<HomeRecipesCubit>().refreshRecipes();
   }
 }

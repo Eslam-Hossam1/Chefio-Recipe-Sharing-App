@@ -53,7 +53,7 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
           showDialog(
             context: context,
             builder: (context) {
-              return SetRecipeSuccessDialog();
+              return UploadRecipeSuccessDialog();
             },
           );
         }
