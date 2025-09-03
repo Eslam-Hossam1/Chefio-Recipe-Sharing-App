@@ -5,4 +5,5 @@ class NotificationsLocalization {
   final String nowFollowingYou = 'notifications.now_following_you';
   final String likedYourRecipe = 'notifications.liked_your_recipe';
   final String uploadedNewRecipe = 'notifications.uploaded_new_recipe';
+  final String noNotifications = 'notifications.no_notifications';
 }

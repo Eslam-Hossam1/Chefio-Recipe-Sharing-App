@@ -236,6 +236,7 @@
     "notifications": {
         "now_following_you": "is now following you",
         "liked_your_recipe": "liked your recipe",
-        "uploaded_new_recipe": "uploaded a new recipe"
+        "uploaded_new_recipe": "uploaded a new recipe",
+        "no_notifications": "There are no notifications"
     }
 }

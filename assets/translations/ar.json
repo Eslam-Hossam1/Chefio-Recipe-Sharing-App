@@ -236,6 +236,7 @@
         "notifications": {
             "now_following_you": "بدأ يتابعك",
             "liked_your_recipe": "أعجبته وصفتك",
-            "uploaded_new_recipe": "نشر وصفة جديدة"
+            "uploaded_new_recipe": "نشر وصفة جديدة",
+            "no_notifications": "لا توجد إشعارات"
         }
     }

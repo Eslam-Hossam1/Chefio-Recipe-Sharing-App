@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/widgets/custom_info_message_with_button.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_text_info_message.dart';
 import 'package:chefio_app/features/notifiactions/presentation/manager/notifications_cubit/notifications_cubit.dart';
@@ -21,7 +22,7 @@ class NotificationsListBuilder extends StatelessWidget {
             hasScrollBody: false,
             child: Center(
               child: CustomTextInfoMessage(
-                text: 'there is no notifications',
+                text: AppLocalizationKeys.notifications.noNotifications.tr(),
               ),
             ),
           );
@@ -31,7 +32,6 @@ class NotificationsListBuilder extends StatelessWidget {
             child: Center(
               child: CustomInfoMessageWithButton(
                 message: state.errLocalizationKey.tr(),
-                btnText: 'try again',
                 onPressed: context.read<NotificationsCubit>().refersh,
               ),
             ),
