@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -13,7 +14,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   ProfileModel? profileModel;
   Future<void> fetchChefProfileWithInitialRecipes({
     required String chefId,
-    int limit = 30,
+    int limit = Constants.recipesLimit,
   }) async {
     emit(ProfileLoading());
     var result = await _profileRepo.fetchProfileWithInitialChefRecipes(
@@ -38,7 +39,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   }
 
   Future<void> refresh({
-    int limit = 30,
+    int limit = Constants.recipesLimit,
   }) async =>
       await fetchChefProfileWithInitialRecipes(
         chefId: profileModel!.id,

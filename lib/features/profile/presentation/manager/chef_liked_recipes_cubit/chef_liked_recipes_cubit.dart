@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo.dart';
 import 'package:equatable/equatable.dart';
 
@@ -16,7 +17,7 @@ class ChefLikedRecipesCubit extends Cubit<ChefLikedRecipesState> {
         _authCredentialsHelper = authCredentialsHelper,
         super(ChefLikedRecipesInitial());
   int page = 1;
-  int limit = 30;
+  int limit = Constants.recipesLimit;
   bool hasMore = true;
   bool isLoading = false;
   List<RecipeEntity> chefLikedRecipes = [];

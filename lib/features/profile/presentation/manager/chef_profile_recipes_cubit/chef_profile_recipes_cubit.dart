@@ -1,8 +1,7 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/chef_profile_recipe_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -19,7 +18,7 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
         _authCredentialsHelper = authCredentialsHelper,
         super(ChefProfileRecipesInitial());
   int page = 1;
-  int limit = 30;
+  int limit = Constants.recipesLimit;
   bool hasMore = true;
   bool isLoading = false;
   List<RecipeBodyEntity> chefRecipes = [];
@@ -76,11 +75,8 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
     required int limit,
     required String chefId,
   }) async {
-    log('chefId:$chefId , _authCredentialsHelper.userId:${_authCredentialsHelper.userId}');
-
     if (chefInitialRecipes.isEmpty && chefRecipes.isEmpty) {
       isLoading = false;
-      log('chefId:$chefId , _authCredentialsHelper.userId:${_authCredentialsHelper.userId}');
 
       if (chefId == _authCredentialsHelper.userId) {
         emit(MyProfileEmptyRecipes());

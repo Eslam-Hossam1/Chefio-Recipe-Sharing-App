@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo.dart';
 import 'package:equatable/equatable.dart';
 
@@ -10,7 +11,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
   final HomeRepo _homeRepo;
   List<RecipeEntity> recipes = [];
   int page = 0;
-  int limit = 30;
+  int limit = Constants.recipesLimit;
   bool isLoading = false;
   bool hasMoreData = true;
   String categoryName = '';

@@ -9,4 +9,5 @@ abstract class Constants {
       "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
   static const double userTileImageSize = 40;
   static const double loadMoreTriggerRatio = 0.7;
+  static const int recipesLimit = 16;
 }
