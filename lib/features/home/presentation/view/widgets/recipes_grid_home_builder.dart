@@ -14,6 +14,7 @@ class RecipesGridHomeBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeRecipesCubit, HomeRecipesState>(
+      
       listener: (context, state) {
         if (state is HomeRecipesLoadingMoreFailure) {
           showCustomToast(

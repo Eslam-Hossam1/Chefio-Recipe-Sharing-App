@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
+import 'package:chefio_app/core/errors/error_codes.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:chefio_app/features/home/data/repos/home_repo.dart';
 import 'package:equatable/equatable.dart';
@@ -26,6 +27,13 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
       page = 0;
       hasMoreData = true;
     }
+    emit(HomeRecipesFirstLoading());
+
+    await fetchRecipes();
+  }
+
+  Future<void> firstFetchRecipes() async {
+    emit(HomeRecipesFirstLoading());
     await fetchRecipes();
   }
 
@@ -34,18 +42,28 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
     page = 0;
     hasMoreData = true;
     categoryName = '';
+    emit(HomeRecipesFirstLoading());
+
+    await fetchRecipes();
+  }
+
+  Future<void> fetchMoreRecipes() async {
+    var nowState = state;
+    // To disable flickering in (no internet connection in first-fetch failure) state
+    // The Pull-to-Refresh package causes a fake scroll event even if the list is empty,
+    // which would normally trigger a "fetch more" while scrolling to bottom.
+    // So what i did is to add this check to handle that state,
+    if (nowState is HomeRecipesFirstFetchFailure &&
+        nowState.errorCode == ErrorCodes.noInternetConnection) {
+      return;
+    }
+    emit(HomeRecipesLoadingMore());
     await fetchRecipes();
   }
 
   Future<void> fetchRecipes() async {
     if (isLoading || !hasMoreData) return;
-    if (recipes.isNotEmpty) {
-      emit(HomeRecipesLoadingMore());
-    } else {
-      emit(HomeRecipesFirstLoading());
-    }
     isLoading = true;
-
     var result = await _homeRepo.fetchRecipesFromApi(
       categoryName: categoryName,
       page: page,
@@ -59,6 +77,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
             HomeRecipesFirstFetchFailure(
               errorMessage: failure.errMsg,
               errorLocalizationKey: failure.localizaitonKey,
+              errorCode: failure.errCode,
             ),
           );
         } else {
@@ -73,6 +92,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
       (newRecipes) {
         if (newRecipes.isEmpty && recipes.isEmpty) {
           hasMoreData = false;
+          isLoading = false;
           emit(HomeRecipesEmpty());
           return;
         }

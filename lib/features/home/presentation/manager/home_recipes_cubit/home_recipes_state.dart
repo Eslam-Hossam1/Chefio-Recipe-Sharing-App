@@ -18,7 +18,6 @@ final class HomeRecipesSuccess extends HomeRecipesState {}
 final class HomeRecipesLoadingMoreFailure extends HomeRecipesState {
   final String errorMessage;
   final String errorLocalizationKey;
-
   const HomeRecipesLoadingMoreFailure({
     required this.errorMessage,
     required this.errorLocalizationKey,
@@ -28,8 +27,10 @@ final class HomeRecipesLoadingMoreFailure extends HomeRecipesState {
 final class HomeRecipesFirstFetchFailure extends HomeRecipesState {
   final String errorMessage;
   final String errorLocalizationKey;
+  final String errorCode;
 
   const HomeRecipesFirstFetchFailure({
+    required this.errorCode,
     required this.errorMessage,
     required this.errorLocalizationKey,
   });

@@ -37,13 +37,13 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     _scrollController.addListener(_onScroll);
     _refreshController = RefreshController();
     context.read<HomeCategoriesCubit>().fetchCategories();
-    context.read<HomeRecipesCubit>().fetchRecipes();
+    context.read<HomeRecipesCubit>().firstFetchRecipes();
   }
 
   void _onScroll() {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent* Constants.loadMoreTriggerRatio) {
-      context.read<HomeRecipesCubit>().fetchRecipes();
+      context.read<HomeRecipesCubit>().fetchMoreRecipes();
     }
   }
 
