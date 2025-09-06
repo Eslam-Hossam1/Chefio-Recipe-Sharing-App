@@ -185,6 +185,7 @@
     "conflict": "Hay un conflicto con datos existentes.",
     "unprocessable_entity": "Entrada inválida. Verifica tus datos.",
     "internal_server_error": "Hubo un error en el servidor.",
+    "server_error": "Hubo un error en el servidor.",
     "unknown_error": "Ocurrió un error desconocido. Intenta de nuevo.",
     "expired_token": "Tu sesión expiró. Inicia sesión de nuevo.",
     "invalid_credentials": "Correo o contraseña incorrectos.",

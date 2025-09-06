@@ -185,6 +185,7 @@
         "conflict": "There is a conflict with existing data.",
         "unprocessable_entity": "Invalid input. Please check your data.",
         "internal_server_error": "An error occurred on the server.",
+        "server_error": "An error occurred on the server.",
         "unknown_error": "An unknown error occurred. Please try again later.",
         "expired_token": "Your session has expired. Please log in again.",
         "invalid_credentials": "Incorrect email or password.",

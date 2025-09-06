@@ -12,6 +12,8 @@ abstract class ErrorLocalizationMapper {
         AppLocalizationKeys.error.unprocessableEntity,
     ErrorCodes.internalServerError:
         AppLocalizationKeys.error.internalServerError,
+    ErrorCodes.serverError:
+        AppLocalizationKeys.error.internalServerError,
     ErrorCodes.serviceUnavailable: AppLocalizationKeys.error.serviceUnavailable,
     ErrorCodes.unknownError: AppLocalizationKeys.error.unknownError,
     ErrorCodes.expiredToken: AppLocalizationKeys.error.expiredToken,

@@ -8,6 +8,7 @@ class Errors {
   final String conflict = "errors.conflict";
   final String unprocessableEntity = "errors.unprocessable_entity";
   final String internalServerError = "errors.internal_server_error";
+  final String serverError = "errors.server_error";
   final String serviceUnavailable = "errors.service_unavailable";
   final String unknownError = "errors.unknown_error";
   final String expiredToken = "errors.expired_token";

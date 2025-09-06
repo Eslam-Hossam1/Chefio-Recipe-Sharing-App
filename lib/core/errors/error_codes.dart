@@ -6,6 +6,7 @@ abstract class ErrorCodes {
   static const String conflict = 'conflict';
   static const String unprocessableEntity = 'unprocessable_entity';
   static const String internalServerError = 'internal_server_error';
+  static const String serverError = 'server_error';
   static const String serviceUnavailable = 'service_unavailable';
   static const String unknownError = 'unknown_error';
   static const String expiredToken = 'expired_token';
