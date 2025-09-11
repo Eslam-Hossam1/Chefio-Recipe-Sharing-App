@@ -1,9 +1,10 @@
 import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
+import 'package:chefio_app/features/profile/data/models/following_state.dart';
 
 class ChefFollowerModel extends ChefConnectionEntity {
   final String id;
   final String username;
-  final bool isFollowed;
+  final FollowingState isFollowed;
   final String? profilePicture;
 
   ChefFollowerModel({
@@ -15,7 +16,7 @@ class ChefFollowerModel extends ChefConnectionEntity {
           chefId: id,
           chefUsername: username,
           chefProfilePicture: profilePicture,
-          isFollowing: isFollowed,
+          isFollowing: isFollowed == FollowingState.following,
         );
 
   factory ChefFollowerModel.fromJson(Map<String, dynamic> json) {
@@ -23,14 +24,14 @@ class ChefFollowerModel extends ChefConnectionEntity {
       id: json['_id'] as String,
       username: json['username'] as String,
       profilePicture: json['profilePicture'] as String?,
-      isFollowed: json['isFollowed'] as bool,
+      isFollowed: FollowingState.fromJson(json['isFollowed'] as String),
     );
   }
 
   Map<String, dynamic> toJson() => {
         '_id': id,
         'username': username,
-        'isFollowed': isFollowed,
+        'isFollowed': isFollowed.toJson(),
         'profilePicture': profilePicture,
       };
 

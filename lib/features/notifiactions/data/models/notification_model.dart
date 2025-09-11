@@ -1,5 +1,6 @@
 import 'package:chefio_app/features/notifiactions/data/models/notification_message_model.dart';
 import 'package:chefio_app/features/notifiactions/domain/notification_entity.dart';
+import 'package:chefio_app/features/profile/data/models/following_state.dart';
 
 import 'sender.dart';
 
@@ -12,7 +13,7 @@ class NotificationModel extends NotificationEntity {
   String? notitifcationRecipePicture;
   bool isRead;
   DateTime notificationCreatedAt;
-  bool? isFollowed;
+  FollowingState? isFollowed;
   int? v;
 
   NotificationModel({
@@ -35,7 +36,7 @@ class NotificationModel extends NotificationEntity {
                 NotificationMessageModel.fromType(type: notifcationtype),
             createdAt: notificationCreatedAt,
             type: notifcationtype,
-            isFollowing: isFollowed,
+            isFollowing: isFollowed == FollowingState.following,
             recipePicture: notitifcationRecipePicture,
             recipeId: notificationRecipeId);
 
@@ -50,7 +51,9 @@ class NotificationModel extends NotificationEntity {
       notificationCreatedAt: DateTime.parse(json['createdAt'] as String),
       v: json['__v'] as int?,
       notitifcationRecipePicture: json['recipePicture'] as String?,
-      isFollowed: json['isFollowed'] as bool?,
+      isFollowed: (json['isFollowing'] as String?) == null
+          ? null
+          : FollowingState.fromJson(json['isFollowing'] as String),
     );
   }
 
@@ -63,7 +66,7 @@ class NotificationModel extends NotificationEntity {
         'recipePicture': recipePicture,
         'isRead': isRead,
         'createdAt': notificationCreatedAt.toIso8601String(),
-        'isFollowed': isFollowed,
+        'isFollowed': isFollowed?.toJson(),
         '__v': v,
       };
 }

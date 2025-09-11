@@ -9,7 +9,7 @@ abstract class ProfileExpectedResponseHelper {
           "https://res.cloudinary.com/dj3wmknwu/image/upload/v1746017577/chefio/mvh2sucdu4qm8gnzuikp.jpg",
       "followersCount": 0,
       "followingCount": 0,
-      "isFollowing": "not_following",
+      "isFollowing": "true",
       "recipes": {
         "totalRecipes": 9,
         "currentPage": 2,
@@ -93,7 +93,7 @@ abstract class ProfileExpectedResponseHelper {
         "_id": "67ce1072413bba22b5ed790c",
         "username": "Lynn.Jerde",
         "profilePicture": "https://randomuser.me/api/portraits/men/0.jpg",
-        "isFollowed": true
+        "isFollowed": 'true'
       }
     ]
   };
@@ -103,14 +103,14 @@ abstract class ProfileExpectedResponseHelper {
       {
         "_id": "67da5afe0703bff9b1fe68fa",
         "username": "eslam",
-        "isFollowed": true
+        "isFollowed": 'true'
       },
       {
         "_id": "67d2ebbe5b67e148c1d7cb4f",
         "username": "Abdelrhman hegazy",
         "profilePicture":
             "https://res.cloudinary.com/dj3wmknwu/image/upload/v1746017577/chefio/mvh2sucdu4qm8gnzuikp.jpg",
-        "isFollowed": true
+        "isFollowed": 'true'
       }
     ]
   };

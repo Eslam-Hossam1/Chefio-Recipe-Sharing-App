@@ -1,6 +1,7 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
+import 'package:chefio_app/features/profile/data/models/following_state.dart';
 import 'package:chefio_app/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/big_follow_button.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -20,7 +21,7 @@ class _ProfileFollowButtonState extends State<ProfileFollowButton> {
   @override
   void initState() {
     final profile = context.read<ProfileCubit>().profileModel!.profile;
-    isFollowing = profile.isFollowing == ApiKeys.following;
+    isFollowing = profile.isFollowing == FollowingState.following;
     super.initState();
   }
 

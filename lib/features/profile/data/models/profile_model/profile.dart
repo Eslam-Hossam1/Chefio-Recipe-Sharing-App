@@ -1,3 +1,4 @@
+import 'package:chefio_app/features/profile/data/models/following_state.dart';
 
 import 'initial_recipes.dart';
 
@@ -7,7 +8,7 @@ class Profile {
   final String? profilePicture;
   int followersCount;
   int followingCount;
-  String isFollowing;
+  FollowingState isFollowing;
   final InitialRecipes recipes;
 
   Profile({
@@ -26,7 +27,7 @@ class Profile {
         profilePicture: json['profilePicture'] as String?,
         followersCount: json['followersCount'] as int,
         followingCount: json['followingCount'] as int,
-        isFollowing: json['isFollowing'] as String,
+        isFollowing: FollowingState.fromJson(json['isFollowing'] as String),
         recipes:
             InitialRecipes.fromJson(json['recipes'] as Map<String, dynamic>),
       );
@@ -37,7 +38,7 @@ class Profile {
         'profilePicture': profilePicture,
         'followersCount': followersCount,
         'followingCount': followingCount,
-        'isFollowing': isFollowing,
+        'isFollowing': isFollowing.toJson(),
         'recipes': recipes.toJson(),
       };
 }
