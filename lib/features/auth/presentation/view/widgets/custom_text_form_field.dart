@@ -44,7 +44,11 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         errorMaxLines: 2,
         contentPadding: EdgeInsetsDirectional.only(
-            top: 16, bottom: 16, start: prefixIcon == null ? 24 : 0),
+          top: 16,
+          bottom: 16,
+          start: prefixIcon == null ? 24 : 0,
+          end: 24,
+        ),
         hintText: hint,
         hintStyle: Styles.textStyleMedium15(context).copyWith(
           color: context.secondaryTextColor,
