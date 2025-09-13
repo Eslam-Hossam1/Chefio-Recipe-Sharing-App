@@ -1,3 +1,4 @@
+import 'package:chefio_app/core/errors/error_codes.dart';
 import 'package:equatable/equatable.dart';
 
 class ApiErrorModel extends Equatable {
@@ -14,7 +15,7 @@ class ApiErrorModel extends Equatable {
   factory ApiErrorModel.fromJson(Map<String, dynamic> json) => ApiErrorModel(
         success: json['success'] as bool,
         message: json['message'] as String,
-        errorCode: json['error'] as String,
+        errorCode: (json['error'] as String?) ?? ErrorCodes.unknownError,
       );
 
   Map<String, dynamic> toJson() => {
