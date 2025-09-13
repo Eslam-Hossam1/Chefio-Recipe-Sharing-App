@@ -1,6 +1,6 @@
 import 'package:chefio_app/features/recipe_details/data/models/recipe_liker_model/recipe_liker_model.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_liker_model/user.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_likers_list_view.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/like/recipe_likers_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 

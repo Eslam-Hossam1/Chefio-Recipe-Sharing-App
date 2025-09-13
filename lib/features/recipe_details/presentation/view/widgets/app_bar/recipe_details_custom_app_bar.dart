@@ -1,7 +1,7 @@
 import 'package:chefio_app/features/home/presentation/view/widgets/custom_cached_network_image.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_bottom.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_items.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/app_bar/recipe_details_app_bar_bottom.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/app_bar/app_bar_items/recipe_details_app_bar_items_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,7 +64,7 @@ class RecipeDetailsCustomAppBar extends StatelessWidget {
                   : appBarImageInitialHeight / 5,
               left: 16.w,
               right: 16.w,
-              child: RecipeDetailsAppBarItems(
+              child: RecipeDetailsAppBarItemsManager(
                   collapseRatio: collapseRatio,
                   titleAppearOnCollapseRatio: titleAppearOnCollapseRatio),
             ),

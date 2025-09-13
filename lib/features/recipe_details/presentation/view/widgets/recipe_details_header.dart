@@ -3,7 +3,7 @@ import 'package:chefio_app/core/widgets/recipe_category_with_cooking_duration_te
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/custom_bold_17_title.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_custom_like.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/like/recipe_details_custom_like.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/user_tile_item.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

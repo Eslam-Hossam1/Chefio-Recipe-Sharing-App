@@ -1,8 +1,8 @@
 import 'package:chefio_app/core/Functions/show_custom_toast.dart';
 import 'package:chefio_app/core/cubit/like_recipe_cubit/like_recipe_cubit.dart';
 import 'package:chefio_app/features/recipe_details/data/models/recipe_details_success/recipe_details_model.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/likes_count_trigger.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_detail_circle_like_icon.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/like/likes_count_trigger.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/like/recipe_detail_circle_like_icon.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -4,7 +4,7 @@ import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_likers_cubit/recipe_likers_cubit.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_likers_bottom_sheet.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/like/recipe_likers_bottom_sheet.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

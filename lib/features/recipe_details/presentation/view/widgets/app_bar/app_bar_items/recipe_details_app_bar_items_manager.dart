@@ -1,15 +1,15 @@
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_details_cubit/recipe_details_cubit.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_action_button.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_app_bar_glass_action_button.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_back_button.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_details_glass_back_button.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/app_bar/app_bar_items/recipe_details_app_bar_action_button.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/app_bar/app_bar_items/glass_effect_buttons/recipe_details_app_bar_glass_action_button.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/app_bar/app_bar_items/recipe_details_back_button.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/app_bar/app_bar_items/glass_effect_buttons/recipe_details_glass_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RecipeDetailsAppBarItems extends StatelessWidget {
-  const RecipeDetailsAppBarItems({
+class RecipeDetailsAppBarItemsManager extends StatelessWidget {
+  const RecipeDetailsAppBarItemsManager({
     super.key,
     required this.collapseRatio,
     required this.titleAppearOnCollapseRatio,

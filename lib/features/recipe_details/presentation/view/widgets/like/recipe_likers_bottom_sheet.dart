@@ -1,6 +1,6 @@
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/recipe_details/presentation/manager/recipe_likers_cubit/recipe_likers_cubit.dart';
-import 'package:chefio_app/features/recipe_details/presentation/view/widgets/recipe_likers_bottom_sheet_body_builder.dart';
+import 'package:chefio_app/features/recipe_details/presentation/view/widgets/like/recipe_likers_bottom_sheet_body_builder.dart';
 import 'package:chefio_app/features/recipe_details/presentation/view/widgets/scrollable_sheet_dragger_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
