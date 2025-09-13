@@ -5,18 +5,18 @@ import 'package:chefio_app/features/recipe_details/presentation/view/widgets/sha
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RecipeDetailsAppBarActionButton extends StatefulWidget {
-  const RecipeDetailsAppBarActionButton({
+class RecipeDetailsAppBarGlassActionButton extends StatefulWidget {
+  const RecipeDetailsAppBarGlassActionButton({
     super.key,
   });
 
   @override
-  State<RecipeDetailsAppBarActionButton> createState() =>
-      _RecipeDetailsAppBarActionButtonState();
+  State<RecipeDetailsAppBarGlassActionButton> createState() =>
+      _RecipeDetailsAppBarGlassActionButtonState();
 }
 
-class _RecipeDetailsAppBarActionButtonState
-    extends State<RecipeDetailsAppBarActionButton> {
+class _RecipeDetailsAppBarGlassActionButtonState
+    extends State<RecipeDetailsAppBarGlassActionButton> {
   @override
   void initState() {
     //need to be modified not the final code

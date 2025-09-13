@@ -13,21 +13,24 @@ class RecipeDetailsBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomCircleGlassButton(
-      onPressed: () {
-        if (context.canPop()) {
-          context.pop();
-        } else {
-          context.go(RoutePaths.home);
-        }
-      },
-      child: Transform.rotate(
-        angle: LocalizationHelper.checkArabicLocale(context) ? 3.14159 : 0,
-        child: SvgPicture.asset(
-          Assets.imagesIosBackOutline,
-          colorFilter: ColorFilter.mode(
-            Colors.white,
-            BlendMode.srcIn,
+    return SizedBox(
+      width: 56,
+      child: GestureDetector(
+        onTap: () {
+          if (context.canPop()) {
+            context.pop();
+          } else {
+            context.go(RoutePaths.home);
+          }
+        },
+        child: Transform.rotate(
+          angle: LocalizationHelper.checkArabicLocale(context) ? 3.14159 : 0,
+          child: SvgPicture.asset(
+            Assets.imagesIosBackOutline,
+            colorFilter: ColorFilter.mode(
+              Colors.white,
+              BlendMode.srcIn,
+            ),
           ),
         ),
       ),

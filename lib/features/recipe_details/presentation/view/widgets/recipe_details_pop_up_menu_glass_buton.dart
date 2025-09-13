@@ -13,8 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class EditAndSharePopUpMenuButton extends StatelessWidget {
-  const EditAndSharePopUpMenuButton({
+class EditAndSharePopUpMenuGlassButton extends StatelessWidget {
+  const EditAndSharePopUpMenuGlassButton({
     super.key,
   });
   static final List<PopUpMenuModel> popUpModels = [
