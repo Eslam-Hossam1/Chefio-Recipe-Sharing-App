@@ -1,8 +1,10 @@
+import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
 import 'package:chefio_app/features/profile/data/models/following_state.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/chef_followers_bottom_sheet.dart';
 import 'package:chefio_app/features/profile/presentation/views/widgets/profile_common_widgets/profile_chef_info_item.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -60,7 +62,7 @@ class _ChefFollowersItemConsumerState extends State<ChefFollowersItemConsumer> {
         builder: (context, state) {
           return ProfileChefInfoItem(
             number: '$followersCount',
-            text: 'Followers',
+            text: AppLocalizationKeys.profile.followers.tr(),
           );
         },
       ),
