@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ShareGlassButton extends StatelessWidget {
-  const ShareGlassButton({
+class ShareButton extends StatelessWidget {
+  const ShareButton({
     super.key,
   });
 
