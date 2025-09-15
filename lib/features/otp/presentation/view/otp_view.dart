@@ -63,9 +63,10 @@ class _OtpViewState extends State<OtpView> {
                 btnOkOnPress: () => context.pop(),
               );
             },
-            child: Scaffold(
-              body: SafeArea(
-                child: OtpViewBody()
+            child: GestureDetector(
+              onTap: () => (event) => FocusScope.of(context).unfocus(),
+              child: Scaffold(
+                body: SafeArea(child: OtpViewBody()),
               ),
             ),
           ),

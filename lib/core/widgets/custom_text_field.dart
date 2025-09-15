@@ -38,6 +38,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onTapOutside: (event) => FocusScope.of(context).unfocus(),
       controller: controller,
       textInputAction: textInputAction,
       focusNode: focusNode,

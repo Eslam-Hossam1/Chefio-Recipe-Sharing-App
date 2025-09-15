@@ -39,6 +39,7 @@ class _ObsecureTextFormFieldState extends State<ObsecureTextFormField> {
     return TextFormField(
       onSaved: widget.onSaved,
       onChanged: widget.onChanged,
+      onTapOutside: (event) => FocusScope.of(context).unfocus(),
       validator:
           widget.validator ?? FormValidators.customTextFormFieldValidator,
       obscureText: isObscure,
