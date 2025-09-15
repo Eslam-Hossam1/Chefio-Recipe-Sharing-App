@@ -41,13 +41,13 @@ class EnterIngredientItem extends StatelessWidget {
               context
                   .read<UploadRecipeFormCubit>()
                   .uploadRecipeFormModel
-                  .ingredients[ingredientIndex] = ingredient!;
+                  .ingredients[ingredientIndex] = ingredient!.trim();
             },
             onChanged: (ingredientChange) {
               context
                   .read<UploadRecipeFormCubit>()
                   .uploadRecipeFormModel
-                  .ingredients[ingredientIndex] = ingredientChange;
+                  .ingredients[ingredientIndex] = ingredientChange.trim();
             },
             hint: AppLocalizationKeys.upload.enterIngredient.tr(),
           ),

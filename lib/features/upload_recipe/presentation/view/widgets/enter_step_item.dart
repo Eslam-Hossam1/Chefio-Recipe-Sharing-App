@@ -58,10 +58,10 @@ class EnterStepItem extends StatelessWidget {
                     FormValidators.requiredNumberOfCharacters(value, 2),
                 initialValue: uploadRecipeFormModel.steps[stepIndex].stepText,
                 onSaved: (step) {
-                  uploadRecipeFormModel.steps[stepIndex].stepText = step!;
+                  uploadRecipeFormModel.steps[stepIndex].stepText = step!.trim();
                 },
                 onChanged: (stepChange) {
-                  uploadRecipeFormModel.steps[stepIndex].stepText = stepChange;
+                  uploadRecipeFormModel.steps[stepIndex].stepText = stepChange.trim();
                 },
                 hint: AppLocalizationKeys.upload.stepHint.tr(),
                 borderRadius: 8,

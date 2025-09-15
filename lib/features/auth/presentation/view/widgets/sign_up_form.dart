@@ -50,7 +50,7 @@ class _SignUpFormState extends State<SignUpForm> {
               color: context.mainTextColor,
             ),
             onSaved: (value) {
-              username = value;
+              username = value?.trim();
             },
             validator: FormValidators.usernameTextFormFieldValidator,
           ),
@@ -59,7 +59,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           CustomeEmailTextFormField(
             onSaved: (value) {
-              email = value;
+              email = value?.trim();
             },
             initialValue: context.read<SignUpCubit>().email,
           ),
@@ -73,7 +73,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 .validatePasswordOnChange,
             hint: AppLocalizationKeys.auth.passwordTextFieldHint.tr(),
             onSaved: (value) {
-              password = value;
+              password = value?.trim();
             },
           ),
           SizedBox(

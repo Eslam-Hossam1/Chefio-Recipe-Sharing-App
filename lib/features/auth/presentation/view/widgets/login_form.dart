@@ -39,7 +39,7 @@ class _LoginFormState extends State<LoginForm> {
       child: Column(
         children: [
           CustomeEmailTextFormField(onSaved: (value) {
-            email = value;
+            email = value?.trim();
           }),
           SizedBox(
             height: 16.h,
@@ -47,7 +47,7 @@ class _LoginFormState extends State<LoginForm> {
           ObsecureTextFormField(
             hint: AppLocalizationKeys.auth.passwordTextFieldHint.tr(),
             onSaved: (value) {
-              password = value;
+              password = value?.trim();
             },
           ),
           SizedBox(

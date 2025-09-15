@@ -40,11 +40,11 @@ class EditEnterIngredientItem extends StatelessWidget {
                 editRecipeFormModel.ingredients[ingredientIndex],
             onSaved: (ingredient) {
               editRecipeFormModel.ingredients[ingredientIndex] =
-                  ingredient!;
+                  ingredient!.trim();
             },
             onChanged: (ingredientChange) {
               editRecipeFormModel.ingredients[ingredientIndex] =
-                  ingredientChange;
+                  ingredientChange.trim();
             },
             hint: AppLocalizationKeys.upload.enterIngredient.tr(),
           ),

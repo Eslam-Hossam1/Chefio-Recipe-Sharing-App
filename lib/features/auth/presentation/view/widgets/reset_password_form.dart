@@ -41,7 +41,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                 .validatePasswordOnChange,
             hint: AppLocalizationKeys.auth.passwordTextFieldHint.tr(),
             onSaved: (value) {
-              password = value;
+              password = value?.trim();
             },
           ),
           SizedBox(

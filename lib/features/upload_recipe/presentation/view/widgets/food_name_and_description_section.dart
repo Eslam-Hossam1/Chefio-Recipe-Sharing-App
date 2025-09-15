@@ -37,7 +37,7 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
                 FormValidators.requiredNumberOfCharacters(value, 2),
             initialValue: uploadRecipeFormModel.foodName,
             onSaved: (foodName) {
-              uploadRecipeFormModel.foodName = foodName!;
+              uploadRecipeFormModel.foodName = foodName!.trim();
             },
             hint: AppLocalizationKeys.upload.enterFoodName.tr(),
           ),
@@ -58,7 +58,7 @@ class FoodNameAndDescriptionSection extends StatelessWidget {
                 FormValidators.requiredNumberOfCharacters(value, 3),
             initialValue: uploadRecipeFormModel.foodDescription,
             onSaved: (foodDescription) {
-              uploadRecipeFormModel.foodDescription = foodDescription!;
+              uploadRecipeFormModel.foodDescription = foodDescription!.trim();
             },
             hint: AppLocalizationKeys.upload.descriptionHint.tr(),
             borderRadius: 8,

@@ -61,7 +61,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
       ),
       onSubmitted: (searchRecipeName) =>
           context.read<SearchRecipeCubit>().fetchRecipesWithSearchName(
-                searchRecipeName: searchRecipeName,
+                searchRecipeName: searchRecipeName.trim(),
               ),
     );
   }

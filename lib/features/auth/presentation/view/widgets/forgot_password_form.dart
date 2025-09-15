@@ -32,7 +32,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
       child: Column(
         children: [
           CustomeEmailTextFormField(onSaved: (value) {
-            email = value;
+            email = value?.trim();
           }),
           SizedBox(
             height: 32.h,

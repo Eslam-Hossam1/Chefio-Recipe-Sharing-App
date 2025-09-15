@@ -26,10 +26,10 @@ class EditUsernameTextFormField extends StatelessWidget {
           color: context.mainTextColor,
         ),
         onChanged: (value) {
-          editProfileCubit.onChangeUsername(username: value);
+          editProfileCubit.onChangeUsername(username: value.trim());
         },
         onSaved: (value) {
-          editProfileCubit.chefName = value!;
+          editProfileCubit.chefName = value!.trim();
         },
         validator: FormValidators.usernameTextFormFieldValidator,
       ),

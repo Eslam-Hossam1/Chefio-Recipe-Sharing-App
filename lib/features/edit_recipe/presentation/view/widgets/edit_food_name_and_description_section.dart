@@ -36,7 +36,7 @@ class EditFoodNameAndDescriptionSection extends StatelessWidget {
                 FormValidators.requiredNumberOfCharacters(value, 2),
             initialValue: editRecipeFormModel.foodName,
             onSaved: (foodName) {
-              editRecipeFormModel.foodName = foodName!;
+              editRecipeFormModel.foodName = foodName!.trim();
             },
             hint: AppLocalizationKeys.upload.enterFoodName.tr(),
           ),
@@ -57,7 +57,7 @@ class EditFoodNameAndDescriptionSection extends StatelessWidget {
                 FormValidators.requiredNumberOfCharacters(value, 3),
             initialValue: editRecipeFormModel.foodDescription,
             onSaved: (foodDescription) {
-              editRecipeFormModel.foodDescription = foodDescription!;
+              editRecipeFormModel.foodDescription = foodDescription!.trim();
             },
             hint: AppLocalizationKeys.upload.descriptionHint.tr(),
             borderRadius: 8,
