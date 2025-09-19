@@ -10,6 +10,7 @@ part 'my_profile_state.dart';
 class MyProfileCubit extends Cubit<MyProfileState> {
   final ProfileRepo _profileRepo;
   final AuthCredentialsHelper _authCredentialsHelper;
+  int limit = Constants.recipesLimit;
   MyProfileCubit({
     required ProfileRepo profileRepo,
     required AuthCredentialsHelper authCredentialsHelper,
@@ -17,9 +18,7 @@ class MyProfileCubit extends Cubit<MyProfileState> {
         _authCredentialsHelper = authCredentialsHelper,
         super(MyProfileInitial());
   ProfileModel? profileModel;
-  Future<void> fetchChefProfileWithInitialRecipes({
-    int limit = Constants.recipesLimit,
-  }) async {
+  Future<void> fetchChefProfileWithInitialRecipes() async {
     emit(MyProfileLoading());
     var result = await _profileRepo.fetchProfileWithInitialChefRecipes(
       chefId: _authCredentialsHelper.userId!,
@@ -42,8 +41,6 @@ class MyProfileCubit extends Cubit<MyProfileState> {
     );
   }
 
-  Future<void> refresh({
-    int limit = Constants.recipesLimit,
-  }) async =>
+  Future<void> refresh() async =>
       await fetchChefProfileWithInitialRecipes();
 }

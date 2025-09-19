@@ -17,7 +17,6 @@ class _ProfileViewState extends State<ProfileView> {
   void initState() {
     context.read<ProfileCubit>().fetchChefProfileWithInitialRecipes(
           chefId: widget.chefId,
-          limit: 30,
         );
     super.initState();
   }

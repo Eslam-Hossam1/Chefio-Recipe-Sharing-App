@@ -24,6 +24,7 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
   List<RecipeBodyEntity> chefRecipes = [];
   Future<void> fetchChefRecipes({required String chefId}) async {
     if (isLoading || !hasMore) return;
+    isLoading = true;
     if (chefRecipes.isNotEmpty) {
       emit(FetchMoreChefRecipes());
     } else {
@@ -35,6 +36,7 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
       limit: limit,
     );
     result.fold((failure) {
+      isLoading = false;
       if (chefRecipes.isEmpty) {
         emit(
           RecipesInitialFetchFailure(
@@ -51,11 +53,11 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
         );
       }
     }, (chefRecipes) {
-      if (chefRecipes.length <= limit) {
+      isLoading = false;
+      if (chefRecipes.length < limit) {
         hasMore = false;
       }
       if (chefRecipes.isEmpty && this.chefRecipes.isEmpty) {
-        isLoading = false;
         if (chefId == _authCredentialsHelper.userId) {
           emit(MyProfileEmptyRecipes());
         } else {
@@ -65,19 +67,18 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
       }
       this.chefRecipes.addAll(chefRecipes);
       page += 1;
-      isLoading = false;
       emit(ChefRecipesSuccess());
     });
   }
 
-  Future<void> startWithInitialRecipes({
+  void startWithInitialRecipes({
     required List<ChefProfileRecipeModel> chefInitialRecipes,
-    required int limit,
     required String chefId,
-  }) async {
+  }) {
+    if (chefInitialRecipes.length < limit) {
+      hasMore = false;
+    }
     if (chefInitialRecipes.isEmpty && chefRecipes.isEmpty) {
-      isLoading = false;
-
       if (chefId == _authCredentialsHelper.userId) {
         emit(MyProfileEmptyRecipes());
       } else {
@@ -87,7 +88,6 @@ class ChefProfileRecipesCubit extends Cubit<ChefProfileRecipesState> {
     }
     chefRecipes.clear();
     chefRecipes.addAll(chefInitialRecipes);
-    this.limit = limit;
     page += 1;
     emit(ChefRecipesSuccess());
   }
