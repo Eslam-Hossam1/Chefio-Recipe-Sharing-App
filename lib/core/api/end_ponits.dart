@@ -1,5 +1,5 @@
 abstract class EndPoints {
-  static const String baseUrl = "https://chefio-beta.vercel.app/api/v1/";
+  static const String baseUrl = "https://chefio-rho.vercel.app/api/v1/";
   static const String logIn = "auth/signin/";
   static const String signUp = "auth/signup";
   static const String sendVerificationCode = "auth/send-verification-code";
