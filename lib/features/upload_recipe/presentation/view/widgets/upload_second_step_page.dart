@@ -3,6 +3,7 @@ import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
+import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/sliver_set_recipe_header.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_submit_cubit/upload_recipe_submit_cubit.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/add_ingredient_button.dart';
@@ -61,20 +62,21 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is UploadSubmitLoading,
-          child: AdaptivePadding(
-            top: 12,
-            child: Form(
-              key: formData.formKey,
-              autovalidateMode: formData.autovalidateMode,
-              child: CustomScrollView(
-                controller: formData.scrollController,
-                slivers: [
-                  const SliverSetRecipeHeader(
+          child: Form(
+            key: formData.formKey,
+            autovalidateMode: formData.autovalidateMode,
+            child: CustomScrollView(
+              controller: formData.scrollController,
+              slivers: [
+                SliverAdaptivePadding(
+                  sliver: const SliverSetRecipeHeader(
                     currentStep: '2',
                     steps: '2',
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 47.h)),
-                  SliverToBoxAdapter(
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 47.h)),
+                SliverAdaptivePadding(
+                  sliver: SliverToBoxAdapter(
                     child: Row(
                       children: [
                         Text(
@@ -86,14 +88,18 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
                       ],
                     ),
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 36.h)),
-                  AnimatedAddIngredientsList(
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 36.h)),
+                SliverAdaptivePadding(
+                  sliver: AnimatedAddIngredientsList(
                     ingredientItemsKeys: formData.ingredientsItemKeys,
                     animatedListKey: formData.ingredientsAnimatedListKey,
                     focusNodes: formData.ingredientsFocusNodes,
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 20.h)),
-                  SliverToBoxAdapter(
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 20.h)),
+                SliverAdaptivePadding(
+                  sliver: SliverToBoxAdapter(
                     child: AddIngredintButton(
                       ingredientsFocusNodes: formData.ingredientsFocusNodes,
                       ingredientsItemKeys: formData.ingredientsItemKeys,
@@ -101,14 +107,16 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
                           formData.ingredientsAnimatedListKey,
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: Divider(
-                      height: 48,
-                      thickness: 8,
-                      color: context.formColor,
-                    ),
+                ),
+                SliverToBoxAdapter(
+                  child: Divider(
+                    height: 48,
+                    thickness: 8,
+                    color: context.formColor,
                   ),
-                  SliverToBoxAdapter(
+                ),
+                SliverAdaptivePadding(
+                  sliver: SliverToBoxAdapter(
                     child: Row(
                       children: [
                         Text(
@@ -120,14 +128,18 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
                       ],
                     ),
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 24.h)),
-                  AnimatedAddStepsList(
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 24.h)),
+                SliverAdaptivePadding(
+                  sliver: AnimatedAddStepsList(
                     stepItemsKeys: formData.stepsItemKeys,
                     animatedListKey: formData.stepsAnimatedListKey,
                     focusNodes: formData.stepsFocusNodes,
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 24.h)),
-                  SliverToBoxAdapter(
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 24.h)),
+                SliverAdaptivePadding(
+                  sliver: SliverToBoxAdapter(
                     child: AddStepButton(
                       stepsAnimatedListKey: formData.stepsAnimatedListKey,
                       scrollController: formData.scrollController,
@@ -135,16 +147,18 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
                       stepsItemKeys: formData.stepsItemKeys,
                     ),
                   ),
-                  SliverFillRemaining(
-                    hasScrollBody: false,
+                ),
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: AdaptivePadding(
                     child: UploadRecipeBackAndSubmitButtons(
                       onBack: widget.onBack,
                       formKey: formData.formKey,
                       enableAutoValidation: formData.enableAutoValidation,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );

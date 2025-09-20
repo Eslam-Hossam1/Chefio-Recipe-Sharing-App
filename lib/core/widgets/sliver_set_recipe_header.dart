@@ -14,27 +14,30 @@ class SliverSetRecipeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CustomCancel(),
-          Row(
-            children: [
-              Text(
-                '$currentStep/',
-                style: Styles.textStyleBold17(context).copyWith(
-                  color: context.mainTextColor,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 12.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomCancel(),
+            Row(
+              children: [
+                Text(
+                  '$currentStep/',
+                  style: Styles.textStyleBold17(context).copyWith(
+                    color: context.mainTextColor,
+                  ),
                 ),
-              ),
-              Text(
-                steps,
-                style: Styles.textStyleBold17(context).copyWith(
-                  color: context.secondaryTextColor,
+                Text(
+                  steps,
+                  style: Styles.textStyleBold17(context).copyWith(
+                    color: context.secondaryTextColor,
+                  ),
                 ),
-              ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

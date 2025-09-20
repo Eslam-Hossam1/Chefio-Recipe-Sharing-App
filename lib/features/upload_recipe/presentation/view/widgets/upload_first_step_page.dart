@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
+import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/sliver_set_recipe_header.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/add_cover_photo.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/cooking_duration_section.dart';
@@ -34,57 +35,64 @@ class _UploadFirstStepPageState extends State<UploadFirstStepPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return AdaptivePadding(
-      top: 12,
-      child: Form(
-        key: formKey,
-        autovalidateMode: autovalidateMode,
-        child: CustomScrollView(
-          slivers: [
-            SliverSetRecipeHeader(
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: CustomScrollView(
+        slivers: [
+          SliverAdaptivePadding(
+            sliver: SliverSetRecipeHeader(
               currentStep: '1',
               steps: '2',
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 32.h,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 32.h,
             ),
-            SliverToBoxAdapter(
+          ),
+          SliverAdaptivePadding(
+            sliver: SliverToBoxAdapter(
               child: AddCoverPhoto(),
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 24.h,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24.h,
             ),
-            FoodNameAndDescriptionSection(),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 24.h,
-              ),
+          ),
+          SliverAdaptivePadding(
+            sliver: FoodNameAndDescriptionSection(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24.h,
             ),
-            UploadChooseCategorySection(),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 24.h,
-              ),
+          ),
+          UploadChooseCategorySection(),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24.h,
             ),
-            CookingDurationSection(),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 24.h,
-              ),
+          ),
+          SliverAdaptivePadding(
+            sliver: CookingDurationSection(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24.h,
             ),
-            SliverFillRemaining(
-              hasScrollBody: false,
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: AdaptivePadding(
               child: NextButton(
                   enableAutoValidation: enableAutoValidation,
                   onNext: widget.onNext,
                   formKey: formKey),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
