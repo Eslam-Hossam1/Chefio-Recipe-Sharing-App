@@ -1,6 +1,7 @@
 import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/features/edit_recipe/data/models/edit_recipe_form_model.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
 import 'package:chefio_app/features/home/presentation/view/widgets/categories_listview.dart';
@@ -19,17 +20,19 @@ class EditChooseCategorySection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            AppLocalizationKeys.global.category.tr(),
-            style: Styles.textStyleBold17(context).copyWith(
-              color: context.mainTextColor,
+          AdaptivePadding(
+            child: Text(
+              AppLocalizationKeys.global.category.tr(),
+              style: Styles.textStyleBold17(context).copyWith(
+                color: context.mainTextColor,
+              ),
             ),
           ),
           SizedBox(
             height: 16,
           ),
           CategoriesListView(
-            applyPadding: false,
+            applyPadding: true,
             categories: context.read<EditRecipeFormCubit>().categories,
             onCategoryPressed: (category) {
               editRecipeFormModel.categoryId = category.id;

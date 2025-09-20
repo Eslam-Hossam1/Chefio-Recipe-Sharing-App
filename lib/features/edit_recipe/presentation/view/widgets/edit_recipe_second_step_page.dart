@@ -1,16 +1,17 @@
 import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
-import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
+import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
+import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/sliver_set_recipe_header.dart';
 import 'package:chefio_app/features/edit_recipe/data/models/edit_recipe_form_model.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_submit_cubit/edit_recipe_submit_cubit.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_add_step_button.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/animated_edit_ingredients_list.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/animated_edit_steps_list.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_add_ingredient_button.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/animated_edit_ingredients_list.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_add_step_button.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_back_and_submit_buttons.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_success_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -74,39 +75,42 @@ class _EditRecipeSecondStepPageState extends State<EditRecipeSecondStepPage>
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is EditRecipeSubmitLoading,
-          child: AdaptivePadding(
-            top: 12,
-            child: Form(
-              key: formData.formKey,
-              autovalidateMode: formData.autovalidateMode,
-              child: CustomScrollView(
-                controller: formData.scrollController,
-                slivers: [
-                  const SliverSetRecipeHeader(
+          child: Form(
+            key: formData.formKey,
+            autovalidateMode: formData.autovalidateMode,
+            child: CustomScrollView(
+              controller: formData.scrollController,
+              slivers: [
+                SliverAdaptivePadding(
+                  sliver: const SliverSetRecipeHeader(
                     currentStep: '2',
                     steps: '2',
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 47.h)),
-                  SliverToBoxAdapter(
-                    child: Row(
-                      children: [
-                        Text(
-                          AppLocalizationKeys.global.ingredients.tr(),
-                          style: Styles.textStyleBold17(context).copyWith(
-                            color: context.mainTextColor,
-                          ),
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 47.h)),
+                SliverToBoxAdapter(
+                  child: Row(
+                    children: [
+                      Text(
+                        AppLocalizationKeys.global.ingredients.tr(),
+                        style: Styles.textStyleBold17(context).copyWith(
+                          color: context.mainTextColor,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 36.h)),
-                  AnimatedEditIngredientsList(
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 36.h)),
+                SliverAdaptivePadding(
+                  sliver: AnimatedEditIngredientsList(
                     ingredientItemsKeys: formData.ingredientsItemKeys,
                     animatedListKey: formData.ingredientsAnimatedListKey,
                     focusNodes: formData.ingredientsFocusNodes,
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 20.h)),
-                  SliverToBoxAdapter(
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 20.h)),
+                SliverAdaptivePadding(
+                  sliver: SliverToBoxAdapter(
                     child: EditRecipeAddIngredintButton(
                       ingredientsFocusNodes: formData.ingredientsFocusNodes,
                       ingredientsItemKeys: formData.ingredientsItemKeys,
@@ -114,14 +118,16 @@ class _EditRecipeSecondStepPageState extends State<EditRecipeSecondStepPage>
                           formData.ingredientsAnimatedListKey,
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: Divider(
-                      height: 48,
-                      thickness: 8,
-                      color: context.formColor,
-                    ),
+                ),
+                SliverToBoxAdapter(
+                  child: Divider(
+                    height: 48,
+                    thickness: 8,
+                    color: context.formColor,
                   ),
-                  SliverToBoxAdapter(
+                ),
+                SliverAdaptivePadding(
+                  sliver: SliverToBoxAdapter(
                     child: Row(
                       children: [
                         Text(
@@ -133,14 +139,18 @@ class _EditRecipeSecondStepPageState extends State<EditRecipeSecondStepPage>
                       ],
                     ),
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 24.h)),
-                  AnimatedEditStepsList(
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 24.h)),
+                SliverAdaptivePadding(
+                  sliver: AnimatedEditStepsList(
                     stepItemsKeys: formData.stepsItemKeys,
                     animatedListKey: formData.stepsAnimatedListKey,
                     focusNodes: formData.stepsFocusNodes,
                   ),
-                  SliverToBoxAdapter(child: SizedBox(height: 24.h)),
-                  SliverToBoxAdapter(
+                ),
+                SliverToBoxAdapter(child: SizedBox(height: 24.h)),
+                SliverAdaptivePadding(
+                  sliver: SliverToBoxAdapter(
                     child: EditRecipeAddStepButton(
                       stepsAnimatedListKey: formData.stepsAnimatedListKey,
                       scrollController: formData.scrollController,
@@ -148,16 +158,18 @@ class _EditRecipeSecondStepPageState extends State<EditRecipeSecondStepPage>
                       stepsItemKeys: formData.stepsItemKeys,
                     ),
                   ),
-                  SliverFillRemaining(
-                    hasScrollBody: false,
+                ),
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: AdaptivePadding(
                     child: EditRecipeBackAndSubmitButtons(
                       onBack: widget.onBack,
                       formKey: formData.formKey,
                       enableAutoValidation: formData.enableAutoValidation,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );

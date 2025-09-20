@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
+import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_cooking_duration_section.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_cover_photo_manager.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_food_name_and_description_section.dart';
@@ -35,57 +36,64 @@ class _EditRecipeFirstStepPageState extends State<EditRecipeFirstStepPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return AdaptivePadding(
-      top: 12,
-      child: Form(
-        key: formKey,
-        autovalidateMode: autovalidateMode,
-        child: CustomScrollView(
-          slivers: [
-            SliverSetRecipeHeader(
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: CustomScrollView(
+        slivers: [
+          SliverAdaptivePadding(
+            sliver: SliverSetRecipeHeader(
               currentStep: '1',
               steps: '2',
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 32.h,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 32.h,
             ),
-            SliverToBoxAdapter(
+          ),
+          SliverAdaptivePadding(
+            sliver: SliverToBoxAdapter(
               child: EditRecipeCoverPhotoManager(),
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 24.h,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24.h,
             ),
-            EditFoodNameAndDescriptionSection(),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 24.h,
-              ),
+          ),
+          SliverAdaptivePadding(
+            sliver: EditFoodNameAndDescriptionSection(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24.h,
             ),
-            EditChooseCategorySection(),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 24.h,
-              ),
+          ),
+          EditChooseCategorySection(),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24.h,
             ),
-            EditCookingDurationSection(),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 24.h,
-              ),
+          ),
+          SliverAdaptivePadding(
+            sliver: EditCookingDurationSection(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24.h,
             ),
-            SliverFillRemaining(
-              hasScrollBody: false,
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: AdaptivePadding(
               child: EditRecipeNextButton(
                   enableAutoValidation: enableAutoValidation,
                   onNext: widget.onNext,
                   formKey: formKey),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
