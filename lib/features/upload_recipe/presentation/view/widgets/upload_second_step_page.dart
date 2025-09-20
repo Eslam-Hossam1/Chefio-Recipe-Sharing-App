@@ -1,15 +1,11 @@
-import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
-import 'package:chefio_app/core/theme/styles.dart';
-import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/sliver_set_recipe_header.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_submit_cubit/upload_recipe_submit_cubit.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/add_ingredient_button.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/add_step_button.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/animated_add_ingredients_list.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/animated_add_steps_list.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/ingredients_section_widget.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_section_divider_widget.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/steps_section_widget.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_recipe_back_and_buttons_buttons.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_success_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -75,78 +71,23 @@ class _UploadSecondStepPageState extends State<UploadSecondStepPage>
                   ),
                 ),
                 SliverToBoxAdapter(child: SizedBox(height: 47.h)),
-                SliverAdaptivePadding(
-                  sliver: SliverToBoxAdapter(
-                    child: Row(
-                      children: [
-                        Text(
-                          AppLocalizationKeys.global.ingredients.tr(),
-                          style: Styles.textStyleBold17(context).copyWith(
-                            color: context.mainTextColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+
+                // Ingredients Section
+                IngredientsSection(
+                  ingredientItemsKeys: formData.ingredientsItemKeys,
+                  ingredientsAnimatedListKey:
+                      formData.ingredientsAnimatedListKey,
+                  ingredientsFocusNodes: formData.ingredientsFocusNodes,
                 ),
-                SliverToBoxAdapter(child: SizedBox(height: 36.h)),
-                SliverAdaptivePadding(
-                  sliver: AnimatedAddIngredientsList(
-                    ingredientItemsKeys: formData.ingredientsItemKeys,
-                    animatedListKey: formData.ingredientsAnimatedListKey,
-                    focusNodes: formData.ingredientsFocusNodes,
-                  ),
-                ),
-                SliverToBoxAdapter(child: SizedBox(height: 20.h)),
-                SliverAdaptivePadding(
-                  sliver: SliverToBoxAdapter(
-                    child: AddIngredintButton(
-                      ingredientsFocusNodes: formData.ingredientsFocusNodes,
-                      ingredientsItemKeys: formData.ingredientsItemKeys,
-                      ingredientsAnimatedListKey:
-                          formData.ingredientsAnimatedListKey,
-                    ),
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: Divider(
-                    height: 48,
-                    thickness: 8,
-                    color: context.formColor,
-                  ),
-                ),
-                SliverAdaptivePadding(
-                  sliver: SliverToBoxAdapter(
-                    child: Row(
-                      children: [
-                        Text(
-                          AppLocalizationKeys.global.steps.tr(),
-                          style: Styles.textStyleBold17(context).copyWith(
-                            color: context.mainTextColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SliverToBoxAdapter(child: SizedBox(height: 24.h)),
-                SliverAdaptivePadding(
-                  sliver: AnimatedAddStepsList(
-                    stepItemsKeys: formData.stepsItemKeys,
-                    animatedListKey: formData.stepsAnimatedListKey,
-                    focusNodes: formData.stepsFocusNodes,
-                  ),
-                ),
-                SliverToBoxAdapter(child: SizedBox(height: 24.h)),
-                SliverAdaptivePadding(
-                  sliver: SliverToBoxAdapter(
-                    child: AddStepButton(
-                      stepsAnimatedListKey: formData.stepsAnimatedListKey,
-                      scrollController: formData.scrollController,
-                      stepsFocusNodes: formData.stepsFocusNodes,
-                      stepsItemKeys: formData.stepsItemKeys,
-                    ),
-                  ),
+                // Section Divider
+                const UploadSectionDivider(),
+
+                // Steps Section
+                StepsSection(
+                  stepsItemKeys: formData.stepsItemKeys,
+                  stepsAnimatedListKey: formData.stepsAnimatedListKey,
+                  stepsFocusNodes: formData.stepsFocusNodes,
+                  scrollController: formData.scrollController,
                 ),
                 SliverFillRemaining(
                   hasScrollBody: false,
