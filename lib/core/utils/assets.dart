@@ -74,6 +74,10 @@ class Assets {
   /// assets/images/food_details_picture_test.png
   static const String imagesFoodDetailsPictureTest = "assets/images/food_details_picture_test.png";
 
+  /// Assets for imagesGallery
+  /// assets/images/gallery.svg
+  static const String imagesGallery = "assets/images/gallery.svg";
+
   /// Assets for imagesGoogleIcon
   /// assets/images/google_icon.svg
   static const String imagesGoogleIcon = "assets/images/google_icon.svg";
