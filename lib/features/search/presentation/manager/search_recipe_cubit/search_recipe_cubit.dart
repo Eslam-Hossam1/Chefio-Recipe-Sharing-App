@@ -10,7 +10,7 @@ class SearchRecipeCubit extends Cubit<SearchRecipeState> {
   final SearchRecipeRepo _searchRecipeRepo;
   SearchRecipeCubit(this._searchRecipeRepo) : super(SearchRecipeInitial());
   List<RecipeEntity> recipes = [];
-  int page = 0;
+  int page = 1;
   int limit = Constants.recipesLimit;
   String searchRecipeName = '';
   bool isLoading = false;
@@ -22,7 +22,7 @@ class SearchRecipeCubit extends Cubit<SearchRecipeState> {
     emit(FirstLoading());
     // Reset all related values for searching again with another searchRecipeName
     recipes.clear();
-    page = 0;
+    page = 1;
     hasMoreData = true;
     isLoading = false;
     this.searchRecipeName = searchRecipeName;

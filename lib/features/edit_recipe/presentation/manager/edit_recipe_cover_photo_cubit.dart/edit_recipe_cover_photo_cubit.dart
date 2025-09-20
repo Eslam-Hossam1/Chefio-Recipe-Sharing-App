@@ -17,7 +17,7 @@ class EditRecipeCoverPhotoCubit extends Cubit<EditRecipeCoverPhotoState> {
         super(UrlImage(imageUrl: imageUrl));
   Future<void> pickRecipeImage({required ImageSource imageSource}) async {
     final returnedImage = await _croppedImagePickerHelper
-        .pickSquareCroppedImage(imageSource: imageSource);
+        .pickRatioFreeCroppedImage(imageSource: imageSource);
     if (returnedImage == null) return;
     var recipeImageFile = File(returnedImage.path);
     // Emit a new state with timestamp to avoid Bloc ignoring identical states

@@ -14,7 +14,7 @@ class StepItemCubit extends Cubit<StepItemState> {
 
   Future<void> pickAndSetImage({required ImageSource imageSource}) async {
     final returnedImage = await _croppedImagePickerHelper
-        .pickSquareCroppedImage(imageSource: imageSource);
+        .pickRatioFreeCroppedImage(imageSource: imageSource);
     if (returnedImage == null) return;
     var imageFile = File(returnedImage.path);
     emit(NoImage());

@@ -40,7 +40,7 @@ class _EditUserAvatarState extends State<EditUserAvatar> {
                   context: context,
                   builder: (context) {
                     return ChooseImageSourceBottomSheet(
-                      pickImageMethod: editProfileCubit.pickRecipeImage,
+                      pickImageMethod: editProfileCubit.pickProfileImage,
                     );
                   },
                 );

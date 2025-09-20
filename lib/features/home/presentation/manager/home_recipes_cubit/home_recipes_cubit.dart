@@ -11,7 +11,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
   HomeRecipesCubit(this._homeRepo) : super(HomeInitial());
   final HomeRepo _homeRepo;
   List<RecipeEntity> recipes = [];
-  int page = 0;
+  int page = 1;
   int limit = Constants.recipesLimit;
   bool isLoading = false;
   bool hasMoreData = true;
@@ -24,7 +24,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
     } else {
       this.categoryName = categoryName;
       recipes.clear();
-      page = 0;
+      page = 1;
       hasMoreData = true;
     }
     emit(HomeRecipesFirstLoading());
@@ -39,7 +39,7 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
 
   Future<void> refreshRecipes() async {
     recipes.clear();
-    page = 0;
+    page = 1;
     hasMoreData = true;
     categoryName = '';
     emit(HomeRecipesFirstLoading());

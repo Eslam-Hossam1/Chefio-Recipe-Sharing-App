@@ -40,7 +40,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
     );
   }
 
-  Future<void> pickRecipeImage({required ImageSource imageSource}) async {
+  Future<void> pickProfileImage({required ImageSource imageSource}) async {
     final returnedImage = await _croppedImagePickerHelper
         .pickSquareCroppedImage(imageSource: imageSource);
     if (returnedImage == null) return;

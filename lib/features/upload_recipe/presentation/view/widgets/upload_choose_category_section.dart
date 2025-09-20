@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
@@ -33,6 +35,7 @@ class UploadChooseCategorySection extends StatelessWidget {
             applyPadding: false,
             categories: context.read<UploadRecipeFormCubit>().categories,
             onCategoryPressed: (category) {
+              log("uploadRecipeFormModel.categoryId = ${uploadRecipeFormModel.categoryId} , category.id= ${category.id}");
               uploadRecipeFormModel.categoryId = category.id;
             },
           )

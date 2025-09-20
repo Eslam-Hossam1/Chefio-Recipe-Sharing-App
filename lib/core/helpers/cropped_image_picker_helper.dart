@@ -11,21 +11,37 @@ class CroppedImagePickerHelper {
   Future<CroppedFile?> pickSquareCroppedImage({
     required ImageSource imageSource,
   }) async {
-    return pickCustomCroppedImage(
+    return _pickCustomCroppedImage(
       imageSource: imageSource,
-      cropFunction: cropSquareImage,
+      cropFunction: freeRatioCroppingImage,
     );
   }
 
-  Future<CroppedFile?> pickCustomCroppedImage({
+  Future<CroppedFile?> pickRatioFreeCroppedImage({
     required ImageSource imageSource,
-    Future<CroppedFile?> Function(File file)? cropFunction,
+  }) async {
+    return _pickCustomCroppedImage(
+      imageSource: imageSource,
+      cropFunction: freeRatioCroppingImage,
+    );
+  }
+
+  Future<CroppedFile?> _pickCustomCroppedImage({
+    required ImageSource imageSource,
+    required Future<CroppedFile?> Function(File file) cropFunction,
   }) async {
     final pickedImage = await _imagePicker.pickImage(source: imageSource);
     if (pickedImage == null) return null;
 
     final file = File(pickedImage.path);
-    return cropFunction != null ? cropFunction(file) : null;
+    return cropFunction(file);
+  }
+
+  Future<CroppedFile?> freeRatioCroppingImage(File imageFile) async {
+    return await _imageCropper.cropImage(
+      sourcePath: imageFile.path,
+      compressFormat: ImageCompressFormat.jpg,
+    );
   }
 
   Future<CroppedFile?> cropSquareImage(File imageFile) async {

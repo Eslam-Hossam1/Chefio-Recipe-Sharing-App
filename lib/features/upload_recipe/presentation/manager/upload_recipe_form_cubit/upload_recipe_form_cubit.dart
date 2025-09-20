@@ -65,6 +65,7 @@ class UploadRecipeFormCubit extends Cubit<UploadRecipeFormState> {
       );
     }, (returnedCategories) {
       categories = returnedCategories;
+      uploadRecipeFormModel.categoryId = returnedCategories.first.id;
       emit(
         CategoriesLoaded(),
       );
