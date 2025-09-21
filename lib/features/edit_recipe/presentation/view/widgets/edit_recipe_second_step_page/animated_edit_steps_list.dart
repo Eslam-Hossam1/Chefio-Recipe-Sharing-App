@@ -2,7 +2,7 @@ import 'package:chefio_app/core/helpers/cropped_image_picker_helper.dart';
 import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_step_item_cubit/edit_step_item_cubit.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/enter_step_item.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_second_step_page/enter_step_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

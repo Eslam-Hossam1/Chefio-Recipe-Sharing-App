@@ -1,5 +1,5 @@
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_enter_ingredient_item.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_second_step_page/edit_enter_ingredient_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

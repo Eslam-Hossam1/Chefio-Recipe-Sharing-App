@@ -4,7 +4,7 @@ import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/features/auth/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:chefio_app/features/edit_recipe/presentation/manager/edit_recipe_form_cubit/edit_recipe_form_cubit.dart';
-import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_step_image_manager.dart';
+import 'package:chefio_app/features/edit_recipe/presentation/view/widgets/edit_recipe_second_step_page/edit_step_image_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,7 +1,7 @@
 import 'package:chefio_app/features/upload_recipe/presentation/manager/step_item_cubit/step_item_cubit.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/add_step_photo_button.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/step_file_image.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_second_step_page/add_step_photo_button.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_second_step_page/step_file_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

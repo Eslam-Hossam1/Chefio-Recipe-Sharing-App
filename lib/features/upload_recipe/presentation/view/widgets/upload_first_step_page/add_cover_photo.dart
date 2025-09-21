@@ -2,7 +2,7 @@ import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/choose_image_source_bottom_sheet.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/manager/add_cover_photo_cubit.dart/add_cover_photo_cubit.dart';
 import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/empty_cover_photo.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_first_step_page/empty_cover_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
