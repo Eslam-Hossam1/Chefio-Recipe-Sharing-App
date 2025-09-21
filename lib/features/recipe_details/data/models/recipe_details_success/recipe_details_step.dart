@@ -1,7 +1,7 @@
 class RecipeDetailsStep {
   String step;
   String? stepImage;
-  String id;
+  String? id;
 
   RecipeDetailsStep({required this.step, this.stepImage, required this.id});
 
@@ -9,7 +9,7 @@ class RecipeDetailsStep {
       RecipeDetailsStep(
         step: json['step'] as String,
         stepImage: json['stepImage'] as String?,
-        id: json['_id'] as String,
+        id: json['_id'] as String?,
       );
 
   Map<String, dynamic> toJson() => {
