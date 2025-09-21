@@ -1,11 +1,11 @@
 import 'package:chefio_app/core/widgets/adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
 import 'package:chefio_app/core/widgets/sliver_set_recipe_header.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/add_cover_photo.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/cooking_duration_section.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/food_name_and_description_section.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/next_button.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_choose_category_section.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_first_step_page/add_cover_photo.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_first_step_page/cooking_duration_section.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_first_step_page/food_name_and_description_section.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_first_step_page/next_button.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_first_step_page/upload_choose_category_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

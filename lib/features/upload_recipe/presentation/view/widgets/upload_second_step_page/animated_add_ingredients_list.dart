@@ -1,5 +1,5 @@
 import 'package:chefio_app/features/upload_recipe/presentation/manager/upload_recipe_form_cubit/upload_recipe_form_cubit.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/enter_ingredient_item.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_second_step_page/enter_ingredient_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

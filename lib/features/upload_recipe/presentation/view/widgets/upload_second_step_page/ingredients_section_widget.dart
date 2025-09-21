@@ -2,8 +2,8 @@ import 'package:chefio_app/core/Localization/app_localization_keys/app_localizat
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/widgets/sliver_adaptive_padding.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/add_ingredient_button.dart';
-import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/animated_add_ingredients_list.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_second_step_page/add_ingredient_button.dart';
+import 'package:chefio_app/features/upload_recipe/presentation/view/widgets/upload_second_step_page/animated_add_ingredients_list.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
