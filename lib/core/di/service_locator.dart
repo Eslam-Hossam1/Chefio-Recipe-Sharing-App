@@ -120,6 +120,7 @@ Future<void> setupServiceLocator() async {
   getIt.registerSingleton<ProfileRepoImpl>(
     ProfileRepoImpl(
       apiConsumer: getIt<DioConsumer>(),
+      authCredentialsHelper: getIt<AuthCredentialsHelper>(),
     ),
   );
 

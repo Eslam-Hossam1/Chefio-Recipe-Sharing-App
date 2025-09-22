@@ -6,6 +6,7 @@ import 'package:chefio_app/core/api/api_consumer.dart';
 import 'package:chefio_app/core/api/api_keys.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
 import 'package:chefio_app/core/errors/dio_api_failure.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
 import 'package:chefio_app/features/profile/data/models/chef_follower_model.dart';
 import 'package:chefio_app/features/profile/data/models/chef_following_model.dart';
@@ -18,10 +19,12 @@ import 'package:dio/dio.dart';
 
 class ProfileRepoImpl implements ProfileRepo {
   final ApiConsumer _apiConsumer;
-
+  final AuthCredentialsHelper _authCredentialsHelper;
   ProfileRepoImpl({
     required ApiConsumer apiConsumer,
-  }) : _apiConsumer = apiConsumer;
+    required AuthCredentialsHelper authCredentialsHelper,
+  })  : _authCredentialsHelper = authCredentialsHelper,
+        _apiConsumer = apiConsumer;
   @override
   Future<Either<DioApiFailure, List<RecipeEntity>>> fetchChefLikedRecipes({
     required String chefId,
@@ -121,9 +124,21 @@ class ProfileRepoImpl implements ProfileRepo {
       );
       List<ChefConnectionEntity> chefFollowers =
           getFollowersFromResponse(response);
+      moveMeToFirstOfList(chefFollowers);
       return Right(chefFollowers);
     } catch (e) {
       return Left(handleException(e));
+    }
+  }
+
+  // moves the chef (me) to the first of list if found
+  void moveMeToFirstOfList(List<ChefConnectionEntity> chefConnections) {
+    for (int i = 0; i < chefConnections.length; i++) {
+      if (chefConnections[i].chefId == _authCredentialsHelper.userId) {
+        var temp = chefConnections[i];
+        chefConnections[i] = chefConnections[0];
+        chefConnections[0] = temp;
+      }
     }
   }
 
@@ -161,6 +176,7 @@ class ProfileRepoImpl implements ProfileRepo {
         (response[ApiKeys.following] as List)
             .map((e) => ChefFollowingModel.fromJson(e))
             .toList();
+    moveMeToFirstOfList(chefFollowings);
     return chefFollowings;
   }
 

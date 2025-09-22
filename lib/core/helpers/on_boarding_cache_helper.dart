@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chefio_app/core/cache/shared_prefernce_helper.dart';
 import 'package:chefio_app/core/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,8 @@ class OnBoardingCacheHelper {
   bool isOnBoardingCompleted() {
     bool? isOnBoardingCompleted = _sharedPreferencesHelper.getBool(
         key: Constants.kIsOnBoardingCompletedKey);
+            log("isOnBoardingCompleted = ${isOnBoardingCompleted}");
+
     return isOnBoardingCompleted == null ? false : true;
   }
 }

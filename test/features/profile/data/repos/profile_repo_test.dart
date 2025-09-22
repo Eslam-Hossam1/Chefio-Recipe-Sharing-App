@@ -1,7 +1,9 @@
 import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
+import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
+import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
@@ -23,7 +25,10 @@ void main() {
       const int limit = 10;
       setUpAll(() {
         mockApiConsumer = MockApiConsumer();
-        profileRepoImpl = ProfileRepoImpl(apiConsumer: mockApiConsumer);
+        profileRepoImpl = ProfileRepoImpl(
+          apiConsumer: mockApiConsumer,
+          authCredentialsHelper: getIt<AuthCredentialsHelper>(),
+        );
       });
       group(
         'fetch profile with initial recipes  method ',
