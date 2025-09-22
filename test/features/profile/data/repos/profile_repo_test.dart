@@ -1,9 +1,7 @@
 import 'package:chefio_app/core/Entities/recipe_body_entity.dart';
 import 'package:chefio_app/core/Entities/recipe_entity.dart';
 import 'package:chefio_app/core/api/end_ponits.dart';
-import 'package:chefio_app/core/di/service_locator.dart';
 import 'package:chefio_app/core/errors/api_failure.dart';
-import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
 import 'package:chefio_app/features/profile/data/models/profile_model/profile_model.dart';
 import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
@@ -12,6 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks/mock_api_consumer.dart';
+import '../mocks/mock_auth_credentials_helper.dart';
 import '../test_data/profile_expected_response_helper.dart';
 
 void main() {
@@ -19,15 +18,17 @@ void main() {
     'profile repo - ',
     () {
       late MockApiConsumer mockApiConsumer;
+      late MockAuthCredentialsHelper mockAuthCredetialsHelper;
       late ProfileRepoImpl profileRepoImpl;
       const String chefId = '123';
       const int page = 1;
       const int limit = 10;
       setUpAll(() {
         mockApiConsumer = MockApiConsumer();
+        mockAuthCredetialsHelper = MockAuthCredentialsHelper();
         profileRepoImpl = ProfileRepoImpl(
           apiConsumer: mockApiConsumer,
-          authCredentialsHelper: getIt<AuthCredentialsHelper>(),
+          authCredentialsHelper: mockAuthCredetialsHelper,
         );
       });
       group(
