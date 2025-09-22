@@ -1,7 +1,6 @@
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
 import 'package:chefio_app/core/widgets/follow_button_consumer.dart';
 import 'package:chefio_app/features/profile/data/Entities/chef_connection_entity.dart';
-import 'package:chefio_app/features/profile/data/models/following_state.dart';
 import 'package:flutter/material.dart';
 
 class ChefConnectionFollowButtonBuilder extends StatefulWidget {
