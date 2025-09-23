@@ -2,7 +2,6 @@ class Auth {
   const Auth._();
   static const Auth instance = Auth._();
   //shared keys
-  final String logout = 'auth.logout.logout_text';
   final String enterAccount = 'auth.shared.enter_account';
   final String usernameTextFeildHint = 'auth.shared.username_text_field_hint';
   final String emailTextFeildHint = 'auth.shared.email_text_field_hint';
@@ -20,6 +19,8 @@ class Auth {
   final String networkRequestFailed = 'auth.shared.network_request_failed';
 
   //view related keys
+  final String logout = 'auth.logout.logout_text';
+  final String logoutConfirmation = 'auth.logout.logout_confirmation';
   final String logInViewWelcomeBack = 'auth.log_in.welcome_back';
   final String logInViewDontHaveAnAccount = 'auth.log_in.do_not_have_account';
   final String logInViewWrongPassword = 'auth.log_in.wrong_password';

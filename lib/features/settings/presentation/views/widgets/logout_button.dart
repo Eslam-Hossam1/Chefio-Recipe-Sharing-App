@@ -18,7 +18,7 @@ class LogoutButton extends StatelessWidget {
       onTap: () {
         DialogHelper.showWarningDialog(
           context,
-          errorMessage: 'Are you sure you want to logout?',
+          errorMessage: AppLocalizationKeys.auth.logoutConfirmation.tr(),
           btnOkOnPress: () {
             context.read<SettingsCubit>().logout();
           },

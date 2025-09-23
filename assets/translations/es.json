@@ -75,7 +75,8 @@
       "reset_password_exit_warning": "La contraseña aún no se ha restablecido, ¿seguro quieres salir?"
     },
     "logout": {
-      "logout_text": "Cerrar sesión"
+      "logout_text": "Cerrar sesión",
+      "logout_confirmation": "¿Estás seguro de que deseas cerrar sesión?"
     }
   },
   "profile_setup": {

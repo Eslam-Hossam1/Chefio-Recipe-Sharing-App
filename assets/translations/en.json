@@ -75,7 +75,8 @@
             "reset_password_exit_warning": " The password didn't reset yet, are you sure you want to exit"
         },
         "logout": {
-            "logout_text": "Logout"
+            "logout_text": "Logout",
+            "logout_confirmation": "Are you sure you want to logout?"
         }
     },
     "profile_setup": {

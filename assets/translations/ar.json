@@ -75,7 +75,8 @@
                 "reset_password_exit_warning": "لم يتم تعيين كلمة المرور بعد، هل انت متأكد انك تود الخروج"
             },
             "logout": {
-                "logout_text": "تسجيل الخروج"
+                "logout_text": "تسجيل الخروج",
+                "logout_confirmation": "هل أنت متأكد أنك تريد تسجيل الخروج؟"
             }
         },
         "profile_setup": {
