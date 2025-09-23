@@ -57,8 +57,10 @@ class HomeRecipesCubit extends Cubit<HomeRecipesState> {
         nowState.errorCode == ErrorCodes.noInternetConnection) {
       return;
     }
-    emit(HomeRecipesLoadingMore());
-    await fetchRecipes();
+    if (hasMoreData) {
+      emit(HomeRecipesLoadingMore());
+      await fetchRecipes();
+    }
   }
 
   Future<void> fetchRecipes() async {
