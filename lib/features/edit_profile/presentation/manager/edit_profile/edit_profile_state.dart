@@ -30,3 +30,5 @@ final class EditProfileFailure extends EditProfileState {
 }
 
 final class EditProfileSuccess extends EditProfileState {}
+final class EditProfileImageChanging extends EditProfileState {}
+final class EditProfileImageSuccess extends EditProfileState {}

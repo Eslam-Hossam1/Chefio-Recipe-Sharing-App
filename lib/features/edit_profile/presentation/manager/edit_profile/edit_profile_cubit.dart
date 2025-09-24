@@ -45,8 +45,8 @@ class EditProfileCubit extends Cubit<EditProfileState> {
         .pickSquareCroppedImage(imageSource: imageSource);
     if (returnedImage == null) return;
     chefProfilePicture = File(returnedImage.path);
-
-    emit(EditProfilePickedImage());
+    emit(EditProfileImageChanging());
+    emit(EditProfileImageSuccess());
   }
 
   void onChangeUsername({required String username}) {
