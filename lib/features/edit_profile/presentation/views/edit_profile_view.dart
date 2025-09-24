@@ -16,8 +16,7 @@ class EditProfileView extends StatelessWidget {
   final ProfileModel profileModel;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: BlocConsumer<EditProfileCubit, EditProfileState>(
+    return BlocConsumer<EditProfileCubit, EditProfileState>(
       listener: (context, state) {
         if (state is EditProfileFailure) {
           DialogHelper.showErrorDialog(
@@ -44,12 +43,14 @@ class EditProfileView extends StatelessWidget {
         return ModalProgressHUD(
           inAsyncCall: state is EditProfileLoading,
           child: Scaffold(
-            body: EditProfileBody(
-              profileModel: profileModel,
+            body: SafeArea(
+              child: EditProfileBody(
+                profileModel: profileModel,
+              ),
             ),
           ),
         );
       },
-    ));
+    );
   }
 }

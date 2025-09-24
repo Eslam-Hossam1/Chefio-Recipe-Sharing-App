@@ -20,9 +20,9 @@ class _NotificationsViewState extends State<NotificationsView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: NotificationsViewBody(),
+    return Scaffold(
+      body: SafeArea(
+        child: NotificationsViewBody(),
       ),
     );
   }

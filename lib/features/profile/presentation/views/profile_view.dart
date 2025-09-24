@@ -33,9 +33,9 @@ class _ProfileViewState extends State<ProfileView> {
           context.go(RoutePaths.home);
         }
       },
-      child: SafeArea(
-        child: Scaffold(
-          body: ProfileViewBodyConsumer(),
+      child: Scaffold(
+        body: SafeArea(
+          child: ProfileViewBodyConsumer(),
         ),
       ),
     );

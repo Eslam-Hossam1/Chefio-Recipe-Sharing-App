@@ -19,10 +19,8 @@ class _MyProfileViewState extends State<MyProfileView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: MyProfileViewBodyConsumer(),
-      ),
+    return Scaffold(
+      body: SafeArea(child: MyProfileViewBodyConsumer()),
     );
   }
 }
