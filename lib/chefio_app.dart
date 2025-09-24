@@ -3,6 +3,7 @@ import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
 import 'package:chefio_app/core/cubit/like_recipe_cubit/like_recipe_cubit.dart';
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
 import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
+import 'package:chefio_app/core/helpers/system_ui_helper.dart';
 import 'package:chefio_app/core/services/follow_chef_service.dart';
 import 'package:chefio_app/core/services/like_recipe_service.dart';
 import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
@@ -72,6 +73,7 @@ class _ChefioState extends State<Chefio> {
             ],
             child: BlocBuilder<ThemeCubit, ThemeMode>(
               builder: (context, mode) {
+                SystemUIHelper.setSystemUIForTheme(context, mode);
                 return MaterialApp.router(
                   routerConfig: AppRouter.router,
                   locale: context.locale,
