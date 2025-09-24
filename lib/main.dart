@@ -9,7 +9,7 @@ import 'core/localization/app_locals.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Run all initializations
   await AppInitializer.initialize();
 
@@ -20,7 +20,7 @@ Future<void> main() async {
         supportedLocales: AppLocals.supportedLocales,
         path: "assets/translations",
         fallbackLocale: AppLocals.english,
-        child: const Chefio(),
+        child: const ChefioApp(),
       ),
     ),
   );

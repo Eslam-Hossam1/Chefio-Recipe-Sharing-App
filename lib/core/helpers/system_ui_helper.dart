@@ -25,7 +25,6 @@ abstract class SystemUIHelper {
       SystemUiOverlayStyle(
         systemNavigationBarColor: AppColors.lightScaffoldBackground,
         systemNavigationBarIconBrightness: Brightness.light,
-        systemNavigationBarDividerColor: Colors.black,
       ),
     );
   }
@@ -35,7 +34,6 @@ abstract class SystemUIHelper {
       SystemUiOverlayStyle(
         systemNavigationBarColor: AppColors.darkScaffoldBackground,
         systemNavigationBarIconBrightness: Brightness.dark,
-        systemNavigationBarDividerColor: Colors.white,
       ),
     );
   }

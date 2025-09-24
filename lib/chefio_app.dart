@@ -1,35 +1,26 @@
+import 'package:chefio_app/chefio_global_cubits_provider.dart';
 import 'package:chefio_app/core/Functions/get_text_theme.dart';
-import 'package:chefio_app/core/cubit/follow_chef/follow_chef_cubit.dart';
-import 'package:chefio_app/core/cubit/like_recipe_cubit/like_recipe_cubit.dart';
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
-import 'package:chefio_app/core/helpers/auth_credentials_helper.dart';
-import 'package:chefio_app/core/helpers/system_ui_helper.dart';
-import 'package:chefio_app/core/services/follow_chef_service.dart';
-import 'package:chefio_app/core/services/like_recipe_service.dart';
-import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
-import 'package:chefio_app/core/utils/constants.dart';
-import 'package:chefio_app/core/routing/app_router.dart';
 import 'package:chefio_app/core/di/service_locator.dart';
+import 'package:chefio_app/core/helpers/system_ui_helper.dart';
+import 'package:chefio_app/core/routing/app_router.dart';
+import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
 import 'package:chefio_app/core/theme/app_themes.dart';
-import 'package:chefio_app/features/home/data/repos/home_repo_impl.dart';
-import 'package:chefio_app/features/home/presentation/manager/home_recipes_cubit/home_recipes_cubit.dart';
-import 'package:chefio_app/features/profile/data/repos/profile_repo_impl.dart';
-import 'package:chefio_app/features/profile/presentation/manager/chef_connections_cubit/chef_connections_cubit.dart';
-import 'package:chefio_app/features/profile/presentation/manager/my_profile_cubit/my_profile_cubit.dart';
+import 'package:chefio_app/core/utils/constants.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Chefio extends StatefulWidget {
-  const Chefio({super.key});
+class ChefioApp extends StatefulWidget {
+  const ChefioApp({super.key});
 
   @override
-  State<Chefio> createState() => _ChefioState();
+  State<ChefioApp> createState() => _ChefioAppState();
 }
 
-class _ChefioState extends State<Chefio> {
+class _ChefioAppState extends State<ChefioApp> {
   @override
   void initState() {
     super.initState();
@@ -43,34 +34,7 @@ class _ChefioState extends State<Chefio> {
         designSize: const Size(Constants.kDesignWidth, Constants.kDesignHeight),
         minTextAdapt: true,
         builder: (context, child) {
-          //this cubits used in multi parts in app and should be provided globally
-          return MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => ThemeCubit(),
-              ),
-              BlocProvider(
-                create: (context) =>
-                    LikeRecipeCubit(getIt<LikeRecipeService>()),
-              ),
-              BlocProvider(
-                create: (context) =>
-                    ChefConnectionsCubit(profileRepo: getIt<ProfileRepoImpl>()),
-              ),
-              BlocProvider(
-                create: (context) => FollowChefCubit(
-                    followChefService: getIt<FollowChefService>()),
-              ),
-              BlocProvider(
-                create: (context) => HomeRecipesCubit(getIt<HomeRepoImpl>()),
-              ),
-              BlocProvider(
-                create: (context) => MyProfileCubit(
-                  profileRepo: getIt<ProfileRepoImpl>(),
-                  authCredentialsHelper: getIt<AuthCredentialsHelper>(),
-                ),
-              ),
-            ],
+          return ChefioGlobalCubitsProvider(
             child: BlocBuilder<ThemeCubit, ThemeMode>(
               builder: (context, mode) {
                 SystemUIHelper.setSystemUIForTheme(context, mode);
