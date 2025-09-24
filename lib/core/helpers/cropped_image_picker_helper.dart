@@ -13,7 +13,7 @@ class CroppedImagePickerHelper {
   }) async {
     return _pickCustomCroppedImage(
       imageSource: imageSource,
-      cropFunction: freeRatioCroppingImage,
+      cropFunction: cropSquareImage,
     );
   }
 
