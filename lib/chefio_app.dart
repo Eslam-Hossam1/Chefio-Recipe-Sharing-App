@@ -2,7 +2,6 @@ import 'package:chefio_app/chefio_global_cubits_provider.dart';
 import 'package:chefio_app/core/Functions/get_text_theme.dart';
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
 import 'package:chefio_app/core/di/service_locator.dart';
-import 'package:chefio_app/core/helpers/system_ui_helper.dart';
 import 'package:chefio_app/core/routing/app_router.dart';
 import 'package:chefio_app/core/services/notifications/push_notifications_service.dart';
 import 'package:chefio_app/core/theme/app_themes.dart';
@@ -24,6 +23,7 @@ class _ChefioAppState extends State<ChefioApp> {
   @override
   void initState() {
     super.initState();
+
     getIt<PushNotificationsService>().setupInteractedMessage();
     getIt<PushNotificationsService>().handleRefreshFcmToken();
   }
@@ -37,7 +37,6 @@ class _ChefioAppState extends State<ChefioApp> {
           return ChefioGlobalCubitsProvider(
             child: BlocBuilder<ThemeCubit, ThemeMode>(
               builder: (context, mode) {
-                SystemUIHelper.setSystemUIForTheme(context, mode);
                 return MaterialApp.router(
                   routerConfig: AppRouter.router,
                   locale: context.locale,

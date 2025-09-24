@@ -1,5 +1,6 @@
 import 'package:chefio_app/core/cubit/theme_cubit/theme_cubit.dart';
 import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/helpers/system_ui_helper.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/app_theme_options.dart';
 import 'package:chefio_app/core/theme/theme_colors_extension.dart';
@@ -35,6 +36,7 @@ class ThemeSelectionView extends StatelessWidget {
                 if (mode != currentTheme && mode != null) {
                   {
                     themeCubit.updateTheme(mode);
+                    SystemUIHelper.setSystemUIForTheme(context, mode);
                   }
                 }
               },
