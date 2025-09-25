@@ -17,6 +17,7 @@ class Global {
   final String profile = 'global.profile';
   final String category = 'global.category';
   final String cancel = 'global.cancel';
+  final String ok = 'global.ok';
   final String next = 'global.next';
   final String ingredients = 'global.ingredients';
   final String steps = 'global.steps';

@@ -37,19 +37,20 @@ abstract class DialogHelper {
     Color? btnCancelColor,
     String? btnCanceltext,
   }) {
-    customAdaptiveAwesomeDialog(context,
-            dialogType: DialogType.warning,
-            title: AppLocalizationKeys.global.warning.tr(),
-            desc: errorMessage,
-            btnOkOnPress: btnOkOnPress,
-            btnOkText: btnOkText,
-            btnOk: btnOk,
-            btnOkColor: btnOkColor,
-            onDismissCallback: onDismissCallback,
-            btnCancelColor: btnCancelColor,
-            btnCancelText: btnCanceltext,
-            btnCancelOnPress: () {})
-        .show();
+    customAdaptiveAwesomeDialog(
+      context,
+      dialogType: DialogType.warning,
+      title: AppLocalizationKeys.global.warning.tr(),
+      desc: errorMessage,
+      btnOkOnPress: btnOkOnPress,
+      btnOkText: btnOkText ?? AppLocalizationKeys.global.ok.tr(),
+      btnOk: btnOk,
+      btnOkColor: btnOkColor,
+      onDismissCallback: onDismissCallback,
+      btnCancelColor: btnCancelColor,
+      btnCancelText: btnCanceltext ?? AppLocalizationKeys.global.cancel.tr(),
+      btnCancelOnPress: () {},
+    ).show();
   }
 
   static void showEndSessionDialog(
