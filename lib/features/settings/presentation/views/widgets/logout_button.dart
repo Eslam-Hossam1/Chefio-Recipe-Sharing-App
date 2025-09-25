@@ -1,4 +1,5 @@
 import 'package:chefio_app/core/Localization/app_localization_keys/app_localization_keys.dart';
+import 'package:chefio_app/core/theme/theme_colors_extension.dart';
 import 'package:chefio_app/core/utils/dialog_helper.dart';
 import 'package:chefio_app/core/theme/styles.dart';
 import 'package:chefio_app/core/theme/app_colors.dart';
@@ -16,13 +17,7 @@ class LogoutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        DialogHelper.showWarningDialog(
-          context,
-          errorMessage: AppLocalizationKeys.auth.logoutConfirmation.tr(),
-          btnOkOnPress: () {
-            context.read<SettingsCubit>().logout();
-          },
-        );
+        _showLogoutConfirmationDialog(context);
       },
       leading: const Icon(
         Icons.logout,
@@ -34,6 +29,18 @@ class LogoutButton extends StatelessWidget {
           color: AppColors.logoutText,
         ),
       ),
+    );
+  }
+
+  void _showLogoutConfirmationDialog(BuildContext context) {
+    DialogHelper.showWarningDialog(
+      context,
+      errorMessage: AppLocalizationKeys.auth.logoutConfirmation.tr(),
+      btnOkOnPress: context.read<SettingsCubit>().logout,
+      btnOkColor: context.secondaryColor,
+      btnOkText: AppLocalizationKeys.auth.logout.tr(),
+      btnCancelColor: context.primaryColor,
+      btnCanceltext: AppLocalizationKeys.global.stay.tr(),
     );
   }
 }
