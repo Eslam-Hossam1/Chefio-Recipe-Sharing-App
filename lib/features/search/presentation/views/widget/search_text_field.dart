@@ -31,8 +31,6 @@ class _SearchTextFieldState extends State<SearchTextField> {
 
   @override
   Widget build(BuildContext context) {
-    textEditingController.text =
-        context.read<SearchRecipeCubit>().searchRecipeName;
     return CustomTextField(
       maxLines: 1,
       focusNode: _focusNode,
